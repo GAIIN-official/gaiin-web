@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #0a1730; }
+  body { overflow-x: hidden; font-family: 'Libre Franklin', sans-serif; color: #0a1730; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #d9877c; color: #0a1730; }
+  a { text-decoration: none; }
+  h1, h2, h3 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.02em; }
+  p { margin: 0; }
+
+  @keyframes gaiin-pulse { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: -1000; } }
+  @keyframes gaiin-flicker { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+  @keyframes gaiin-scroll-hint { 0%,100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(6px); opacity: 1; } }
+
+  .pulse { animation: gaiin-pulse 10s linear infinite; }
+  .pulse--slow { animation-duration: 12s; }
+  .cube { width: 8px; height: 8px; background: #d9877c; display: block; animation: gaiin-flicker 1.4s ease-in-out infinite; }
+
+  .header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding: 20px clamp(16px,3vw,40px); display: flex; align-items: center; justify-content: space-between; gap: 16px; pointer-events: none; }
+  .header > * { pointer-events: auto; }
+  .nav-pill { display: flex; align-items: center; gap: 4px; background: #0d2951; border-radius: 999px; padding: 6px; flex-wrap: wrap; justify-content: center; }
+  .nav-pill a { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #dce7f2; padding: 9px 14px; border-radius: 999px; transition: background-color .2s, color .2s; white-space: nowrap; }
+  .nav-pill a:hover { background: #16305a; color: #fff; }
+  @media (max-width: 1080px) { .nav-pill--menu { display: none; } }
+
+  .btn { display: inline-flex; align-items: center; gap: 14px; border-radius: 999px; padding: 10px 12px 10px 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; white-space: nowrap; transition: background-color .25s, color .25s, border-color .25s; }
+  .btn__icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .btn--ice  { background: #dce7f2; color: #0a1730; }
+  .btn--ice:hover { background: #d9877c; color: #0a1730; }
+  .btn--ice .btn__icon { background: #0d2951; }
+  .btn--navy { background: #0d2951; color: #f7f9fb; }
+  .btn--navy:hover { background: #d9877c; color: #0a1730; }
+  .btn--navy .btn__icon { background: #dce7f2; }
+  .btn--ghost { border: 1px solid #33547f; color: #dce7f2; padding: 10px 22px; }
+  .btn--ghost:hover { border-color: #d9877c; color: #d9877c; }
+  .btn--lg { padding: 12px 14px 12px 26px; }
+  .btn--sm { padding: 9px 10px 9px 16px; }
+  .btn--sm .btn__icon { width: 24px; height: 24px; }
+  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #33547f; border-bottom: 1px solid #b6c9de; padding-bottom: 2px; transition: color .2s, border-color .2s; }
+  .link-under:hover { color: #d9877c; border-color: #d9877c; }
+  .link-under--ice { color: #3d5478; border-bottom: 1px solid #9fb3cc; }
+  .link-under--ice:hover { color: #0d2951; border-color: #0d2951; }
+  .note-line { font-family: 'Fragment Mono', monospace; font-size: 11.5px; letter-spacing: .04em; color: #5d7599; }
+  .note-line a { color: #3d5478; border-bottom: 1px solid #9fb3cc; }
+  .note-line a:hover { color: #0d2951; border-color: #0d2951; }
+
+  section { padding: clamp(56px,8vw,120px) clamp(20px,4vw,64px); }
+  .hero { position: relative; min-height: 100vh; background: #0d2951; display: flex; align-items: flex-end; padding: clamp(40px,8vh,90px) clamp(20px,4vw,64px); overflow: hidden; }
+  .bg-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .band { height: 56px; }
+  .band--to-light { background: #0d2951; background-image: linear-gradient(#f7f9fb 50%, transparent 50%), repeating-linear-gradient(90deg, #f7f9fb 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
+  .band--to-dark { background: #f7f9fb; background-image: linear-gradient(#0a1730 50%, transparent 50%), repeating-linear-gradient(90deg, #0a1730 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
+
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #33547f; }
+  .eyebrow--dim { color: #7d9ac4; }
+  .h1 { font-size: clamp(38px,6.8vw,110px); line-height: 1.02; color: #f7f9fb; max-width: 18ch; text-wrap: pretty; }
+  .h2 { font-size: clamp(30px,4.6vw,72px); line-height: 1.05; color: #0d2951; }
+  .h2--md { font-size: clamp(28px,4.2vw,64px); }
+  .h2--light { color: #f7f9fb; }
+  .h2--white { color: #fff; }
+  .lede { font-size: 15px; line-height: 1.7; color: #45587a; }
+  .lede--dim { color: #a8bcd8; }
+  .lede--ice { color: #3d5478; }
+  .note { font-family: 'Fragment Mono', monospace; font-size: 11.5px; line-height: 1.65; color: #8ea0b8; max-width: 720px; }
+  .stack { display: flex; flex-direction: column; }
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: clamp(24px,4vw,64px); }
+
+  .kpi__num { font-family: 'Playfair Display', serif; font-size: clamp(30px,3.6vw,48px); line-height: 1; color: #0d2951; }
+  .kpi__num--coral { color: #d9877c; }
+  .kpi__body { font-size: 13px; line-height: 1.6; color: #45587a; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px,2.4vw,32px); }
+  .stat-ring { width: clamp(96px,11vw,132px); aspect-ratio: 1; border-radius: 50%; border: 1px solid #cddcec; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .stat-item { text-align: center; }
+
+  .timeline { display: flex; flex-direction: column; }
+  .t-row { display: flex; gap: clamp(20px,3vw,36px); align-items: flex-start; padding: 24px 0; border-bottom: 1px solid rgba(220,231,242,.14); }
+  .t-row:first-child { border-top: 1px solid rgba(220,231,242,.14); }
+  .t-row--offset { margin-left: clamp(0px,7vw,90px); }
+  .badge-circle { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .02em; }
+  .badge-circle--dark { background: rgba(51,84,127,.4); color: #dce7f2; border: 1px solid rgba(220,231,242,.3); }
+  .badge-circle--ghost { background: transparent; border: 1px solid #33547f; color: #dce7f2; transition: border-color .25s, color .25s; }
+  .t-body { flex: 1; display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
+  .t-title { font-family: 'Playfair Display', serif; font-size: 20px; color: #f7f9fb; }
+  .t-copy { font-size: 13.5px; line-height: 1.6; color: #8ea5c4; max-width: 480px; }
+
+  .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: clamp(28px,4vw,60px); }
+  .workflow { display: flex; flex-direction: column; gap: 12px; }
+  .workflow--drop { padding-top: clamp(0px,4vw,52px); }
+  .workflow__title { font-family: 'Playfair Display', serif; font-size: clamp(19px,2vw,25px); color: #fff; }
+  .workflow__body { font-size: 13.5px; line-height: 1.65; color: #cddcec; }
+  .chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #0a1730; background: #d9877c; padding: 7px 14px; border-radius: 999px; }
+
+  .standard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px,3vw,40px); }
+  .standard-item { display: flex; flex-direction: column; gap: 14px; }
+  .principle__title { font-family: 'Playfair Display', serif; font-size: 19px; color: #f7f9fb; }
+  .principle__body { font-size: 13px; line-height: 1.6; color: #8ea5c4; }
+  .standard-item:hover .badge-circle--ghost { border-color: #d9877c; color: #d9877c; }
+
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px,2.6vw,32px); align-items: start; }
+  .tier-plain { padding: clamp(20px,2.4vw,28px); border-radius: 20px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: background-color .25s, transform .25s; }
+  .tier-plain:hover { background: #0d2951; transform: translateY(-4px); }
+  .tier-plain:hover .tier__name { color: #f7f9fb; }
+  .tier-plain:hover .tier__body { color: #a8bcd8; }
+  .tier-plain:hover .tier__idx-badge { background: #d9877c; color: #0a1730; }
+  .tier__idx-badge { width: 40px; height: 40px; border-radius: 50%; background: #dce7f2; display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #33547f; transition: background-color .25s, color .25s; }
+  .tier__name { font-family: 'Playfair Display', serif; font-size: clamp(21px,2.2vw,28px); color: #0d2951; transition: color .25s; }
+  .tier__body { font-size: 13.5px; line-height: 1.65; color: #45587a; transition: color .25s; }
+
+  .chapter { border-top: 1px solid #dce7f2; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .chapter__tag { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d9877c; }
+  .node-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border-top: 1px solid #dce7f2; padding-top: 20px; margin-top: 4px; }
+  .node-pill { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #33547f; border: 1px solid #b6c9de; border-radius: 999px; padding: 6px 14px; }
+  .node-pill--active { color: #0a1730; background: #d9877c; border-color: #d9877c; }
+
+  .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: clamp(18px,2.4vw,30px); }
+  .sector-item { border-top: 1px solid #1c2f52; padding-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .sector__idx { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; color: #d9877c; }
+  .sector__title { font-family: 'Playfair Display', serif; font-size: 19px; }
+  .sector__body { font-size: 13px; line-height: 1.6; }
+
+  footer { background: #0a1730; color: #8ea5c4; padding: clamp(40px,5vw,70px) clamp(20px,4vw,64px); display: flex; flex-direction: column; gap: 32px; }
+  .footer-top { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
+  .footer-col { display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 12px; }
+  .footer-col a { color: #8ea5c4; transition: color .2s; }
+  .footer-col a:hover { color: #d9877c; }
+  .footer-mark { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #7d9ac4; }
+  .footer-bottom { border-top: 1px solid #1c2f52; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #5d7599; }
+  .social-link { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; overflow: hidden; transition: transform .2s, opacity .2s; flex-shrink: 0; }
+  .social-link:hover { transform: translateY(-2px); opacity: .85; }
+
+  @media (max-width: 640px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+    .stat-grid div:nth-child(3) { grid-column: 1 / -1; }
+    .stat-ring { width: 84px; }
+    .standard-grid { grid-template-columns: 1fr; gap: 4px; }
+    .standard-item { padding: 20px 18px; border-radius: 16px; }
+    .standard-item:nth-child(odd) { background: rgba(220,231,242,.05); }
+    .tier-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+<title>GAIIN Hong Kong &amp; Greater Bay Area — The founding chapter</title>
+</head>
+<body>
+<header class="header">
+  <a href="index.html" aria-label="GAIIN home"><svg viewBox="0 0 132 70" fill="none" style="width:40px;height:auto;">
+      <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
+    </svg></a>
+  <nav class="nav-pill nav-pill--menu">
+    <a href="#why">Why Hong Kong</a>
+    <a href="#sectors">Focus Sectors</a>
+    <a href="#membership">Membership</a>
+    <a href="index.html">GAIIN Global</a>
+  </nav>
+</header>
+
+<main class="hero" id="top">
+  <svg class="bg-lines" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <defs><linearGradient id="heroGrad" x1="0" y1="900" x2="1920" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#dce7f2" stop-opacity="0"/><stop offset="0.5" stop-color="#dce7f2"/><stop offset="1" stop-color="#dce7f2" stop-opacity="0"/></linearGradient></defs>
+    <path d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="url(#heroGrad)" stroke-opacity="0.28" stroke-width="1"/>
+    <path class="pulse" d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="#d9877c" stroke-width="1.6" fill="none" pathLength="1000" stroke-dasharray="110 890"/>
+  </svg>
+  <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(26px,4vw,48px);">
+    <div class="stack" style="gap:6px;font-family:'Fragment Mono',monospace;font-size:clamp(10px,1vw,12px);letter-spacing:.2em;text-transform:uppercase;color:#a8bcd8;">
+      <span style="color:#d9877c;">GAIIN Hong Kong &amp; Greater Bay Area</span>
+      <span>The founding chapter</span>
+    </div>
+    <h1 class="h1">Where AI advantage begins.</h1>
+    <p style="font-size:clamp(14px,1.2vw,17px);line-height:1.65;color:#a8bcd8;max-width:620px;">GAIIN brings together leaders, founders, experts and institutions through curated relationships, practical workshops and shared experience.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;">
+      <div class="stack" style="gap:12px;">
+        <a class="btn btn--ice" href="https://tally.so/r/dWoLBN" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">
+          <span>Request consideration</span>
+          <span class="btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#dce7f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M5 19L19 5M9 5h10v10"/></svg></span>
+        </a>
+        <span style="font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7d9ac4;">Membership by invitation, recommendation or fit.</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a8bcd8;animation:gaiin-scroll-hint 2.4s ease-in-out infinite;">
+        <span>scroll down</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="width:14px;height:14px;"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="band band--to-light"></div>
+
+<section id="why" style="background:#f7f9fb;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);">
+  <div class="split" style="align-items:end;">
+    <div class="stack" style="gap:20px;">
+      <div class="eyebrow"><span class="cube"></span><span>Why Hong Kong &amp; GBA</span></div>
+      <h2 class="h2" style="font-size:clamp(26px,3.8vw,58px);line-height:1.06;">Turning AI momentum into everyday business advantage.</h2>
+    </div>
+    <p class="lede">Hong Kong has the infrastructure and momentum to lead in AI, but many organisations still need to move from experimentation to everyday, governed use. GAIIN provides the relationships, learning and access to make that shift — not another generic AI talk or one-off project.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-item"><div class="stat-ring"><div class="kpi__num">88%</div></div><p class="kpi__body">Employees using AI tools day-to-day</p></div>
+    <div class="stat-item"><div class="stat-ring"><div class="kpi__num kpi__num--coral">54%</div></div><p class="kpi__body">Enterprises without a complete AI governance framework</p></div>
+    <div class="stat-item"><div class="stat-ring"><div class="kpi__num">90%+</div></div><p class="kpi__body">Cyberport AI Supercomputing Centre utilisation, 2025</p></div>
+  </div>
+  <p class="note">Sources: HKPC, AI Readiness in Workplace Survey 2025; Cyberport reporting, July 2025. Regional context — not a claim of GAIIN causation.</p>
+
+  <a class="link-under" href="index.html#network">How the network works →</a>
+</section>
+
+<div class="band band--to-dark"></div>
+
+<section id="sectors" style="background:#0a1730;color:#dce7f2;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);">
+  <div class="split" style="align-items:end;">
+    <div class="stack" style="gap:20px;">
+      <div class="eyebrow eyebrow--dim"><span class="cube"></span><span>Where the chapter begins</span></div>
+      <h2 class="h2 h2--light" style="line-height:1.06;">Practical AI where it matters most.</h2>
+    </div>
+    <p class="lede lede--dim">GAIIN Hong Kong begins with sectors where AI can create visible, practical value — and where leaders need stronger access to peers, use cases and trusted pathways to action.</p>
+  </div>
+  <div class="sector-grid">
+    <div class="sector-item"><span class="sector__idx">01</span><div class="sector__title" style="color:#f7f9fb;">Finance &amp; Fintech</div><p class="sector__body" style="color:#8ea5c4;">Governance, risk, compliance and AI-enabled customer experience.</p></div>
+    <div class="sector-item"><span class="sector__idx">02</span><div class="sector__title" style="color:#f7f9fb;">Logistics &amp; Trade</div><p class="sector__body" style="color:#8ea5c4;">Supply chain visibility, cross-border coordination and automation.</p></div>
+    <div class="sector-item"><span class="sector__idx">03</span><div class="sector__title" style="color:#f7f9fb;">Manufacturing &amp; GBA</div><p class="sector__body" style="color:#8ea5c4;">Predictive maintenance, quality control and industrial optimisation.</p></div>
+    <div class="sector-item"><span class="sector__idx">04</span><div class="sector__title" style="color:#f7f9fb;">Startups &amp; Innovation</div><p class="sector__body" style="color:#8ea5c4;">AI-native founders, pilots and enterprise access.</p></div>
+    <div class="sector-item"><span class="sector__idx">05</span><div class="sector__title" style="color:#f7f9fb;">Retail &amp; Consumer</div><p class="sector__body" style="color:#8ea5c4;">Personalisation, AI-enabled commerce and service operations.</p></div>
+  </div>
+  <p class="note" style="color:#7d9ac4;">Focus areas will evolve with member demand, partner capability and market traction.</p>
+</section>
+
+<section id="membership" style="position:relative;background:#dce7f2;padding:clamp(64px,9vw,140px) clamp(20px,4vw,64px);overflow:hidden;">
+  <div style="position:relative;display:flex;flex-direction:column;gap:clamp(22px,3vw,30px);max-width:720px;">
+    <div class="eyebrow"><span class="cube"></span><span>Membership by consideration</span></div>
+    <h2 class="h2" style="font-size:clamp(30px,4.6vw,64px);line-height:1.05;">Join the Hong Kong &amp; GBA chapter.</h2>
+    <p class="lede lede--ice">Membership is considered through invitation, recommendation or a short expression of interest.</p>
+
+    <a class="btn btn--navy btn--lg" href="https://tally.so/r/dWoLBN" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;"><span>Request consideration</span><span class="btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#dce7f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M5 19L19 5M9 5h10v10"/></svg></span></a>
+
+    <a class="link-under--ice link-under" href="https://tally.so/r/obZrXM" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Enterprise or partner inquiry →</a>
+
+    <p class="note-line" style="margin-top:8px;">Know someone who should be here? <a href="https://tally.so/r/Zjk595" target="_blank" rel="noopener noreferrer">Recommend someone</a> · <a href="index.html#membership">See all membership tiers on GAIIN Global</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="stack" style="gap:18px;">
+      <svg viewBox="0 0 132 70" fill="none" style="width:56px;height:auto;">
+      <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
+    </svg>
+      <div class="footer-mark">Global Applied Intelligence<br>&amp; Innovation Network</div>
+    </div>
+    <nav class="footer-col">
+      <a href="#why">Why Hong Kong</a>
+      <a href="#sectors">Focus Sectors</a>
+      <a href="#membership">Membership</a>
+      <a href="index.html">GAIIN Global</a>
+    </nav>
+    <div class="footer-col">
+      <span style="color:#dce7f2;">Hong Kong &amp; Greater Bay Area</span>
+      <span>The founding chapter</span>
+      <span style="color:#5d7599;">Signal Briefs coming soon.</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GAIIN</span>
+    <span>Launched in Hong Kong &amp; the Greater Bay Area. Connected globally.</span>
+    <a class="social-link" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
+    <svg viewBox="0 0 32 32" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="liGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#0d2951"/>
+          <stop offset="1" stop-color="#d9877c"/>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="6" fill="url(#liGrad)"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+    </svg>
+  </a>
+  </div>
+</footer>
+</body>
+</html>
