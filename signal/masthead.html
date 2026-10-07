@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>Masthead compositor</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+  /*
+    Weekly hero artboard. 1200×630, device pixel ratio 1.
+    Accent is parameterized. Dusty rose is the locked Signal default.
+    Site coral #d9877c stays on the rest of gaiin.xyz — it is not used here.
+  */
+  :root {
+    --signal-accent: #C9A79E;
+    --navy: #0a1730;
+    --headline: #dce7f2;
+    --hook: #a8b8c8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  body {
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  .masthead {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--navy);
+    padding: 28px 72px 36px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mesh {
+    position: absolute;
+    inset: 0;
+    width: 1200px;
+    height: 630px;
+    pointer-events: none;
+  }
+
+  .brand,
+  .copy,
+  .foot {
+    position: relative;
+    z-index: 1;
+  }
+
+  .wordmark {
+    display: block;
+    width: 272px;
+    height: auto;
+    /* PNG has transparent padding. Pull the ink flush with the type column. */
+    margin: 0 0 0 -22px;
+  }
+
+  .date {
+    margin: 0;
+    font-family: "Fragment Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--signal-accent);
+  }
+
+  .copy {
+    margin-top: auto;
+    padding-bottom: 32px;
+    max-width: 920px;
+  }
+
+  .headline {
+    margin: 0;
+    max-width: 15.4em;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--headline);
+    text-wrap: pretty;
+  }
+
+  .hook {
+    margin: 20px 0 0;
+    font-family: "Libre Franklin", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.35;
+    letter-spacing: 0;
+    color: var(--hook);
+    white-space: nowrap;
+  }
+
+  .rule {
+    height: 1px;
+    width: 100%;
+    background: var(--signal-accent);
+  }
+
+  .url {
+    margin: 14px 0 0;
+    font-family: "Fragment Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--hook);
+  }
+</style>
+</head>
+<body>
+<article class="masthead" id="masthead">
+  <svg class="mesh" viewBox="0 0 1200 630" width="1200" height="630" aria-hidden="true">
+    <defs>
+      <pattern id="lattice" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
+        <path d="M56 0H0V56" fill="none" stroke="#dce7f2" stroke-width="1"/>
+      </pattern>
+      <pattern id="latticeDense" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
+        <path d="M28 0H0V28" fill="none" stroke="#dce7f2" stroke-width="0.75"/>
+      </pattern>
+      <pattern id="diagonals" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
+        <path d="M0 56 L56 0" fill="none" stroke="#dce7f2" stroke-width="0.6"/>
+      </pattern>
+      <linearGradient id="meshFadeX" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset="0.52" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset="0.70" stop-color="#ffffff" stop-opacity="0.28"/>
+        <stop offset="0.86" stop-color="#ffffff" stop-opacity="0.8"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="meshFadeY" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset="0.07" stop-color="#ffffff" stop-opacity="1"/>
+        <stop offset="0.90" stop-color="#ffffff" stop-opacity="1"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="meshMaskX" maskContentUnits="userSpaceOnUse">
+        <rect width="1200" height="630" fill="url(#meshFadeX)"/>
+      </mask>
+      <mask id="meshMaskY" maskContentUnits="userSpaceOnUse">
+        <rect width="1200" height="630" fill="url(#meshFadeY)"/>
+      </mask>
+    </defs>
+    <g mask="url(#meshMaskX)">
+      <g mask="url(#meshMaskY)">
+        <rect width="1200" height="630" fill="url(#lattice)" opacity="0.5"/>
+        <rect x="960" width="240" height="630" fill="url(#latticeDense)" opacity="0.62"/>
+        <rect x="1016" width="184" height="630" fill="url(#diagonals)" opacity="0.4"/>
+        <path d="M1008 76 H1120 V188 H1176" fill="none" stroke="var(--signal-accent)" stroke-width="1.25" stroke-linejoin="miter" opacity="0.7"/>
+        <path d="M952 524 H1064 V356 H1176" fill="none" stroke="#dce7f2" stroke-width="1" stroke-linejoin="miter" opacity="0.35"/>
+      </g>
+    </g>
+    <g fill="var(--signal-accent)">
+      <rect x="1120" y="132" width="5" height="5" opacity="0.9"/>
+      <rect x="1064" y="244" width="5" height="5" opacity="0.7"/>
+      <rect x="1176" y="300" width="4" height="4" opacity="0.6"/>
+      <rect x="1008" y="412" width="5" height="5" opacity="0.75"/>
+      <rect x="1120" y="524" width="4" height="4" opacity="0.55"/>
+    </g>
+  </svg>
+
+  <header class="brand">
+    <img class="wordmark" src="assets/gaiin-wordmark-white-wide.png" alt="GAIIN" width="956" height="356">
+    <p class="date" data-field="issueDate"></p>
+  </header>
+
+  <div class="copy">
+    <h1 class="headline" data-field="headline"></h1>
+    <p class="hook" data-field="hook"></p>
+  </div>
+
+  <footer class="foot">
+    <div class="rule"></div>
+    <p class="url">gaiin.xyz</p>
+  </footer>
+</article>
+
+<!--
+  Fill API — three fields only.
+  issueDate: DD MMM YYYY
+  headline: Playfair line
+  hook: one line
+  Query params of the same names override this block. Do not add a fourth field.
+-->
+<script type="application/json" id="masthead-fill">
+{
+  "issueDate": "06 OCT 2026",
+  "headline": "Hong Kong leads workplace AI — training still lags",
+  "hook": "Five reads across HK, GBA & Nordics for the room."
+}
+</script>
+<script>
+(function () {
+  var fill = JSON.parse(document.getElementById("masthead-fill").textContent);
+  var fields = ["issueDate", "headline", "hook"];
+  var params = new URLSearchParams(window.location.search);
+  fields.forEach(function (key) {
+    if (params.has(key) && params.get(key) !== "") fill[key] = params.get(key);
+  });
+  fields.forEach(function (key) {
+    document.querySelector("[data-field='" + key + "']").textContent = fill[key];
+  });
+  document.documentElement.setAttribute("data-masthead-filled", "true");
+})();
+</script>
+</body>
+</html>
