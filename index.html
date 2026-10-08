@@ -42,7 +42,7 @@
   .header > * { pointer-events: auto; }
   .nav-pill { display: flex; align-items: center; gap: 4px; background: #0d2951; border-radius: 999px; padding: 6px; flex-wrap: wrap; justify-content: center; }
   .nav-pill a { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #dce7f2; padding: 9px 14px; border-radius: 999px; transition: background-color .2s, color .2s; white-space: nowrap; }
-  .nav-pill a:hover { background: #1d3d70; color: #f7f9fb; }
+  .nav-pill a:hover { background: #1d3d70; color: #fff; }
   @media (max-width: 720px) { .nav-pill--menu { display: none; } }
   .header-linkedin { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #0d2951; flex-shrink: 0; transition: transform .2s, opacity .2s; }
   .header-linkedin:hover { transform: translateY(-2px); opacity: .85; }
@@ -76,7 +76,7 @@
   .h2 { font-size: clamp(30px,4.6vw,72px); line-height: 1.05; color: #0d2951; }
   .h2--md { font-size: clamp(28px,4.2vw,64px); }
   .h2--light { color: #f7f9fb; }
-  .h2--white { color: #f7f9fb; }
+  .h2--white { color: #fff; }
   .lede { font-size: 15px; line-height: 1.7; color: #45587a; }
   .lede--dim { color: #a8bcd8; }
   .lede--ice { color: #45587a; }
@@ -109,7 +109,7 @@
   .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: clamp(28px,4vw,60px); }
   .workflow { display: flex; flex-direction: column; gap: 12px; }
   .workflow--drop { padding-top: clamp(0px,4vw,52px); }
-  .workflow__title { font-family: 'Playfair Display', serif; font-size: clamp(19px,2vw,25px); color: #f7f9fb; }
+  .workflow__title { font-family: 'Playfair Display', serif; font-size: clamp(19px,2vw,25px); color: #fff; }
   .workflow__body { font-size: 13.5px; line-height: 1.65; color: #a8bcd8; }
   .chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #0a1730; background: #d9877c; padding: 7px 14px; border-radius: 999px; }
   .chip--outline { background: transparent; color: #dce7f2; border: 1px solid rgba(220,231,242,.4); }
@@ -234,7 +234,7 @@
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="8" fill="url(#liGradHeader)"/>
-      <path fill="#f7f9fb" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
     </svg>
   </a>
 </header>
@@ -319,7 +319,7 @@
 
 <section id="programmes" style="position:relative;background:#1d3d70;color:#f7f9fb;padding:clamp(56px,8vw,130px) clamp(20px,4vw,64px);overflow:hidden;">
   <svg class="bg-lines" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <path class="pulse pulse--slow" d="M1960 40H1400C1389 40 1380 49 1380 60V300C1380 311 1371 320 1360 320H1000C989 320 980 329 980 340V580C980 591 971 600 960 600H440C429 600 420 609 420 620V860C420 871 411 880 400 880H-40" stroke="#f7f9fb" stroke-width="1.5" fill="none" pathLength="1000" stroke-dasharray="90 910"/>
+    <path class="pulse pulse--slow" d="M1960 40H1400C1389 40 1380 49 1380 60V300C1380 311 1371 320 1360 320H1000C989 320 980 329 980 340V580C980 591 971 600 960 600H440C429 600 420 609 420 620V860C420 871 411 880 400 880H-40" stroke="#ffffff" stroke-width="1.5" fill="none" pathLength="1000" stroke-dasharray="90 910"/>
   </svg>
   <div style="position:relative;display:flex;flex-direction:column;gap:clamp(36px,5vw,72px);">
     <div class="stack" style="gap:16px;">
@@ -476,7 +476,7 @@
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="6" fill="url(#liGrad)"/>
-      <path fill="#f7f9fb" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
     </svg>
   </a>
   </div>
