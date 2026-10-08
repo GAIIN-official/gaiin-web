@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="assets/fonts.css">
 <style>
   /*
-    Weekly hero artboard. 1200×630, device pixel ratio 1.
+    Weekly hero artboard. 1200×480, device pixel ratio 1.
     Accent is parameterized. Dusty rose is the locked Signal default.
     Site coral #d9877c stays on the rest of gaiin.xyz — it is not used here.
   */
@@ -15,7 +15,7 @@
     --signal-accent: #C9A79E;
     --navy: #0a1730;
     --headline: #dce7f2;
-    --hook: #a8b8c8;
+    --meta: #a8b8c8;
   }
 
   * { box-sizing: border-box; }
@@ -23,7 +23,7 @@
   html, body {
     margin: 0;
     width: 1200px;
-    height: 630px;
+    height: 480px;
     overflow: hidden;
     background: var(--navy);
   }
@@ -37,19 +37,20 @@
   .masthead {
     position: relative;
     width: 1200px;
-    height: 630px;
+    height: 480px;
     overflow: hidden;
     background: var(--navy);
-    padding: 28px 72px 36px;
+    padding: 20px 68px 18px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .mesh {
     position: absolute;
     inset: 0;
     width: 1200px;
-    height: 630px;
+    height: 480px;
     pointer-events: none;
   }
 
@@ -62,10 +63,10 @@
 
   .wordmark {
     display: block;
-    width: 272px;
+    width: 240px;
     height: auto;
     /* PNG has transparent padding. Pull the ink flush with the type column. */
-    margin: 0 0 0 -22px;
+    margin: 0 0 0 -20px;
   }
 
   .date {
@@ -80,17 +81,15 @@
   }
 
   .copy {
-    margin-top: auto;
-    padding-bottom: 32px;
-    max-width: 920px;
+    max-width: 980px;
   }
 
   .headline {
     margin: 0;
-    max-width: 15.4em;
+    max-width: 16.5em;
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
-    font-size: 60px;
+    font-size: 48px;
     line-height: 1.06;
     letter-spacing: -0.02em;
     color: var(--headline);
@@ -98,13 +97,13 @@
   }
 
   .hook {
-    margin: 20px 0 0;
+    margin: 14px 0 0;
     font-family: "Libre Franklin", "Helvetica Neue", sans-serif;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.35;
     letter-spacing: 0;
-    color: var(--hook);
+    color: var(--signal-accent);
     white-space: nowrap;
   }
 
@@ -115,19 +114,19 @@
   }
 
   .url {
-    margin: 14px 0 0;
+    margin: 12px 0 0;
     font-family: "Fragment Mono", ui-monospace, monospace;
     font-weight: 400;
     font-size: 13px;
     line-height: 1;
     letter-spacing: 0.08em;
-    color: var(--hook);
+    color: var(--meta);
   }
 </style>
 </head>
 <body>
 <article class="masthead" id="masthead">
-  <svg class="mesh" viewBox="0 0 1200 630" width="1200" height="630" aria-hidden="true">
+  <svg class="mesh" viewBox="0 0 1200 480" width="1200" height="480" aria-hidden="true">
     <defs>
       <pattern id="lattice" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
         <path d="M56 0H0V56" fill="none" stroke="#dce7f2" stroke-width="1"/>
@@ -145,34 +144,34 @@
         <stop offset="0.86" stop-color="#ffffff" stop-opacity="0.8"/>
         <stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
       </linearGradient>
-      <linearGradient id="meshFadeY" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <linearGradient id="meshFadeY" x1="0" y1="0" x2="0" y2="480" gradientUnits="userSpaceOnUse">
         <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
         <stop offset="0.07" stop-color="#ffffff" stop-opacity="1"/>
         <stop offset="0.90" stop-color="#ffffff" stop-opacity="1"/>
         <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
       </linearGradient>
       <mask id="meshMaskX" maskContentUnits="userSpaceOnUse">
-        <rect width="1200" height="630" fill="url(#meshFadeX)"/>
+        <rect width="1200" height="480" fill="url(#meshFadeX)"/>
       </mask>
       <mask id="meshMaskY" maskContentUnits="userSpaceOnUse">
-        <rect width="1200" height="630" fill="url(#meshFadeY)"/>
+        <rect width="1200" height="480" fill="url(#meshFadeY)"/>
       </mask>
     </defs>
     <g mask="url(#meshMaskX)">
       <g mask="url(#meshMaskY)">
-        <rect width="1200" height="630" fill="url(#lattice)" opacity="0.5"/>
-        <rect x="960" width="240" height="630" fill="url(#latticeDense)" opacity="0.62"/>
-        <rect x="1016" width="184" height="630" fill="url(#diagonals)" opacity="0.4"/>
+        <rect width="1200" height="480" fill="url(#lattice)" opacity="0.5"/>
+        <rect x="960" width="240" height="480" fill="url(#latticeDense)" opacity="0.62"/>
+        <rect x="1016" width="184" height="480" fill="url(#diagonals)" opacity="0.4"/>
         <path d="M1008 76 H1120 V188 H1176" fill="none" stroke="var(--signal-accent)" stroke-width="1.25" stroke-linejoin="miter" opacity="0.7"/>
-        <path d="M952 524 H1064 V356 H1176" fill="none" stroke="#dce7f2" stroke-width="1" stroke-linejoin="miter" opacity="0.35"/>
+        <path d="M952 412 H1064 V244 H1176" fill="none" stroke="#dce7f2" stroke-width="1" stroke-linejoin="miter" opacity="0.35"/>
       </g>
     </g>
     <g fill="var(--signal-accent)">
       <rect x="1120" y="132" width="5" height="5" opacity="0.9"/>
-      <rect x="1064" y="244" width="5" height="5" opacity="0.7"/>
-      <rect x="1176" y="300" width="4" height="4" opacity="0.6"/>
-      <rect x="1008" y="412" width="5" height="5" opacity="0.75"/>
-      <rect x="1120" y="524" width="4" height="4" opacity="0.55"/>
+      <rect x="1064" y="188" width="5" height="5" opacity="0.7"/>
+      <rect x="1176" y="244" width="4" height="4" opacity="0.6"/>
+      <rect x="1008" y="300" width="5" height="5" opacity="0.75"/>
+      <rect x="1120" y="356" width="4" height="4" opacity="0.55"/>
     </g>
   </svg>
 
@@ -203,7 +202,7 @@
 {
   "issueDate": "06 OCT 2026",
   "headline": "Hong Kong leads workplace AI — training still lags",
-  "hook": "Five reads across HK, GBA & Nordics for the room."
+  "hook": "Five reads across Hong Kong, the GBA and the Nordics."
 }
 </script>
 <script>

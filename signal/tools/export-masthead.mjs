@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * Export signal/masthead.html to a 1200×630 PNG.
+ * Export signal/masthead.html to a 1200×480 PNG.
  *
  *   node signal/tools/export-masthead.mjs
  *   node signal/tools/export-masthead.mjs --out signal/2026-10-06-hero.png \
  *     --issueDate "06 OCT 2026" \
  *     --headline "Hong Kong leads workplace AI — training still lags" \
- *     --hook "Five reads across HK, GBA & Nordics for the room."
+ *     --hook "Five reads across Hong Kong, the GBA and the Nordics."
  *
  * Uses the system Chrome (CHROME_PATH, google-chrome, or chromium).
- * Viewport is locked at 1200×630 with deviceScaleFactor 1.
+ * Viewport is locked at 1200×480 with deviceScaleFactor 1.
  */
 
 import { spawn } from "node:child_process";
@@ -21,7 +21,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const WIDTH = 1200;
-const HEIGHT = 630;
+const HEIGHT = 480;
 
 function parseArgs(argv) {
   const opts = {

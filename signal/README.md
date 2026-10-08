@@ -1,6 +1,6 @@
 # Signal masthead
 
-Weekly hero images are rendered from HTML so the webfonts and hex values stay locked. The artboard is **1200×630**.
+Weekly hero images are rendered from HTML so the webfonts and hex values stay locked. The artboard is **1200×480**.
 
 Open `signal/masthead.html`. The page is the artboard. Nothing outside that rectangle is part of the hero.
 
@@ -12,7 +12,7 @@ Three fields only, in the `#masthead-fill` JSON block:
 | --- | --- | --- |
 | `issueDate` | `DD MMM YYYY` | Fragment Mono, under the wordmark |
 | `headline` | one string | Playfair Display, `#dce7f2` |
-| `hook` | one line | Libre Franklin, `#a8b8c8` |
+| `hook` | one line | Libre Franklin, `--signal-accent` (`#C9A79E`) |
 
 The same three names can be passed as query parameters. They override the JSON for that load. Do not add a fourth fill field.
 
@@ -22,9 +22,9 @@ The wordmark is the official file at `signal/assets/gaiin-wordmark-white-wide.pn
 
 ## Export a PNG
 
-The capture must be exactly 1200×630 at device pixel ratio 1.
+The capture must be exactly 1200×480 at device pixel ratio 1.
 
-**Browser.** Open `signal/masthead.html`, set the viewport to 1200×630, and screenshot the viewport (or the `#masthead` element). A full-window grab of a larger browser will include empty space outside the artboard.
+**Browser.** Open `signal/masthead.html`, set the viewport to 1200×480, and screenshot the viewport (or the `#masthead` element). A full-window grab of a larger browser will include empty space outside the artboard.
 
 **Script.** From the repo root, with Chrome installed (`CHROME_PATH` if it is not `google-chrome` on your PATH):
 
@@ -34,10 +34,10 @@ node signal/tools/export-masthead.mjs --out signal/2026-10-06-hero.png
 
 Optional flags: `--issueDate`, `--headline`, `--hook`.
 
-Playwright or Puppeteer works the same way: viewport `{ width: 1200, height: 630 }`, `deviceScaleFactor: 1`, wait for `document.fonts.ready`, then screenshot `#masthead`.
+Playwright or Puppeteer works the same way: viewport `{ width: 1200, height: 480 }`, `deviceScaleFactor: 1`, wait for `document.fonts.ready`, then screenshot `#masthead`.
 
 ```js
-await page.setViewportSize({ width: 1200, height: 630 });
+await page.setViewportSize({ width: 1200, height: 480 });
 await page.goto("signal/masthead.html");
 await page.evaluate(() => document.fonts.ready);
 await page.locator("#masthead").screenshot({ path: "signal/2026-10-06-hero.png" });
@@ -47,4 +47,4 @@ await page.locator("#masthead").screenshot({ path: "signal/2026-10-06-hero.png" 
 
 - issueDate: `06 OCT 2026`
 - headline: `Hong Kong leads workplace AI — training still lags`
-- hook: `Five reads across HK, GBA & Nordics for the room.`
+- hook: `Five reads across Hong Kong, the GBA and the Nordics.`
