@@ -28,7 +28,7 @@
   .header > * { pointer-events: auto; }
   .nav-pill { display: flex; align-items: center; gap: 4px; background: #0d2951; border-radius: 999px; padding: 6px; flex-wrap: wrap; justify-content: center; }
   .nav-pill a { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #dce7f2; padding: 9px 14px; border-radius: 999px; transition: background-color .2s, color .2s; white-space: nowrap; }
-  .nav-pill a:hover { background: #16305a; color: #fff; }
+  .nav-pill a:hover { background: #1d3d70; color: #f7f9fb; }
   @media (max-width: 1080px) { .nav-pill--menu { display: none; } }
 
   .btn { display: inline-flex; align-items: center; gap: 14px; border-radius: 999px; padding: 10px 12px 10px 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; white-space: nowrap; transition: background-color .25s, color .25s, border-color .25s; }
@@ -40,16 +40,16 @@
   .btn--navy:hover { background: #d9877c; color: #0a1730; }
   .btn--navy .btn__icon { background: #dce7f2; }
   .btn--ghost { border: 1px solid #33547f; color: #dce7f2; padding: 10px 22px; }
-  .btn--ghost:hover { border-color: #d9877c; color: #d9877c; }
+  .btn--ghost:hover { border-color: #d9877c; color: #edb3a8; }
   .btn--lg { padding: 12px 14px 12px 26px; }
   .btn--sm { padding: 9px 10px 9px 16px; }
   .btn--sm .btn__icon { width: 24px; height: 24px; }
-  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #33547f; border-bottom: 1px solid #b6c9de; padding-bottom: 2px; transition: color .2s, border-color .2s; }
-  .link-under:hover { color: #d9877c; border-color: #d9877c; }
-  .link-under--ice { color: #3d5478; border-bottom: 1px solid #9fb3cc; }
+  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #45587a; border-bottom: 1px solid #33547f; padding-bottom: 2px; transition: color .2s, border-color .2s; }
+  .link-under:hover { color: #a65950; border-color: #d9877c; }
+  .link-under--ice { color: #45587a; border-bottom: 1px solid #33547f; }
   .link-under--ice:hover { color: #0d2951; border-color: #0d2951; }
-  .note-line { font-family: 'Fragment Mono', monospace; font-size: 11.5px; letter-spacing: .04em; color: #5d7599; }
-  .note-line a { color: #3d5478; border-bottom: 1px solid #9fb3cc; }
+  .note-line { font-family: 'Fragment Mono', monospace; font-size: 11.5px; letter-spacing: .04em; color: #45587a; }
+  .note-line a { color: #45587a; border-bottom: 1px solid #33547f; }
   .note-line a:hover { color: #0d2951; border-color: #0d2951; }
 
   section { padding: clamp(56px,8vw,120px) clamp(20px,4vw,64px); }
@@ -59,25 +59,25 @@
   .band--to-light { background: #0d2951; background-image: linear-gradient(#f7f9fb 50%, transparent 50%), repeating-linear-gradient(90deg, #f7f9fb 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
   .band--to-dark { background: #f7f9fb; background-image: linear-gradient(#0a1730 50%, transparent 50%), repeating-linear-gradient(90deg, #0a1730 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
 
-  .eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #33547f; }
-  .eyebrow--dim { color: #7d9ac4; }
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #45587a; }
+  .eyebrow--dim { color: #a8bcd8; }
   .h1 { font-size: clamp(38px,6.8vw,110px); line-height: 1.02; color: #f7f9fb; max-width: 18ch; text-wrap: pretty; }
   .h2 { font-size: clamp(30px,4.6vw,72px); line-height: 1.05; color: #0d2951; }
   .h2--md { font-size: clamp(28px,4.2vw,64px); }
   .h2--light { color: #f7f9fb; }
-  .h2--white { color: #fff; }
+  .h2--white { color: #f7f9fb; }
   .lede { font-size: 15px; line-height: 1.7; color: #45587a; }
   .lede--dim { color: #a8bcd8; }
-  .lede--ice { color: #3d5478; }
-  .note { font-family: 'Fragment Mono', monospace; font-size: 11.5px; line-height: 1.65; color: #8ea0b8; max-width: 720px; }
+  .lede--ice { color: #45587a; }
+  .note { font-family: 'Fragment Mono', monospace; font-size: 11.5px; line-height: 1.65; color: #45587a; max-width: 720px; }
   .stack { display: flex; flex-direction: column; }
   .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: clamp(24px,4vw,64px); }
 
   .kpi__num { font-family: 'Playfair Display', serif; font-size: clamp(30px,3.6vw,48px); line-height: 1; color: #0d2951; }
-  .kpi__num--coral { color: #d9877c; }
+  .kpi__num--coral { color: #a65950; }
   .kpi__body { font-size: 13px; line-height: 1.6; color: #45587a; }
   .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px,2.4vw,32px); }
-  .stat-ring { width: clamp(96px,11vw,132px); aspect-ratio: 1; border-radius: 50%; border: 1px solid #cddcec; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .stat-ring { width: clamp(96px,11vw,132px); aspect-ratio: 1; border-radius: 50%; border: 1px solid #33547f; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
   .stat-item { text-align: center; }
 
   .timeline { display: flex; flex-direction: column; }
@@ -85,24 +85,24 @@
   .t-row:first-child { border-top: 1px solid rgba(220,231,242,.14); }
   .t-row--offset { margin-left: clamp(0px,7vw,90px); }
   .badge-circle { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .02em; }
-  .badge-circle--dark { background: rgba(51,84,127,.4); color: #dce7f2; border: 1px solid rgba(220,231,242,.3); }
+  .badge-circle--dark { background: rgba(29,61,112,.4); color: #dce7f2; border: 1px solid rgba(220,231,242,.3); }
   .badge-circle--ghost { background: transparent; border: 1px solid #33547f; color: #dce7f2; transition: border-color .25s, color .25s; }
   .t-body { flex: 1; display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
   .t-title { font-family: 'Playfair Display', serif; font-size: 20px; color: #f7f9fb; }
-  .t-copy { font-size: 13.5px; line-height: 1.6; color: #8ea5c4; max-width: 480px; }
+  .t-copy { font-size: 13.5px; line-height: 1.6; color: #a8bcd8; max-width: 480px; }
 
   .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: clamp(28px,4vw,60px); }
   .workflow { display: flex; flex-direction: column; gap: 12px; }
   .workflow--drop { padding-top: clamp(0px,4vw,52px); }
-  .workflow__title { font-family: 'Playfair Display', serif; font-size: clamp(19px,2vw,25px); color: #fff; }
-  .workflow__body { font-size: 13.5px; line-height: 1.65; color: #cddcec; }
+  .workflow__title { font-family: 'Playfair Display', serif; font-size: clamp(19px,2vw,25px); color: #f7f9fb; }
+  .workflow__body { font-size: 13.5px; line-height: 1.65; color: #a8bcd8; }
   .chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #0a1730; background: #d9877c; padding: 7px 14px; border-radius: 999px; }
 
   .standard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px,3vw,40px); }
   .standard-item { display: flex; flex-direction: column; gap: 14px; }
   .principle__title { font-family: 'Playfair Display', serif; font-size: 19px; color: #f7f9fb; }
-  .principle__body { font-size: 13px; line-height: 1.6; color: #8ea5c4; }
-  .standard-item:hover .badge-circle--ghost { border-color: #d9877c; color: #d9877c; }
+  .principle__body { font-size: 13px; line-height: 1.6; color: #a8bcd8; }
+  .standard-item:hover .badge-circle--ghost { border-color: #d9877c; color: #edb3a8; }
 
   .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px,2.6vw,32px); align-items: start; }
   .tier-plain { padding: clamp(20px,2.4vw,28px); border-radius: 20px; display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: background-color .25s, transform .25s; }
@@ -110,29 +110,29 @@
   .tier-plain:hover .tier__name { color: #f7f9fb; }
   .tier-plain:hover .tier__body { color: #a8bcd8; }
   .tier-plain:hover .tier__idx-badge { background: #d9877c; color: #0a1730; }
-  .tier__idx-badge { width: 40px; height: 40px; border-radius: 50%; background: #dce7f2; display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #33547f; transition: background-color .25s, color .25s; }
+  .tier__idx-badge { width: 40px; height: 40px; border-radius: 50%; background: #dce7f2; display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #45587a; transition: background-color .25s, color .25s; }
   .tier__name { font-family: 'Playfair Display', serif; font-size: clamp(21px,2.2vw,28px); color: #0d2951; transition: color .25s; }
   .tier__body { font-size: 13.5px; line-height: 1.65; color: #45587a; transition: color .25s; }
 
   .chapter { border-top: 1px solid #dce7f2; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-  .chapter__tag { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d9877c; }
+  .chapter__tag { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #a65950; }
   .node-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border-top: 1px solid #dce7f2; padding-top: 20px; margin-top: 4px; }
-  .node-pill { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #33547f; border: 1px solid #b6c9de; border-radius: 999px; padding: 6px 14px; }
+  .node-pill { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #45587a; border: 1px solid #33547f; border-radius: 999px; padding: 6px 14px; }
   .node-pill--active { color: #0a1730; background: #d9877c; border-color: #d9877c; }
 
   .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: clamp(18px,2.4vw,30px); }
-  .sector-item { border-top: 1px solid #1c2f52; padding-top: 18px; display: flex; flex-direction: column; gap: 8px; }
-  .sector__idx { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; color: #d9877c; }
+  .sector-item { border-top: 1px solid #1d3d70; padding-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .sector__idx { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; color: #edb3a8; }
   .sector__title { font-family: 'Playfair Display', serif; font-size: 19px; }
   .sector__body { font-size: 13px; line-height: 1.6; }
 
-  footer { background: #0a1730; color: #8ea5c4; padding: clamp(40px,5vw,70px) clamp(20px,4vw,64px); display: flex; flex-direction: column; gap: 32px; }
+  footer { background: #0a1730; color: #a8bcd8; padding: clamp(40px,5vw,70px) clamp(20px,4vw,64px); display: flex; flex-direction: column; gap: 32px; }
   .footer-top { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
   .footer-col { display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 12px; }
-  .footer-col a { color: #8ea5c4; transition: color .2s; }
-  .footer-col a:hover { color: #d9877c; }
-  .footer-mark { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #7d9ac4; }
-  .footer-bottom { border-top: 1px solid #1c2f52; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #5d7599; }
+  .footer-col a { color: #a8bcd8; transition: color .2s; }
+  .footer-col a:hover { color: #edb3a8; }
+  .footer-mark { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #a8bcd8; }
+  .footer-bottom { border-top: 1px solid #1d3d70; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #a8bcd8; }
   .social-link { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; overflow: hidden; transition: transform .2s, opacity .2s; flex-shrink: 0; }
   .social-link:hover { transform: translateY(-2px); opacity: .85; }
 
@@ -153,7 +153,7 @@
 <header class="header">
   <a href="index.html" aria-label="GAIIN home"><svg viewBox="0 0 132 70" fill="none" style="width:40px;height:auto;">
       <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
-      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#a8bcd8" stroke-width="10" stroke-linecap="round"/>
       <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
     </svg></a>
   <nav class="nav-pill nav-pill--menu">
@@ -173,7 +173,7 @@
   </svg>
   <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(26px,4vw,48px);">
     <div class="stack" style="gap:6px;font-family:'Fragment Mono',monospace;font-size:clamp(10px,1vw,12px);letter-spacing:.2em;text-transform:uppercase;color:#a8bcd8;">
-      <span style="color:#d9877c;">GAIIN Hong Kong &amp; Greater Bay Area</span>
+      <span style="color:#edb3a8;">GAIIN Hong Kong &amp; Greater Bay Area</span>
       <span>The founding chapter</span>
     </div>
     <h1 class="h1">Where AI advantage begins.</h1>
@@ -184,7 +184,7 @@
           <span>Request consideration</span>
           <span class="btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#dce7f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M5 19L19 5M9 5h10v10"/></svg></span>
         </a>
-        <span style="font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7d9ac4;">Membership by invitation, recommendation or fit.</span>
+        <span style="font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.06em;color:#a8bcd8;">Membership by invitation, recommendation or fit.</span>
       </div>
       <div style="display:flex;align-items:center;gap:10px;font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a8bcd8;animation:gaiin-scroll-hint 2.4s ease-in-out infinite;">
         <span>scroll down</span>
@@ -226,13 +226,13 @@
     <p class="lede lede--dim">GAIIN Hong Kong begins with sectors where AI can create visible, practical value — and where leaders need stronger access to peers, use cases and trusted pathways to action.</p>
   </div>
   <div class="sector-grid">
-    <div class="sector-item"><span class="sector__idx">01</span><div class="sector__title" style="color:#f7f9fb;">Finance &amp; Fintech</div><p class="sector__body" style="color:#8ea5c4;">Governance, risk, compliance and AI-enabled customer experience.</p></div>
-    <div class="sector-item"><span class="sector__idx">02</span><div class="sector__title" style="color:#f7f9fb;">Logistics &amp; Trade</div><p class="sector__body" style="color:#8ea5c4;">Supply chain visibility, cross-border coordination and automation.</p></div>
-    <div class="sector-item"><span class="sector__idx">03</span><div class="sector__title" style="color:#f7f9fb;">Manufacturing &amp; GBA</div><p class="sector__body" style="color:#8ea5c4;">Predictive maintenance, quality control and industrial optimisation.</p></div>
-    <div class="sector-item"><span class="sector__idx">04</span><div class="sector__title" style="color:#f7f9fb;">Startups &amp; Innovation</div><p class="sector__body" style="color:#8ea5c4;">AI-native founders, pilots and enterprise access.</p></div>
-    <div class="sector-item"><span class="sector__idx">05</span><div class="sector__title" style="color:#f7f9fb;">Retail &amp; Consumer</div><p class="sector__body" style="color:#8ea5c4;">Personalisation, AI-enabled commerce and service operations.</p></div>
+    <div class="sector-item"><span class="sector__idx">01</span><div class="sector__title" style="color:#f7f9fb;">Finance &amp; Fintech</div><p class="sector__body" style="color:#a8bcd8;">Governance, risk, compliance and AI-enabled customer experience.</p></div>
+    <div class="sector-item"><span class="sector__idx">02</span><div class="sector__title" style="color:#f7f9fb;">Logistics &amp; Trade</div><p class="sector__body" style="color:#a8bcd8;">Supply chain visibility, cross-border coordination and automation.</p></div>
+    <div class="sector-item"><span class="sector__idx">03</span><div class="sector__title" style="color:#f7f9fb;">Manufacturing &amp; GBA</div><p class="sector__body" style="color:#a8bcd8;">Predictive maintenance, quality control and industrial optimisation.</p></div>
+    <div class="sector-item"><span class="sector__idx">04</span><div class="sector__title" style="color:#f7f9fb;">Startups &amp; Innovation</div><p class="sector__body" style="color:#a8bcd8;">AI-native founders, pilots and enterprise access.</p></div>
+    <div class="sector-item"><span class="sector__idx">05</span><div class="sector__title" style="color:#f7f9fb;">Retail &amp; Consumer</div><p class="sector__body" style="color:#a8bcd8;">Personalisation, AI-enabled commerce and service operations.</p></div>
   </div>
-  <p class="note" style="color:#7d9ac4;">Focus areas will evolve with member demand, partner capability and market traction.</p>
+  <p class="note" style="color:#a8bcd8;">Focus areas will evolve with member demand, partner capability and market traction.</p>
 </section>
 
 <section id="membership" style="position:relative;background:#dce7f2;padding:clamp(64px,9vw,140px) clamp(20px,4vw,64px);overflow:hidden;">
@@ -254,7 +254,7 @@
     <div class="stack" style="gap:18px;">
       <svg viewBox="0 0 132 70" fill="none" style="width:56px;height:auto;">
       <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
-      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#a8bcd8" stroke-width="10" stroke-linecap="round"/>
       <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
     </svg>
       <div class="footer-mark">Global Applied Intelligence<br>&amp; Innovation Network</div>
@@ -284,7 +284,7 @@
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="6" fill="url(#liGrad)"/>
-      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+      <path fill="#f7f9fb" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
     </svg>
   </a>
   </div>
