@@ -6,7 +6,14 @@
  *   node signal/tools/export-masthead.mjs --out signal/2026-10-06-hero.png \
  *     --issueDate "06 OCT 2026" \
  *     --headline "Hong Kong leads workplace AI — training still lags" \
- *     --hook "Five reads on AI and innovation from across the network."
+ *     --hook "Five reads on AI and innovation from across the network." \
+ *     --photo "https://res.cloudinary.com/x3vpljyu/image/upload/v1789291449/Pitch-hack.webp" \
+ *     --photoPosition "center 40%"
+ *
+ *   node signal/tools/export-masthead.mjs --json issue.json --out signal/issue-hero.png
+ *
+ * Flags override the same keys in --json. The capture waits for fonts and,
+ * when a photo is set, for that image to load and decode.
  *
  * Uses the system Chrome (CHROME_PATH, google-chrome, or chromium).
  * Viewport is locked at 1200×480 with deviceScaleFactor 1.
@@ -22,6 +29,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const WIDTH = 1200;
 const HEIGHT = 480;
+const FILL_KEYS = ["issueDate", "headline", "hook", "photo", "photoPosition"];
 
 function parseArgs(argv) {
   const opts = {
@@ -29,6 +37,9 @@ function parseArgs(argv) {
     issueDate: null,
     headline: null,
     hook: null,
+    photo: null,
+    photoPosition: null,
+    json: null,
   };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
@@ -41,14 +52,30 @@ function parseArgs(argv) {
     else if (arg === "--issueDate") opts.issueDate = next();
     else if (arg === "--headline") opts.headline = next();
     else if (arg === "--hook") opts.hook = next();
+    else if (arg === "--photo") opts.photo = next();
+    else if (arg === "--photoPosition") opts.photoPosition = next();
+    else if (arg === "--json") opts.json = path.resolve(next());
     else if (arg === "--help" || arg === "-h") {
-      console.log("node signal/tools/export-masthead.mjs [--out file.png] [--issueDate s] [--headline s] [--hook s]");
+      console.log("node signal/tools/export-masthead.mjs [--out file.png] [--json file.json] [--issueDate s] [--headline s] [--hook s] [--photo url] [--photoPosition css]");
       process.exit(0);
     } else {
       throw new Error("Unknown argument " + arg);
     }
   }
   return opts;
+}
+
+async function applyJsonFill(opts) {
+  if (!opts.json) return;
+  const data = JSON.parse(await readFile(opts.json, "utf8"));
+  if (data === null || typeof data !== "object" || Array.isArray(data)) {
+    throw new Error("--json must be an object");
+  }
+  for (const key of FILL_KEYS) {
+    if (opts[key] == null && Object.prototype.hasOwnProperty.call(data, key) && data[key] != null) {
+      opts[key] = String(data[key]);
+    }
+  }
 }
 
 function chromeBin() {
@@ -60,8 +87,8 @@ function chromeBin() {
 function mastheadUrl(opts) {
   const file = path.join(root, "signal/masthead.html");
   const url = new URL("file://" + file);
-  for (const key of ["issueDate", "headline", "hook"]) {
-    if (opts[key]) url.searchParams.set(key, opts[key]);
+  for (const key of FILL_KEYS) {
+    if (opts[key] != null) url.searchParams.set(key, opts[key]);
   }
   return url.href;
 }
@@ -85,18 +112,29 @@ function connect(wsUrl) {
   const ws = new WebSocket(wsUrl);
   let id = 0;
   const pending = new Map();
+  const listeners = new Set();
   const opened = new Promise((resolve, reject) => {
     ws.addEventListener("open", () => resolve());
     ws.addEventListener("error", () => reject(new Error("DevTools socket failed")));
   });
   ws.addEventListener("message", (event) => {
     const message = JSON.parse(event.data);
+    if (message.method) {
+      for (const listener of listeners) listener(message);
+    }
     if (!message.id || !pending.has(message.id)) return;
     const { resolve, reject } = pending.get(message.id);
     pending.delete(message.id);
     if (message.error) reject(new Error(message.error.message || JSON.stringify(message.error)));
     else resolve(message.result);
   });
+  function on(method, handler) {
+    const listener = (message) => {
+      if (message.method === method) handler(message.params || {});
+    };
+    listeners.add(listener);
+    return () => listeners.delete(listener);
+  }
   function send(method, params = {}, sessionId) {
     const msgId = ++id;
     return new Promise((resolve, reject) => {
@@ -106,11 +144,12 @@ function connect(wsUrl) {
       ws.send(JSON.stringify(payload));
     });
   }
-  return { ws, opened, send };
+  return { ws, opened, send, on };
 }
 
 async function main() {
   const opts = parseArgs(process.argv.slice(2));
+  await applyJsonFill(opts);
   const userDataDir = await mkdtemp(path.join(tmpdir(), "masthead-chrome-"));
   const chrome = spawn(chromeBin(), [
     "--headless=new",
@@ -155,9 +194,36 @@ async function main() {
       deviceScaleFactor: 1,
       mobile: false,
     });
+    const loaded = new Promise((resolve) => {
+      page.on("Page.loadEventFired", () => resolve());
+    });
     await page.send("Page.navigate", { url: mastheadUrl(opts) });
-    await page.send("Runtime.evaluate", {
-      expression: `document.fonts.ready.then(() => {
+    await loaded;
+    const rendered = await page.send("Runtime.evaluate", {
+      expression: `(async () => {
+        const deadline = Date.now() + 15000;
+        while (document.documentElement.getAttribute("data-masthead-filled") !== "true") {
+          if (Date.now() > deadline) throw new Error("masthead fill did not run");
+          await new Promise((resolve) => setTimeout(resolve, 20));
+        }
+        await document.fonts.ready;
+        const photo = document.querySelector(".photo");
+        const photoOn = document.querySelector("#masthead").classList.contains("has-photo");
+        if (photoOn && photo && photo.src) {
+          if (photo.complete && photo.naturalWidth === 0) {
+            throw new Error("masthead photo failed to load");
+          }
+          if (!(photo.complete && photo.naturalWidth > 0)) {
+            await new Promise((resolve, reject) => {
+              const timer = setTimeout(() => reject(new Error("masthead photo timed out")), 20000);
+              photo.addEventListener("load", () => { clearTimeout(timer); resolve(); }, { once: true });
+              photo.addEventListener("error", () => { clearTimeout(timer); reject(new Error("masthead photo failed to load")); }, { once: true });
+            });
+          }
+          if (photo.naturalWidth === 0) throw new Error("masthead photo failed to load");
+          if (photo.decode) await photo.decode();
+        }
+        await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
         const headline = getComputedStyle(document.querySelector(".headline"));
         const hook = getComputedStyle(document.querySelector(".hook"));
         const date = getComputedStyle(document.querySelector(".date"));
@@ -174,10 +240,17 @@ async function main() {
           throw new Error("artboard is " + box.width + "x" + box.height);
         }
         return document.querySelector(".headline").textContent;
-      })`,
+      })()`,
       awaitPromise: true,
       returnByValue: true,
     });
+    if (rendered.exceptionDetails) {
+      const details = rendered.exceptionDetails;
+      const message = details.exception && (details.exception.description || details.exception.value)
+        || details.text
+        || "masthead render failed";
+      throw new Error(String(message).split("\n")[0]);
+    }
 
     const shot = await page.send("Page.captureScreenshot", {
       format: "png",
