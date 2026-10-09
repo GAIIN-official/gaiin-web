@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1200">
+<meta name="robots" content="noindex, nofollow">
 <title>Masthead compositor</title>
 <link rel="stylesheet" href="assets/fonts.css">
 <style>
@@ -63,10 +64,11 @@
 
   .wordmark {
     display: block;
-    width: 240px;
+    width: 252px;
     height: auto;
-    /* PNG has transparent padding. Pull the ink flush with the type column. */
-    margin: 0 0 0 -20px;
+    /* Primary lockup (clay letters, white name line). The SVG canvas has ~41/1698
+       transparent padding; pull the ink flush with the type column. */
+    margin: 10px 0 14px -6px;
   }
 
   .date {
@@ -176,7 +178,7 @@
   </svg>
 
   <header class="brand">
-    <img class="wordmark" src="assets/gaiin-wordmark-white-wide.png" alt="GAIIN" width="956" height="356">
+    <img class="wordmark" src="assets/gaiin-lockup-clay-white-wide.svg" alt="GAIIN — Global Applied Intelligence &amp; Innovation Network" width="1698" height="532">
     <p class="date" data-field="issueDate"></p>
   </header>
 
@@ -202,7 +204,7 @@
 {
   "issueDate": "06 OCT 2026",
   "headline": "Hong Kong leads workplace AI — training still lags",
-  "hook": "Five reads across Hong Kong, the GBA and the Nordics."
+  "hook": "Five reads on AI and innovation from across the network."
 }
 </script>
 <script>

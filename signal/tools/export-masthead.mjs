@@ -6,7 +6,7 @@
  *   node signal/tools/export-masthead.mjs --out signal/2026-10-06-hero.png \
  *     --issueDate "06 OCT 2026" \
  *     --headline "Hong Kong leads workplace AI — training still lags" \
- *     --hook "Five reads across Hong Kong, the GBA and the Nordics."
+ *     --hook "Five reads on AI and innovation from across the network."
  *
  * Uses the system Chrome (CHROME_PATH, google-chrome, or chromium).
  * Viewport is locked at 1200×480 with deviceScaleFactor 1.

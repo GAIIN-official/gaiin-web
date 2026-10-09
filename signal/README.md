@@ -18,7 +18,7 @@ The same three names can be passed as query parameters. They override the JSON f
 
 Accent is the CSS variable `--signal-accent` in `signal/masthead.html`. The default is dusty rose `#C9A79E`. Site coral `#d9877c` is not used on this artboard.
 
-The wordmark is the official file at `signal/assets/gaiin-wordmark-white-wide.png`. Do not redraw it. The hero does not contain the word Signal. The footer line is `gaiin.xyz`.
+The logo is the official primary lockup (light clay `#EDB3A8` letters, white `#FFFFFF` name line; brand kit v1.0.2) at `signal/assets/gaiin-lockup-clay-white-wide.svg`. Do not redraw, retype or recolour it. The hero does not contain the word Signal. The footer line is `gaiin.xyz`.
 
 ## Export a PNG
 
@@ -47,4 +47,4 @@ await page.locator("#masthead").screenshot({ path: "signal/2026-10-06-hero.png" 
 
 - issueDate: `06 OCT 2026`
 - headline: `Hong Kong leads workplace AI — training still lags`
-- hook: `Five reads across Hong Kong, the GBA and the Nordics.`
+- hook: `Five reads on AI and innovation from across the network.`
