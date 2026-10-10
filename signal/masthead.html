@@ -47,9 +47,41 @@
     justify-content: space-between;
   }
 
+  /* Bottom to top: photo, homepage navy overlay, pattern, then type.
+     display:none until .has-photo — an unsourced img would paint a gray edge. */
+  .photo,
+  .overlay {
+    display: none;
+  }
+
+  .masthead.has-photo .photo,
+  .masthead.has-photo .overlay {
+    display: block;
+  }
+
+  .photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 1200px;
+    height: 480px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* Exact homepage hero overlay from index.html. */
+    background-image: linear-gradient(rgba(13,41,81,.82), rgba(10,23,48,.93));
+    pointer-events: none;
+  }
+
   .mesh {
     position: absolute;
     inset: 0;
+    z-index: 0;
     width: 1200px;
     height: 480px;
     pointer-events: none;
@@ -128,6 +160,8 @@
 </head>
 <body>
 <article class="masthead" id="masthead">
+  <img class="photo" id="masthead-photo" alt="" width="1200" height="480" decoding="sync">
+  <div class="overlay" id="masthead-overlay"></div>
   <svg class="mesh" viewBox="0 0 1200 480" width="1200" height="480" aria-hidden="true">
     <defs>
       <pattern id="lattice" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
@@ -194,21 +228,34 @@
 </article>
 
 <!--
-  Fill API — three fields only.
+  Fill API
   issueDate: DD MMM YYYY
   headline: Playfair line
   hook: one line
-  Query params of the same names override this block. Do not add a fourth field.
+  photo: URL or repo-root path. Empty keeps the solid navy field.
+  photoPosition: optional CSS object-position, e.g. "center 40%"
+  Query params of the same names override this block.
+  A present photo param replaces the JSON value, including when it is empty.
 -->
 <script type="application/json" id="masthead-fill">
 {
   "issueDate": "06 OCT 2026",
   "headline": "Hong Kong leads workplace AI — training still lags",
-  "hook": "Five reads on AI and innovation from across the network."
+  "hook": "Five reads on AI and innovation from across the network.",
+  "photo": "https://res.cloudinary.com/x3vpljyu/image/upload/v1789291449/Pitch-hack.webp"
 }
 </script>
 <script>
 (function () {
+  function resolvePhoto(value) {
+    var v = String(value || "").trim();
+    if (!v) return "";
+    if (/^[a-z][a-z0-9+.-]*:/i.test(v) || v.slice(0, 2) === "//") return v;
+    var rel = v.replace(/^\/+/, "");
+    if (rel.indexOf("signal/") === 0) return rel.slice("signal/".length);
+    return "../" + rel;
+  }
+
   var fill = JSON.parse(document.getElementById("masthead-fill").textContent);
   var fields = ["issueDate", "headline", "hook"];
   var params = new URLSearchParams(window.location.search);
@@ -218,6 +265,22 @@
   fields.forEach(function (key) {
     document.querySelector("[data-field='" + key + "']").textContent = fill[key];
   });
+
+  var photo = fill.photo || "";
+  if (params.has("photo")) photo = params.get("photo") || "";
+  var photoPosition = fill.photoPosition || "";
+  if (params.has("photoPosition") && params.get("photoPosition") !== "") {
+    photoPosition = params.get("photoPosition");
+  }
+
+  var resolved = resolvePhoto(photo);
+  if (resolved) {
+    var photoEl = document.getElementById("masthead-photo");
+    if (photoPosition) photoEl.style.objectPosition = photoPosition;
+    document.getElementById("masthead").classList.add("has-photo");
+    photoEl.src = resolved;
+  }
+
   document.documentElement.setAttribute("data-masthead-filled", "true");
 })();
 </script>
