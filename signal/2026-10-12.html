@@ -100,8 +100,13 @@
   .prose .link-under { font-size: inherit; letter-spacing: 0; font-family: 'Libre Franklin', sans-serif; }
   .item-meta { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8ea0b8; }
   .item-label { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d9877c; margin-top: 8px; }
-  .item-block { display: flex; flex-direction: column; gap: 12px; padding-top: 8px; border-top: 1px solid #dce7f2; }
-  .item-block:first-of-type { border-top: none; padding-top: 0; }
+  .item-block { display: flex; flex-direction: column; gap: 12px; margin-top: clamp(28px, 4vw, 44px); padding-top: 20px; border-top: 1px solid #dce7f2; }
+  .prose .item-block > h3 { margin-top: 1em; }
+  .prose > .item-block + h2 { margin-top: clamp(40px, 6vw, 72px); }
+  .item-source { font-family: 'Fragment Mono', monospace; font-size: 11px; line-height: 1.5; letter-spacing: .01em; color: #8ea0b8; max-width: 720px; }
+  .prose .item-source { font-family: 'Fragment Mono', monospace; font-size: 11px; line-height: 1.5; color: #8ea0b8; }
+  .prose .item-source a { font-family: inherit; font-size: inherit; letter-spacing: inherit; color: #d9877c; border-bottom: none; padding-bottom: 0; }
+  .prose .item-source a:hover { color: #c47066; border-bottom: none; }
   .question { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px,2vw,24px); line-height: 1.4; color: #0d2951; }
 
   .source-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; max-width: 720px; }
@@ -176,7 +181,6 @@
   <div class="post">
     <figure class="hero-figure">
       <img src="/signal/2026-10-12-hero.png" width="1200" height="480" alt="GAIIN Signal masthead: Who pays when AI fails — and who owns the stack">
-      <figcaption class="note">12 October 2026 masthead. Photo under navy overlay and lattice, clay lockup.</figcaption>
     </figure>
 
     <article class="prose">
@@ -192,7 +196,7 @@
         <p>Liability is what turns a pilot into a contract. Firms that wait for the task force’s conclusions will still get asked the same questions by clients and insurers in the meantime. Write down now who signs off on agent output, what humans must review, and what you log — those notes become your negotiating position.</p>
         <p class="item-label">Question</p>
         <p class="question">If an AI agent in your workflow made a costly mistake tomorrow, who in your organisation would own it on paper?</p>
-        <p class="note">Source: <a class="link-under" href="https://newsprd.rthk.hk/rthk/ch/component/k2/1873127-20261008.htm" target="_blank" rel="noopener noreferrer">RTHK, 8 Oct 2026</a></p>
+        <p class="item-source">Source: <a href="https://newsprd.rthk.hk/rthk/ch/component/k2/1873127-20261008.htm" target="_blank" rel="noopener noreferrer">RTHK, 8 Oct 2026</a></p>
       </div>
 
       <div class="item-block">
@@ -204,7 +208,7 @@
         <p>An R&amp;D HQ and a listing path are not the same as paying customers in hotels and retail. The useful questions for operators are staffing ratios, uptime, content refresh cost, and who owns the failure when a service robot misbehaves in front of guests — which loops straight back to this week’s liability story.</p>
         <p class="item-label">Question</p>
         <p class="question">What would a robot vendor have to prove in a 90-day pilot before you would let it touch a customer-facing floor?</p>
-        <p class="note">Source: <a class="link-under" href="https://yangtzeer.com/news/startups/agibot-opens-hk-office/" target="_blank" rel="noopener noreferrer">The Yangtzeer, 10 Oct 2026</a></p>
+        <p class="item-source">Source: <a href="https://yangtzeer.com/news/startups/agibot-opens-hk-office/" target="_blank" rel="noopener noreferrer">The Yangtzeer, 10 Oct 2026</a></p>
       </div>
 
       <div class="item-block">
@@ -216,7 +220,7 @@
         <p>The durable legal-AI businesses will own the verified data layer, not the prompt UI. If you sell into regulated buyers, your moat is structured sources, audit trails and an API others trust — the same pattern that shows up in finance and healthcare.</p>
         <p class="item-label">Question</p>
         <p class="question">In your domain, would you rather own the interface your users see, or the data layer every agent has to call?</p>
-        <p class="note">Source: <a class="link-under" href="https://www.eu-startups.com/2026/10/copenhagens-pandektes-raises-e13-5-million-to-build-the-data-infrastructure-for-ai-powered-legal-research/" target="_blank" rel="noopener noreferrer">EU-Startups, 5 Oct 2026</a></p>
+        <p class="item-source">Source: <a href="https://www.eu-startups.com/2026/10/copenhagens-pandektes-raises-e13-5-million-to-build-the-data-infrastructure-for-ai-powered-legal-research/" target="_blank" rel="noopener noreferrer">EU-Startups, 5 Oct 2026</a></p>
       </div>
 
       <h2>What to do with it</h2>
