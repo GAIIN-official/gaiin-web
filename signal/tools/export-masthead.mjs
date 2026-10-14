@@ -223,6 +223,21 @@ async function main() {
           if (photo.naturalWidth === 0) throw new Error("masthead photo failed to load");
           if (photo.decode) await photo.decode();
         }
+        const mesh = document.querySelector(".mesh");
+        if (mesh && mesh.src) {
+          if (mesh.complete && mesh.naturalWidth === 0) {
+            throw new Error("masthead mesh failed to load");
+          }
+          if (!(mesh.complete && mesh.naturalWidth > 0)) {
+            await new Promise((resolve, reject) => {
+              const timer = setTimeout(() => reject(new Error("masthead mesh timed out")), 20000);
+              mesh.addEventListener("load", () => { clearTimeout(timer); resolve(); }, { once: true });
+              mesh.addEventListener("error", () => { clearTimeout(timer); reject(new Error("masthead mesh failed to load")); }, { once: true });
+            });
+          }
+          if (mesh.naturalWidth === 0) throw new Error("masthead mesh failed to load");
+          if (mesh.decode) await mesh.decode();
+        }
         await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
         const headline = getComputedStyle(document.querySelector(".headline"));
         const hook = getComputedStyle(document.querySelector(".hook"));

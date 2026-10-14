@@ -78,13 +78,20 @@
     pointer-events: none;
   }
 
+  /* Brand pattern3: ice icon lattice on a flat navy plate (not transparent).
+     Contrast crushes that plate to black; lighten then keeps only the icons
+     so the weekly photo and navy wash stay visible. */
   .mesh {
     position: absolute;
     inset: 0;
     z-index: 0;
     width: 1200px;
     height: 480px;
+    object-fit: cover;
+    object-position: center;
     pointer-events: none;
+    filter: contrast(3);
+    mix-blend-mode: lighten;
   }
 
   .brand,
@@ -162,54 +169,7 @@
 <article class="masthead" id="masthead">
   <img class="photo" id="masthead-photo" alt="" width="1200" height="480" decoding="sync">
   <div class="overlay" id="masthead-overlay"></div>
-  <svg class="mesh" viewBox="0 0 1200 480" width="1200" height="480" aria-hidden="true">
-    <defs>
-      <pattern id="lattice" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
-        <path d="M56 0H0V56" fill="none" stroke="#dce7f2" stroke-width="1"/>
-      </pattern>
-      <pattern id="latticeDense" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
-        <path d="M28 0H0V28" fill="none" stroke="#dce7f2" stroke-width="0.75"/>
-      </pattern>
-      <pattern id="diagonals" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(0 20)">
-        <path d="M0 56 L56 0" fill="none" stroke="#dce7f2" stroke-width="0.6"/>
-      </pattern>
-      <linearGradient id="meshFadeX" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
-        <stop offset="0.52" stop-color="#ffffff" stop-opacity="0"/>
-        <stop offset="0.70" stop-color="#ffffff" stop-opacity="0.28"/>
-        <stop offset="0.86" stop-color="#ffffff" stop-opacity="0.8"/>
-        <stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
-      </linearGradient>
-      <linearGradient id="meshFadeY" x1="0" y1="0" x2="0" y2="480" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
-        <stop offset="0.07" stop-color="#ffffff" stop-opacity="1"/>
-        <stop offset="0.90" stop-color="#ffffff" stop-opacity="1"/>
-        <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-      </linearGradient>
-      <mask id="meshMaskX" maskContentUnits="userSpaceOnUse">
-        <rect width="1200" height="480" fill="url(#meshFadeX)"/>
-      </mask>
-      <mask id="meshMaskY" maskContentUnits="userSpaceOnUse">
-        <rect width="1200" height="480" fill="url(#meshFadeY)"/>
-      </mask>
-    </defs>
-    <g mask="url(#meshMaskX)">
-      <g mask="url(#meshMaskY)">
-        <rect width="1200" height="480" fill="url(#lattice)" opacity="0.5"/>
-        <rect x="960" width="240" height="480" fill="url(#latticeDense)" opacity="0.62"/>
-        <rect x="1016" width="184" height="480" fill="url(#diagonals)" opacity="0.4"/>
-        <path d="M1008 76 H1120 V188 H1176" fill="none" stroke="var(--signal-accent)" stroke-width="1.25" stroke-linejoin="miter" opacity="0.7"/>
-        <path d="M952 412 H1064 V244 H1176" fill="none" stroke="#dce7f2" stroke-width="1" stroke-linejoin="miter" opacity="0.35"/>
-      </g>
-    </g>
-    <g fill="var(--signal-accent)">
-      <rect x="1120" y="132" width="5" height="5" opacity="0.9"/>
-      <rect x="1064" y="188" width="5" height="5" opacity="0.7"/>
-      <rect x="1176" y="244" width="4" height="4" opacity="0.6"/>
-      <rect x="1008" y="300" width="5" height="5" opacity="0.75"/>
-      <rect x="1120" y="356" width="4" height="4" opacity="0.55"/>
-    </g>
-  </svg>
+  <img class="mesh" src="assets/overlay-patterns/pattern3.png" alt="" width="1376" height="768" decoding="sync">
 
   <header class="brand">
     <img class="wordmark" src="assets/gaiin-lockup-clay-white-wide.svg" alt="GAIIN — Global Applied Intelligence &amp; Innovation Network" width="1698" height="532">
