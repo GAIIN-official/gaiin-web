@@ -24,9 +24,11 @@ The logo is the official primary lockup (light clay `#EDB3A8` letters, white `#F
 
 ## Photo
 
-Layer order, bottom to top: the photo (`object-fit: cover`, centered unless `photoPosition` is set), then the homepage hero overlay `linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93))`, then the existing pattern, then the type and the clay lockup.
+Layer order, bottom to top: the photo (`object-fit: cover`, centered unless `photoPosition` is set), then the homepage hero overlay `linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93))`, then the pattern3 mesh, then the type and the clay lockup.
 
-`photo` is a URL (Cloudinary preferred) or a path from the repo root, such as `signal/photos/week.jpg`. With an empty `photo`, the artboard is solid navy `#0a1730` plus the pattern — the same field as before this slot existed.
+The mesh is Brand’s pattern3 at `signal/assets/overlay-pattern3.png`: the light icons, with the baked navy field removed so the photo and wash stay visible. It is softened (`opacity: 0.9`) and faded so the left ~40% of the artboard stays calmer than the right.
+
+`photo` is a URL (Cloudinary preferred) or a path from the repo root, such as `signal/photos/week.jpg`. With an empty `photo`, the artboard is solid navy `#0a1730` plus the pattern3 mesh — the same field as before this slot existed.
 
 Use a landscape frame at least 2000px wide, and keep the subject away from the left text column. Prefer GAIIN's own event photos. Cloudinary URLs can use transformations like `w_2400,q_auto,f_auto`.
 
