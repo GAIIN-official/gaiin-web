@@ -24,7 +24,7 @@ The logo is the official primary lockup (light clay `#EDB3A8` letters, white `#F
 
 ## Photo
 
-Layer order, bottom to top: the photo (`object-fit: cover`, centered unless `photoPosition` is set), then the homepage hero overlay `linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93))`, then the existing pattern, then the type and the clay lockup.
+Layer order, bottom to top: the photo (`object-fit: cover`, centered unless `photoPosition` is set), then the homepage hero overlay `linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93))`, then the pattern3 icon lattice (`signal/assets/overlay-patterns/pattern3.png`), then the type and the clay lockup. Pattern3 ships as ice marks on a flat navy plate; the compositor crushes that plate so only the marks sit on the photo.
 
 `photo` is a URL (Cloudinary preferred) or a path from the repo root, such as `signal/photos/week.jpg`. With an empty `photo`, the artboard is solid navy `#0a1730` plus the pattern — the same field as before this slot existed.
 
