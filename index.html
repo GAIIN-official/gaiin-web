@@ -200,11 +200,12 @@
   .event-card__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(217,135,124,.38), rgba(247,249,251,.42)); mix-blend-mode: multiply; }
 
   .upcoming-card { display: flex; flex-direction: column; align-items: center; gap: clamp(16px,2vw,24px); text-align: center; }
-  .upcoming-media { position: relative; border-radius: 14px; overflow: hidden; width: 150px; height: 150px; flex-shrink: 0; }
+  .upcoming-media { position: relative; border-radius: 16px; overflow: hidden; width: min(100%, 320px); aspect-ratio: 1 / 1; flex-shrink: 0; }
   .upcoming-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .upcoming-body { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .upcoming-body { display: flex; flex-direction: column; gap: 8px; align-items: center; min-width: 0; }
   @media (min-width: 641px) {
     .upcoming-card { flex-direction: row; align-items: center; text-align: left; }
+    .upcoming-media { width: 260px; }
     .upcoming-body { align-items: flex-start; }
   }
 
@@ -355,23 +356,23 @@
 
 <section style="background:#f7f9fb;display:flex;flex-direction:column;gap:clamp(28px,4vw,48px);">
   <div class="eyebrow"><span class="cube"></span><span>Global by design</span></div>
-  <h2 class="h2" style="max-width:24ch;">A global network, one chapter at a time.</h2>
-  <p class="lede" style="max-width:680px;">GAIIN is built as a global network with locally relevant chapters. Each chapter convenes the people, sectors and business questions that matter in its market, while contributing to a wider network of relationships, learning and shared experience.</p>
+  <h2 class="h2" style="max-width:20ch;">A global network, one hub at a time.</h2>
+  <p class="lede" style="max-width:680px;">GAIIN is built as a global network with locally relevant hubs. Each hub convenes the people, sectors and business questions that matter in its markets, while contributing to a wider network of relationships, learning and shared experience.</p>
 </section>
 
 <section style="background:#f7f9fb;padding-top:0;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,44px);">
   <div class="split">
     <div class="chapter">
-      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Hong_Kong_Map.webp" alt="GAIIN Hong Kong & GBA chapter"></div>
-      <span class="chapter__tag">Founding chapter</span>
-      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">Hong Kong &amp; the Greater Bay Area</h3>
-      <p class="lede" style="max-width:520px;">A powerful meeting point for finance, logistics, manufacturing, innovation, trade and AI infrastructure.</p>
+      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Hong_Kong_Map.webp" alt="GAIIN APAC hub / Hong Kong &amp; GBA founding hub"></div>
+      <span class="chapter__tag">Founding hub</span>
+      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">GAIIN APAC</h3>
+      <p class="lede" style="max-width:520px;">Founding hub: Hong Kong &amp; the Greater Bay Area — a meeting point for finance, logistics, manufacturing, innovation, trade and AI infrastructure. Growing across APAC from that base.</p>
     </div>
     <div class="chapter">
-      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Nordic_Map.webp" alt="GAIIN Nordics chapter"></div>
-      <span class="chapter__tag">Chapter</span>
-      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">GAIIN Nordics</h3>
-      <p class="lede" style="max-width:520px;">GAIIN's second chapter, covering Stockholm, Copenhagen and Oslo, proving the model works across very different rooms and markets.</p>
+      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Nordic_Map.webp" alt="GAIIN Europe hub / Nordic founding hubs"></div>
+      <span class="chapter__tag">Founding hubs</span>
+      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">GAIIN Europe</h3>
+      <p class="lede" style="max-width:520px;">Founding hubs: Stockholm, Copenhagen and Oslo — proving the model across different markets. Growing across Europe from the Nordics.</p>
     </div>
   </div>
 </section>
@@ -413,7 +414,8 @@
 <section id="upcoming" style="background:#f7f9fb;padding-top:clamp(56px,8vw,120px);display:flex;flex-direction:column;gap:clamp(24px,3vw,36px);">
   <div class="eyebrow"><span class="cube"></span><span>Next in the network</span></div>
   <h2 class="h2" style="font-size:clamp(24px,3vw,42px);max-width:20ch;">Where we're showing up next.</h2>
-  <div class="placeholder-card upcoming-card" style="max-width:560px;">
+  <div class="placeholder-card upcoming-card" style="max-width:760px;">
+    <div class="upcoming-media"><img src="/assets/community-mixer-2026-10-23.jpg" width="1024" height="1024" alt="GAIIN Community Mixer — Oct 23, Beer Point, Hong Kong"></div>
     <div class="upcoming-body">
       <span class="placeholder-card__tag">Hong Kong · Community Mixer</span>
       <div class="tier__name" style="font-size:17px;">GAIIN Community Mixer</div>
