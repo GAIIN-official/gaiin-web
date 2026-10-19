@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GAIIN — A global AI and innovation network</title>
+<title>GAIIN: A global AI and innovation network</title>
 <meta name="description" content="A global AI and innovation network. Open community for builders and operators, plus the GAIIN Circle for senior peers. Events, Signal briefs and practical programmes.">
 <meta property="og:site_name" content="GAIIN">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.gaiin.xyz/">
-<meta property="og:title" content="GAIIN — A global AI and innovation network">
+<meta property="og:title" content="GAIIN: A global AI and innovation network">
 <meta property="og:description" content="A global AI and innovation network. Open community for builders and operators, plus the GAIIN Circle for senior peers. Events, Signal briefs and practical programmes.">
 <meta property="og:image" content="https://www.gaiin.xyz/og.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="GAIIN — A global AI and innovation network">
+<meta property="og:image:alt" content="GAIIN: A global AI and innovation network">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GAIIN — A global AI and innovation network">
+<meta name="twitter:title" content="GAIIN: A global AI and innovation network">
 <meta name="twitter:description" content="A global AI and innovation network. Open community for builders and operators, plus the GAIIN Circle for senior peers. Events, Signal briefs and practical programmes.">
 <meta name="twitter:image" content="https://www.gaiin.xyz/og.jpg">
-<meta name="twitter:image:alt" content="GAIIN — A global AI and innovation network">
+<meta name="twitter:image:alt" content="GAIIN: A global AI and innovation network">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEP58HBY4R"></script>
 <script>
@@ -63,6 +63,25 @@
   @media (max-width: 720px) { .nav-pill--menu { display: none; } }
   .header-linkedin { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #0d2951; flex-shrink: 0; transition: transform .2s, opacity .2s; }
   .header-linkedin:hover { transform: translateY(-2px); opacity: .85; }
+  .menu-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: #0d2951; color: #EDB3A8; cursor: pointer; flex-shrink: 0; transition: color .2s, background-color .2s; }
+  .menu-toggle:hover, .menu-toggle[aria-expanded="true"] { color: #d9877c; }
+  .menu-toggle:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 3px; }
+  .menu-toggle__bars { position: relative; display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: background-color .2s; }
+  .menu-toggle__bars::before, .menu-toggle__bars::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .2s; }
+  .menu-toggle__bars::before { transform: translateY(-6px); }
+  .menu-toggle__bars::after { transform: translateY(6px); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars { background: transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::before { background: currentColor; transform: rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::after { background: currentColor; transform: rotate(-45deg); }
+  .mobile-menu { position: absolute; top: calc(100% - 8px); left: clamp(16px,3vw,40px); right: clamp(16px,3vw,40px); background: #0a1730; border: 1px solid rgba(237,179,168,.35); border-radius: 20px; padding: 10px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+  .mobile-menu[hidden] { display: none; }
+  .mobile-menu a { font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; color: #dce7f2; padding: 13px 14px; border-radius: 12px; transition: background-color .2s, color .2s; }
+  .mobile-menu a:hover, .mobile-menu a:active { background: #0d2951; color: #d9877c; }
+  .mobile-menu a[aria-current] { color: #EDB3A8; }
+  .mobile-menu a:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .mobile-menu__sep { height: 1px; margin: 6px 14px; background: rgba(201,167,158,.3); }
+  @media (max-width: 720px) { .header-linkedin { display: none; } .menu-toggle { display: inline-flex; } }
+  @media (min-width: 721px) { .mobile-menu { display: none !important; } }
 
   .btn { display: inline-flex; align-items: center; gap: 14px; border-radius: 999px; padding: 10px 12px 10px 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; white-space: nowrap; transition: background-color .25s, color .25s, border-color .25s; }
   .btn__icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -200,11 +219,12 @@
   .event-card__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(217,135,124,.38), rgba(247,249,251,.42)); mix-blend-mode: multiply; }
 
   .upcoming-card { display: flex; flex-direction: column; align-items: center; gap: clamp(16px,2vw,24px); text-align: center; }
-  .upcoming-media { position: relative; border-radius: 14px; overflow: hidden; width: 150px; height: 150px; flex-shrink: 0; }
+  .upcoming-media { position: relative; border-radius: 16px; overflow: hidden; width: min(100%, 320px); aspect-ratio: 1 / 1; flex-shrink: 0; }
   .upcoming-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .upcoming-body { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .upcoming-body { display: flex; flex-direction: column; gap: 8px; align-items: center; min-width: 0; }
   @media (min-width: 641px) {
     .upcoming-card { flex-direction: row; align-items: center; text-align: left; }
+    .upcoming-media { width: 260px; }
     .upcoming-body { align-items: flex-start; }
   }
 
@@ -253,6 +273,16 @@
       <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
     </svg>
   </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="menu-toggle__bars" aria-hidden="true"></span></button>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Site sections" hidden>
+    <a href="#why">Why GAIIN</a>
+    <a href="#network">The Network</a>
+    <a href="#programmes">Programmes</a>
+    <a href="#membership">Membership</a>
+    <a href="/signal">Signal</a>
+    <span class="mobile-menu__sep" aria-hidden="true"></span>
+    <a href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
 </header>
 
 <main class="hero" id="top" style="background-image:linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93)),url('https://res.cloudinary.com/x3vpljyu/image/upload/v1789291449/Pitch-hack.webp');background-size:cover;background-position:center;">
@@ -340,7 +370,7 @@
   <div style="position:relative;display:flex;flex-direction:column;gap:clamp(36px,5vw,72px);">
     <div class="stack" style="gap:16px;">
       <h2 class="h2 h2--white" style="max-width:26ch;">Built for useful rooms.</h2>
-      <p class="lede" style="color:#cddcec;max-width:620px;">GAIIN events are designed for practical learning, trusted peer exchange and useful next steps — not passive attendance.</p>
+      <p class="lede" style="color:#cddcec;max-width:620px;">GAIIN events are designed for practical learning, trusted peer exchange and useful next steps, not passive attendance.</p>
     </div>
     <div class="workflow-grid">
       <div class="workflow"><span class="cube"></span><div class="workflow__title">Network Mixers</div><p class="workflow__body">Cross-sector gatherings for discovery and relevant first connections.</p></div>
@@ -355,23 +385,23 @@
 
 <section style="background:#f7f9fb;display:flex;flex-direction:column;gap:clamp(28px,4vw,48px);">
   <div class="eyebrow"><span class="cube"></span><span>Global by design</span></div>
-  <h2 class="h2" style="max-width:24ch;">A global network, one chapter at a time.</h2>
-  <p class="lede" style="max-width:680px;">GAIIN is built as a global network with locally relevant chapters. Each chapter convenes the people, sectors and business questions that matter in its market, while contributing to a wider network of relationships, learning and shared experience.</p>
+  <h2 class="h2" style="max-width:20ch;">A global network, one hub at a time.</h2>
+  <p class="lede" style="max-width:680px;">GAIIN is built as a global network with locally relevant hubs. Each hub convenes the people, sectors and business questions that matter in its markets, while contributing to a wider network of relationships, learning and shared experience.</p>
 </section>
 
 <section style="background:#f7f9fb;padding-top:0;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,44px);">
   <div class="split">
     <div class="chapter">
-      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Hong_Kong_Map.webp" alt="GAIIN Hong Kong & GBA chapter"></div>
-      <span class="chapter__tag">Founding chapter</span>
-      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">Hong Kong &amp; the Greater Bay Area</h3>
-      <p class="lede" style="max-width:520px;">A powerful meeting point for finance, logistics, manufacturing, innovation, trade and AI infrastructure.</p>
+      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Hong_Kong_Map.webp" alt="GAIIN APAC hub / Hong Kong &amp; GBA founding hub"></div>
+      <span class="chapter__tag">Founding hub</span>
+      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">GAIIN APAC</h3>
+      <p class="lede" style="max-width:520px;">Founding hub: Hong Kong &amp; the Greater Bay Area, a meeting point for finance, logistics, manufacturing, innovation, trade and AI infrastructure. Growing across APAC from that base.</p>
     </div>
     <div class="chapter">
-      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Nordic_Map.webp" alt="GAIIN Nordics chapter"></div>
-      <span class="chapter__tag">Chapter</span>
-      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">GAIIN Nordics</h3>
-      <p class="lede" style="max-width:520px;">GAIIN's second chapter, covering Stockholm, Copenhagen and Oslo, proving the model works across very different rooms and markets.</p>
+      <div class="chapter-media"><img src="https://res.cloudinary.com/x3vpljyu/image/upload/v1789291558/Nordic_Map.webp" alt="GAIIN Europe hub / Nordic founding hubs"></div>
+      <span class="chapter__tag">Founding hubs</span>
+      <h3 class="h2" style="font-size:clamp(22px,2.6vw,36px);">GAIIN Europe</h3>
+      <p class="lede" style="max-width:520px;">Founding hubs: Stockholm, Copenhagen and Oslo, proving the model across different markets. Growing across Europe from the Nordics.</p>
     </div>
   </div>
 </section>
@@ -383,7 +413,7 @@
   <div class="stack" style="gap:20px;">
     <div class="eyebrow"><span class="cube"></span><span>Where GAIIN has met</span></div>
     <h2 class="h2" style="max-width:20ch;">Seen at GAIIN.</h2>
-    <p class="lede lede--ice" style="max-width:680px;">GAIIN has hosted its first roundtable in Hong Kong, and its first network mixer and hackathon in the Nordics — proving the same approach works in different rooms, on different continents.</p>
+    <p class="lede lede--ice" style="max-width:680px;">GAIIN has hosted its first roundtable in Hong Kong, and its first network mixer and hackathon in the Nordics, proving the same approach works in different rooms, on different continents.</p>
   </div>
   <div class="placeholder-grid">
     <div class="event-card">
@@ -408,17 +438,18 @@
 </section>
 
 <!-- ============================================ -->
-<!-- NEXT IN THE NETWORK — GAIIN Community Mixer, Hong Kong, Fri 23 Oct 2026 -->
+<!-- NEXT IN THE NETWORK: GAIIN Community Mixer, Hong Kong, Fri 23 Oct 2026 -->
 <!-- ============================================ -->
 <section id="upcoming" style="background:#f7f9fb;padding-top:clamp(56px,8vw,120px);display:flex;flex-direction:column;gap:clamp(24px,3vw,36px);">
   <div class="eyebrow"><span class="cube"></span><span>Next in the network</span></div>
   <h2 class="h2" style="font-size:clamp(24px,3vw,42px);max-width:20ch;">Where we're showing up next.</h2>
-  <div class="placeholder-card upcoming-card" style="max-width:560px;">
+  <div class="placeholder-card upcoming-card" style="max-width:760px;">
+    <div class="upcoming-media"><img src="/assets/community-mixer-2026-10-23.jpg" width="1024" height="1024" alt="GAIIN Community Mixer: Oct 23, Beer Point, Hong Kong"></div>
     <div class="upcoming-body">
       <span class="placeholder-card__tag">Hong Kong · Community Mixer</span>
       <div class="tier__name" style="font-size:17px;">GAIIN Community Mixer</div>
       <p class="note" style="color:#8ea0b8;">Fri Oct 23, 2026 · 5:00&ndash;7:00 PM HKT (GMT+8) · Beer Point, Pier 3, Central</p>
-      <p class="note" style="color:#8ea0b8;">In-person casual mixer; free registration open — <a href="https://luma.com/fizm34o1" class="link-under" target="_blank" rel="noopener noreferrer">RSVP on Luma →</a></p>
+      <p class="note" style="color:#8ea0b8;">In-person casual mixer; free registration open: <a href="https://luma.com/fizm34o1" class="link-under" target="_blank" rel="noopener noreferrer">RSVP on Luma →</a></p>
     </div>
   </div>
 </section>
@@ -429,7 +460,7 @@
       <div class="eyebrow"><span class="cube"></span><span>Membership by fit</span></div>
       <h2 class="h2 h2--md">The right room changes what becomes possible.</h2>
     </div>
-    <p class="lede">Membership is considered through invitation, recommendation or a short expression of interest. We look for people and organisations who can both gain from — and contribute to — the network.</p>
+    <p class="lede">Membership is considered through invitation, recommendation or a short expression of interest. We look for people and organisations who can both gain from (and contribute to) the network.</p>
   </div>
   <div class="tier-grid-fixed">
     <div class="tier-plain-fixed"><span class="tier__idx-badge">01</span><div class="tier__name">Community</div><p class="tier__body">Selected open sessions, invitations and updates.</p>
@@ -497,5 +528,6 @@
   </a>
   </div>
 </footer>
+<script src="/assets/mobile-nav.js" defer></script>
 </body>
 </html>

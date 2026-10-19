@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GAIIN Signal — weekly briefs from the network</title>
-<meta name="description" content="Short, sourced weekly briefs from the GAIIN network — what changed, what it means for your business, and where it came from.">
+<title>GAIIN Signal: weekly briefs from the network</title>
+<meta name="description" content="Short, sourced weekly briefs from the GAIIN network: what changed, what it means for your business, and where it came from.">
 <meta property="og:site_name" content="GAIIN">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.gaiin.xyz/signal/">
-<meta property="og:title" content="GAIIN Signal — weekly briefs from the network">
-<meta property="og:description" content="Short, sourced weekly briefs from the GAIIN network — what changed, what it means for your business, and where it came from.">
+<meta property="og:title" content="GAIIN Signal: weekly briefs from the network">
+<meta property="og:description" content="Short, sourced weekly briefs from the GAIIN network: what changed, what it means for your business, and where it came from.">
 <meta property="og:image" content="https://www.gaiin.xyz/og.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="GAIIN — A global AI and innovation network">
+<meta property="og:image:alt" content="GAIIN: A global AI and innovation network">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GAIIN Signal — weekly briefs from the network">
-<meta name="twitter:description" content="Short, sourced weekly briefs from the GAIIN network — what changed, what it means for your business, and where it came from.">
+<meta name="twitter:title" content="GAIIN Signal: weekly briefs from the network">
+<meta name="twitter:description" content="Short, sourced weekly briefs from the GAIIN network: what changed, what it means for your business, and where it came from.">
 <meta name="twitter:image" content="https://www.gaiin.xyz/og.jpg">
-<meta name="twitter:image:alt" content="GAIIN — A global AI and innovation network">
+<meta name="twitter:image:alt" content="GAIIN: A global AI and innovation network">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEP58HBY4R"></script>
 <script>
@@ -62,6 +62,25 @@
   @media (max-width: 720px) { .nav-pill--menu { display: none; } }
   .header-linkedin { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #0d2951; flex-shrink: 0; transition: transform .2s, opacity .2s; }
   .header-linkedin:hover { transform: translateY(-2px); opacity: .85; }
+  .menu-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: #0d2951; color: #EDB3A8; cursor: pointer; flex-shrink: 0; transition: color .2s, background-color .2s; }
+  .menu-toggle:hover, .menu-toggle[aria-expanded="true"] { color: #d9877c; }
+  .menu-toggle:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 3px; }
+  .menu-toggle__bars { position: relative; display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: background-color .2s; }
+  .menu-toggle__bars::before, .menu-toggle__bars::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .2s; }
+  .menu-toggle__bars::before { transform: translateY(-6px); }
+  .menu-toggle__bars::after { transform: translateY(6px); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars { background: transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::before { background: currentColor; transform: rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::after { background: currentColor; transform: rotate(-45deg); }
+  .mobile-menu { position: absolute; top: calc(100% - 8px); left: clamp(16px,3vw,40px); right: clamp(16px,3vw,40px); background: #0a1730; border: 1px solid rgba(237,179,168,.35); border-radius: 20px; padding: 10px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+  .mobile-menu[hidden] { display: none; }
+  .mobile-menu a { font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; color: #dce7f2; padding: 13px 14px; border-radius: 12px; transition: background-color .2s, color .2s; }
+  .mobile-menu a:hover, .mobile-menu a:active { background: #0d2951; color: #d9877c; }
+  .mobile-menu a[aria-current] { color: #EDB3A8; }
+  .mobile-menu a:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .mobile-menu__sep { height: 1px; margin: 6px 14px; background: rgba(201,167,158,.3); }
+  @media (max-width: 720px) { .header-linkedin { display: none; } .menu-toggle { display: inline-flex; } }
+  @media (min-width: 721px) { .mobile-menu { display: none !important; } }
 
   .btn { display: inline-flex; align-items: center; gap: 14px; border-radius: 999px; padding: 10px 12px 10px 22px; font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; white-space: nowrap; transition: background-color .25s, color .25s, border-color .25s; }
   .btn__icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -95,17 +114,18 @@
   .placeholder-card__tag { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #8ea0b8; }
 
   .signal-list { display: flex; flex-direction: column; gap: clamp(16px,2vw,22px); max-width: 920px; }
-  .signal-card { display: grid; grid-template-columns: minmax(140px,200px) minmax(0,1fr); gap: clamp(16px,2.4vw,28px); align-items: center; padding: clamp(16px,2vw,22px); border-radius: 20px; background: transparent; transition: background-color .25s, transform .25s; }
+  .signal-card { display: grid; grid-template-columns: minmax(320px,460px) minmax(0,1fr); gap: clamp(16px,2.4vw,28px); align-items: center; padding: clamp(16px,2vw,22px); border-radius: 20px; background: transparent; transition: background-color .25s, transform .25s; }
   .signal-card:hover { background: #0d2951; transform: translateY(-4px); }
   .signal-card:hover .tier__name { color: #f7f9fb; }
   .signal-card:hover .lede { color: #a8bcd8; }
   .signal-card:hover .link-under { color: #d9877c; border-color: #d9877c; }
   .signal-card:hover .placeholder-card__tag { color: #d9877c; }
-  .signal-card__media { aspect-ratio: 16/10; border-radius: 14px; border: 1px dashed rgba(51,84,127,.4); background: linear-gradient(160deg, rgba(217,135,124,.38), rgba(220,231,242,.9)); display: flex; align-items: flex-end; padding: 12px 14px; }
+  .signal-card__media { aspect-ratio: 1200 / 480; border-radius: 14px; border: 1px dashed rgba(51,84,127,.4); background: linear-gradient(160deg, rgba(217,135,124,.38), rgba(220,231,242,.9)); display: flex; align-items: flex-end; padding: 12px 14px; }
+  .signal-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: left center; border-radius: 14px; display: block; }
   .signal-card__body { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-  @media (max-width: 640px) {
+  @media (max-width: 720px) {
     .signal-card { grid-template-columns: 1fr; }
-    .signal-card__media { max-width: 220px; }
+    .signal-card__media { max-width: none; width: 100%; }
   }
 
   footer { background: #0a1730; color: #8ea5c4; padding: clamp(40px,5vw,70px) clamp(20px,4vw,64px); display: flex; flex-direction: column; gap: 32px; }
@@ -152,9 +172,19 @@
       <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
     </svg>
   </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="menu-toggle__bars" aria-hidden="true"></span></button>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Site sections" hidden>
+    <a href="/index.html#why">Why GAIIN</a>
+    <a href="/index.html#network">The Network</a>
+    <a href="/index.html#programmes">Programmes</a>
+    <a href="/index.html#membership">Membership</a>
+    <a href="/signal" aria-current="page">Signal</a>
+    <span class="mobile-menu__sep" aria-hidden="true"></span>
+    <a href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
 </header>
 
-<main class="hero" id="top" style="background-image:linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93)),url('/signal/assets/signal-masthead-2026-10-12.jpg');background-size:cover;background-position:center;">
+<main class="hero" id="top" style="background-image:linear-gradient(rgba(13,41,81,.82),rgba(10,23,48,.93)),url('/signal/assets/signal-masthead-2026-10-19-plate.jpg');background-size:cover;background-position:center;">
   <svg class="bg-lines" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
     <defs><linearGradient id="heroGrad" x1="0" y1="900" x2="1920" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#dce7f2" stop-opacity="0"/><stop offset="0.5" stop-color="#dce7f2"/><stop offset="1" stop-color="#dce7f2" stop-opacity="0"/></linearGradient></defs>
     <path d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="url(#heroGrad)" stroke-opacity="0.28" stroke-width="1"/>
@@ -163,8 +193,8 @@
   <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,40px);">
     <div class="eyebrow eyebrow--dim"><span class="cube"></span><span>Signal</span></div>
     <h1 class="h1">Weekly briefs from the network.</h1>
-    <p class="lede lede--dim" style="max-width:620px;">Short, sourced notes for leaders, founders and operators — what changed, what it means for your business, and where it came from.</p>
-    <a class="btn btn--ice" href="/signal/2026-10-12.html" style="align-self:flex-start;">
+    <p class="lede lede--dim" style="max-width:620px;">Short, sourced notes for leaders, founders and operators: what changed, what it means for your business, and where it came from.</p>
+    <a class="btn btn--ice" href="/signal/2026-10-19.html" style="align-self:flex-start;">
       <span>Read the latest brief</span>
       <span class="btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#dce7f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M5 19L19 5M9 5h10v10"/></svg></span>
     </a>
@@ -178,24 +208,24 @@
   <div class="stack" style="gap:16px;max-width:640px;">
     <div class="eyebrow"><span class="cube"></span><span>Archive</span></div>
     <h2 class="h2 h2--md">Recent briefs.</h2>
-    <p class="lede">A reading list for the week. The lead card is the current brief. The sample below stays as the pattern.</p>
+    <p class="lede">A reading list for the week. The lead card is the current brief.</p>
   </div>
   <div class="signal-list">
-    <a class="signal-card" href="/signal/2026-10-12.html">
-      <div class="signal-card__media" aria-hidden="true" style="border:none;background:transparent;padding:0;overflow:hidden;"><img src="/signal/2026-10-12-hero.png" alt="" width="1200" height="480" style="width:100%;height:100%;object-fit:cover;border-radius:14px;display:block;"></div>
+    <a class="signal-card" href="/signal/2026-10-19.html">
+      <div class="signal-card__media" aria-hidden="true" style="border:none;background:transparent;padding:0;overflow:hidden;"><img src="/signal/2026-10-19-hero.png" alt="" width="1200" height="480" style="width:100%;height:100%;object-fit:cover;object-position:left center;border-radius:14px;display:block;"></div>
       <div class="signal-card__body">
-        <span class="placeholder-card__tag">12 Oct 2026 · Weekly brief</span>
-        <div class="tier__name">Who pays when AI fails — and who owns the stack</div>
-        <p class="lede">Liability rules, a robot R&amp;D hub in Causeway Bay, and a Copenhagen data layer.</p>
+        <span class="placeholder-card__tag">19 Oct 2026 · Hong Kong</span>
+        <div class="tier__name">Who runs the operating layer</div>
+        <p class="lede">A city ops brain for typhoons, a GBA diffusion-model bet, and free robotaxi rides in Tung Chung.</p>
         <span class="link-under">Read the brief</span>
       </div>
     </a>
-    <a class="signal-card" href="/signal/2026-10-06-sample.html">
-      <div class="signal-card__media" aria-hidden="true"><span class="placeholder-card__tag">Image</span></div>
+    <a class="signal-card" href="/signal/2026-10-12.html">
+      <div class="signal-card__media" aria-hidden="true" style="border:none;background:transparent;padding:0;overflow:hidden;"><img src="/signal/2026-10-12-hero.png" alt="" width="1200" height="480" style="width:100%;height:100%;object-fit:cover;object-position:left center;border-radius:14px;display:block;"></div>
       <div class="signal-card__body">
-        <span class="placeholder-card__tag">6 Oct 2026 · Sample</span>
-        <div class="tier__name">After the pilot, the questions get smaller</div>
-        <p class="lede">What leaders are weighing once the demo is over: who owns the workflow, where the risk sits, and which conversation is worth the hour.</p>
+        <span class="placeholder-card__tag">12 Oct 2026 · Weekly brief</span>
+        <div class="tier__name">Who pays when AI fails, and who owns the stack</div>
+        <p class="lede">Liability rules, a robot R&amp;D hub in Causeway Bay, and a Copenhagen data layer.</p>
         <span class="link-under">Read the brief</span>
       </div>
     </a>
@@ -244,5 +274,6 @@
   </a>
   </div>
 </footer>
+<script src="/assets/mobile-nav.js" defer></script>
 </body>
 </html>
