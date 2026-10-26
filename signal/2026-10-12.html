@@ -117,7 +117,9 @@
   .prose ul { margin: 0; padding-left: 1.15em; display: flex; flex-direction: column; gap: 10px; }
   .prose li::marker { color: #d9877c; }
   .prose .link-under { font-size: inherit; letter-spacing: 0; font-family: 'Libre Franklin', sans-serif; }
-  .item-meta { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8ea0b8; }
+  /* Keyword line under the story title. .prose p.item-meta beats .prose p so size and color apply. */
+  .item-meta,
+  .prose p.item-meta { font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #d9877c; }
   .item-label { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d9877c; margin-top: 8px; }
   .item-block { display: flex; flex-direction: column; gap: 12px; margin-top: clamp(28px, 4vw, 44px); padding-top: 20px; border-top: 1px solid #dce7f2; }
   .prose .item-block > h3 { margin-top: 1em; }
