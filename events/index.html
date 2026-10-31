@@ -122,6 +122,11 @@
   .filter-chip[aria-pressed="true"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
   .filter-chip[aria-pressed="true"]:hover { color: #0a1730; }
   .filter-chip:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .filter-chip--region { color: #ffffff; border-color: #ffffff; }
+  .filter-chip--region:hover { color: #ffffff; border-color: #ffffff; }
+  .filter-chip--region[aria-pressed="true"],
+  .filter-chip--region[aria-pressed="true"]:hover { color: #0a1730; background: #ffffff; border-color: #ffffff; }
+  .filter-chip--region:focus-visible { outline-color: #ffffff; }
 
   .hub { display: flex; flex-direction: column; gap: 8px; padding: 0; }
   .hub + .hub { margin-top: 28px; }
@@ -479,8 +484,8 @@
     return hubs;
   }
 
-  function chip(label, key) {
-    var btn = el("button", "filter-chip", label);
+  function chip(label, key, region) {
+    var btn = el("button", region ? "filter-chip filter-chip--region" : "filter-chip", label);
     btn.type = "button";
     btn.dataset.filter = key;
     btn.setAttribute("aria-pressed", active === key ? "true" : "false");
@@ -492,9 +497,9 @@
   }
 
   function paintFilters(hubs) {
-    hubRow.replaceChildren(chip("All", "all"));
+    hubRow.replaceChildren(chip("All", "all", true));
     hubs.forEach(function (hub) {
-      hubRow.appendChild(chip(hub.name, "hub:" + hub.name));
+      hubRow.appendChild(chip(hub.name, "hub:" + hub.name, true));
     });
     cityRow.replaceChildren();
     hubs.forEach(function (hub) {
