@@ -82,9 +82,6 @@
   @media (max-width: 720px) { .header-linkedin { display: none; } .menu-toggle { display: inline-flex; } }
   @media (min-width: 721px) { .mobile-menu { display: none !important; } }
 
-  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #d9877c; border-bottom: 1px solid #d9877c; padding-bottom: 2px; transition: color .2s, border-color .2s; }
-  .link-under:hover { color: #EDB3A8; border-color: #EDB3A8; }
-
   section { padding: clamp(56px,8vw,120px) clamp(20px,4vw,64px); }
   .hero { position: relative; background: #0d2951; display: flex; align-items: flex-end; padding: clamp(120px,18vh,180px) clamp(20px,4vw,64px) clamp(48px,7vh,88px); overflow: hidden; }
   .bg-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -168,8 +165,7 @@
     .event-card__title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-weight: 600; font-size: 20px; }
     .event-card__top .tags,
     .event-card__venue,
-    .event-card__who,
-    .event-card .link-under { display: none; }
+    .event-card__who { display: none; }
     .event-card__where { display: flex; }
   }
 
@@ -518,6 +514,7 @@
           card.href = ev.url;
           card.target = "_blank";
           card.rel = "noopener noreferrer";
+          card.setAttribute("aria-label", ev.name);
           card.appendChild(mediaEl(ev));
           var body = el("div", "event-card__body");
           body.appendChild(el("p", "event-card__when event-card__when--full", whenLine(ev, true)));
@@ -534,7 +531,6 @@
           body.appendChild(el("p", "event-card__venue", ev.venue || "Online"));
           var who = whoLine(ev);
           if (who) body.appendChild(el("p", "event-card__who", who));
-          body.appendChild(el("span", "link-under", "View on Luma"));
           card.appendChild(body);
           list.appendChild(card);
         });
