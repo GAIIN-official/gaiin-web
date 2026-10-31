@@ -144,14 +144,27 @@ function canonicalUrl(raw) {
   return `https://luma.com${pathname}`;
 }
 
-function venueOf(event) {
+function isOnline(event) {
   const loc = String(event.location_type || "").toLowerCase();
+  return loc === "online" || loc === "virtual" || loc === "zoom" || loc === "meet";
+}
+
+function venueOf(event) {
   const geo = event.geo_address_info || {};
   const cityText = String(geo.city_state || geo.city || "").trim();
-  const online = loc === "online" || loc === "virtual" || loc === "zoom" || loc === "meet";
-  if (online) return "Online";
+  if (isOnline(event)) return "Online";
   if (cityText) return cityText;
   return "Online";
+}
+
+function placeOf(event, cityName) {
+  if (isOnline(event)) return "Online";
+  const geo = event.geo_address_info || {};
+  const sub = String(geo.sublocality || "").trim();
+  if (sub) return sub;
+  const city = String(geo.city || "").trim();
+  if (city) return city;
+  return cityName;
 }
 
 function coverUrlOf(event) {
@@ -204,6 +217,7 @@ function toEvent(entry, city) {
       end: end ? end.iso : null,
       timezone: event.timezone || "UTC",
       venue: venueOf(event),
+      place: placeOf(event, city.city),
       cover_url: coverUrlOf(event),
       calendar: calendar || null,
       hosts,
