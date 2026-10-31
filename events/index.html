@@ -122,6 +122,11 @@
   .filter-chip[aria-pressed="true"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
   .filter-chip[aria-pressed="true"]:hover { color: #0a1730; }
   .filter-chip:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .filter-chip--region { color: #ffffff; border-color: #ffffff; }
+  .filter-chip--region:hover { color: #ffffff; border-color: #ffffff; }
+  .filter-chip--region[aria-pressed="true"],
+  .filter-chip--region[aria-pressed="true"]:hover { color: #0a1730; background: #ffffff; border-color: #ffffff; }
+  .filter-chip--region:focus-visible { outline-color: #ffffff; }
 
   .hub { display: flex; flex-direction: column; gap: 8px; padding: 0; }
   .hub + .hub { margin-top: 28px; }
@@ -223,7 +228,7 @@
     <path class="pulse" d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="#d9877c" stroke-width="1.6" fill="none" pathLength="1000" stroke-dasharray="110 890"/>
   </svg>
   <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,40px);">
-    <div class="eyebrow eyebrow--dim"><span class="cube"></span><span>Events · APAC | Europe</span></div>
+    <div class="eyebrow eyebrow--dim"><span class="cube"></span><span>Events · APAC | Europe | Global</span></div>
     <h1 class="h1">Events</h1>
     <p class="lede lede--dim" style="max-width:640px;">Upcoming AI and innovation events in our founding hubs, gathered from Luma.</p>
   </div>
@@ -288,7 +293,7 @@
 <script src="/assets/mobile-nav.js" defer></script>
 <script>
 (function () {
-  var HUB_ORDER = ["APAC", "Europe"];
+  var HUB_ORDER = ["APAC", "Europe", "Global"];
   var root = document.getElementById("events-root");
   var hubRow = document.getElementById("hub-filters");
   var cityRow = document.getElementById("city-filters");
@@ -479,8 +484,8 @@
     return hubs;
   }
 
-  function chip(label, key) {
-    var btn = el("button", "filter-chip", label);
+  function chip(label, key, region) {
+    var btn = el("button", region ? "filter-chip filter-chip--region" : "filter-chip", label);
     btn.type = "button";
     btn.dataset.filter = key;
     btn.setAttribute("aria-pressed", active === key ? "true" : "false");
@@ -492,9 +497,9 @@
   }
 
   function paintFilters(hubs) {
-    hubRow.replaceChildren(chip("All", "all"));
+    hubRow.replaceChildren(chip("All", "all", true));
     hubs.forEach(function (hub) {
-      hubRow.appendChild(chip(hub.name, "hub:" + hub.name));
+      hubRow.appendChild(chip(hub.name, "hub:" + hub.name, true));
     });
     cityRow.replaceChildren();
     hubs.forEach(function (hub) {

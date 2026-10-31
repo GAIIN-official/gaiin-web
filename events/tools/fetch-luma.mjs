@@ -6,7 +6,7 @@
  *   node events/tools/fetch-luma.mjs
  *
  * Add a city by appending one object to CITIES, then run this script again.
- * slug is the Luma place slug. hub is APAC or Europe.
+ * slug is the Luma place slug. hub is APAC, Europe, or Global.
  */
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -15,14 +15,20 @@ import { fileURLToPath } from "node:url";
 
 const CITIES = [
   { slug: "hongkong", city: "Hong Kong", hub: "APAC" },
+  { slug: "singapore", city: "Singapore", hub: "APAC" },
+  { slug: "tokyo", city: "Tokyo", hub: "APAC" },
   { slug: "stockholm", city: "Stockholm", hub: "Europe" },
   { slug: "copenhagen", city: "Copenhagen", hub: "Europe" },
   { slug: "oslo", city: "Oslo", hub: "Europe" },
+  { slug: "london", city: "London", hub: "Europe" },
+  { slug: "berlin", city: "Berlin", hub: "Europe" },
+  { slug: "sf", city: "San Francisco", hub: "Global" },
 ];
 
 const ENDPOINT = "https://api.luma.com/discover/get-paginated-events";
 const PAGE_LIMIT = "20";
 const MAX_PAGES = 20;
+const PER_CITY_CAP = 12;
 
 // Keep when the name, calendar, or a host matches. "tech" covers fintech, deep tech, hard tech.
 const KEEP = [
@@ -285,12 +291,14 @@ async function main() {
       kept.push(result.event);
     }
     kept.sort((a, b) => a.start.localeCompare(b.start) || a.name.localeCompare(b.name));
-    events.push(...kept);
+    const shown = kept.slice(0, PER_CITY_CAP);
+    counts.shown = shown.length;
+    events.push(...shown);
     summary.push({ city: city.city, slug: city.slug, ...counts });
     console.log(
-      `${city.city}: fetched ${counts.fetched}, kept ${counts.kept}, past ${counts.past}, filtered ${counts.filter}, dup ${counts.dup}`,
+      `${city.city}: fetched ${counts.fetched}, kept ${counts.kept}, shown ${counts.shown}, past ${counts.past}, filtered ${counts.filter}, dup ${counts.dup}`,
     );
-    for (const name of kept.map((item) => item.name)) console.log(`  keep  ${name}`);
+    for (const name of shown.map((item) => item.name)) console.log(`  keep  ${name}`);
     for (const name of dropped) console.log(`  drop  ${name}`);
   }
 

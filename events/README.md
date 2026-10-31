@@ -38,6 +38,8 @@ Edit `CITIES` in `events/tools/fetch-luma.mjs`. One city is one line:
 { slug: "singapore", city: "Singapore", hub: "APAC" },
 ```
 
-`slug` is the Luma place slug. `hub` is `APAC` or `Europe`. Run the script and commit the snapshot. The page groups whatever cities are in the file.
+`slug` is the Luma place slug. `hub` is `APAC`, `Europe`, or `Global`. Run the script and commit the snapshot. The page groups whatever cities are in the file. Each city keeps the next 12 upcoming matches.
 
-v1 is Hong Kong, Stockholm, Copenhagen, and Oslo. Later one-line additions, not included yet: Singapore (`singapore`, APAC), London (`london`, Europe), Berlin (`berlin`, Europe).
+The list is Hong Kong, Singapore (`singapore`), and Tokyo (`tokyo`) in APAC; Stockholm, Copenhagen, Oslo, London (`london`), and Berlin (`berlin`) in Europe; San Francisco (`sf`) in Global. Founding cities stay first in their region.
+
+`.github/workflows/events-refresh.yml` runs this script and does not name cities, so the next refresh includes whatever is in `CITIES`.
