@@ -298,9 +298,12 @@
     return node;
   }
 
-  function future(ev) {
-    var t = Date.parse(ev && ev.start);
-    return !Number.isNaN(t) && t > Date.now();
+  function stillShowing(ev) {
+    var start = Date.parse(ev && ev.start);
+    if (Number.isNaN(start)) return false;
+    var end = Date.parse(ev && ev.end);
+    var cutoff = Number.isNaN(end) ? start + 3 * 60 * 60 * 1000 : end;
+    return cutoff > Date.now();
   }
 
   function lumaUrl(url) {
@@ -519,7 +522,7 @@
     .then(function (data) {
       var list = Array.isArray(data && data.events) ? data.events : [];
       events = list.filter(function (ev) {
-        return ev && ev.name && ev.city && ev.hub && lumaUrl(ev.url) && future(ev);
+        return ev && ev.name && ev.city && ev.hub && lumaUrl(ev.url) && stillShowing(ev);
       });
       paintFilters(hubsOf(events));
       paintList();

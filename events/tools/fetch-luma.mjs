@@ -9,7 +9,7 @@
  * slug is the Luma place slug. hub is APAC or Europe.
  */
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -166,13 +166,26 @@ function coverUrlOf(event) {
   }
 }
 
+function endOf(event) {
+  const end = event.end_at;
+  const endMs = Date.parse(end);
+  if (!end || Number.isNaN(endMs)) return null;
+  return { iso: end, ms: endMs };
+}
+
+function alreadyOver(startMs, end) {
+  if (end) return end.ms <= Date.now();
+  return startMs <= Date.now();
+}
+
 function toEvent(entry, city) {
   const event = entry.event || {};
   const name = String(event.name || "").trim();
   const start = event.start_at;
   const startMs = Date.parse(start);
   if (!name || !start || Number.isNaN(startMs)) return { drop: "invalid" };
-  if (startMs <= Date.now()) return { drop: "past" };
+  const end = endOf(event);
+  if (alreadyOver(startMs, end)) return { drop: "past" };
   const hosts = (Array.isArray(entry.hosts) ? entry.hosts : [])
     .map((host) => String(host?.name || "").trim())
     .filter(Boolean);
@@ -188,6 +201,7 @@ function toEvent(entry, city) {
       name,
       url,
       start,
+      end: end ? end.iso : null,
       timezone: event.timezone || "UTC",
       venue: venueOf(event),
       cover_url: coverUrlOf(event),
@@ -264,6 +278,25 @@ async function main() {
     );
     for (const name of kept.map((item) => item.name)) console.log(`  keep  ${name}`);
     for (const name of dropped) console.log(`  drop  ${name}`);
+  }
+
+  if (events.length === 0) {
+    console.error("Refusing to write an empty snapshot");
+    process.exit(1);
+  }
+
+  let previousEvents = null;
+  try {
+    const previous = JSON.parse(await readFile(outFile, "utf8"));
+    if (Array.isArray(previous.events)) previousEvents = previous.events;
+  } catch {
+    previousEvents = null;
+  }
+
+  if (previousEvents && JSON.stringify(previousEvents) === JSON.stringify(events)) {
+    console.log(`snapshot unchanged (${events.length} events)`);
+    console.log(JSON.stringify(summary));
+    return;
   }
 
   const payload = {

@@ -1,0 +1,54 @@
+name: Refresh events
+
+on:
+  schedule:
+    # 06:00 HKT is 22:00 UTC the previous evening. Hong Kong does not use daylight saving.
+    # Monday, Wednesday, and Friday 06:00 HKT = Sunday, Tuesday, and Thursday 22:00 UTC.
+    - cron: "0 22 * * 0,2,4"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: events-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Fetch Luma events
+        run: node events/tools/fetch-luma.mjs
+
+      - name: Commit snapshot
+        run: |
+          set -eu
+          node --input-type=module -e '
+            import { readFile } from "node:fs/promises";
+            const data = JSON.parse(await readFile("events/data/events.json", "utf8"));
+            if (!Array.isArray(data.events) || data.events.length === 0) {
+              console.error("Refusing to publish an empty events snapshot");
+              process.exit(1);
+            }
+            console.log(data.events.length + " events in snapshot");
+          '
+          if git diff --quiet -- events/data/events.json; then
+            echo "Snapshot unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add events/data/events.json
+          git commit -m "chore(events): refresh Luma snapshot"
+          git push origin HEAD:main
