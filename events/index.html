@@ -139,9 +139,11 @@
   .event-card__fallback { display: flex; align-items: center; justify-content: center; background: #0a1730; color: #dce7f2; font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 12px; }
   .event-card__when { margin: 0; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; color: #d9877c; }
   .event-card__when--short { display: none; }
-  .event-card__where { display: none; align-items: center; gap: 6px; min-width: 0; margin: 0; color: #a8bcd8; font-size: 14px; line-height: 1.3; }
-  .event-card__where svg { flex-shrink: 0; }
-  .event-card__where-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .event-card__where { display: none; align-items: center; gap: 6px; min-width: 0; margin: 0; color: #a8bcd8; font-size: 12px; line-height: 1.3; overflow: hidden; }
+  .event-card__where svg,
+  .event-card__where-city,
+  .event-card__where-sep { flex-shrink: 0; }
+  .event-card__where-host { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .event-card__body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
   .event-card__top { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
   .event-card__title { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.02em; font-size: clamp(20px,2vw,26px); line-height: 1.2; color: #f7f9fb; }
@@ -157,12 +159,13 @@
   .tag--approval { border: 1px solid #EDB3A8; color: #EDB3A8; }
   .empty { font-size: 15px; line-height: 1.7; color: #a8bcd8; }
   @media (max-width: 720px) {
-    .event-card { grid-template-columns: 116px minmax(0, 1fr); column-gap: 15px; align-items: center; padding: 12px; }
-    .event-card__media { width: 116px; height: 116px; border-radius: 12px; }
-    .event-card__body { width: auto; min-width: 0; padding: 0; gap: 4px; }
+    .event-card { grid-template-columns: 116px minmax(0, 1fr); column-gap: 15px; align-items: stretch; padding: 12px; }
+    .event-card__media { width: 116px; height: 116px; border-radius: 12px; align-self: center; }
+    .event-card__body { align-self: stretch; height: 116px; width: auto; min-width: 0; padding: 0; gap: 0; justify-content: space-between; }
     .event-card__when--full { display: none; }
-    .event-card__when--short { display: block; }
-    .event-card__title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-weight: 600; font-size: 20px; }
+    .event-card__when--short { display: block; margin: 0; }
+    .event-card__top { min-width: 0; flex: 0 1 auto; }
+    .event-card__title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-weight: 600; font-size: 15px; line-height: 1.3; }
     .event-card__top .tags,
     .event-card__venue,
     .event-card__who { display: none; }
@@ -369,10 +372,20 @@
     return svg;
   }
 
+  function organizerOf(ev) {
+    if (ev.calendar && ev.calendar !== "Personal") return ev.calendar;
+    return (ev.hosts || []).filter(Boolean).join(", ");
+  }
+
   function whereEl(ev) {
     var row = el("p", "event-card__where");
     row.appendChild(pinIcon());
-    row.appendChild(el("span", "event-card__where-text", ev.place || ev.city || "Online"));
+    row.appendChild(el("span", "event-card__where-city", ev.city || "Online"));
+    var org = organizerOf(ev);
+    if (org) {
+      row.appendChild(el("span", "event-card__where-sep", " · "));
+      row.appendChild(el("span", "event-card__where-host", org));
+    }
     return row;
   }
 
