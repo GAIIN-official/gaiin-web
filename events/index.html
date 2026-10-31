@@ -156,9 +156,10 @@
   .tag--approval { border: 1px solid #EDB3A8; color: #EDB3A8; }
   .empty { font-size: 15px; line-height: 1.7; color: #a8bcd8; }
   @media (max-width: 720px) {
-    .event-card { grid-template-columns: 1fr; justify-items: start; align-items: start; gap: 14px; padding: 0 0 16px; overflow: hidden; }
-    .event-card__media { border-radius: 14px; }
-    .event-card__body { width: 100%; padding: 0; }
+    .event-card { grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px; align-items: start; padding: 12px; }
+    .event-card__media { width: 92px; height: 92px; border-radius: 14px; }
+    .event-card__body { width: auto; min-width: 0; padding: 0; }
+    .event-card__title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
   }
 
 </style>
