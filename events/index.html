@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events | GAIIN</title>
+<meta name="description" content="Upcoming AI and innovation events in our founding hubs, gathered from Luma.">
+<meta property="og:site_name" content="GAIIN">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.gaiin.xyz/events">
+<meta property="og:title" content="Events | GAIIN">
+<meta property="og:description" content="Upcoming AI and innovation events in our founding hubs, gathered from Luma.">
+<meta property="og:image" content="https://www.gaiin.xyz/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GAIIN: A global AI and innovation network">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Events | GAIIN">
+<meta name="twitter:description" content="Upcoming AI and innovation events in our founding hubs, gathered from Luma.">
+<meta name="twitter:image" content="https://www.gaiin.xyz/og.jpg">
+<meta name="twitter:image:alt" content="GAIIN: A global AI and innovation network">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GEP58HBY4R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GEP58HBY4R');
+</script>
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #0a1730; }
+  body { overflow-x: hidden; font-family: 'Libre Franklin', sans-serif; color: #0a1730; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #d9877c; color: #0a1730; }
+  a { text-decoration: none; }
+  h1, h2, h3 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.02em; }
+  p { margin: 0; }
+
+  @keyframes gaiin-pulse { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: -1000; } }
+  @keyframes gaiin-flicker { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+
+  .pulse { animation: gaiin-pulse 10s linear infinite; }
+  .cube { width: 8px; height: 8px; background: #d9877c; display: block; animation: gaiin-flicker 1.4s ease-in-out infinite; }
+
+  .header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding: 20px clamp(16px,3vw,40px); display: flex; align-items: center; justify-content: space-between; gap: 16px; pointer-events: none; }
+  .header > * { pointer-events: auto; }
+  .nav-pill { display: flex; align-items: center; gap: 4px; background: #0d2951; border-radius: 999px; padding: 6px; flex-wrap: wrap; justify-content: center; }
+  .nav-pill a { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #dce7f2; padding: 9px 14px; border-radius: 999px; transition: background-color .2s, color .2s; white-space: nowrap; }
+  .nav-pill a:hover { background: #16305a; color: #fff; }
+  .nav-pill a[aria-current] { background: #16305a; color: #fff; }
+  @media (max-width: 720px) { .nav-pill--menu { display: none; } }
+  .header-linkedin { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #0d2951; flex-shrink: 0; transition: transform .2s, opacity .2s; }
+  .header-linkedin:hover { transform: translateY(-2px); opacity: .85; }
+  .menu-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: #0d2951; color: #EDB3A8; cursor: pointer; flex-shrink: 0; transition: color .2s, background-color .2s; }
+  .menu-toggle:hover, .menu-toggle[aria-expanded="true"] { color: #d9877c; }
+  .menu-toggle:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 3px; }
+  .menu-toggle__bars { position: relative; display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: background-color .2s; }
+  .menu-toggle__bars::before, .menu-toggle__bars::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .2s; }
+  .menu-toggle__bars::before { transform: translateY(-6px); }
+  .menu-toggle__bars::after { transform: translateY(6px); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars { background: transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::before { background: currentColor; transform: rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::after { background: currentColor; transform: rotate(-45deg); }
+  .mobile-menu { position: absolute; top: calc(100% - 8px); left: clamp(16px,3vw,40px); right: clamp(16px,3vw,40px); background: #0a1730; border: 1px solid rgba(237,179,168,.35); border-radius: 20px; padding: 10px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+  .mobile-menu[hidden] { display: none; }
+  .mobile-menu a { font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; color: #dce7f2; padding: 13px 14px; border-radius: 12px; transition: background-color .2s, color .2s; }
+  .mobile-menu a:hover, .mobile-menu a:active { background: #0d2951; color: #d9877c; }
+  .mobile-menu a[aria-current] { color: #EDB3A8; }
+  .mobile-menu a:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .mobile-menu__sep { height: 1px; margin: 6px 14px; background: rgba(201,167,158,.3); }
+  @media (max-width: 720px) { .header-linkedin { display: none; } .menu-toggle { display: inline-flex; } }
+  @media (min-width: 721px) { .mobile-menu { display: none !important; } }
+
+  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #33547f; border-bottom: 1px solid #b6c9de; padding-bottom: 2px; transition: color .2s, border-color .2s; }
+  .link-under:hover { color: #d9877c; border-color: #d9877c; }
+
+  section { padding: clamp(56px,8vw,120px) clamp(20px,4vw,64px); }
+  .hero { position: relative; background: #0d2951; display: flex; align-items: flex-end; padding: clamp(120px,18vh,180px) clamp(20px,4vw,64px) clamp(48px,7vh,88px); overflow: hidden; }
+  .bg-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .band { height: 56px; }
+  .band--to-light { background: #0d2951; background-image: linear-gradient(#f7f9fb 50%, transparent 50%), repeating-linear-gradient(90deg, #f7f9fb 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
+  .band--to-dark { background: #f7f9fb; background-image: linear-gradient(#0a1730 50%, transparent 50%), repeating-linear-gradient(90deg, #0a1730 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
+
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #33547f; }
+  .eyebrow--dim { color: #7d9ac4; }
+  .h1 { font-size: clamp(38px,6.8vw,110px); line-height: 1.02; color: #f7f9fb; max-width: 16ch; text-wrap: pretty; }
+  .h2 { font-size: clamp(30px,4.6vw,72px); line-height: 1.05; color: #0d2951; }
+  .lede { font-size: 15px; line-height: 1.7; color: #45587a; }
+  .lede--dim { color: #a8bcd8; }
+  .note { font-family: 'Fragment Mono', monospace; font-size: 11.5px; line-height: 1.65; color: #8ea0b8; max-width: 720px; }
+  .stack { display: flex; flex-direction: column; }
+
+  footer { background: #0a1730; color: #8ea5c4; padding: clamp(40px,5vw,70px) clamp(20px,4vw,64px); display: flex; flex-direction: column; gap: 32px; }
+  .footer-top { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
+  .footer-col { display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 12px; }
+  .footer-col a { color: #8ea5c4; transition: color .2s; }
+  .footer-col a:hover { color: #d9877c; }
+  .footer-mark { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #7d9ac4; }
+  .footer-bottom { border-top: 1px solid #1c2f52; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #5d7599; }
+  .social-link { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; overflow: hidden; transition: transform .2s, opacity .2s; flex-shrink: 0; }
+  .social-link:hover { transform: translateY(-2px); opacity: .85; }
+
+  .pill-cta { display: inline-flex; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11.5px; letter-spacing: .04em; padding: 8px 18px; border-radius: 999px; transition: background-color .2s, color .2s; white-space: nowrap; }
+  .pill-cta--primary { background: #16305a; color: #dce7f2; }
+  .pill-cta--primary:hover { background: #1d3d70; }
+  .pill-cta--secondary { background: #0d2951; color: #a8bcd8; }
+  .pill-cta--secondary:hover { background: #123163; color: #dce7f2; }
+
+  .events-wrap { max-width: 960px; display: flex; flex-direction: column; gap: 28px; }
+  .filters { display: flex; flex-direction: column; gap: 10px; }
+  .filters__row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #33547f; background: transparent; border: 1px solid #b6c9de; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+  .filter-chip:hover { border-color: #d9877c; color: #d9877c; }
+  .filter-chip[aria-pressed="true"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
+  .filter-chip[aria-pressed="true"]:hover { color: #0a1730; }
+  .filter-chip:focus-visible { outline: 2px solid #d9877c; outline-offset: 2px; }
+
+  .hub { display: flex; flex-direction: column; gap: 8px; padding: 0; }
+  .hub + .hub { margin-top: 28px; }
+  .hub-title { font-size: clamp(28px,3.4vw,48px); color: #0d2951; }
+  .city { display: flex; flex-direction: column; gap: 4px; margin-top: 18px; }
+  .city-label { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d9877c; font-weight: 400; }
+
+  .event-list { display: flex; flex-direction: column; }
+  .event-card { display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr); gap: 14px 24px; align-items: center; padding: 16px; border-top: 1px solid #dce7f2; border-radius: 16px; color: inherit; transition: background-color .25s, transform .25s, border-color .25s; }
+  .event-card:hover { background: #0d2951; border-top-color: transparent; transform: translateY(-3px); }
+  .event-card:focus-visible { outline: 2px solid #d9877c; outline-offset: 3px; }
+  .event-card__media { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #0a1730; }
+  .event-card__media img, .event-card__fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .event-card__media img { object-fit: cover; display: block; }
+  .event-card__fallback { display: flex; align-items: center; justify-content: center; background: #0a1730; color: #dce7f2; font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 12px; }
+  .event-card__when { display: flex; flex-direction: column; gap: 2px; font-family: 'Fragment Mono', monospace; text-transform: uppercase; color: #d9877c; }
+  .event-card__date { font-family: 'Fragment Mono', monospace; font-size: 16px; letter-spacing: .04em; line-height: 1.3; color: #d9877c; }
+  .event-card__time { font-family: 'Fragment Mono', monospace; font-size: 14px; letter-spacing: .04em; line-height: 1.3; color: #d9877c; }
+  .event-card__body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .event-card__top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px 16px; }
+  .event-card__title { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.02em; font-size: clamp(20px,2vw,26px); line-height: 1.2; color: #0d2951; }
+  .event-card__venue { font-size: 14px; line-height: 1.5; color: #45587a; }
+  .event-card__who { font-family: 'Fragment Mono', monospace; font-size: 11px; line-height: 1.55; color: #8ea0b8; }
+  .event-card:hover .event-card__title { color: #f7f9fb; }
+  .event-card:hover .event-card__venue,
+  .event-card:hover .event-card__who { color: #a8bcd8; }
+  .event-card:hover .link-under { color: #d9877c; border-color: #d9877c; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; flex-shrink: 0; }
+  .tag { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; border-radius: 999px; padding: 6px 10px; }
+  .tag--free { background: #d9877c; color: #0a1730; }
+  .tag--paid { border: 1px solid #33547f; color: #33547f; }
+  .tag--sold { border: 1px solid #b6c9de; color: #8ea0b8; }
+  .tag--approval { border: 1px solid #EDB3A8; color: #d9877c; }
+  .event-card:hover .tag--paid,
+  .event-card:hover .tag--sold,
+  .event-card:hover .tag--approval { color: #dce7f2; border-color: rgba(220,231,242,.45); }
+  .empty { font-size: 15px; line-height: 1.7; color: #45587a; }
+  @media (max-width: 720px) {
+    .event-card { grid-template-columns: 1fr; gap: 12px; padding: 0 0 16px; overflow: hidden; }
+    .event-card__media { border-radius: 16px 16px 0 0; }
+    .event-card__body { padding: 0 16px; }
+    .event-card__date { font-size: 15px; }
+    .event-card__time { font-size: 13px; }
+  }
+
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="/index.html" aria-label="GAIIN home" style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#0d2951;flex-shrink:0;"><svg viewBox="0 0 132 70" fill="none" style="width:34px;height:auto;">
+      <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
+    </svg></a>
+  <nav class="nav-pill nav-pill--menu">
+    <a href="/index.html#why">Why GAIIN</a>
+    <a href="/index.html#network">The Network</a>
+    <a href="/index.html#programmes">Programmes</a>
+    <a href="/index.html#membership">Membership</a>
+    <a href="/signal">Signal</a>
+    <a href="/events" aria-current="page">Events</a>
+  </nav>
+  <a class="header-linkedin" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
+    <svg viewBox="0 0 32 32" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="liGradHeader" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#0d2951"/>
+          <stop offset="1" stop-color="#d9877c"/>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="8" fill="url(#liGradHeader)"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+    </svg>
+  </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="menu-toggle__bars" aria-hidden="true"></span></button>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Site sections" hidden>
+    <a href="/index.html#why">Why GAIIN</a>
+    <a href="/index.html#network">The Network</a>
+    <a href="/index.html#programmes">Programmes</a>
+    <a href="/index.html#membership">Membership</a>
+    <a href="/signal">Signal</a>
+    <a href="/events" aria-current="page">Events</a>
+    <span class="mobile-menu__sep" aria-hidden="true"></span>
+    <a href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
+</header>
+
+<main class="hero" id="top">
+  <svg class="bg-lines" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <defs><linearGradient id="heroGrad" x1="0" y1="900" x2="1920" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#dce7f2" stop-opacity="0"/><stop offset="0.5" stop-color="#dce7f2"/><stop offset="1" stop-color="#dce7f2" stop-opacity="0"/></linearGradient></defs>
+    <path d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="url(#heroGrad)" stroke-opacity="0.28" stroke-width="1"/>
+    <path class="pulse" d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="#d9877c" stroke-width="1.6" fill="none" pathLength="1000" stroke-dasharray="110 890"/>
+  </svg>
+  <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,40px);">
+    <div class="eyebrow eyebrow--dim"><span class="cube"></span><span>Events · APAC | Europe</span></div>
+    <h1 class="h1">Events</h1>
+    <p class="lede lede--dim" style="max-width:640px;">Upcoming AI and innovation events in our founding hubs, gathered from Luma.</p>
+  </div>
+</main>
+
+<div class="band band--to-light"></div>
+
+<section style="background:#f7f9fb;">
+  <div class="events-wrap">
+    <div class="filters">
+      <div class="filters__row" id="hub-filters" role="group" aria-label="Filter by hub"></div>
+      <div class="filters__row" id="city-filters" role="group" aria-label="Filter by city"></div>
+    </div>
+    <p class="note" id="events-note">This is a curated discovery feed. Registration happens on Luma.</p>
+    <div id="events-root"></div>
+  </div>
+</section>
+
+<div class="band band--to-dark"></div>
+
+<footer>
+  <div class="footer-top">
+    <div class="stack" style="gap:18px;">
+      <svg viewBox="0 0 132 70" fill="none" style="width:56px;height:auto;">
+      <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
+    </svg>
+      <div class="footer-mark">Global Applied Intelligence<br>&amp; Innovation Network</div>
+    </div>
+    <nav class="footer-col">
+      <a href="/index.html#why">Why GAIIN</a>
+      <a href="/index.html#network">The Network</a>
+      <a href="/index.html#programmes">Programmes</a>
+      <a href="/index.html#membership">Membership</a>
+      <a href="/signal">Signal</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="footer-col" style="gap:12px;">
+      <a class="pill-cta pill-cta--primary" href="https://tally.so/r/dWoLBN" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Request consideration</a>
+      <a class="pill-cta pill-cta--secondary" href="https://tally.so/r/Zjk595" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Recommend someone</a>
+      <a href="/signal">Signal Briefs</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GAIIN</span>
+    <span>Launched in Hong Kong and the Nordics. Connected globally.</span>
+    <a class="social-link" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
+    <svg viewBox="0 0 32 32" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="liGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#0d2951"/>
+          <stop offset="1" stop-color="#d9877c"/>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="6" fill="url(#liGrad)"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+    </svg>
+  </a>
+  </div>
+</footer>
+<script src="/assets/mobile-nav.js" defer></script>
+<script>
+(function () {
+  var HUB_ORDER = ["APAC", "Europe"];
+  var root = document.getElementById("events-root");
+  var hubRow = document.getElementById("hub-filters");
+  var cityRow = document.getElementById("city-filters");
+  var active = "all";
+  var events = [];
+
+  function el(tag, className, text) {
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function future(ev) {
+    var t = Date.parse(ev && ev.start);
+    return !Number.isNaN(t) && t > Date.now();
+  }
+
+  function lumaUrl(url) {
+    try {
+      var parsed = new URL(url);
+      return parsed.protocol === "https:" && /(^|\.)luma\.com$/i.test(parsed.hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function whenParts(ev) {
+    var date = new Date(ev.start);
+    var zone = ev.timezone || "UTC";
+    var dayOpts = { weekday: "short", day: "numeric", month: "short", year: "numeric" };
+    var timeOpts = { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZoneName: "short" };
+    try {
+      return {
+        date: new Intl.DateTimeFormat("en-GB", Object.assign({ timeZone: zone }, dayOpts)).format(date),
+        time: new Intl.DateTimeFormat("en-GB", Object.assign({ timeZone: zone }, timeOpts)).format(date)
+      };
+    } catch (e) {
+      return {
+        date: new Intl.DateTimeFormat("en-GB", Object.assign({ timeZone: "UTC" }, dayOpts)).format(date),
+        time: new Intl.DateTimeFormat("en-GB", Object.assign({ timeZone: "UTC" }, timeOpts)).format(date)
+      };
+    }
+  }
+
+  function thumbUrl(coverUrl) {
+    try {
+      var parsed = new URL(coverUrl);
+      if (parsed.protocol !== "https:" || !/(^|\.)lumacdn\.com$/i.test(parsed.hostname)) return "";
+      var path = parsed.pathname.replace(/^\//, "");
+      if (!path || path.indexOf("cdn-cgi/image/") === 0) return parsed.href;
+      return "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,width=640,height=360,quality=75/" + path;
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function fallbackTile(city) {
+    return el("div", "event-card__fallback", city || "");
+  }
+
+  function mediaEl(ev) {
+    var wrap = el("div", "event-card__media");
+    var src = thumbUrl(ev.cover_url);
+    if (!src) {
+      wrap.appendChild(fallbackTile(ev.city));
+      return wrap;
+    }
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = ev.name;
+    img.width = 640;
+    img.height = 360;
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.addEventListener("error", function () {
+      img.replaceWith(fallbackTile(ev.city));
+    });
+    wrap.appendChild(img);
+    return wrap;
+  }
+
+  function whoLine(ev) {
+    var hosts = (ev.hosts || []).filter(Boolean);
+    var shown = hosts.slice(0, 3);
+    var text = shown.join(", ");
+    if (hosts.length > shown.length) text += ", and " + (hosts.length - shown.length) + " more";
+    var calendar = ev.calendar && ev.calendar !== "Personal" ? ev.calendar : "";
+    if (text && calendar) return text + " · " + calendar;
+    return text || calendar;
+  }
+
+  function labelsFor(ev) {
+    if (ev.is_sold_out) return ["Sold out"];
+    var labels = [ev.is_free ? "Free" : "Paid"];
+    if (ev.require_approval) labels.push("Approval required");
+    return labels;
+  }
+
+  function tagClass(label) {
+    if (label === "Free") return "tag tag--free";
+    if (label === "Paid") return "tag tag--paid";
+    if (label === "Sold out") return "tag tag--sold";
+    return "tag tag--approval";
+  }
+
+  function matches(ev) {
+    if (active === "all") return true;
+    if (active.indexOf("hub:") === 0) return ev.hub === active.slice(4);
+    if (active.indexOf("city:") === 0) return ev.city === active.slice(5);
+    return true;
+  }
+
+  function hubsOf(list) {
+    var map = new Map();
+    var hubs = [];
+    list.forEach(function (ev) {
+      if (!map.has(ev.hub)) {
+        var hub = { name: ev.hub, cities: [], cityMap: new Map() };
+        map.set(ev.hub, hub);
+        hubs.push(hub);
+      }
+      var hub = map.get(ev.hub);
+      if (!hub.cityMap.has(ev.city)) {
+        var city = { name: ev.city, events: [] };
+        hub.cityMap.set(ev.city, city);
+        hub.cities.push(city);
+      }
+      hub.cityMap.get(ev.city).events.push(ev);
+    });
+    hubs.sort(function (a, b) {
+      var ia = HUB_ORDER.indexOf(a.name);
+      var ib = HUB_ORDER.indexOf(b.name);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    return hubs;
+  }
+
+  function chip(label, key) {
+    var btn = el("button", "filter-chip", label);
+    btn.type = "button";
+    btn.dataset.filter = key;
+    btn.setAttribute("aria-pressed", active === key ? "true" : "false");
+    btn.addEventListener("click", function () {
+      active = key;
+      paint();
+    });
+    return btn;
+  }
+
+  function paintFilters(hubs) {
+    hubRow.replaceChildren(chip("All", "all"));
+    hubs.forEach(function (hub) {
+      hubRow.appendChild(chip(hub.name, "hub:" + hub.name));
+    });
+    cityRow.replaceChildren();
+    hubs.forEach(function (hub) {
+      hub.cities.forEach(function (city) {
+        cityRow.appendChild(chip(city.name, "city:" + city.name));
+      });
+    });
+  }
+
+  function paintList() {
+    var visible = events.filter(matches);
+    root.replaceChildren();
+    if (!visible.length) {
+      root.appendChild(el("p", "empty", events.length ? "No upcoming events in this view." : "No upcoming events right now."));
+      return;
+    }
+    hubsOf(visible).forEach(function (hub) {
+      var section = el("section", "hub");
+      section.appendChild(el("h2", "hub-title", hub.name));
+      hub.cities.forEach(function (city) {
+        if (!city.events.length) return;
+        var block = el("div", "city");
+        block.appendChild(el("h3", "city-label", city.name));
+        var list = el("div", "event-list");
+        city.events.forEach(function (ev) {
+          var card = el("a", "event-card");
+          card.href = ev.url;
+          card.target = "_blank";
+          card.rel = "noopener noreferrer";
+          card.appendChild(mediaEl(ev));
+          var body = el("div", "event-card__body");
+          var when = whenParts(ev);
+          var whenEl = el("div", "event-card__when");
+          whenEl.appendChild(el("p", "event-card__date", when.date));
+          whenEl.appendChild(el("p", "event-card__time", when.time));
+          body.appendChild(whenEl);
+          var top = el("div", "event-card__top");
+          top.appendChild(el("p", "event-card__title", ev.name));
+          var tags = el("div", "tags");
+          labelsFor(ev).forEach(function (label) {
+            tags.appendChild(el("span", tagClass(label), label));
+          });
+          top.appendChild(tags);
+          body.appendChild(top);
+          body.appendChild(el("p", "event-card__venue", ev.venue || "Online"));
+          var who = whoLine(ev);
+          if (who) body.appendChild(el("p", "event-card__who", who));
+          body.appendChild(el("span", "link-under", "View on Luma"));
+          card.appendChild(body);
+          list.appendChild(card);
+        });
+        block.appendChild(list);
+        section.appendChild(block);
+      });
+      root.appendChild(section);
+    });
+  }
+
+  function paint() {
+    hubRow.querySelectorAll(".filter-chip").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.dataset.filter === active ? "true" : "false");
+    });
+    cityRow.querySelectorAll(".filter-chip").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.dataset.filter === active ? "true" : "false");
+    });
+    paintList();
+  }
+
+  function showError() {
+    root.replaceChildren(el("p", "empty", "Events could not be loaded."));
+  }
+
+  fetch("/events/data/events.json")
+    .then(function (res) {
+      if (!res.ok) throw new Error("snapshot");
+      return res.json();
+    })
+    .then(function (data) {
+      var list = Array.isArray(data && data.events) ? data.events : [];
+      events = list.filter(function (ev) {
+        return ev && ev.name && ev.city && ev.hub && lumaUrl(ev.url) && future(ev);
+      });
+      paintFilters(hubsOf(events));
+      paintList();
+    })
+    .catch(showError);
+})();
+</script>
+</body>
+</html>

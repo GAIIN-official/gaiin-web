@@ -1,0 +1,562 @@
+{
+  "fetched_at": "2026-10-31T08:46:06.540Z",
+  "events": [
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Devcon香港分会场｜11月3日，相聚香港",
+      "url": "https://luma.com/cfthgx9l",
+      "start": "2026-11-03T02:00:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Kowloon, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/qx/988c7ada-54c8-4224-9bc6-ea14f0df0621.jpg",
+      "calendar": "Personal",
+      "hosts": [
+        "ETHTAO",
+        "Hong Kong Ethereum Community Hub"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "「THE ONCHAIN ROOM 」@ Hong Kong Fintech Week",
+      "url": "https://luma.com/0qe0bz78",
+      "start": "2026-11-03T06:00:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/0z/fbfc0ced-22ed-405c-b6cb-318c029190ff.png",
+      "calendar": "Team1 China",
+      "hosts": [
+        "Avalanche中文",
+        "Team1",
+        "Justin Kim"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Google Cloud Founders Connect: Accelerating Enterprise-Grade AI and Global Scale",
+      "url": "https://luma.com/gcfc1103",
+      "start": "2026-11-03T06:00:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/om/70a28bf6-592b-480c-948c-a7caf835be01.png",
+      "calendar": "Hong Kong FinTech Week x StartmeupHK 2026",
+      "hosts": [
+        "Finoverse",
+        "Kris Fok | Finoverse"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Payments Reimagined with Stablecoins",
+      "url": "https://luma.com/ckwik05b",
+      "start": "2026-11-03T08:30:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/x0/12331391-5f50-4d10-a863-43608e1345e6.jpg",
+      "calendar": "APAC Events",
+      "hosts": [
+        "Fireblocks Events"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Merkle Science Meet Hong Kong: Asia’s Digital Asset & Compliance Gateway",
+      "url": "https://luma.com/f092bwll",
+      "start": "2026-11-04T05:30:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/fy/a14e01cd-2f34-4968-8600-a5eb0e8cca52.png",
+      "calendar": "Personal",
+      "hosts": [
+        "Thibaut Gravelle-Vivien",
+        "Merkle Science",
+        "TM",
+        "Christine Lee",
+        "Calvin To",
+        "Crystal",
+        "Roshan",
+        "Christopher McArthur",
+        "Adeline",
+        "Tom Luo",
+        "Pablo Barbosa"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Web3 Career Connect",
+      "url": "https://luma.com/hscmezn7",
+      "start": "2026-11-04T07:00:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/6e/22dcd581-e5df-4136-8f23-c767a23162a3.png",
+      "calendar": "Hong Kong FinTech Week x StartmeupHK 2026",
+      "hosts": [
+        "Finoverse",
+        "Kris Fok | Finoverse",
+        "Mickey A"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Our Lives Before AI: Join small-group conversations about work, AI and what’s still in our control",
+      "url": "https://luma.com/3foj3x3u",
+      "start": "2026-11-09T11:00:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/pw/45f9747b-4d1d-407d-9e09-e94af800515d.png",
+      "calendar": "Mind Made",
+      "hosts": [
+        "Sharon Ng"
+      ],
+      "is_free": false,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Robots & Beers",
+      "url": "https://luma.com/d8y1fsrc",
+      "start": "2026-11-12T11:30:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Kowloon, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/11/8e954a02-feb2-43ed-8356-ac8a0aae5307.png",
+      "calendar": "Auki Labs",
+      "hosts": [
+        "Nils",
+        "Phil Shaw"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Jupitrr AI × General Learning: Founder × Creator Night",
+      "url": "https://luma.com/18eiuk59",
+      "start": "2026-11-17T10:30:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/ka/fa51de12-8abd-4037-9017-d0ea1feba3f3.png",
+      "calendar": "General Learning HK (RevisionDojo)",
+      "hosts": [
+        "Harris Cheng",
+        "Shahman Ali",
+        "General Learning (RevisionDojo)",
+        "Tsz Hoi Lee",
+        "Jerome Tse",
+        "Michael"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "AI Salon - AI in Gaming",
+      "url": "https://luma.com/08wu1osg",
+      "start": "2026-11-03T16:30:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/event-covers/rj/657ba03d-7114-41fe-9707-0c000149a9b9.jpg",
+      "calendar": "Personal",
+      "hosts": [
+        "Ingrid af Sandeberg",
+        "Melina Diamantoglou",
+        "Tony Malm GS1"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "Premier Event",
+      "url": "https://luma.com/4jehoued",
+      "start": "2026-11-04T16:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/ij/9468d97e-d441-4d74-85f2-0d319a0a6415.png",
+      "calendar": "KTH Robotics Society",
+      "hosts": [
+        "Emmanouil (Manos) Karatheodorou",
+        "Harjodh Singh",
+        "Jean-Baptiste Gerard"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "Who will control the intelligence of the future? Breakfast talk with Silvija Seres - STHLM",
+      "url": "https://luma.com/tgnjb69i",
+      "start": "2026-11-06T06:45:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/ld/4a049c0c-8be7-4354-8255-ee45c1034d8e.png",
+      "calendar": "Epicenter",
+      "hosts": [
+        "Linnea Hakansson",
+        "Matilda Muhr Göransson"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "Founders Live Stockholm",
+      "url": "https://luma.com/founderslive-stockholm-2026-11",
+      "start": "2026-11-10T16:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/e1/8907737b-e82a-4b2e-b2a8-9182a19784a2.png",
+      "calendar": "Founders Live",
+      "hosts": [
+        "Naimul Abd"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "AI4Metascience NeurIPS Hackathon Kick-Off",
+      "url": "https://luma.com/6b08hj2b",
+      "start": "2026-11-10T16:30:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/79/3c932c5b-7ff6-4fbe-93fd-049eaee5a76b.png",
+      "calendar": "Stockholm AI",
+      "hosts": [
+        "Stockholm AI",
+        "Vijeta Sharma"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "Grok Bot Stockholm Meetup x Aalto Founder School",
+      "url": "https://luma.com/m5yicjqi",
+      "start": "2026-11-11T16:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/x7/1c2a33e7-1c57-42f5-a9d1-3f65150d316f.png",
+      "calendar": "Personal",
+      "hosts": [
+        "Hitesh Chander Monga",
+        "Founder School"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "CTO NIGHT",
+      "url": "https://luma.com/17vbsfom",
+      "start": "2026-11-12T15:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/4l/66708820-13e2-4391-8337-d4d09ba5fd7a.png",
+      "calendar": "Antler Nordics",
+      "hosts": [
+        "Antler Nordics",
+        "Martin Falck",
+        "Joseph Michael",
+        "Erik Bergkvist"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "Leyr x Lovable Buildathon: Build Your EHR",
+      "url": "https://luma.com/dm1pljah",
+      "start": "2026-11-15T11:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/w7/49110b41-c54b-4faf-8503-4d7adcaff9a8.png",
+      "calendar": "Personal",
+      "hosts": [
+        "Leyr Health"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "kanketsu x OpenAI",
+      "url": "https://luma.com/d29u1k79",
+      "start": "2026-11-18T06:30:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/a5/1794f93f-be3a-4c1d-ac30-577e1c4954f9.png",
+      "calendar": "kanketsu カンケツ",
+      "hosts": [
+        "Evgenii Kondratev",
+        "Emil Härdling",
+        "Hugo Norberg",
+        "Philip Andersson"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "AI Safety Day Sweden 2026",
+      "url": "https://luma.com/6oz9b743",
+      "start": "2026-11-21T11:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Sköndal, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/0m/9220e118-a62d-4b1b-a702-fb343669f66f.png",
+      "calendar": "Personal",
+      "hosts": [
+        "Paul Ruppelt",
+        "Kelvin Soen",
+        "Aleksandra Midor"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "DevDay Exchange Community Workshop: Stockholm",
+      "url": "https://luma.com/8bo9tr8d",
+      "start": "2026-11-21T16:30:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/hf/fac53457-a548-4d01-ab24-19542468fd83.jpg",
+      "calendar": "Codex Community Events",
+      "hosts": [
+        "Shuang Zheng",
+        "Rhiannon Payne",
+        "Pauline P. Narvas",
+        "Magnus Gille",
+        "Philip Andersson"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
+      "name": "Road to START Summit - CPH Edition",
+      "url": "https://luma.com/qovq35xe",
+      "start": "2026-11-03T17:00:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/a4/a275c5a9-e368-49e5-80ca-8e8aef851030.png",
+      "calendar": "Personal",
+      "hosts": [
+        "SICK"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": false
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
+      "name": "Copenhagen | Claude Code for Developers",
+      "url": "https://luma.com/9uic6qug",
+      "start": "2026-11-04T16:00:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/fl/165b4787-1d2a-43f6-a8e5-d718f2ea150c.png",
+      "calendar": "Claude Community Events",
+      "hosts": [
+        "Claude Community",
+        "Jacob Langvad Nilsson"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": true
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
+      "name": "Data & AI breakfast",
+      "url": "https://luma.com/lbrr0qb7",
+      "start": "2026-11-12T07:30:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/n2/8ff35735-61ad-428c-a220-8084ad0c8a48.png",
+      "calendar": "Steep events",
+      "hosts": [
+        "Karin Nordqvist",
+        "Steep events"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
+      "name": "Copenhagen | Claude for Science",
+      "url": "https://luma.com/claude-xq8s",
+      "start": "2026-11-12T15:00:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/09/74a8aa74-3c1f-401c-834c-d237b78084c0.png",
+      "calendar": "Claude Community Events",
+      "hosts": [
+        "Jacob Langvad Nilsson"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
+      "name": "AI x Design Copenhagen - 5th Edition",
+      "url": "https://luma.com/kyxoekk9",
+      "start": "2026-11-19T16:00:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "Frederiksberg",
+      "cover_url": "https://images.lumacdn.com/uploads/oy/c1436ac8-e9be-4dca-b8bc-cb6988a340bb.png",
+      "calendar": "l x l - learning experience lab",
+      "hosts": [
+        "Erzsébet Bálint",
+        "Marius Barbuța"
+      ],
+      "is_free": false,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
+      "name": "Inside the World of Microchips - TechTalk with Jørgen Kragh Jakobsen",
+      "url": "https://luma.com/4lzlc9ej",
+      "start": "2026-11-26T14:45:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/ws/34f99e93-47d2-4df3-9862-951ec990895f.png",
+      "calendar": "TechStation | HardTech Startup Hub",
+      "hosts": [
+        "Hans Øllgaard Grevsen",
+        "TechStation"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Oslo",
+      "hub": "Europe",
+      "name": "Calm Tech Café: Workshop on Calm Tech Ecosystem Generation",
+      "url": "https://luma.com/662te5bj",
+      "start": "2026-11-05T08:00:00.000Z",
+      "timezone": "Europe/Oslo",
+      "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/uploads/2x/4e1d4b66-e22b-4717-b51a-47c3a8e9e89b.jpg",
+      "calendar": "Personal",
+      "hosts": [
+        "Forskningsparken"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Oslo",
+      "hub": "Europe",
+      "name": "Power Ladies - Ledelse, kapital og AI i en usikker tid",
+      "url": "https://luma.com/uxb8qyow",
+      "start": "2026-11-17T16:00:00.000Z",
+      "timezone": "Europe/Oslo",
+      "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/event-covers/bi/d1939d99-bc92-4b50-8322-adae0ed6e94f.png",
+      "calendar": "Personal",
+      "hosts": [
+        "Yrja Oftedahl"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Oslo",
+      "hub": "Europe",
+      "name": "OSWACon Pre-Event: Modernising Legacy",
+      "url": "https://luma.com/sg20c3eu",
+      "start": "2026-11-19T16:00:00.000Z",
+      "timezone": "Europe/Oslo",
+      "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/uploads/a2/02187c01-3980-4231-9a59-7babbb1dad52.png",
+      "calendar": "Oslo Software Architecture",
+      "hosts": [
+        "Colin Coleman",
+        "Dervis M",
+        "Magnus Elden"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Oslo",
+      "hub": "Europe",
+      "name": "Sanity Pioneers: From Media Migration to Agents",
+      "url": "https://luma.com/sanity-kvnd",
+      "start": "2026-11-24T17:00:00.000Z",
+      "timezone": "Europe/Oslo",
+      "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/uploads/yz/c1949b46-c2fe-4ef6-a251-7b41ac7c1f7a.png",
+      "calendar": "Sanity",
+      "hosts": [
+        "Evelina Wahlström"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    }
+  ]
+}
