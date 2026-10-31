@@ -14,7 +14,7 @@ node events/tools/fetch-luma.mjs
 
 Review the diff, then commit `events/data/events.json`.
 
-The script keeps future events whose name, calendar, or hosts match AI, tech, climate, startup, founder, innovation, and nearby terms. It drops clear nightlife, sports, and unrelated social events.
+The script keeps future events whose name, calendar, or hosts match AI, tech, climate, startup, founder, innovation, and nearby terms. It drops clear nightlife, sports, and unrelated social events. Each event stores `cover_url` from Luma's `event.cover_url`. The page hotlinks a small thumbnail of that file from Luma's image CDN.
 
 ## Add a city
 

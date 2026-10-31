@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T08:00:42.162Z",
+  "fetched_at": "2026-10-31T08:46:06.540Z",
   "events": [
     {
       "city": "Hong Kong",
@@ -9,6 +9,7 @@
       "start": "2026-11-03T02:00:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Kowloon, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/qx/988c7ada-54c8-4224-9bc6-ea14f0df0621.jpg",
       "calendar": "Personal",
       "hosts": [
         "ETHTAO",
@@ -26,6 +27,7 @@
       "start": "2026-11-03T06:00:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/0z/fbfc0ced-22ed-405c-b6cb-318c029190ff.png",
       "calendar": "Team1 China",
       "hosts": [
         "Avalanche中文",
@@ -44,6 +46,7 @@
       "start": "2026-11-03T06:00:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/om/70a28bf6-592b-480c-948c-a7caf835be01.png",
       "calendar": "Hong Kong FinTech Week x StartmeupHK 2026",
       "hosts": [
         "Finoverse",
@@ -61,6 +64,7 @@
       "start": "2026-11-03T08:30:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/x0/12331391-5f50-4d10-a863-43608e1345e6.jpg",
       "calendar": "APAC Events",
       "hosts": [
         "Fireblocks Events"
@@ -77,6 +81,7 @@
       "start": "2026-11-04T05:30:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/fy/a14e01cd-2f34-4968-8600-a5eb0e8cca52.png",
       "calendar": "Personal",
       "hosts": [
         "Thibaut Gravelle-Vivien",
@@ -103,6 +108,7 @@
       "start": "2026-11-04T07:00:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/6e/22dcd581-e5df-4136-8f23-c767a23162a3.png",
       "calendar": "Hong Kong FinTech Week x StartmeupHK 2026",
       "hosts": [
         "Finoverse",
@@ -121,6 +127,7 @@
       "start": "2026-11-09T11:00:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/pw/45f9747b-4d1d-407d-9e09-e94af800515d.png",
       "calendar": "Mind Made",
       "hosts": [
         "Sharon Ng"
@@ -137,6 +144,7 @@
       "start": "2026-11-12T11:30:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Kowloon, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/11/8e954a02-feb2-43ed-8356-ac8a0aae5307.png",
       "calendar": "Auki Labs",
       "hosts": [
         "Nils",
@@ -154,6 +162,7 @@
       "start": "2026-11-17T10:30:00.000Z",
       "timezone": "Asia/Hong_Kong",
       "venue": "Hong Kong Island, Hong Kong",
+      "cover_url": "https://images.lumacdn.com/uploads/ka/fa51de12-8abd-4037-9017-d0ea1feba3f3.png",
       "calendar": "General Learning HK (RevisionDojo)",
       "hosts": [
         "Harris Cheng",
@@ -175,6 +184,7 @@
       "start": "2026-11-03T16:30:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/event-covers/rj/657ba03d-7114-41fe-9707-0c000149a9b9.jpg",
       "calendar": "Personal",
       "hosts": [
         "Ingrid af Sandeberg",
@@ -193,6 +203,7 @@
       "start": "2026-11-04T16:00:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/ij/9468d97e-d441-4d74-85f2-0d319a0a6415.png",
       "calendar": "KTH Robotics Society",
       "hosts": [
         "Emmanouil (Manos) Karatheodorou",
@@ -211,6 +222,7 @@
       "start": "2026-11-06T06:45:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/ld/4a049c0c-8be7-4354-8255-ee45c1034d8e.png",
       "calendar": "Epicenter",
       "hosts": [
         "Linnea Hakansson",
@@ -228,6 +240,7 @@
       "start": "2026-11-10T16:00:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/e1/8907737b-e82a-4b2e-b2a8-9182a19784a2.png",
       "calendar": "Founders Live",
       "hosts": [
         "Naimul Abd"
@@ -244,6 +257,7 @@
       "start": "2026-11-10T16:30:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/79/3c932c5b-7ff6-4fbe-93fd-049eaee5a76b.png",
       "calendar": "Stockholm AI",
       "hosts": [
         "Stockholm AI",
@@ -261,6 +275,7 @@
       "start": "2026-11-11T16:00:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/x7/1c2a33e7-1c57-42f5-a9d1-3f65150d316f.png",
       "calendar": "Personal",
       "hosts": [
         "Hitesh Chander Monga",
@@ -278,6 +293,7 @@
       "start": "2026-11-12T15:00:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/4l/66708820-13e2-4391-8337-d4d09ba5fd7a.png",
       "calendar": "Antler Nordics",
       "hosts": [
         "Antler Nordics",
@@ -297,6 +313,7 @@
       "start": "2026-11-15T11:00:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/w7/49110b41-c54b-4faf-8503-4d7adcaff9a8.png",
       "calendar": "Personal",
       "hosts": [
         "Leyr Health"
@@ -313,6 +330,7 @@
       "start": "2026-11-18T06:30:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/a5/1794f93f-be3a-4c1d-ac30-577e1c4954f9.png",
       "calendar": "kanketsu カンケツ",
       "hosts": [
         "Evgenii Kondratev",
@@ -332,6 +350,7 @@
       "start": "2026-11-21T11:00:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Sköndal, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/0m/9220e118-a62d-4b1b-a702-fb343669f66f.png",
       "calendar": "Personal",
       "hosts": [
         "Paul Ruppelt",
@@ -350,6 +369,7 @@
       "start": "2026-11-21T16:30:00.000Z",
       "timezone": "Europe/Stockholm",
       "venue": "Stockholm, Sweden",
+      "cover_url": "https://images.lumacdn.com/uploads/hf/fac53457-a548-4d01-ab24-19542468fd83.jpg",
       "calendar": "Codex Community Events",
       "hosts": [
         "Shuang Zheng",
@@ -370,6 +390,7 @@
       "start": "2026-11-03T17:00:00.000Z",
       "timezone": "Europe/Copenhagen",
       "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/a4/a275c5a9-e368-49e5-80ca-8e8aef851030.png",
       "calendar": "Personal",
       "hosts": [
         "SICK"
@@ -386,6 +407,7 @@
       "start": "2026-11-04T16:00:00.000Z",
       "timezone": "Europe/Copenhagen",
       "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/fl/165b4787-1d2a-43f6-a8e5-d718f2ea150c.png",
       "calendar": "Claude Community Events",
       "hosts": [
         "Claude Community",
@@ -403,6 +425,7 @@
       "start": "2026-11-12T07:30:00.000Z",
       "timezone": "Europe/Copenhagen",
       "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/n2/8ff35735-61ad-428c-a220-8084ad0c8a48.png",
       "calendar": "Steep events",
       "hosts": [
         "Karin Nordqvist",
@@ -420,6 +443,7 @@
       "start": "2026-11-12T15:00:00.000Z",
       "timezone": "Europe/Copenhagen",
       "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/09/74a8aa74-3c1f-401c-834c-d237b78084c0.png",
       "calendar": "Claude Community Events",
       "hosts": [
         "Jacob Langvad Nilsson"
@@ -436,6 +460,7 @@
       "start": "2026-11-19T16:00:00.000Z",
       "timezone": "Europe/Copenhagen",
       "venue": "Frederiksberg",
+      "cover_url": "https://images.lumacdn.com/uploads/oy/c1436ac8-e9be-4dca-b8bc-cb6988a340bb.png",
       "calendar": "l x l - learning experience lab",
       "hosts": [
         "Erzsébet Bálint",
@@ -453,6 +478,7 @@
       "start": "2026-11-26T14:45:00.000Z",
       "timezone": "Europe/Copenhagen",
       "venue": "København, Denmark",
+      "cover_url": "https://images.lumacdn.com/uploads/ws/34f99e93-47d2-4df3-9862-951ec990895f.png",
       "calendar": "TechStation | HardTech Startup Hub",
       "hosts": [
         "Hans Øllgaard Grevsen",
@@ -470,6 +496,7 @@
       "start": "2026-11-05T08:00:00.000Z",
       "timezone": "Europe/Oslo",
       "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/uploads/2x/4e1d4b66-e22b-4717-b51a-47c3a8e9e89b.jpg",
       "calendar": "Personal",
       "hosts": [
         "Forskningsparken"
@@ -486,6 +513,7 @@
       "start": "2026-11-17T16:00:00.000Z",
       "timezone": "Europe/Oslo",
       "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/event-covers/bi/d1939d99-bc92-4b50-8322-adae0ed6e94f.png",
       "calendar": "Personal",
       "hosts": [
         "Yrja Oftedahl"
@@ -502,6 +530,7 @@
       "start": "2026-11-19T16:00:00.000Z",
       "timezone": "Europe/Oslo",
       "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/uploads/a2/02187c01-3980-4231-9a59-7babbb1dad52.png",
       "calendar": "Oslo Software Architecture",
       "hosts": [
         "Colin Coleman",
@@ -520,6 +549,7 @@
       "start": "2026-11-24T17:00:00.000Z",
       "timezone": "Europe/Oslo",
       "venue": "Oslo, Norway",
+      "cover_url": "https://images.lumacdn.com/uploads/yz/c1949b46-c2fe-4ef6-a251-7b41ac7c1f7a.png",
       "calendar": "Sanity",
       "hosts": [
         "Evelina Wahlström"

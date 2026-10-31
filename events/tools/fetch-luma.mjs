@@ -154,6 +154,18 @@ function venueOf(event) {
   return "Online";
 }
 
+function coverUrlOf(event) {
+  const raw = String(event.cover_url || "").trim();
+  if (!raw) return null;
+  try {
+    const parsed = new URL(raw);
+    if (parsed.protocol !== "https:" || !/(^|\.)lumacdn\.com$/i.test(parsed.hostname)) return null;
+    return parsed.href;
+  } catch {
+    return null;
+  }
+}
+
 function toEvent(entry, city) {
   const event = entry.event || {};
   const name = String(event.name || "").trim();
@@ -178,6 +190,7 @@ function toEvent(entry, city) {
       start,
       timezone: event.timezone || "UTC",
       venue: venueOf(event),
+      cover_url: coverUrlOf(event),
       calendar: calendar || null,
       hosts,
       is_free: Boolean(ticket.is_free),
