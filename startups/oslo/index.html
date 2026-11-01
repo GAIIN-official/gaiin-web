@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Oslo | GAIIN Startup Database</title>
+<meta name="description" content="GAIIN Startup Database. Provisional.">
+<meta property="og:site_name" content="GAIIN">
+<meta property="og:title" content="Oslo | GAIIN Startup Database">
+<meta property="og:url" content="https://www.gaiin.xyz/startups/oslo">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GEP58HBY4R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GEP58HBY4R');
+</script>
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #0a1730; }
+  body { overflow-x: hidden; font-family: 'Libre Franklin', sans-serif; color: #f7f9fb; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #d9877c; color: #0a1730; }
+  a { text-decoration: none; }
+  h1, h2, h3 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  @keyframes gaiin-pulse { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: -1000; } }
+  @keyframes gaiin-flicker { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+  .pulse { animation: gaiin-pulse 10s linear infinite; }
+  .cube { width: 8px; height: 8px; background: #d9877c; display: block; animation: gaiin-flicker 1.4s ease-in-out infinite; }
+  .header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding: 20px clamp(16px,3vw,40px); display: flex; align-items: center; justify-content: space-between; gap: 16px; pointer-events: none; }
+  .header > * { pointer-events: auto; }
+  .nav-pill { display: flex; align-items: center; gap: 4px; background: #0d2951; border-radius: 999px; padding: 6px; flex-wrap: wrap; justify-content: center; }
+  .nav-pill a { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #dce7f2; padding: 9px 14px; border-radius: 999px; transition: background-color .2s, color .2s; white-space: nowrap; }
+  .nav-pill a:hover { background: #16305a; color: #fff; }
+  @media (max-width: 720px) { .nav-pill--menu { display: none; } }
+  .header-linkedin { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #0d2951; flex-shrink: 0; transition: transform .2s, opacity .2s; }
+  .header-linkedin:hover { transform: translateY(-2px); opacity: .85; }
+  .menu-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: #0d2951; color: #EDB3A8; cursor: pointer; flex-shrink: 0; }
+  .menu-toggle:hover, .menu-toggle[aria-expanded="true"] { color: #d9877c; }
+  .menu-toggle:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 3px; }
+  .menu-toggle__bars { position: relative; display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
+  .menu-toggle__bars::before, .menu-toggle__bars::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
+  .menu-toggle__bars::before { transform: translateY(-6px); }
+  .menu-toggle__bars::after { transform: translateY(6px); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars { background: transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::before { transform: rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle__bars::after { transform: rotate(-45deg); }
+  .mobile-menu { position: absolute; top: calc(100% - 8px); left: clamp(16px,3vw,40px); right: clamp(16px,3vw,40px); background: #0a1730; border: 1px solid rgba(237,179,168,.35); border-radius: 20px; padding: 10px; display: flex; flex-direction: column; gap: 2px; }
+  .mobile-menu[hidden] { display: none; }
+  .mobile-menu a { font-family: 'Fragment Mono', monospace; font-size: 13px; letter-spacing: .04em; color: #dce7f2; padding: 13px 14px; border-radius: 12px; }
+  .mobile-menu a:hover { background: #0d2951; color: #d9877c; }
+  .mobile-menu__sep { height: 1px; margin: 6px 14px; background: rgba(201,167,158,.3); }
+  @media (max-width: 720px) { .header-linkedin { display: none; } .menu-toggle { display: inline-flex; } }
+  @media (min-width: 721px) { .mobile-menu { display: none !important; } }
+  section { padding: clamp(56px,8vw,120px) clamp(20px,4vw,64px); }
+  .hero { position: relative; background: #0d2951; display: flex; align-items: flex-end; padding: clamp(120px,18vh,180px) clamp(20px,4vw,64px) clamp(48px,7vh,88px); overflow: hidden; }
+  .bg-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .band { height: 56px; }
+  .band--to-light { background: #0d2951; background-image: linear-gradient(#0a1730 50%, transparent 50%), repeating-linear-gradient(90deg, #0a1730 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
+  .band--to-dark { background: #0a1730; background-image: linear-gradient(#0a1730 50%, transparent 50%), repeating-linear-gradient(90deg, #0d2951 0 24px, transparent 24px 48px); background-size: 100% 100%, 48px 28px; background-position: 0 28px, 0 0; background-repeat: no-repeat, repeat-x; }
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #7d9ac4; }
+  .h1 { font-size: clamp(40px,6vw,84px); line-height: 1.02; color: #f7f9fb; }
+  .lede { font-size: 15px; line-height: 1.7; color: #a8bcd8; max-width: 640px; }
+  .note { font-family: 'Fragment Mono', monospace; font-size: 11.5px; line-height: 1.65; color: #a8bcd8; max-width: 720px; }
+  .stack { display: flex; flex-direction: column; }
+  footer { background: #0a1730; color: #8ea5c4; padding: clamp(40px,5vw,70px) clamp(20px,4vw,64px); display: flex; flex-direction: column; gap: 32px; }
+  .footer-top { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
+  .footer-col { display: flex; flex-direction: column; gap: 12px; font-family: 'Fragment Mono', monospace; font-size: 12px; }
+  .footer-col a { color: #8ea5c4; }
+  .footer-col a:hover { color: #d9877c; }
+  .footer-mark { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #7d9ac4; }
+  .footer-bottom { border-top: 1px solid #1c2f52; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11px; color: #5d7599; }
+  .social-link { display: inline-flex; }
+  .pill-cta { display: inline-flex; align-items: center; font-family: 'Fragment Mono', monospace; font-size: 11.5px; letter-spacing: .04em; padding: 8px 18px; border-radius: 999px; }
+  .pill-cta--primary { background: #16305a; color: #dce7f2; }
+  .pill-cta--secondary { background: #0d2951; color: #a8bcd8; }
+  .wrap { max-width: 960px; display: flex; flex-direction: column; gap: 22px; }
+  .search { display: flex; }
+  .search input { width: 100%; background: #0d2951; color: #f7f9fb; border: 1px solid #1c2f52; border-radius: 999px; padding: 12px 18px; font-family: 'Libre Franklin', sans-serif; font-size: 15px; }
+  .search input:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .filters { display: flex; flex-direction: column; gap: 10px; }
+  .filters__row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #EDB3A8; background: transparent; border: 1px solid #EDB3A8; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+  .filter-chip:hover { border-color: #d9877c; color: #d9877c; }
+  .filter-chip[aria-pressed="true"], .filter-chip[aria-current="page"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
+  .filter-chip[aria-pressed="true"]:hover, .filter-chip[aria-current="page"]:hover { color: #0a1730; }
+  .filter-chip:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .filter-chip--region { color: #ffffff; border-color: #ffffff; }
+  .filter-chip--region:hover { color: #ffffff; border-color: #ffffff; }
+  .filter-chip--region[aria-pressed="true"], .filter-chip--region[aria-current="page"],
+  .filter-chip--region[aria-pressed="true"]:hover, .filter-chip--region[aria-current="page"]:hover { color: #0a1730; background: #ffffff; border-color: #ffffff; }
+  .filter-chip--region:focus-visible { outline-color: #ffffff; }
+  .list { display: flex; flex-direction: column; gap: 12px; }
+  .startup-card { display: grid; grid-template-columns: 168.75px minmax(0, 1fr); column-gap: 18px; align-items: center; padding: 16px; background: #0d2951; border: 1px solid #1c2f52; border-radius: 16px; }
+  .startup-card[hidden] { display: none; }
+  .startup-card__media { position: relative; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
+  .startup-card__media--light { background: #f7f9fb; }
+  .startup-card__media--navy { background: #0a1730; }
+  .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .startup-card__media img { object-fit: contain; display: block; padding: 14px; }
+  .logo-fallback { display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 28px; letter-spacing: .08em; }
+  .startup-card__media--light .logo-fallback { color: #0a1730; }
+  .startup-card__media--navy .logo-fallback { color: #EDB3A8; }
+  .startup-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+  .startup-card__sector { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #EDB3A8; }
+  .startup-card__name { font-size: clamp(22px,2vw,28px); line-height: 1.15; color: #f7f9fb; }
+  .startup-card__desc { font-size: 15px; line-height: 1.6; color: #a8bcd8; }
+  .startup-card__meta { font-size: 14px; line-height: 1.5; color: #8ea5c4; }
+  .market-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .market-chip { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #EDB3A8; border: 1px solid #EDB3A8; border-radius: 999px; padding: 4px 10px; }
+  .startup-card__value a { color: #d9877c; border-bottom: 1px solid #d9877c; font-family: 'Fragment Mono', monospace; font-size: 12px; }
+  .startup-card__value a:hover { color: #EDB3A8; border-color: #EDB3A8; }
+  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #d9877c; border-bottom: 1px solid #d9877c; }
+  .link-under:hover { color: #EDB3A8; border-color: #EDB3A8; }
+  .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .06em; color: #8ea5c4; }
+  .empty { font-size: 15px; line-height: 1.7; color: #a8bcd8; }
+  .empty[hidden] { display: none; }
+  @media (max-width: 720px) {
+    .startup-card { grid-template-columns: 116px minmax(0, 1fr); column-gap: 15px; align-items: start; padding: 12px; }
+    .startup-card__media { width: 116px; height: 116px; border-radius: 12px; }
+    .startup-card__name { font-size: 18px; }
+    .logo-fallback { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="/index.html" aria-label="GAIIN home" style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#0d2951;flex-shrink:0;"><svg viewBox="0 0 132 70" fill="none" style="width:34px;height:auto;">
+      <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
+    </svg></a>
+  <nav class="nav-pill nav-pill--menu">
+    <a href="/index.html#why">Why GAIIN</a>
+    <a href="/index.html#network">The Network</a>
+    <a href="/index.html#programmes">Programmes</a>
+    <a href="/index.html#membership">Membership</a>
+    <a href="/signal">Signal</a>
+    <a href="/events">Events</a>
+  </nav>
+  <a class="header-linkedin" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
+    <svg viewBox="0 0 32 32" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="liGradHeader" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#0d2951"/>
+          <stop offset="1" stop-color="#d9877c"/>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="8" fill="url(#liGradHeader)"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+    </svg>
+  </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="menu-toggle__bars" aria-hidden="true"></span></button>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Site sections" hidden>
+    <a href="/index.html#why">Why GAIIN</a>
+    <a href="/index.html#network">The Network</a>
+    <a href="/index.html#programmes">Programmes</a>
+    <a href="/index.html#membership">Membership</a>
+    <a href="/signal">Signal</a>
+    <a href="/events">Events</a>
+    <span class="mobile-menu__sep" aria-hidden="true"></span>
+    <a href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
+</header>
+<main class="hero" id="top">
+  <svg class="bg-lines" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <defs><linearGradient id="heroGrad" x1="0" y1="900" x2="1920" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#dce7f2" stop-opacity="0"/><stop offset="0.5" stop-color="#dce7f2"/><stop offset="1" stop-color="#dce7f2" stop-opacity="0"/></linearGradient></defs>
+    <path d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="url(#heroGrad)" stroke-opacity="0.28" stroke-width="1"/>
+    <path class="pulse" d="M-40 880H520C531 880 540 871 540 860V600C540 589 549 580 560 580H900C911 580 920 571 920 560V320C920 309 929 300 940 300H1480C1491 300 1500 291 1500 280V80C1500 69 1509 60 1520 60H1980" stroke="#d9877c" stroke-width="1.6" fill="none" pathLength="1000" stroke-dasharray="110 890"/>
+  </svg>
+  <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,40px);">
+    <div class="eyebrow"><span class="cube"></span><span>Startup database</span></div>
+    <h1 class="h1">Oslo</h1>
+    <p class="lede">TODO (Comms): one sentence introducing this database.</p>
+  </div>
+</main>
+<div class="band band--to-light"></div>
+<section style="background:#0a1730;">
+  <div class="wrap">
+    <form class="search" role="search" onsubmit="return false">
+      <label class="visually-hidden" for="startup-search" style="position:absolute;width:1px;height:1px;overflow:hidden;">Search startups</label>
+      <input id="startup-search" type="search" placeholder="Search name, founder, or market" autocomplete="off">
+    </form>
+    <div class="filters">
+      <div class="filters__row" role="navigation" aria-label="City"><a class="filter-chip filter-chip--region" href="/startups">All</a><a class="filter-chip" href="/startups/hong-kong">Hong Kong</a><a class="filter-chip" href="/startups/stockholm">Stockholm</a><a class="filter-chip" href="/startups/copenhagen">Copenhagen</a><a class="filter-chip" href="/startups/oslo" aria-current="page">Oslo</a></div>
+      <div class="filters__row" role="group" aria-label="Operating market"><button class="filter-chip" type="button" data-filter="market" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="market" data-value="Europe" aria-pressed="false">Europe</button><button class="filter-chip" type="button" data-filter="market" data-value="Global" aria-pressed="false">Global</button><button class="filter-chip" type="button" data-filter="market" data-value="Global, including San Francisco" aria-pressed="false">Global, including San Francisco</button><button class="filter-chip" type="button" data-filter="market" data-value="UK" aria-pressed="false">UK</button><button class="filter-chip" type="button" data-filter="market" data-value="US" aria-pressed="false">US</button></div>
+      <div class="filters__row" role="group" aria-label="Sector"><button class="filter-chip" type="button" data-filter="sector" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="sector" data-value="AI" aria-pressed="false">AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Deep tech" aria-pressed="false">Deep tech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Climate / energy" aria-pressed="false">Climate / energy</button><button class="filter-chip" type="button" data-filter="sector" data-value="Fintech" aria-pressed="false">Fintech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Robotics / physical AI" aria-pressed="false">Robotics / physical AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Health" aria-pressed="false">Health</button><button class="filter-chip" type="button" data-filter="sector" data-value="New business models" aria-pressed="false">New business models</button></div>
+    </div>
+    <div class="list" id="startup-list">
+      <article class="startup-card" data-search="elliptic labs software sensors that use ultrasound and ai to detect presence and gestures in devices.  oslo oslo global ai deep tech" data-markets="Global" data-sectors="AI|Deep tech">
+    <div class="startup-card__media startup-card__media--light"><img src="https://www.ellipticlabs.com/wp-content/uploads/2017/10/Logo-No-Ellipse-Black-72-dpi-with-padding.png" alt="" width="400" height="400" loading="lazy" data-initials="EL"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">AI · Deep tech</p>
+      <h2 class="startup-card__name">Elliptic Labs</h2>
+      <p class="startup-card__desc">Software sensors that use ultrasound and AI to detect presence and gestures in devices.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://ellipticlabs.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="enode one api for connecting evs, chargers, solar and batteries so energy firms can manage them.  oslo oslo europe us climate / energy new business models" data-markets="Europe|US" data-sectors="Climate / energy|New business models">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">EN</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Climate / energy · New business models</p>
+      <h2 class="startup-card__name">Enode</h2>
+      <p class="startup-card__desc">One API for connecting EVs, chargers, solar and batteries so energy firms can manage them.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
+      
+      <a class="link-under" href="https://enode.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="exabel analytics platform that helps investors use alternative data for investment decisions. øyvind grotmol oslo oslo europe us fintech ai" data-markets="Europe|US" data-sectors="Fintech|AI">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">EX</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Fintech · AI</p>
+      <h2 class="startup-card__name">Exabel</h2>
+      <p class="startup-card__desc">Analytics platform that helps investors use alternative data for investment decisions.</p>
+      <p class="startup-card__meta">Founders: Øyvind Grotmol</p>
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
+      
+      <a class="link-under" href="https://www.exabel.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="findable ai that sorts and searches building documents for property owners and managers.  oslo oslo europe ai" data-markets="Europe" data-sectors="AI">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">FI</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">AI</p>
+      <h2 class="startup-card__name">Findable</h2>
+      <p class="startup-card__desc">AI that sorts and searches building documents for property owners and managers.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span></div>
+      
+      <a class="link-under" href="https://www.findable.ai" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="flocean subsea desalination plants that use sea pressure to cut energy needs.  oslo oslo global climate / energy deep tech" data-markets="Global" data-sectors="Climate / energy|Deep tech">
+    <div class="startup-card__media startup-card__media--navy"><img src="https://static.wixstatic.com/media/cc2b8c_96d04c0c60d64369884b72de4bd15c1e~mv2.png/v1/fill/w_193,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Flocean_logo_White.png" alt="" width="400" height="400" loading="lazy" data-initials="FL"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Climate / energy · Deep tech</p>
+      <h2 class="startup-card__name">Flocean</h2>
+      <p class="startup-card__desc">Subsea desalination plants that use sea pressure to cut energy needs.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://www.flocean.green" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="heimdall power sensors on power lines and software that show how much more current a grid can carry.  oslo oslo europe us climate / energy deep tech" data-markets="Europe|US" data-sectors="Climate / energy|Deep tech">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">HP</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Climate / energy · Deep tech</p>
+      <h2 class="startup-card__name">Heimdall Power</h2>
+      <p class="startup-card__desc">Sensors on power lines and software that show how much more current a grid can carry.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
+      
+      <a class="link-under" href="https://www.heimdallpower.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="muybridge camera systems that use many sensors and software to create virtual camera views. håkon espeland anders tomren oslo oslo global deep tech ai" data-markets="Global" data-sectors="Deep tech|AI">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">MU</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Deep tech · AI</p>
+      <h2 class="startup-card__name">Muybridge</h2>
+      <p class="startup-card__desc">Camera systems that use many sensors and software to create virtual camera views.</p>
+      <p class="startup-card__meta">Founders: Håkon Espeland, Anders Tomren</p>
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://www.muybridge.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="no isolation makes av1, a classroom robot that keeps children who cannot attend school connected.  oslo oslo europe uk robotics / physical ai health" data-markets="Europe|UK" data-sectors="Robotics / physical AI|Health">
+    <div class="startup-card__media startup-card__media--navy"><img src="https://cdn.prod.website-files.com/65326c39faa870b3c636a52a/65e8f649f21d96dfa7bb23af_NoIsolation_logo_white%20.svg" alt="" width="400" height="400" loading="lazy" data-initials="NI"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Robotics / physical AI · Health</p>
+      <h2 class="startup-card__name">No Isolation</h2>
+      <p class="startup-card__desc">Makes AV1, a classroom robot that keeps children who cannot attend school connected.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">UK</span></div>
+      
+      <a class="link-under" href="https://www.noisolation.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="pixotope real time graphics and virtual production software for broadcast and live events.  oslo oslo global deep tech new business models" data-markets="Global" data-sectors="Deep tech|New business models">
+    <div class="startup-card__media startup-card__media--navy"><img src="https://www.pixotope.com/hs-fs/hubfs/pixotope-white-logo-trimmed.png?width=1004&amp;height=234&amp;name=pixotope-white-logo-trimmed.png" alt="" width="400" height="400" loading="lazy" data-initials="PI"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Deep tech · New business models</p>
+      <h2 class="startup-card__name">Pixotope</h2>
+      <p class="startup-card__desc">Real time graphics and virtual production software for broadcast and live events.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://www.pixotope.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="remarkable makes paper-like digital tablets for reading, writing and note taking. magnus haug wanberg oslo oslo global deep tech new business models" data-markets="Global" data-sectors="Deep tech|New business models">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">RE</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Deep tech · New business models</p>
+      <h2 class="startup-card__name">reMarkable</h2>
+      <p class="startup-card__desc">Makes paper-like digital tablets for reading, writing and note taking.</p>
+      <p class="startup-card__meta">Founders: Magnus Haug Wanberg</p>
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://remarkable.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="saga robotics farm robots that use uv light to control mildew on berries and grapes.  oslo oslo europe us uk robotics / physical ai climate / energy" data-markets="Europe|US|UK" data-sectors="Robotics / physical AI|Climate / energy">
+    <div class="startup-card__media startup-card__media--light"><img src="https://static.wixstatic.com/media/ff8470_4152d05e34d24d7d9c6ec0915c1fb84d~mv2.png/v1/fill/w_49,h_14,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Thorvald-Logo.png" alt="" width="400" height="400" loading="lazy" data-initials="SR"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Robotics / physical AI · Climate / energy</p>
+      <h2 class="startup-card__name">Saga Robotics</h2>
+      <p class="startup-card__desc">Farm robots that use UV light to control mildew on berries and grapes.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span><span class="market-chip">UK</span></div>
+      
+      <a class="link-under" href="https://www.sagarobotics.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="sanity content platform that treats content as structured data for web, apps and ai. magnus hillestad even westvang øyvind rostad simen svale skogsrud oslo oslo global, including san francisco ai new business models" data-markets="Global, including San Francisco" data-sectors="AI|New business models">
+    <div class="startup-card__media startup-card__media--light"><img src="https://cdn.sanity.io/images/3do82whm/next/a6b034a3542f81f18a9e3f03a5dcb76d1e984cd5-850x559.png?auto=format" alt="" width="400" height="400" loading="lazy" data-initials="SA"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">AI · New business models</p>
+      <h2 class="startup-card__name">Sanity</h2>
+      <p class="startup-card__desc">Content platform that treats content as structured data for web, apps and AI.</p>
+      <p class="startup-card__meta">Founders: Magnus Hillestad, Even Westvang, Øyvind Rostad, Simen Svale Skogsrud</p>
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global, including San Francisco</span></div>
+      
+      <a class="link-under" href="https://www.sanity.io" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="sonair 3d ultrasonic sensor that helps robots detect people and obstacles safely.  oslo oslo global robotics / physical ai deep tech" data-markets="Global" data-sectors="Robotics / physical AI|Deep tech">
+    <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/65eeb61f568fba33bac91879/681a1c57cad00f178e9cb9a7_Sonair%20Logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="SO"></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Robotics / physical AI · Deep tech</p>
+      <h2 class="startup-card__name">Sonair</h2>
+      <p class="startup-card__desc">3D ultrasonic sensor that helps robots detect people and obstacles safely.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://www.sonair.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="spoor ai that detects and tracks birds and bats around wind turbines. ask helseth lorea coronado-garcia helge reikerås oslo oslo europe ai climate / energy" data-markets="Europe" data-sectors="AI|Climate / energy">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">SP</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">AI · Climate / energy</p>
+      <h2 class="startup-card__name">Spoor</h2>
+      <p class="startup-card__desc">AI that detects and tracks birds and bats around wind turbines.</p>
+      <p class="startup-card__meta">Founders: Ask Helseth, Lorea Coronado-Garcia, Helge Reikerås</p>
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span></div>
+      
+      <a class="link-under" href="https://www.spoor.ai" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="sportai ai that gives tennis and padel players technique feedback from video.  oslo oslo global ai" data-markets="Global" data-sectors="AI">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">SP</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">AI</p>
+      <h2 class="startup-card__name">SportAI</h2>
+      <p class="startup-card__desc">AI that gives tennis and padel players technique feedback from video.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      
+      <a class="link-under" href="https://sportai.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="strise ai platform that helps banks run anti money laundering and know your customer checks. marit rødevand patrick skjennum sigve søråsen oslo oslo europe fintech ai" data-markets="Europe" data-sectors="Fintech|AI">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">ST</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Fintech · AI</p>
+      <h2 class="startup-card__name">Strise</h2>
+      <p class="startup-card__desc">AI platform that helps banks run anti money laundering and know your customer checks.</p>
+      <p class="startup-card__meta">Founders: Marit Rødevand, Patrick Skjennum, Sigve Søråsen</p>
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span></div>
+      
+      <a class="link-under" href="https://strise.ai" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="telescope climate and nature risk analysis for property owners, banks and insurers.  oslo oslo europe climate / energy ai" data-markets="Europe" data-sectors="Climate / energy|AI">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">TE</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">Climate / energy · AI</p>
+      <h2 class="startup-card__name">Telescope</h2>
+      <p class="startup-card__desc">Climate and nature risk analysis for property owners, banks and insurers.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Europe</span></div>
+      
+      <a class="link-under" href="https://telescope.eco" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+<article class="startup-card" data-search="xeneta ocean and air freight rate benchmarking and market data for shippers.  oslo oslo global ai new business models" data-markets="Global" data-sectors="AI|New business models">
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">XE</span></div>
+    <div class="startup-card__body">
+      <p class="startup-card__sector">AI · New business models</p>
+      <h2 class="startup-card__name">Xeneta</h2>
+      <p class="startup-card__desc">Ocean and air freight rate benchmarking and market data for shippers.</p>
+      
+      <p class="startup-card__meta">HQ: Oslo</p>
+      <div class="market-chips"><span class="market-chip">Global</span></div>
+      <p class="startup-card__value"><a href="https://techcrunch.com/2022/09/13/xeneta-makes-a-splash-with-80m-on-a-265m-valuation-to-scale-its-crowdsourced-sea-and-air-freight-analytics/" target="_blank" rel="noopener noreferrer">US$265 million (2022)</a></p>
+      <a class="link-under" href="https://www.xeneta.com" target="_blank" rel="noopener noreferrer">Website</a>
+      <p class="startup-card__verified">Last verified 1 Nov 2026</p>
+    </div>
+  </article>
+    </div>
+    <p class="empty" id="startup-empty" hidden>No matching startups.</p>
+    <p class="note">Logos belong to their owners. Listed company? Request changes: TODO (contact).</p>
+  </div>
+</section>
+<div class="band band--to-dark"></div>
+<footer>
+  <div class="footer-top">
+    <div class="stack" style="gap:18px;">
+      <svg viewBox="0 0 132 70" fill="none" style="width:56px;height:auto;">
+      <path d="M10 60 A 56 56 0 0 1 66 4" stroke="#dce7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M66 4 A 56 56 0 0 1 122 60" stroke="#7d9ac4" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="10" cy="60" r="10" fill="#dce7f2"/><circle cx="122" cy="60" r="10" fill="#d9877c"/>
+    </svg>
+      <div class="footer-mark">Global Applied Intelligence<br>&amp; Innovation Network</div>
+    </div>
+    <nav class="footer-col">
+      <a href="/index.html#why">Why GAIIN</a>
+      <a href="/index.html#network">The Network</a>
+      <a href="/index.html#programmes">Programmes</a>
+      <a href="/index.html#membership">Membership</a>
+      <a href="/signal">Signal</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="footer-col" style="gap:12px;">
+      <a class="pill-cta pill-cta--primary" href="https://tally.so/r/dWoLBN" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Request consideration</a>
+      <a class="pill-cta pill-cta--secondary" href="https://tally.so/r/Zjk595" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Recommend someone</a>
+      <a href="/signal">Signal Briefs</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GAIIN</span>
+    <span>Launched in Hong Kong and the Nordics. Connected globally.</span>
+    <a class="social-link" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
+    <svg viewBox="0 0 32 32" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="liGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#0d2951"/>
+          <stop offset="1" stop-color="#d9877c"/>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="6" fill="url(#liGrad)"/>
+      <path fill="#ffffff" d="M11.5 13h-3v9h3v-9zm-1.5-1.4c1 0 1.62-.66 1.62-1.48-.02-.84-.62-1.48-1.6-1.48s-1.62.64-1.62 1.48c0 .82.62 1.48 1.6 1.48zM22.5 22h.02v-4.94c0-2.43-1.3-3.56-3.03-3.56-1.4 0-2.02.77-2.37 1.32v-1.13h-3v9h3v-4.9c0-.26.02-.52.1-.7.22-.52.7-1.06 1.52-1.06 1.07 0 1.5.82 1.5 2.02V22h2.26z"/>
+    </svg>
+  </a>
+  </div>
+</footer>
+<script src="/assets/mobile-nav.js" defer></script>
+<script>
+(function () {
+  var search = document.getElementById("startup-search");
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".startup-card"));
+  var empty = document.getElementById("startup-empty");
+  var market = "";
+  var sector = "";
+
+  document.querySelectorAll("[data-logo], .startup-card__media img").forEach(function (img) {
+    function fail() {
+      var tile = document.createElement("span");
+      tile.className = "logo-fallback";
+      tile.textContent = img.getAttribute("data-initials") || "";
+      img.replaceWith(tile);
+    }
+    img.addEventListener("error", fail);
+    if (img.complete && img.naturalWidth === 0) fail();
+  });
+
+  function apply() {
+    var query = search.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var markets = (card.getAttribute("data-markets") || "").split("|").filter(Boolean);
+      var sectors = (card.getAttribute("data-sectors") || "").split("|").filter(Boolean);
+      var ok = (!query || (card.getAttribute("data-search") || "").indexOf(query) !== -1)
+        && (!market || markets.indexOf(market) !== -1)
+        && (!sector || sectors.indexOf(sector) !== -1);
+      card.hidden = !ok;
+      if (ok) shown += 1;
+    });
+    empty.hidden = shown !== 0;
+  }
+
+  search.addEventListener("input", apply);
+  document.querySelectorAll("[data-filter]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var kind = button.getAttribute("data-filter");
+      var value = button.getAttribute("data-value") || "";
+      if (kind === "market") market = value;
+      if (kind === "sector") sector = value;
+      document.querySelectorAll('[data-filter="' + kind + '"]').forEach(function (peer) {
+        peer.setAttribute("aria-pressed", peer === button ? "true" : "false");
+      });
+      apply();
+    });
+  });
+})();
+</script>
+</body>
+</html>
