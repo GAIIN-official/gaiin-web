@@ -351,10 +351,10 @@ const css = `
   .filter-chip--region[aria-pressed="true"], .filter-chip--region[aria-current="page"],
   .filter-chip--region[aria-pressed="true"]:hover, .filter-chip--region[aria-current="page"]:hover { color: #0a1730; background: #ffffff; border-color: #ffffff; }
   .filter-chip--region:focus-visible { outline-color: #ffffff; }
-  .list { display: flex; flex-direction: column; gap: 12px; }
-  .startup-card { display: grid; grid-template-columns: 168.75px minmax(0, 1fr); column-gap: 18px; align-items: center; padding: 16px; background: #0d2951; border: 1px solid #1c2f52; border-radius: 16px; }
+  .list { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 108px; }
+  .startup-card { display: grid; grid-template-columns: 168.75px minmax(0, 1fr); column-gap: 18px; row-gap: 8px; align-items: start; padding: 16px; background: #0d2951; border: 1px solid #1c2f52; border-radius: 16px; }
   .startup-card[hidden] { display: none; }
-  .startup-card__media { position: relative; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
+  .startup-card__media { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
   .startup-card__media--light { background: #f7f9fb; }
   .startup-card__media--navy { background: #0a1730; }
   .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -362,24 +362,56 @@ const css = `
   .logo-fallback { display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 28px; letter-spacing: .08em; }
   .startup-card__media--light .logo-fallback { color: #0a1730; }
   .startup-card__media--navy .logo-fallback { color: #EDB3A8; }
-  .startup-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+  .startup-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; width: 100%; grid-column: 2; grid-row: 1; }
+  .startup-card__foot { display: flex; flex-wrap: nowrap; align-items: baseline; justify-content: space-between; gap: 8px 12px; width: 100%; grid-column: 2; grid-row: 2; }
+  .startup-card__topline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; width: 100%; }
   .startup-card__sector { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #EDB3A8; }
   .startup-card__name { font-size: clamp(22px,2vw,28px); line-height: 1.15; color: #f7f9fb; }
   .startup-card__desc { font-size: 15px; line-height: 1.6; color: #a8bcd8; }
   .startup-card__meta { font-size: 14px; line-height: 1.5; color: #8ea5c4; }
-  .market-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .market-chip { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #EDB3A8; border: 1px solid #EDB3A8; border-radius: 999px; padding: 4px 10px; }
+  .market-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .market-chip { font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: .06em; line-height: 1.4; text-transform: uppercase; color: #EDB3A8; border: 1px solid #EDB3A8; border-radius: 999px; padding: 2px 6px; }
   .startup-card__value a { color: #d9877c; border-bottom: 1px solid #d9877c; font-family: 'Fragment Mono', monospace; font-size: 12px; }
   .startup-card__value a:hover { color: #EDB3A8; border-color: #EDB3A8; }
-  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #d9877c; border-bottom: 1px solid #d9877c; }
+  .link-under { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #d9877c; border-bottom: 1px solid #d9877c; white-space: nowrap; }
   .link-under:hover { color: #EDB3A8; border-color: #EDB3A8; }
-  .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .06em; color: #8ea5c4; }
+  .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #8ea5c4; white-space: nowrap; }
+  .map-section { background: #0a1730; padding-top: clamp(28px, 4vw, 48px); }
+  .map-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
+  .map-legend { display: flex; flex-wrap: wrap; gap: 14px 18px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8ea5c4; }
+  .map-legend__item { display: inline-flex; align-items: center; gap: 8px; }
+  .map-legend__swatch { width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .7; box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
+  .map-legend__swatch--hq { width: 13px; height: 13px; opacity: 1; box-shadow: 0 0 0 5px rgba(217,135,124,.4); }
+  .map-frame { position: relative; width: 100%; margin-top: 8px; }
+  .world-map { width: 100%; height: auto; display: block; overflow: hidden; }
+  .map-country { fill: #17345c; stroke: #0a1730; stroke-width: 0.7; }
+  .map-country--link { cursor: pointer; }
+  .map-country--link:hover, .map-country--link:focus-visible { fill: #214872; outline: none; }
+  .map-country--link[aria-pressed="true"] { fill: #2c5d8f; }
+  .map-markers { position: absolute; inset: 0; }
+  .map-marker { position: absolute; width: 44px; height: 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
+  .map-marker--hq { z-index: 2; }
+  .map-marker:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .map-marker__dot { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .75; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
+  .map-marker--hq .map-marker__dot { width: 14px; height: 14px; opacity: 1; box-shadow: 0 0 0 6px rgba(217,135,124,.4); }
+  .map-marker[aria-pressed="true"] .map-marker__dot { box-shadow: 0 0 0 3px #0a1730, 0 0 0 6px #d9877c; }
+  .map-marker__pulse { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: rgba(217,135,124,.45); transform: translate(-50%, -50%); animation: map-pulse 2.2s ease-out infinite; }
+  .map-marker--hq .map-marker__pulse { width: 18px; height: 18px; background: rgba(217,135,124,.55); }
+  @keyframes map-pulse { 0% { transform: translate(-50%, -50%) scale(1); opacity: .7; } 100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; } }
+  .map-tip { position: absolute; z-index: 3; transform: translate(-50%, calc(-100% - 16px)); margin: 0; padding: 4px 8px; border-radius: 999px; background: #0d2951; border: 1px solid #d9877c; color: #f7f9fb; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; white-space: nowrap; pointer-events: none; }
+  .map-tip[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+    .map-marker__pulse { animation: none; opacity: 0; }
+  }
   .empty { font-size: 15px; line-height: 1.7; color: #a8bcd8; }
   .empty[hidden] { display: none; }
   @media (max-width: 720px) {
     .startup-card { grid-template-columns: 116px minmax(0, 1fr); column-gap: 15px; align-items: start; padding: 12px; }
-    .startup-card__media { width: 116px; height: 116px; border-radius: 12px; }
+    .startup-card__media { grid-row: 1; width: 116px; height: 116px; border-radius: 12px; }
+    .startup-card__foot { grid-column: 1 / -1; grid-row: 2; }
     .startup-card__name { font-size: 18px; }
+    .startup-card__desc { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
     .logo-fallback { font-size: 20px; }
   }
 `;
@@ -389,6 +421,149 @@ function mediaClass(logo) {
     return "startup-card__media startup-card__media--navy";
   }
   return "startup-card__media startup-card__media--light";
+}
+
+const CITY_COUNTRY = {
+  "Hong Kong": "Hong Kong",
+  Stockholm: "Sweden",
+  Copenhagen: "Denmark",
+  Oslo: "Norway",
+};
+
+const COUNTRY_PLACES = [
+  { id: "Hong Kong", lon: 114.17, lat: 22.32, iso: null, markets: ["Hong Kong"] },
+  { id: "Sweden", lon: 16.3, lat: 62.8, iso: "752", markets: ["Sweden"] },
+  { id: "Denmark", lon: 9.5, lat: 56.1, iso: "208", markets: ["Denmark"] },
+  { id: "Norway", lon: 9.5, lat: 64.5, iso: "578", markets: ["Norway"] },
+  { id: "Germany", lon: 10.4, lat: 51.2, iso: "276", markets: ["Germany"] },
+  { id: "Netherlands", lon: 5.3, lat: 52.2, iso: "528", markets: ["Netherlands"] },
+  { id: "Taiwan", lon: 120.96, lat: 23.7, iso: "158", markets: ["Taiwan"] },
+  { id: "UAE", lon: 54.3, lat: 24.2, iso: "784", markets: ["UAE"] },
+  { id: "UK", lon: -2.6, lat: 54.2, iso: "826", markets: ["UK"] },
+  { id: "US", lon: -98.35, lat: 39.5, iso: "840", markets: ["US", "Global, including San Francisco"] },
+];
+
+const MARKET_COUNTRY = Object.fromEntries(
+  COUNTRY_PLACES.flatMap((place) => place.markets.map((market) => [market, place.id])),
+);
+
+const WORLD_W = 960;
+const WORLD_H = 500;
+const LAT_MAX = 84;
+const LAT_MIN = -56;
+
+function companyCountries(company) {
+  const found = new Set();
+  const hq = CITY_COUNTRY[company.city];
+  if (hq) found.add(hq);
+  for (const market of company.operating_markets) {
+    const country = MARKET_COUNTRY[market];
+    if (country) found.add(country);
+  }
+  return [...found];
+}
+
+function project(lon, lat) {
+  return [
+    ((lon + 180) / 360) * WORLD_W,
+    ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * WORLD_H,
+  ];
+}
+
+function decodeArcs(topo) {
+  const { scale, translate } = topo.transform;
+  return topo.arcs.map((arc) => {
+    let x = 0;
+    let y = 0;
+    return arc.map(([dx, dy]) => {
+      x += dx;
+      y += dy;
+      return [x * scale[0] + translate[0], y * scale[1] + translate[1]];
+    });
+  });
+}
+
+function ringPath(ring) {
+  const parts = [];
+  let part = [];
+  ring.forEach(([lon, lat], index) => {
+    if (index > 0 && Math.abs(lon - ring[index - 1][0]) > 180) {
+      if (part.length) parts.push(part);
+      part = [];
+    }
+    part.push([lon, lat]);
+  });
+  if (part.length) parts.push(part);
+  return parts.filter((points) => points.length > 2).map((points) => {
+    let d = "";
+    points.forEach(([lon, lat], index) => {
+      const [x, y] = project(lon, lat);
+      d += `${index === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
+    });
+    return `${d}Z`;
+  }).join("");
+}
+
+function geometryPath(geometry, arcs) {
+  const polygons = geometry.type === "Polygon" ? [geometry.arcs] : geometry.arcs;
+  let d = "";
+  for (const polygon of polygons) {
+    for (const ring of polygon) {
+      const coords = [];
+      ring.forEach((index, ringIndex) => {
+        const points = index < 0 ? arcs[~index].slice().reverse() : arcs[index];
+        coords.push(...(ringIndex === 0 ? points : points.slice(1)));
+      });
+      if (coords.length) d += ringPath(coords);
+    }
+  }
+  return d;
+}
+
+function mapSection(companies, topo) {
+  const counts = Object.fromEntries(COUNTRY_PLACES.map((place) => [place.id, 0]));
+  const hqIds = new Set();
+  for (const company of companies) {
+    const hq = CITY_COUNTRY[company.city];
+    if (hq) hqIds.add(hq);
+    for (const id of companyCountries(company)) counts[id] += 1;
+  }
+  const places = COUNTRY_PLACES
+    .map((place) => ({ ...place, hq: hqIds.has(place.id), count: counts[place.id] }))
+    .filter((place) => place.count > 0)
+    .sort((a, b) => Number(a.hq) - Number(b.hq));
+  const arcs = decodeArcs(topo);
+  const byIso = new Map(places.filter((place) => place.iso).map((place) => [place.iso, place]));
+  const paths = topo.objects.countries.geometries.map((geometry) => {
+    const d = geometryPath(geometry, arcs);
+    if (!d) return "";
+    const place = byIso.get(String(geometry.id));
+    if (!place) return `<path class="map-country" d="${d}"></path>`;
+    const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
+    return `<path class="map-country map-country--link" data-country="${esc(place.id)}" role="button" tabindex="0" aria-pressed="false" aria-label="${esc(label)}" d="${d}"></path>`;
+  }).join("");
+  const markers = places.map((place) => {
+    const [x, y] = project(place.lon, place.lat);
+    const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
+    const kind = place.hq ? "map-marker map-marker--hq" : "map-marker";
+    return `<button class="${kind}" type="button" data-country="${esc(place.id)}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${((x / WORLD_W) * 100).toFixed(2)}%;top:${((y / WORLD_H) * 100).toFixed(2)}%"><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
+  }).join("");
+  return `<section class="map-section" id="startup-map" aria-label="Filter by country">
+  <div class="wrap">
+    <div class="map-bar">
+      <button class="filter-chip filter-chip--region" type="button" data-map-reset aria-pressed="true" aria-label="All countries">All</button>
+      <p class="map-legend">
+        <span class="map-legend__item"><span class="map-legend__swatch map-legend__swatch--hq" aria-hidden="true"></span>Headquarters</span>
+        <span class="map-legend__item"><span class="map-legend__swatch" aria-hidden="true"></span>Operating market</span>
+      </p>
+    </div>
+    <div class="map-frame">
+      <svg class="world-map" viewBox="0 0 ${WORLD_W} ${WORLD_H}" fill-rule="evenodd" role="group" aria-label="World map. Choose a country to filter the list.">${paths}</svg>
+      <div class="map-markers">${markers}</div>
+      <p class="map-tip" id="map-tip" role="status" hidden></p>
+    </div>
+  </div>
+</section>`;
 }
 
 function cardHtml(company) {
@@ -401,6 +576,7 @@ function cardHtml(company) {
     company.operating_markets.join(" "),
     company.sectors.join(" "),
   ].join(" ").toLowerCase();
+  const countries = companyCountries(company);
   const logo = company.logo
     ? `<img src="${esc(company.logo)}" alt="" width="400" height="400" loading="lazy" data-initials="${esc(company.initials)}">`
     : `<span class="logo-fallback">${esc(company.initials)}</span>`;
@@ -414,16 +590,20 @@ function cardHtml(company) {
   const website = company.website
     ? `<a class="link-under" href="${esc(company.website)}" target="_blank" rel="noopener noreferrer">Website</a>`
     : "";
-  return `<article class="startup-card" data-search="${esc(search)}" data-markets="${esc(company.operating_markets.join("|"))}" data-sectors="${esc(company.sectors.join("|"))}">
+  return `<article class="startup-card" data-search="${esc(search)}" data-markets="${esc(company.operating_markets.join("|"))}" data-sectors="${esc(company.sectors.join("|"))}" data-countries="${esc(countries.join("|"))}">
     <div class="${mediaClass(company.logo)}">${logo}</div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">${esc(company.sectors.join(" · "))}</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">${esc(company.sectors.join(" · "))}</p>
+        <div class="market-chips">${markets}</div>
+      </div>
       <h2 class="startup-card__name">${esc(company.name)}</h2>
       <p class="startup-card__desc">${esc(company.short_description)}</p>
       ${founders}
       <p class="startup-card__meta">HQ: ${esc(company.hq_city)}</p>
-      <div class="market-chips">${markets}</div>
       ${valuation}
+    </div>
+    <div class="startup-card__foot">
       ${website}
       <p class="startup-card__verified">Last verified ${esc(company.last_verified)}</p>
     </div>
@@ -440,7 +620,7 @@ function chipButton(label, kind, value, pressed) {
   return `<button class="filter-chip" type="button" data-filter="${esc(kind)}" data-value="${esc(value)}" aria-pressed="${pressed ? "true" : "false"}">${esc(label)}</button>`;
 }
 
-function pageHtml({ title, pathName, heading, companies, activeSlug }) {
+function pageHtml({ title, pathName, heading, companies, activeSlug, topo }) {
   const markets = unique(companies.flatMap((company) => company.operating_markets)).sort((a, b) => a.localeCompare(b));
   const sectors = SECTOR_ORDER.filter((sector) => companies.some((company) => company.sectors.includes(sector)));
   const cityLinks = [
@@ -494,6 +674,7 @@ ${header}
   </div>
 </main>
 <div class="band band--to-light"></div>
+${activeSlug === "all" ? mapSection(companies, topo) : ""}
 <section style="background:#0a1730;">
   <div class="wrap">
     <form class="search" role="search" onsubmit="return false">
@@ -521,6 +702,21 @@ ${footer}
   var empty = document.getElementById("startup-empty");
   var market = "";
   var sector = "";
+  var country = "";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tip = document.getElementById("map-tip");
+  var MARKET_COUNTRY = {
+    "Hong Kong": "Hong Kong",
+    "Sweden": "Sweden",
+    "Denmark": "Denmark",
+    "Norway": "Norway",
+    "Germany": "Germany",
+    "Netherlands": "Netherlands",
+    "Taiwan": "Taiwan",
+    "UAE": "UAE",
+    "UK": "UK",
+    "US": "US"
+  };
 
   document.querySelectorAll("[data-logo], .startup-card__media img").forEach(function (img) {
     function fail() {
@@ -539,13 +735,65 @@ ${footer}
     cards.forEach(function (card) {
       var markets = (card.getAttribute("data-markets") || "").split("|").filter(Boolean);
       var sectors = (card.getAttribute("data-sectors") || "").split("|").filter(Boolean);
+      var countries = (card.getAttribute("data-countries") || "").split("|").filter(Boolean);
       var ok = (!query || (card.getAttribute("data-search") || "").indexOf(query) !== -1)
         && (!market || markets.indexOf(market) !== -1)
-        && (!sector || sectors.indexOf(sector) !== -1);
+        && (!sector || sectors.indexOf(sector) !== -1)
+        && (!country || countries.indexOf(country) !== -1);
       card.hidden = !ok;
       if (ok) shown += 1;
     });
     empty.hidden = shown !== 0;
+  }
+
+  function countryFromMarketPill() {
+    var keys = Object.keys(MARKET_COUNTRY);
+    for (var i = 0; i < keys.length; i += 1) {
+      if (!market && MARKET_COUNTRY[keys[i]] === country) return true;
+    }
+    return false;
+  }
+
+  function syncUi() {
+    document.querySelectorAll("[data-country], [data-map-reset]").forEach(function (el) {
+      var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-country") || "");
+      el.setAttribute("aria-pressed", (country ? value === country : value === "") ? "true" : "false");
+    });
+    document.querySelectorAll('[data-filter="market"]').forEach(function (peer) {
+      var value = peer.getAttribute("data-value") || "";
+      var pressed = false;
+      if (!value) pressed = !market && !countryFromMarketPill();
+      else if (market) pressed = market === value;
+      else pressed = MARKET_COUNTRY[value] === country;
+      peer.setAttribute("aria-pressed", pressed ? "true" : "false");
+    });
+    document.querySelectorAll('[data-filter="sector"]').forEach(function (peer) {
+      peer.setAttribute("aria-pressed", (peer.getAttribute("data-value") || "") === sector ? "true" : "false");
+    });
+  }
+
+  function showTip(id) {
+    if (!tip) return;
+    var marker = document.querySelector('.map-marker[data-country="' + id + '"]');
+    if (!marker) {
+      tip.hidden = true;
+      return;
+    }
+    tip.hidden = false;
+    tip.textContent = marker.getAttribute("data-label") || "";
+    tip.style.left = marker.style.left;
+    tip.style.top = marker.style.top;
+  }
+
+  function chooseCountry(id, scroll) {
+    country = id || "";
+    syncUi();
+    apply();
+    if (country) showTip(country);
+    else if (tip) tip.hidden = true;
+    if (scroll && country) {
+      document.getElementById("startup-list").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    }
   }
 
   search.addEventListener("input", apply);
@@ -553,14 +801,50 @@ ${footer}
     button.addEventListener("click", function () {
       var kind = button.getAttribute("data-filter");
       var value = button.getAttribute("data-value") || "";
-      if (kind === "market") market = value;
+      if (kind === "market") {
+        if (!value) market = "";
+        else if (MARKET_COUNTRY[value]) {
+          country = MARKET_COUNTRY[value];
+          market = "";
+        } else {
+          market = value;
+          country = "";
+        }
+      }
       if (kind === "sector") sector = value;
-      document.querySelectorAll('[data-filter="' + kind + '"]').forEach(function (peer) {
-        peer.setAttribute("aria-pressed", peer === button ? "true" : "false");
-      });
+      syncUi();
       apply();
+      if (kind === "market" && country) showTip(country);
+      else if (tip && !country) tip.hidden = true;
     });
   });
+
+  document.querySelectorAll(".map-marker").forEach(function (marker) {
+    marker.addEventListener("click", function () {
+      chooseCountry(marker.getAttribute("data-country"), true);
+    });
+    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country")); });
+    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country")); });
+    marker.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+    marker.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+  });
+  document.querySelectorAll(".map-country--link").forEach(function (shape) {
+    shape.addEventListener("click", function () {
+      chooseCountry(shape.getAttribute("data-country"), true);
+    });
+    shape.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        chooseCountry(shape.getAttribute("data-country"), true);
+      }
+    });
+    shape.addEventListener("pointerenter", function () { showTip(shape.getAttribute("data-country")); });
+    shape.addEventListener("focus", function () { showTip(shape.getAttribute("data-country")); });
+    shape.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+    shape.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+  });
+  var mapReset = document.querySelector("[data-map-reset]");
+  if (mapReset) mapReset.addEventListener("click", function () { chooseCountry("", false); });
 })();
 </script>
 </body>
@@ -577,11 +861,12 @@ async function main() {
     console.log(`${city.label}: ${companies.length}`);
   }
   const all = byCity.flatMap((city) => city.companies);
+  const topo = JSON.parse(await readFile(path.join(root, "startups/data/world/countries-110m.json"), "utf8"));
   const jsonPath = path.join(root, "startups/data/startups.json");
   await writeFile(jsonPath, `${JSON.stringify({ cities: CITIES.map(({ slug, label }) => ({ slug, label })), startups: all }, null, 2)}\n`);
 
   const pages = [
-    { dir: path.join(root, "startups"), title: "GAIIN Startup Database", pathName: "/startups", heading: "GAIIN Startup Database", companies: all, activeSlug: "all" },
+    { dir: path.join(root, "startups"), title: "GAIIN Startup Database", pathName: "/startups", heading: "GAIIN Startup Database", companies: all, activeSlug: "all", topo },
     ...byCity.map((city) => ({
       dir: path.join(root, "startups", city.slug),
       title: `${city.label} | GAIIN Startup Database`,
@@ -589,6 +874,7 @@ async function main() {
       heading: city.label,
       companies: city.companies,
       activeSlug: city.slug,
+      topo,
     })),
   ];
   for (const page of pages) {
