@@ -91,6 +91,18 @@
   .search input:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
   .filters { display: flex; flex-direction: column; gap: 10px; }
   .filters__row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-block { display: flex; align-items: flex-start; gap: 8px; }
+  .filters__row--clamp { flex: 1 1 auto; min-width: 0; max-height: 34px; overflow: hidden; }
+  .filters__row--clamp.is-open { max-height: none; }
+  .filter-more[hidden] { display: none; }
+  .filter-select { display: none; flex-direction: column; gap: 6px; }
+  .filter-select__label { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #8ea5c4; }
+  .filter-select select { width: 100%; appearance: none; background: #0d2951; color: #f7f9fb; border: 1px solid #EDB3A8; border-radius: 999px; padding: 10px 16px; font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; }
+  .filter-select select:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  @media (max-width: 639px) {
+    .filter-block { display: none; }
+    .filter-select { display: flex; }
+  }
   .filter-chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #EDB3A8; background: transparent; border: 1px solid #EDB3A8; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
   .filter-chip:hover { border-color: #d9877c; color: #d9877c; }
   .filter-chip[aria-pressed="true"], .filter-chip[aria-current="page"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
@@ -126,20 +138,32 @@
   .link-under { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #d9877c; border-bottom: 1px solid #d9877c; white-space: nowrap; }
   .link-under:hover { color: #EDB3A8; border-color: #EDB3A8; }
   .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #8ea5c4; white-space: nowrap; }
-  .map-section { background: #0a1730; padding-top: clamp(28px, 4vw, 48px); }
+  .map-section { background: #0a1730; padding-top: clamp(20px, 3vw, 36px); padding-bottom: 0; }
+  .list-section { padding-top: clamp(12px, 2vw, 24px); }
   .map-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
   .map-legend { display: flex; flex-wrap: wrap; gap: 14px 18px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8ea5c4; }
   .map-legend__item { display: inline-flex; align-items: center; gap: 8px; }
   .map-legend__swatch { width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .7; box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
   .map-legend__swatch--hq { width: 13px; height: 13px; opacity: 1; box-shadow: 0 0 0 5px rgba(217,135,124,.4); }
-  .map-frame { position: relative; width: 100%; margin-top: 8px; }
-  .world-map { width: 100%; height: auto; display: block; overflow: hidden; }
+  .map-frame { position: relative; width: 100%; margin-top: 4px; line-height: 0; }
+  .world-map { width: 100%; height: auto; display: block; overflow: hidden; vertical-align: top; }
   .map-country { fill: #17345c; stroke: #0a1730; stroke-width: 0.7; }
   .map-country--link { cursor: pointer; }
   .map-country--link:hover, .map-country--link:focus-visible { fill: #214872; outline: none; }
   .map-country--link[aria-pressed="true"] { fill: #2c5d8f; }
   .map-markers { position: absolute; inset: 0; }
-  .map-marker { position: absolute; width: 44px; height: 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
+  .map-marker { position: absolute; width: 36px; height: 36px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
+  .map-marker[data-country="Hong Kong"] { transform: translate(calc(-50% - 16px), calc(-50% + 6px)); z-index: 3; }
+  .map-marker[data-country="Taiwan"] { transform: translate(calc(-50% + 16px), calc(-50% - 10px)); }
+  .map-pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: #d9877c; transform: translate(-50%, -50%); pointer-events: none; box-shadow: 0 0 0 4px rgba(217,135,124,.35); }
+  .nordics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; line-height: normal; }
+  .nordics__label { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8ea5c4; }
+  .nordic-hit { position: relative; transform: none; left: auto; top: auto; width: auto; min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px 4px 8px; border-radius: 999px; border: 1px solid #d9877c; background: transparent; color: #EDB3A8; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+  .nordic-hit .map-marker__dot { position: static; transform: none; flex: 0 0 auto; }
+  .nordic-hit .map-marker__pulse { display: none; }
+  .nordic-hit[aria-pressed="true"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
+  .nordic-hit[aria-pressed="true"] .map-marker__dot { background: #0a1730; box-shadow: none; }
+  .nordic-hit:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
   .map-marker--hq { z-index: 2; }
   .map-marker:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
   .map-marker__dot { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .75; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
@@ -219,7 +243,7 @@
 </main>
 <div class="band band--to-light"></div>
 
-<section style="background:#0a1730;">
+<section class="list-section" style="background:#0a1730;">
   <div class="wrap">
     <form class="search" role="search" onsubmit="return false">
       <label class="visually-hidden" for="startup-search" style="position:absolute;width:1px;height:1px;overflow:hidden;">Search startups</label>
@@ -227,8 +251,16 @@
     </form>
     <div class="filters">
       <div class="filters__row" role="navigation" aria-label="City"><a class="filter-chip filter-chip--region" href="/startups">All</a><a class="filter-chip" href="/startups/hong-kong" aria-current="page">Hong Kong</a><a class="filter-chip" href="/startups/stockholm">Stockholm</a><a class="filter-chip" href="/startups/copenhagen">Copenhagen</a><a class="filter-chip" href="/startups/oslo">Oslo</a></div>
-      <div class="filters__row" role="group" aria-label="Operating market"><button class="filter-chip" type="button" data-filter="market" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="market" data-value="Asia" aria-pressed="false">Asia</button><button class="filter-chip" type="button" data-filter="market" data-value="East Asia" aria-pressed="false">East Asia</button><button class="filter-chip" type="button" data-filter="market" data-value="global" aria-pressed="false">global</button><button class="filter-chip" type="button" data-filter="market" data-value="Global" aria-pressed="false">Global</button><button class="filter-chip" type="button" data-filter="market" data-value="Greater China" aria-pressed="false">Greater China</button><button class="filter-chip" type="button" data-filter="market" data-value="Hong Kong" aria-pressed="false">Hong Kong</button><button class="filter-chip" type="button" data-filter="market" data-value="Southeast Asia" aria-pressed="false">Southeast Asia</button><button class="filter-chip" type="button" data-filter="market" data-value="Taiwan" aria-pressed="false">Taiwan</button><button class="filter-chip" type="button" data-filter="market" data-value="US" aria-pressed="false">US</button></div>
-      <div class="filters__row" role="group" aria-label="Sector"><button class="filter-chip" type="button" data-filter="sector" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="sector" data-value="AI" aria-pressed="false">AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Deep tech" aria-pressed="false">Deep tech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Climate / energy" aria-pressed="false">Climate / energy</button><button class="filter-chip" type="button" data-filter="sector" data-value="Fintech" aria-pressed="false">Fintech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Robotics / physical AI" aria-pressed="false">Robotics / physical AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Blockchain" aria-pressed="false">Blockchain</button><button class="filter-chip" type="button" data-filter="sector" data-value="Health" aria-pressed="false">Health</button><button class="filter-chip" type="button" data-filter="sector" data-value="New business models" aria-pressed="false">New business models</button><button class="filter-chip" type="button" data-filter="sector" data-value="Other" aria-pressed="false">Other</button></div>
+      <div class="filter-block">
+        <div class="filters__row filters__row--clamp" data-clamp="market" role="group" aria-label="Operating market"><button class="filter-chip" type="button" data-filter="market" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="market" data-value="Global" aria-pressed="false">Global</button><button class="filter-chip" type="button" data-filter="market" data-value="Asia" aria-pressed="false">Asia</button><button class="filter-chip" type="button" data-filter="market" data-value="East Asia" aria-pressed="false">East Asia</button><button class="filter-chip" type="button" data-filter="market" data-value="Southeast Asia" aria-pressed="false">Southeast Asia</button><button class="filter-chip" type="button" data-filter="market" data-value="Greater China" aria-pressed="false">Greater China</button><button class="filter-chip" type="button" data-filter="market" data-value="Hong Kong" aria-pressed="false">Hong Kong</button><button class="filter-chip" type="button" data-filter="market" data-value="Taiwan" aria-pressed="false">Taiwan</button><button class="filter-chip" type="button" data-filter="market" data-value="US" aria-pressed="false">US</button></div>
+        <button class="filter-chip filter-more" type="button" data-expand="market" hidden aria-expanded="false">More</button>
+      </div>
+      <label class="filter-select"><span class="filter-select__label">Operating market</span><select data-filter="market" aria-label="Operating market"><option value="">All</option><option value="Global">Global</option><option value="Asia">Asia</option><option value="East Asia">East Asia</option><option value="Southeast Asia">Southeast Asia</option><option value="Greater China">Greater China</option><option value="Hong Kong">Hong Kong</option><option value="Taiwan">Taiwan</option><option value="US">US</option></select></label>
+      <div class="filter-block">
+        <div class="filters__row filters__row--clamp" data-clamp="sector" role="group" aria-label="Sector"><button class="filter-chip" type="button" data-filter="sector" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="sector" data-value="AI" aria-pressed="false">AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Deep tech" aria-pressed="false">Deep tech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Climate / energy" aria-pressed="false">Climate / energy</button><button class="filter-chip" type="button" data-filter="sector" data-value="Fintech" aria-pressed="false">Fintech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Robotics / physical AI" aria-pressed="false">Robotics / physical AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Blockchain" aria-pressed="false">Blockchain</button><button class="filter-chip" type="button" data-filter="sector" data-value="Health" aria-pressed="false">Health</button><button class="filter-chip" type="button" data-filter="sector" data-value="New business models" aria-pressed="false">New business models</button><button class="filter-chip" type="button" data-filter="sector" data-value="Other" aria-pressed="false">Other</button></div>
+        <button class="filter-chip filter-more" type="button" data-expand="sector" hidden aria-expanded="false">More</button>
+      </div>
+      <label class="filter-select"><span class="filter-select__label">Sector</span><select data-filter="sector" aria-label="Sector"><option value="">All</option><option value="AI">AI</option><option value="Deep tech">Deep tech</option><option value="Climate / energy">Climate / energy</option><option value="Fintech">Fintech</option><option value="Robotics / physical AI">Robotics / physical AI</option><option value="Blockchain">Blockchain</option><option value="Health">Health</option><option value="New business models">New business models</option><option value="Other">Other</option></select></label>
     </div>
     <div class="list" id="startup-list">
       <article class="startup-card" data-search="221b agentic ai tools that help compliance teams investigate financial crime and money laundering.  hong kong hong kong hong kong fintech ai" data-markets="Hong Kong" data-sectors="Fintech|AI" data-countries="Hong Kong">
@@ -268,7 +300,7 @@
     </div>
   </article>
 <article class="startup-card" data-search="alpha ai uses drones, ai and 3d models to inspect buildings, slopes and confined spaces.  hong kong hong kong hong kong robotics / physical ai ai" data-markets="Hong Kong" data-sectors="Robotics / physical AI|AI" data-countries="Hong Kong">
-    <div class="startup-card__media startup-card__media--light"><img src="https://static.wixstatic.com/media/31febf_1031a5def27e487eb22ef00b2a22fefc~mv2.png/v1/fill/w_227,h_75,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1200px-Hong_Kong_Housing_Society_Logo_svg.png" alt="" width="400" height="400" loading="lazy" data-initials="AA"></div>
+    <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">AA</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">Robotics / physical AI · AI</p>
@@ -339,12 +371,12 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="climind ai platform that turns climate and environment data into practical guidance for companies. karen wang hong kong hong kong hong kong global climate / energy ai" data-markets="Hong Kong|global" data-sectors="Climate / energy|AI" data-countries="Hong Kong">
+<article class="startup-card" data-search="climind ai platform that turns climate and environment data into practical guidance for companies. karen wang hong kong hong kong global hong kong climate / energy ai" data-markets="Global|Hong Kong" data-sectors="Climate / energy|AI" data-countries="Hong Kong">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">CL</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">Climate / energy · AI</p>
-        <div class="market-chips"><span class="market-chip">Hong Kong</span><span class="market-chip">global</span></div>
+        <div class="market-chips"><span class="market-chip">Global</span><span class="market-chip">Hong Kong</span></div>
       </div>
       <h2 class="startup-card__name">Climind</h2>
       <p class="startup-card__desc">AI platform that turns climate and environment data into practical guidance for companies.</p>
@@ -357,12 +389,12 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="fano labs speech and language ai for chinese dialects, used in call centres and compliance. miles wen victor o.k. li hong kong hong kong hong kong greater china ai" data-markets="Hong Kong|Greater China" data-sectors="AI" data-countries="Hong Kong">
+<article class="startup-card" data-search="fano labs speech and language ai for chinese dialects, used in call centres and compliance. miles wen victor o.k. li hong kong hong kong greater china hong kong ai" data-markets="Greater China|Hong Kong" data-sectors="AI" data-countries="Hong Kong">
     <div class="startup-card__media startup-card__media--light"><img src="https://fano.ai/wp-content/uploads/2024/08/Logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="FL"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">AI</p>
-        <div class="market-chips"><span class="market-chip">Hong Kong</span><span class="market-chip">Greater China</span></div>
+        <div class="market-chips"><span class="market-chip">Greater China</span><span class="market-chip">Hong Kong</span></div>
       </div>
       <h2 class="startup-card__name">Fano Labs</h2>
       <p class="startup-card__desc">Speech and language AI for Chinese dialects, used in call centres and compliance.</p>
@@ -375,12 +407,12 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="fundpark working capital financing for cross-border e-commerce sellers in asia, using data and ai.  hong kong hong kong hong kong asia fintech ai" data-markets="Hong Kong|Asia" data-sectors="Fintech|AI" data-countries="Hong Kong">
+<article class="startup-card" data-search="fundpark working capital financing for cross-border e-commerce sellers in asia, using data and ai.  hong kong hong kong asia hong kong fintech ai" data-markets="Asia|Hong Kong" data-sectors="Fintech|AI" data-countries="Hong Kong">
     <div class="startup-card__media startup-card__media--light"><img src="https://www.fundpark.com/images/common/logo.png" alt="" width="400" height="400" loading="lazy" data-initials="FU"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">Fintech · AI</p>
-        <div class="market-chips"><span class="market-chip">Hong Kong</span><span class="market-chip">Asia</span></div>
+        <div class="market-chips"><span class="market-chip">Asia</span><span class="market-chip">Hong Kong</span></div>
       </div>
       <h2 class="startup-card__name">FundPark</h2>
       <p class="startup-card__desc">Working capital financing for cross-border e-commerce sellers in Asia, using data and AI.</p>
@@ -447,12 +479,12 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="medmind technology gamified cognitive training for older adults and dementia care, with local themes like mahjong. nathan hui denis huen hong kong hong kong hong kong asia health ai" data-markets="Hong Kong|Asia" data-sectors="Health|AI" data-countries="Hong Kong">
+<article class="startup-card" data-search="medmind technology gamified cognitive training for older adults and dementia care, with local themes like mahjong. nathan hui denis huen hong kong hong kong asia hong kong health ai" data-markets="Asia|Hong Kong" data-sectors="Health|AI" data-countries="Hong Kong">
     <div class="startup-card__media startup-card__media--light"><img src="https://static.wixstatic.com/media/9b5404_030e97d434b4429fa6401f4de6569619~mv2.png/v1/fill/w_111,h_63,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Medmind_logo_tagline.png" alt="" width="400" height="400" loading="lazy" data-initials="MT"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">Health · AI</p>
-        <div class="market-chips"><span class="market-chip">Hong Kong</span><span class="market-chip">Asia</span></div>
+        <div class="market-chips"><span class="market-chip">Asia</span><span class="market-chip">Hong Kong</span></div>
       </div>
       <h2 class="startup-card__name">MedMind Technology</h2>
       <p class="startup-card__desc">Gamified cognitive training for older adults and dementia care, with local themes like mahjong.</p>
@@ -483,12 +515,12 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="pantheon lab builds lifelike ai digital humans and a video tool for marketing, customer service and training. ivan lau mark chan christina tse hong kong hong kong hong kong east asia southeast asia us ai" data-markets="Hong Kong|East Asia|Southeast Asia|US" data-sectors="AI" data-countries="Hong Kong|US">
+<article class="startup-card" data-search="pantheon lab builds lifelike ai digital humans and a video tool for marketing, customer service and training. ivan lau mark chan christina tse hong kong hong kong east asia southeast asia hong kong us ai" data-markets="East Asia|Southeast Asia|Hong Kong|US" data-sectors="AI" data-countries="Hong Kong|US">
     <div class="startup-card__media startup-card__media--navy"><img src="https://www.pantheonlab.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpantheon-lab-logo-white.6bfd3c4a.png&amp;w=640&amp;q=75" alt="" width="400" height="400" loading="lazy" data-initials="PL"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">AI</p>
-        <div class="market-chips"><span class="market-chip">Hong Kong</span><span class="market-chip">East Asia</span><span class="market-chip">Southeast Asia</span><span class="market-chip">US</span></div>
+        <div class="market-chips"><span class="market-chip">East Asia</span><span class="market-chip">Southeast Asia</span><span class="market-chip">Hong Kong</span><span class="market-chip">US</span></div>
       </div>
       <h2 class="startup-card__name">Pantheon Lab</h2>
       <p class="startup-card__desc">Builds lifelike AI digital humans and a video tool for marketing, customer service and training.</p>
@@ -609,12 +641,12 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="welab hong kong digital finance group that runs welab bank, a licensed virtual bank. simon loong kelly wong frances kang hong kong hong kong hong kong asia fintech" data-markets="Hong Kong|Asia" data-sectors="Fintech" data-countries="Hong Kong">
+<article class="startup-card" data-search="welab hong kong digital finance group that runs welab bank, a licensed virtual bank. simon loong kelly wong frances kang hong kong hong kong asia hong kong fintech" data-markets="Asia|Hong Kong" data-sectors="Fintech" data-countries="Hong Kong">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">WE</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">Fintech</p>
-        <div class="market-chips"><span class="market-chip">Hong Kong</span><span class="market-chip">Asia</span></div>
+        <div class="market-chips"><span class="market-chip">Asia</span><span class="market-chip">Hong Kong</span></div>
       </div>
       <h2 class="startup-card__name">WeLab</h2>
       <p class="startup-card__desc">Hong Kong digital finance group that runs WeLab Bank, a licensed virtual bank.</p>
@@ -752,12 +784,26 @@
     return false;
   }
 
+  function optionExists(sel, value) {
+    return Array.prototype.some.call(sel.options, function (opt) { return opt.value === value; });
+  }
+
+  function syncSelects() {
+    document.querySelectorAll('select[data-filter="market"]').forEach(function (sel) {
+      var next = market || country || "";
+      sel.value = optionExists(sel, next) ? next : "";
+    });
+    document.querySelectorAll('select[data-filter="sector"]').forEach(function (sel) {
+      sel.value = optionExists(sel, sector) ? sector : "";
+    });
+  }
+
   function syncUi() {
     document.querySelectorAll("[data-country], [data-map-reset]").forEach(function (el) {
       var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-country") || "");
       el.setAttribute("aria-pressed", (country ? value === country : value === "") ? "true" : "false");
     });
-    document.querySelectorAll('[data-filter="market"]').forEach(function (peer) {
+    document.querySelectorAll('button[data-filter="market"]').forEach(function (peer) {
       var value = peer.getAttribute("data-value") || "";
       var pressed = false;
       if (!value) pressed = !market && !countryFromMarketPill();
@@ -765,22 +811,39 @@
       else pressed = MARKET_COUNTRY[value] === country;
       peer.setAttribute("aria-pressed", pressed ? "true" : "false");
     });
-    document.querySelectorAll('[data-filter="sector"]').forEach(function (peer) {
+    document.querySelectorAll('button[data-filter="sector"]').forEach(function (peer) {
       peer.setAttribute("aria-pressed", (peer.getAttribute("data-value") || "") === sector ? "true" : "false");
     });
+    syncSelects();
   }
 
-  function showTip(id) {
+  function showTip(id, source) {
     if (!tip) return;
-    var marker = document.querySelector('.map-marker[data-country="' + id + '"]');
-    if (!marker) {
+    var marker = source || document.querySelector('.nordic-hit[data-country="' + id + '"], .map-marker[data-country="' + id + '"]');
+    var frame = document.querySelector(".map-frame");
+    if (!marker || !frame) {
       tip.hidden = true;
       return;
     }
+    var frameBox = frame.getBoundingClientRect();
+    var box = marker.getBoundingClientRect();
     tip.hidden = false;
     tip.textContent = marker.getAttribute("data-label") || "";
-    tip.style.left = marker.style.left;
-    tip.style.top = marker.style.top;
+    tip.style.left = (box.left - frameBox.left + box.width / 2) + "px";
+    tip.style.top = (box.top - frameBox.top) + "px";
+  }
+
+  function applyMarket(value) {
+    if (!value) {
+      market = "";
+      country = "";
+    } else if (MARKET_COUNTRY[value]) {
+      country = MARKET_COUNTRY[value];
+      market = "";
+    } else {
+      market = value;
+      country = "";
+    }
   }
 
   function chooseCountry(id, scroll) {
@@ -794,21 +857,31 @@
     }
   }
 
+  function layoutClamps() {
+    var mobile = window.matchMedia("(max-width: 639px)").matches;
+    document.querySelectorAll("[data-clamp]").forEach(function (row) {
+      var more = document.querySelector('[data-expand="' + row.getAttribute("data-clamp") + '"]');
+      if (!more) return;
+      if (mobile) {
+        more.hidden = true;
+        return;
+      }
+      var open = row.classList.contains("is-open");
+      row.classList.remove("is-open");
+      var overflows = row.scrollHeight > row.clientHeight + 1;
+      if (open && overflows) row.classList.add("is-open");
+      more.hidden = !overflows;
+      more.textContent = row.classList.contains("is-open") ? "Less" : "More";
+      more.setAttribute("aria-expanded", row.classList.contains("is-open") ? "true" : "false");
+    });
+  }
+
   search.addEventListener("input", apply);
-  document.querySelectorAll("[data-filter]").forEach(function (button) {
+  document.querySelectorAll("button[data-filter]").forEach(function (button) {
     button.addEventListener("click", function () {
       var kind = button.getAttribute("data-filter");
       var value = button.getAttribute("data-value") || "";
-      if (kind === "market") {
-        if (!value) market = "";
-        else if (MARKET_COUNTRY[value]) {
-          country = MARKET_COUNTRY[value];
-          market = "";
-        } else {
-          market = value;
-          country = "";
-        }
-      }
+      if (kind === "market") applyMarket(value);
       if (kind === "sector") sector = value;
       syncUi();
       apply();
@@ -816,13 +889,37 @@
       else if (tip && !country) tip.hidden = true;
     });
   });
+  document.querySelectorAll("select[data-filter]").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      var kind = sel.getAttribute("data-filter");
+      var value = sel.value || "";
+      if (kind === "market") applyMarket(value);
+      if (kind === "sector") sector = value;
+      syncUi();
+      apply();
+      if (kind === "market" && country) showTip(country);
+      else if (tip && !country) tip.hidden = true;
+    });
+  });
+  document.querySelectorAll("[data-expand]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var row = document.querySelector('[data-clamp="' + button.getAttribute("data-expand") + '"]');
+      if (!row) return;
+      row.classList.toggle("is-open");
+      layoutClamps();
+    });
+  });
+  window.addEventListener("resize", layoutClamps);
+  window.addEventListener("load", layoutClamps);
+  layoutClamps();
 
-  document.querySelectorAll(".map-marker").forEach(function (marker) {
+  document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
       chooseCountry(marker.getAttribute("data-country"), true);
+      showTip(marker.getAttribute("data-country"), marker);
     });
-    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country")); });
-    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country")); });
+    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country"), marker); });
+    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country"), marker); });
     marker.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
     marker.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
   });
