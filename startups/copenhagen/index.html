@@ -101,10 +101,10 @@
   .filter-chip--region[aria-pressed="true"], .filter-chip--region[aria-current="page"],
   .filter-chip--region[aria-pressed="true"]:hover, .filter-chip--region[aria-current="page"]:hover { color: #0a1730; background: #ffffff; border-color: #ffffff; }
   .filter-chip--region:focus-visible { outline-color: #ffffff; }
-  .list { display: flex; flex-direction: column; gap: 12px; }
-  .startup-card { display: grid; grid-template-columns: 168.75px minmax(0, 1fr); column-gap: 18px; align-items: center; padding: 16px; background: #0d2951; border: 1px solid #1c2f52; border-radius: 16px; }
+  .list { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 108px; }
+  .startup-card { display: grid; grid-template-columns: 168.75px minmax(0, 1fr); column-gap: 18px; row-gap: 8px; align-items: start; padding: 16px; background: #0d2951; border: 1px solid #1c2f52; border-radius: 16px; }
   .startup-card[hidden] { display: none; }
-  .startup-card__media { position: relative; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
+  .startup-card__media { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
   .startup-card__media--light { background: #f7f9fb; }
   .startup-card__media--navy { background: #0a1730; }
   .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -112,24 +112,56 @@
   .logo-fallback { display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 28px; letter-spacing: .08em; }
   .startup-card__media--light .logo-fallback { color: #0a1730; }
   .startup-card__media--navy .logo-fallback { color: #EDB3A8; }
-  .startup-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+  .startup-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; width: 100%; grid-column: 2; grid-row: 1; }
+  .startup-card__foot { display: flex; flex-wrap: nowrap; align-items: baseline; justify-content: space-between; gap: 8px 12px; width: 100%; grid-column: 2; grid-row: 2; }
+  .startup-card__topline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; width: 100%; }
   .startup-card__sector { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #EDB3A8; }
   .startup-card__name { font-size: clamp(22px,2vw,28px); line-height: 1.15; color: #f7f9fb; }
   .startup-card__desc { font-size: 15px; line-height: 1.6; color: #a8bcd8; }
   .startup-card__meta { font-size: 14px; line-height: 1.5; color: #8ea5c4; }
-  .market-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .market-chip { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #EDB3A8; border: 1px solid #EDB3A8; border-radius: 999px; padding: 4px 10px; }
+  .market-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .market-chip { font-family: 'Fragment Mono', monospace; font-size: 9px; letter-spacing: .06em; line-height: 1.4; text-transform: uppercase; color: #EDB3A8; border: 1px solid #EDB3A8; border-radius: 999px; padding: 2px 6px; }
   .startup-card__value a { color: #d9877c; border-bottom: 1px solid #d9877c; font-family: 'Fragment Mono', monospace; font-size: 12px; }
   .startup-card__value a:hover { color: #EDB3A8; border-color: #EDB3A8; }
-  .link-under { font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .06em; color: #d9877c; border-bottom: 1px solid #d9877c; }
+  .link-under { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #d9877c; border-bottom: 1px solid #d9877c; white-space: nowrap; }
   .link-under:hover { color: #EDB3A8; border-color: #EDB3A8; }
-  .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .06em; color: #8ea5c4; }
+  .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #8ea5c4; white-space: nowrap; }
+  .map-section { background: #0a1730; padding-top: clamp(28px, 4vw, 48px); }
+  .map-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
+  .map-legend { display: flex; flex-wrap: wrap; gap: 14px 18px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8ea5c4; }
+  .map-legend__item { display: inline-flex; align-items: center; gap: 8px; }
+  .map-legend__swatch { width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .7; box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
+  .map-legend__swatch--hq { width: 13px; height: 13px; opacity: 1; box-shadow: 0 0 0 5px rgba(217,135,124,.4); }
+  .map-frame { position: relative; width: 100%; margin-top: 8px; }
+  .world-map { width: 100%; height: auto; display: block; overflow: hidden; }
+  .map-country { fill: #17345c; stroke: #0a1730; stroke-width: 0.7; }
+  .map-country--link { cursor: pointer; }
+  .map-country--link:hover, .map-country--link:focus-visible { fill: #214872; outline: none; }
+  .map-country--link[aria-pressed="true"] { fill: #2c5d8f; }
+  .map-markers { position: absolute; inset: 0; }
+  .map-marker { position: absolute; width: 44px; height: 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
+  .map-marker--hq { z-index: 2; }
+  .map-marker:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  .map-marker__dot { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .75; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
+  .map-marker--hq .map-marker__dot { width: 14px; height: 14px; opacity: 1; box-shadow: 0 0 0 6px rgba(217,135,124,.4); }
+  .map-marker[aria-pressed="true"] .map-marker__dot { box-shadow: 0 0 0 3px #0a1730, 0 0 0 6px #d9877c; }
+  .map-marker__pulse { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: rgba(217,135,124,.45); transform: translate(-50%, -50%); animation: map-pulse 2.2s ease-out infinite; }
+  .map-marker--hq .map-marker__pulse { width: 18px; height: 18px; background: rgba(217,135,124,.55); }
+  @keyframes map-pulse { 0% { transform: translate(-50%, -50%) scale(1); opacity: .7; } 100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; } }
+  .map-tip { position: absolute; z-index: 3; transform: translate(-50%, calc(-100% - 16px)); margin: 0; padding: 4px 8px; border-radius: 999px; background: #0d2951; border: 1px solid #d9877c; color: #f7f9fb; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; white-space: nowrap; pointer-events: none; }
+  .map-tip[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+    .map-marker__pulse { animation: none; opacity: 0; }
+  }
   .empty { font-size: 15px; line-height: 1.7; color: #a8bcd8; }
   .empty[hidden] { display: none; }
   @media (max-width: 720px) {
     .startup-card { grid-template-columns: 116px minmax(0, 1fr); column-gap: 15px; align-items: start; padding: 12px; }
-    .startup-card__media { width: 116px; height: 116px; border-radius: 12px; }
+    .startup-card__media { grid-row: 1; width: 116px; height: 116px; border-radius: 12px; }
+    .startup-card__foot { grid-column: 1 / -1; grid-row: 2; }
     .startup-card__name { font-size: 18px; }
+    .startup-card__desc { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
     .logo-fallback { font-size: 20px; }
   }
 </style>
@@ -186,6 +218,7 @@
   </div>
 </main>
 <div class="band band--to-light"></div>
+
 <section style="background:#0a1730;">
   <div class="wrap">
     <form class="search" role="search" onsubmit="return false">
@@ -198,268 +231,344 @@
       <div class="filters__row" role="group" aria-label="Sector"><button class="filter-chip" type="button" data-filter="sector" data-value="" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="sector" data-value="AI" aria-pressed="false">AI</button><button class="filter-chip" type="button" data-filter="sector" data-value="Deep tech" aria-pressed="false">Deep tech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Climate / energy" aria-pressed="false">Climate / energy</button><button class="filter-chip" type="button" data-filter="sector" data-value="Fintech" aria-pressed="false">Fintech</button><button class="filter-chip" type="button" data-filter="sector" data-value="Health" aria-pressed="false">Health</button><button class="filter-chip" type="button" data-filter="sector" data-value="New business models" aria-pressed="false">New business models</button><button class="filter-chip" type="button" data-filter="sector" data-value="Other" aria-pressed="false">Other</button></div>
     </div>
     <div class="list" id="startup-list">
-      <article class="startup-card" data-search="airtame wireless screen sharing and digital signage for offices and schools.  copenhagen copenhagen global other new business models" data-markets="Global" data-sectors="Other|New business models">
+      <article class="startup-card" data-search="airtame wireless screen sharing and digital signage for offices and schools.  copenhagen copenhagen global other new business models" data-markets="Global" data-sectors="Other|New business models" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://airtame.com/wp-content/uploads/2023/09/airtame-logo-inline-black.svg" alt="" width="400" height="400" loading="lazy" data-initials="AI"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Other · New business models</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Other · New business models</p>
+        <div class="market-chips"><span class="market-chip">Global</span></div>
+      </div>
       <h2 class="startup-card__name">Airtame</h2>
       <p class="startup-card__desc">Wireless screen sharing and digital signage for offices and schools.</p>
       
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Global</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://airtame.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="copenhagen atomics designs thorium molten salt reactors built to be mass produced.  kastrup (greater copenhagen) copenhagen europe climate / energy deep tech" data-markets="Europe" data-sectors="Climate / energy|Deep tech">
+<article class="startup-card" data-search="copenhagen atomics designs thorium molten salt reactors built to be mass produced.  kastrup (greater copenhagen) copenhagen europe climate / energy deep tech" data-markets="Europe" data-sectors="Climate / energy|Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://copenhagenatomics.com/wp-content/uploads/2026/06/CA_Logo-Black_SVG.svg" alt="" width="400" height="400" loading="lazy" data-initials="CA"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Climate / energy · Deep tech</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Climate / energy · Deep tech</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Copenhagen Atomics</h2>
       <p class="startup-card__desc">Designs thorium molten salt reactors built to be mass produced.</p>
       
       <p class="startup-card__meta">HQ: Kastrup (Greater Copenhagen)</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://copenhagenatomics.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="corti ai for healthcare, from clinical notes to decision support. andreas cleve lars maaløe copenhagen copenhagen europe us health ai" data-markets="Europe|US" data-sectors="Health|AI">
+<article class="startup-card" data-search="corti ai for healthcare, from clinical notes to decision support. andreas cleve lars maaløe copenhagen copenhagen europe us health ai" data-markets="Europe|US" data-sectors="Health|AI" data-countries="Denmark|US">
     <div class="startup-card__media startup-card__media--light"><img src="https://corti.ai/corti-logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="CO"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Health · AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Health · AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
+      </div>
       <h2 class="startup-card__name">Corti</h2>
       <p class="startup-card__desc">AI for healthcare, from clinical notes to decision support.</p>
       <p class="startup-card__meta">Founders: Andreas Cleve, Lars Maaløe</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.corti.ai" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="deepdots ai that gathers customer feedback from many channels and turns it into insights. nima vali rajabi francisco arias copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI">
+<article class="startup-card" data-search="deepdots ai that gathers customer feedback from many channels and turns it into insights. nima vali rajabi francisco arias copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">DE</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">deepdots</h2>
       <p class="startup-card__desc">AI that gathers customer feedback from many channels and turns it into insights.</p>
       <p class="startup-card__meta">Founders: Nima Vali Rajabi, Francisco Arias</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://deepdots.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="fortiv ai platform for business continuity and operational resilience planning. thomas sehested emil pfeiffer copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI">
+<article class="startup-card" data-search="fortiv ai platform for business continuity and operational resilience planning. thomas sehested emil pfeiffer copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://www.fortiv.io/logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="FO"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Fortiv</h2>
       <p class="startup-card__desc">AI platform for business continuity and operational resilience planning.</p>
       <p class="startup-card__meta">Founders: Thomas Sehested, Emil Pfeiffer</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.fortiv.io" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="franklin payment cards for online sellers, with ai that matches ad receipts to spend. nikolaj bomann mertz johan frølich peter klit copenhagen copenhagen denmark netherlands fintech ai" data-markets="Denmark|Netherlands" data-sectors="Fintech|AI">
+<article class="startup-card" data-search="franklin payment cards for online sellers, with ai that matches ad receipts to spend. nikolaj bomann mertz johan frølich peter klit copenhagen copenhagen denmark netherlands fintech ai" data-markets="Denmark|Netherlands" data-sectors="Fintech|AI" data-countries="Denmark|Netherlands">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">FR</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Fintech · AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Fintech · AI</p>
+        <div class="market-chips"><span class="market-chip">Denmark</span><span class="market-chip">Netherlands</span></div>
+      </div>
       <h2 class="startup-card__name">Franklin</h2>
       <p class="startup-card__desc">Payment cards for online sellers, with AI that matches ad receipts to spend.</p>
       <p class="startup-card__meta">Founders: Nikolaj Bomann Mertz, Johan Frølich, Peter Klit</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Denmark</span><span class="market-chip">Netherlands</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.hifranklin.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="hybrid greentech virtual power plant that trades batteries and other flexible energy assets. rasmus rode mosbæk taastrup (greater copenhagen) copenhagen europe climate / energy ai" data-markets="Europe" data-sectors="Climate / energy|AI">
+<article class="startup-card" data-search="hybrid greentech virtual power plant that trades batteries and other flexible energy assets. rasmus rode mosbæk taastrup (greater copenhagen) copenhagen europe climate / energy ai" data-markets="Europe" data-sectors="Climate / energy|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/6a4f54a76eca5f78d2d51a89/6a85de760deb1438058818c1_logo-dark-transparent.png" alt="" width="400" height="400" loading="lazy" data-initials="HG"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Climate / energy · AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Climate / energy · AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Hybrid Greentech</h2>
       <p class="startup-card__desc">Virtual power plant that trades batteries and other flexible energy assets.</p>
       <p class="startup-card__meta">Founders: Rasmus Rode Mosbæk</p>
       <p class="startup-card__meta">HQ: Taastrup (Greater Copenhagen)</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.hybridgreentech.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="kiku ai hiring agent that screens and interviews candidates for high volume frontline jobs. eric andré rasmus andersen copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI">
+<article class="startup-card" data-search="kiku ai hiring agent that screens and interviews candidates for high volume frontline jobs. eric andré rasmus andersen copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">KI</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Kiku</h2>
       <p class="startup-card__desc">AI hiring agent that screens and interviews candidates for high volume frontline jobs.</p>
       <p class="startup-card__meta">Founders: Eric André, Rasmus Andersen</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.getkiku.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="kvantify quantum software aimed at drug discovery and molecular simulation.  copenhagen copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech">
+<article class="startup-card" data-search="kvantify quantum software aimed at drug discovery and molecular simulation.  copenhagen copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">KV</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Deep tech</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Deep tech</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Kvantify</h2>
       <p class="startup-card__desc">Quantum software aimed at drug discovery and molecular simulation.</p>
       
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.kvantify.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="lenus ehealth software for online health and fitness coaches to run and grow their business. bertram thorslund copenhagen copenhagen europe global health new business models" data-markets="Europe|global" data-sectors="Health|New business models">
+<article class="startup-card" data-search="lenus ehealth software for online health and fitness coaches to run and grow their business. bertram thorslund copenhagen copenhagen europe global health new business models" data-markets="Europe|global" data-sectors="Health|New business models" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/63a05a489d74db0082f34744/63a05a489d74db9590f34772_Lenus%20Logo%20-%20Black.svg" alt="" width="400" height="400" loading="lazy" data-initials="LE"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Health · New business models</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Health · New business models</p>
+        <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">global</span></div>
+      </div>
       <h2 class="startup-card__name">Lenus eHealth</h2>
       <p class="startup-card__desc">Software for online health and fitness coaches to run and grow their business.</p>
       <p class="startup-card__meta">Founders: Bertram Thorslund</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">global</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.lenusehealth.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="monta software for running ev charging networks, including pricing, payments and roaming. casper rasmussen anders pedersen copenhagen copenhagen europe us climate / energy new business models" data-markets="Europe|US" data-sectors="Climate / energy|New business models">
+<article class="startup-card" data-search="monta software for running ev charging networks, including pricing, payments and roaming. casper rasmussen anders pedersen copenhagen copenhagen europe us climate / energy new business models" data-markets="Europe|US" data-sectors="Climate / energy|New business models" data-countries="Denmark|US">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">MO</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Climate / energy · New business models</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Climate / energy · New business models</p>
+        <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
+      </div>
       <h2 class="startup-card__name">Monta</h2>
       <p class="startup-card__desc">Software for running EV charging networks, including pricing, payments and roaming.</p>
       <p class="startup-card__meta">Founders: Casper Rasmussen, Anders Pedersen</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">US</span></div>
       <p class="startup-card__value"><a href="https://techcrunch.com/2022/09/14/ev-charging-platform-monta-raises-at-155m-valuation-to-expand-into-the-us/" target="_blank" rel="noopener noreferrer">US$155 million (2022)</a></p>
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://monta.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="pandektes ai legal research that helps lawyers find and check law and case sources. casper laursen søren brokær copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI">
+<article class="startup-card" data-search="pandektes ai legal research that helps lawyers find and check law and case sources. casper laursen søren brokær copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://framerusercontent.com/images/VcIVCyRm3SnBEBNFNnHKwTl3z4.svg?width=110&amp;height=110" alt="" width="400" height="400" loading="lazy" data-initials="PA"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Pandektes</h2>
       <p class="startup-card__desc">AI legal research that helps lawyers find and check law and case sources.</p>
       <p class="startup-card__meta">Founders: Casper Laursen, Søren Brokær</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://pandektes.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="pleo company cards and spend management software for businesses. jeppe rindom niccolo perra copenhagen copenhagen europe fintech" data-markets="Europe" data-sectors="Fintech">
+<article class="startup-card" data-search="pleo company cards and spend management software for businesses. jeppe rindom niccolo perra copenhagen copenhagen europe fintech" data-markets="Europe" data-sectors="Fintech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">PL</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Fintech</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Fintech</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Pleo</h2>
       <p class="startup-card__desc">Company cards and spend management software for businesses.</p>
       <p class="startup-card__meta">Founders: Jeppe Rindom, Niccolo Perra</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       <p class="startup-card__value"><a href="https://www.reuters.com/business/danish-fintech-pleo-raises-150-mln-valuation-17-bln-2021-07-06/" target="_blank" rel="noopener noreferrer">US$1.7 billion (2021)</a></p>
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.pleo.io" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="plinto ai agents that check company transactions against contracts and rules and fix errors. nermina suljevic jakob nielsen sebastian rehnby copenhagen copenhagen europe fintech ai" data-markets="Europe" data-sectors="Fintech|AI">
+<article class="startup-card" data-search="plinto ai agents that check company transactions against contracts and rules and fix errors. nermina suljevic jakob nielsen sebastian rehnby copenhagen copenhagen europe fintech ai" data-markets="Europe" data-sectors="Fintech|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://plinto.ai/_next/static/media/logo-black.3okn4znf7j3qr.svg" alt="" width="400" height="400" loading="lazy" data-initials="PL"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Fintech · AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Fintech · AI</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Plinto</h2>
       <p class="startup-card__desc">AI agents that check company transactions against contracts and rules and fix errors.</p>
       <p class="startup-card__meta">Founders: Nermina Suljevic, Jakob Nielsen, Sebastian Rehnby</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://plinto.ai" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="reel sells businesses renewable power at fixed prices under long contracts. jon sigvert anders meldgaard christian schmidt copenhagen copenhagen europe climate / energy new business models" data-markets="Europe" data-sectors="Climate / energy|New business models">
+<article class="startup-card" data-search="reel sells businesses renewable power at fixed prices under long contracts. jon sigvert anders meldgaard christian schmidt copenhagen copenhagen europe climate / energy new business models" data-markets="Europe" data-sectors="Climate / energy|New business models" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">RE</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Climate / energy · New business models</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Climate / energy · New business models</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Reel</h2>
       <p class="startup-card__desc">Sells businesses renewable power at fixed prices under long contracts.</p>
       <p class="startup-card__meta">Founders: Jon Sigvert, Anders Meldgaard, Christian Schmidt</p>
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://reel.energy" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="saltfoss energy (formerly seaborg) develops a compact molten salt reactor designed for floating power barges.  copenhagen copenhagen europe asia climate / energy deep tech" data-markets="Europe|Asia" data-sectors="Climate / energy|Deep tech">
+<article class="startup-card" data-search="saltfoss energy (formerly seaborg) develops a compact molten salt reactor designed for floating power barges.  copenhagen copenhagen europe asia climate / energy deep tech" data-markets="Europe|Asia" data-sectors="Climate / energy|Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">SE</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Climate / energy · Deep tech</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Climate / energy · Deep tech</p>
+        <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">Asia</span></div>
+      </div>
       <h2 class="startup-card__name">Saltfoss Energy (formerly Seaborg)</h2>
       <p class="startup-card__desc">Develops a compact molten salt reactor designed for floating power barges.</p>
       
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">Asia</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.saltfoss.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="sparrow quantum makes photonic chips that emit single photons for quantum computing and networks.  frederiksberg (greater copenhagen) copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech">
+<article class="startup-card" data-search="sparrow quantum makes photonic chips that emit single photons for quantum computing and networks.  frederiksberg (greater copenhagen) copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/6721f6603ca1e674e1539db4/67a07530b0256881e54a08fc_apc-logo-technical-support.svg" alt="" width="400" height="400" loading="lazy" data-initials="SQ"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Deep tech</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Deep tech</p>
+        <div class="market-chips"><span class="market-chip">Europe</span></div>
+      </div>
       <h2 class="startup-card__name">Sparrow Quantum</h2>
       <p class="startup-card__desc">Makes photonic chips that emit single photons for quantum computing and networks.</p>
       
       <p class="startup-card__meta">HQ: Frederiksberg (Greater Copenhagen)</p>
-      <div class="market-chips"><span class="market-chip">Europe</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://sparrowquantum.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="too good to go app that sells surplus food from shops and restaurants at a discount.  copenhagen copenhagen europe north america new business models climate / energy" data-markets="Europe|North America" data-sectors="New business models|Climate / energy">
+<article class="startup-card" data-search="too good to go app that sells surplus food from shops and restaurants at a discount.  copenhagen copenhagen europe north america new business models climate / energy" data-markets="Europe|North America" data-sectors="New business models|Climate / energy" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--navy"><span class="logo-fallback">TG</span></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">New business models · Climate / energy</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">New business models · Climate / energy</p>
+        <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">North America</span></div>
+      </div>
       <h2 class="startup-card__name">Too Good To Go</h2>
       <p class="startup-card__desc">App that sells surplus food from shops and restaurants at a discount.</p>
       
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Europe</span><span class="market-chip">North America</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.toogoodtogo.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-search="zeronorth software that helps shipping firms cut fuel use and emissions per voyage.  copenhagen copenhagen global climate / energy ai" data-markets="Global" data-sectors="Climate / energy|AI">
+<article class="startup-card" data-search="zeronorth software that helps shipping firms cut fuel use and emissions per voyage.  copenhagen copenhagen global climate / energy ai" data-markets="Global" data-sectors="Climate / energy|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/69842bcf255d2a1b73233554/698b6a06c3f7eacf48483554_zn-black-logo.avif" alt="" width="400" height="400" loading="lazy" data-initials="ZE"></div>
     <div class="startup-card__body">
-      <p class="startup-card__sector">Climate / energy · AI</p>
+      <div class="startup-card__topline">
+        <p class="startup-card__sector">Climate / energy · AI</p>
+        <div class="market-chips"><span class="market-chip">Global</span></div>
+      </div>
       <h2 class="startup-card__name">ZeroNorth</h2>
       <p class="startup-card__desc">Software that helps shipping firms cut fuel use and emissions per voyage.</p>
       
       <p class="startup-card__meta">HQ: Copenhagen</p>
-      <div class="market-chips"><span class="market-chip">Global</span></div>
       
+    </div>
+    <div class="startup-card__foot">
       <a class="link-under" href="https://www.zeronorth.com" target="_blank" rel="noopener noreferrer">Website</a>
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
@@ -519,6 +628,21 @@
   var empty = document.getElementById("startup-empty");
   var market = "";
   var sector = "";
+  var country = "";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tip = document.getElementById("map-tip");
+  var MARKET_COUNTRY = {
+    "Hong Kong": "Hong Kong",
+    "Sweden": "Sweden",
+    "Denmark": "Denmark",
+    "Norway": "Norway",
+    "Germany": "Germany",
+    "Netherlands": "Netherlands",
+    "Taiwan": "Taiwan",
+    "UAE": "UAE",
+    "UK": "UK",
+    "US": "US"
+  };
 
   document.querySelectorAll("[data-logo], .startup-card__media img").forEach(function (img) {
     function fail() {
@@ -537,13 +661,65 @@
     cards.forEach(function (card) {
       var markets = (card.getAttribute("data-markets") || "").split("|").filter(Boolean);
       var sectors = (card.getAttribute("data-sectors") || "").split("|").filter(Boolean);
+      var countries = (card.getAttribute("data-countries") || "").split("|").filter(Boolean);
       var ok = (!query || (card.getAttribute("data-search") || "").indexOf(query) !== -1)
         && (!market || markets.indexOf(market) !== -1)
-        && (!sector || sectors.indexOf(sector) !== -1);
+        && (!sector || sectors.indexOf(sector) !== -1)
+        && (!country || countries.indexOf(country) !== -1);
       card.hidden = !ok;
       if (ok) shown += 1;
     });
     empty.hidden = shown !== 0;
+  }
+
+  function countryFromMarketPill() {
+    var keys = Object.keys(MARKET_COUNTRY);
+    for (var i = 0; i < keys.length; i += 1) {
+      if (!market && MARKET_COUNTRY[keys[i]] === country) return true;
+    }
+    return false;
+  }
+
+  function syncUi() {
+    document.querySelectorAll("[data-country], [data-map-reset]").forEach(function (el) {
+      var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-country") || "");
+      el.setAttribute("aria-pressed", (country ? value === country : value === "") ? "true" : "false");
+    });
+    document.querySelectorAll('[data-filter="market"]').forEach(function (peer) {
+      var value = peer.getAttribute("data-value") || "";
+      var pressed = false;
+      if (!value) pressed = !market && !countryFromMarketPill();
+      else if (market) pressed = market === value;
+      else pressed = MARKET_COUNTRY[value] === country;
+      peer.setAttribute("aria-pressed", pressed ? "true" : "false");
+    });
+    document.querySelectorAll('[data-filter="sector"]').forEach(function (peer) {
+      peer.setAttribute("aria-pressed", (peer.getAttribute("data-value") || "") === sector ? "true" : "false");
+    });
+  }
+
+  function showTip(id) {
+    if (!tip) return;
+    var marker = document.querySelector('.map-marker[data-country="' + id + '"]');
+    if (!marker) {
+      tip.hidden = true;
+      return;
+    }
+    tip.hidden = false;
+    tip.textContent = marker.getAttribute("data-label") || "";
+    tip.style.left = marker.style.left;
+    tip.style.top = marker.style.top;
+  }
+
+  function chooseCountry(id, scroll) {
+    country = id || "";
+    syncUi();
+    apply();
+    if (country) showTip(country);
+    else if (tip) tip.hidden = true;
+    if (scroll && country) {
+      document.getElementById("startup-list").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    }
   }
 
   search.addEventListener("input", apply);
@@ -551,14 +727,50 @@
     button.addEventListener("click", function () {
       var kind = button.getAttribute("data-filter");
       var value = button.getAttribute("data-value") || "";
-      if (kind === "market") market = value;
+      if (kind === "market") {
+        if (!value) market = "";
+        else if (MARKET_COUNTRY[value]) {
+          country = MARKET_COUNTRY[value];
+          market = "";
+        } else {
+          market = value;
+          country = "";
+        }
+      }
       if (kind === "sector") sector = value;
-      document.querySelectorAll('[data-filter="' + kind + '"]').forEach(function (peer) {
-        peer.setAttribute("aria-pressed", peer === button ? "true" : "false");
-      });
+      syncUi();
       apply();
+      if (kind === "market" && country) showTip(country);
+      else if (tip && !country) tip.hidden = true;
     });
   });
+
+  document.querySelectorAll(".map-marker").forEach(function (marker) {
+    marker.addEventListener("click", function () {
+      chooseCountry(marker.getAttribute("data-country"), true);
+    });
+    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country")); });
+    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country")); });
+    marker.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+    marker.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+  });
+  document.querySelectorAll(".map-country--link").forEach(function (shape) {
+    shape.addEventListener("click", function () {
+      chooseCountry(shape.getAttribute("data-country"), true);
+    });
+    shape.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        chooseCountry(shape.getAttribute("data-country"), true);
+      }
+    });
+    shape.addEventListener("pointerenter", function () { showTip(shape.getAttribute("data-country")); });
+    shape.addEventListener("focus", function () { showTip(shape.getAttribute("data-country")); });
+    shape.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+    shape.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+  });
+  var mapReset = document.querySelector("[data-map-reset]");
+  if (mapReset) mapReset.addEventListener("click", function () { chooseCountry("", false); });
 })();
 </script>
 </body>
