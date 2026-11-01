@@ -1,42 +1,52 @@
 GAIIN Startup Database v1
-Status,"Provisional, Jay to confirm. Inclusion bar and tab list are a working proposal until Jay signs off."
+Status,"Final startup definition set by Jay on 1 Nov 2026, relayed via Fact Check. City pages are not live yet: a city goes live only at 15 verified rows (see Go live rule). Verified rows today: Hong Kong 16, Stockholm 13, Copenhagen 14, Oslo 10. Only Hong Kong has reached 15."
 Purpose,"A hand-curated database of early and growth stage startups founded in or headquartered in Hong Kong, Stockholm, Copenhagen and Oslo. It feeds the GAIIN city pages and Signal coverage. It is a database, not a map."
 Owners,Signal curates rows. Fact Check verifies each row. Head of Web builds the city pages. Comms owns intro voice. Jay's own OK is needed before any merge or publication.
-Tabs,"One tab per city: Hong Kong, Stockholm, Copenhagen, Oslo. The tab is the city or metro area where the startup was founded or is headquartered. An Excluded tab holds rows removed from city pages, with the reason, so they are kept but never shown."
+Tabs,"One tab per city: Hong Kong, Stockholm, Copenhagen, Oslo. These hold startups only. A Scale-ups tab holds older companies that otherwise qualify (same columns, with city as the first column). An Excluded tab holds rows removed with the reason in notes (listed or acquired or merged companies, wrong HQ). Nothing is deleted, rows are moved so they can be restored."
 
-"INCLUSION BAR (provisional, Jay to confirm)"
-1. City,"Founded or HQ in the city or its metro area (for example Greater Copenhagen). Provisional, Jay to confirm."
-2. Active,"Live website, or news or activity in the last 18 months."
-3. Innovation or tech led,"AI, deep tech, climate or energy, fintech, robotics or physical AI, blockchain, health tech, new business models."
-4. Primary source,"Its own website plus at least one independent source, such as news, a university or incubator page, or an official register."
-5. Circle members,Circle members are NOT listed in this database.
+"STARTUP DEFINITION (set by Jay 1 Nov 2026, relayed via Fact Check)"
+1. Age,"Founded on or after 1 Nov 2021. Age is counted from when the business began where Fact Check says so (Legora, Syre and Muybridge were counted this way). Older companies that otherwise qualify go to the Scale-ups tab."
+2. City,Founded or headquartered in the city or its metro area (for example Greater Copenhagen or Greater Oslo).
+3. Independent and unlisted,Not listed on a stock market and not acquired or merged. Listed and acquired or merged companies go to Excluded with the reason in notes. Flags kept: Animoca Brands (suspended Currenc merger) and Airtame (going-concern note) in Scale-ups.
+4. Tech led,"Scalable technology or innovation: AI, deep tech, climate or energy, fintech, robotics or physical AI, blockchain, health tech, new business models."
+5. Evidence,"A sourced funding round, grant or accelerator place in the last 2 years, OR sourced revenue or named customers."
+6. Primary source,"Its own website plus at least one independent source, such as news, a university or incubator page, or an official register."
+7. Circle members,Circle members are NOT listed in this database.
+Jay rulings (1 Nov 2026),"Alpha AI, R2C2 and Telescope stay startups. Spoor, Findable, Reel, OneDegree, Aiilog and Muybridge are scale-ups. Real Matter passes on soft evidence (HKSTP incubation only). Restituo passes (HKSTP Rocketing AI cohort, 6 May 2026)."
+Defence-tech,"Six Robotics and Stendr (pure defence), Sapient Perception and Acodyne (dual-use) are in the city tabs with a note ""defence-tech fit pending Jay"". They count in the totals until Jay decides."
+
+STATUS VALUES
+PASS,"All tests met, verified by Fact Check."
+HELD (unverified),Kept in its city tab but does not count towards the 15. Currently 221b (Hong Kong): the age test and the evidence test are both unresolved.
+UNVERIFIED (founders),"All tests pass except founders, which are not on a primary company page. Does not count. Currently Visoid (Oslo). Signal found the lead investor Skyfall Ventures naming both founders on its own LinkedIn post and recorded it in notes. Fact Check decides the status."
+Fix,"A test fails or a core fact is wrong. Only Fact Check sets PASS, Fix or UNVERIFIED."
 
 COLUMNS
 name,Company name as used on its own website.
-logo,"Official logo URL from the company's own website or press kit only. Blank if not found. Auto-detected from the homepage and not yet confirmed by Fact Check, and display rights are not yet cleared."
+logo,"Official logo URL from the company own website or press kit only. Each logo was opened and eye-checked on 1 Nov 2026. It must be the company own logo, not a partner logo, a page image or a generic favicon. Blank where none was found, with a note. Some are white variants meant for dark backgrounds. Display rights are not yet cleared."
 short_description,"GAIIN's own words, about 20 words at most, plain tone, no hype. Never copied from any database or from the company's marketing text."
 founders,"Names from the company site or a primary source. Blank if not verifiable. Where a name came from a news profile or a summary of one, the notes say Fact Check should confirm it."
 valuation,Publicly reported figure only. Blank if none. Never estimated. Only filled when a named source explicitly states a valuation. Funding rounds are not valuations.
 valuation_source,URL of the source that states the valuation.
 valuation_as_of,"Date of that statement (YYYY-MM-DD). Some figures are old, check the date before using."
 hq_city,"City of headquarters or main registered office. Metro area entries show the district and the metro area, for example Kastrup (Greater Copenhagen)."
-operating_markets,"Markets or cities the company says it serves. High level, to be confirmed by Fact Check."
+operating_markets,"Comma-separated list, one value per market, country names or Global (for example Global, US). No qualifiers. Only markets a source supports. Where a source gives only a region (for example Europe or Nordics) the region is kept rather than guessed. Where no market list exists the home country is used and the notes say so."
 website,Company website.
 sector,"One or more tags: AI, Deep tech, Climate / energy, Fintech, Robotics / physical AI, Blockchain, Health, New business models, Other."
 source_links,"Own site plus independent sources, separated by semicolons. Registers and company pages are used for verification only."
 last_verified,Date Signal last checked the row against its sources (YYYY-MM-DD).
-fact_check_status,"Pending, PASS or Fix. Signal sets Pending. Only Fact Check sets PASS or Fix."
+fact_check_status,"PASS, HELD (unverified), UNVERIFIED (founders), Fix or Pending. Signal sets Pending. Only Fact Check sets the other values."
 notes,"Founded year, doubts, corrections made against aggregator data, GAIIN Signal overlap, and anything Fact Check should look at."
 
 RULES
 Curated by hand,"Rows are selected and written by hand. Never bulk-copied from Dealroom, Crunchbase or similar databases. Those may be used to find names only and are never cited."
 Sources and dates,Every row has a source and a last_verified date.
 Fact Check,Fact Check verifies each row before it counts as verified.
-Go live threshold,A city page goes live at 15 or more verified entries (fact_check_status PASS).
+Go live rule,A city page goes live at 15 or more verified rows per city (fact_check_status PASS). HELD and UNVERIFIED rows do not count.
+6-month recheck,"Every row is rechecked 6 months after its last_verified date: age, independence (listed, acquired or merged), evidence window and HQ. A startup that passes 5 years of age moves to Scale-ups."
 Founded year,Held in notes. If a year could not be verified it is left out and the notes say why.
 Valuation rule,"Only explicit valuation statements from a named source. Never funding rounds, debt, financing or estimates. Aggregator pages are not used for valuations."
 Style,"No em dashes or en dashes anywhere in this Sheet. Plain, no hype voice."
 
-"SEED STATUS (1 Nov 2026, Asia/Hong_Kong)",Seeded by hand on 2026-11-01. All rows are Pending. Rows marked DOUBTFUL in notes are weaker on city or independent source and may be dropped after Fact Check. Rows with blank founders or logo still need that field completed.
-"SIGNAL UPDATE (1 Nov 2026, Asia/Hong_Kong)",Fact Check ran on 1 Nov and set PASS or Fix on each row. Signal then applied curation decisions. Rows Signal changed were set back to Pending for Fact Check to re-check. Each change is appended to the row's notes after 'Signal 1 Nov:'.
-Excluded tab,"Parahelp (HQ San Francisco) and Carbon Crusher (registered HQ Hjartdal, Telemark) were moved from the city tabs to Excluded with the reason. They are kept, not deleted, and no city page shows them."
+"SIGNAL UPDATE (1 Nov 2026, Asia/Hong_Kong)","Final definition applied: older qualifiers moved to Scale-ups, listed and acquired rows moved to Excluded with the reason, 25 new PASS rows and Visoid (UNVERIFIED) added, 221b set to HELD, defence flags added in notes, logos audited and operating_markets normalised. Each change is appended to the row notes after ""Signal 1 Nov 2026"". Backups are on the box: backup-2026-11-01-pre-age5.csv is the state before the final edits."
+Excluded tab,"Parahelp (HQ San Francisco) and Carbon Crusher (registered HQ Hjartdal, Telemark) were removed for HQ. Einride, Normative, Exabel and Elliptic Labs were removed as listed or acquired or merged (see each row notes). Kept, not deleted. No city page shows them."
