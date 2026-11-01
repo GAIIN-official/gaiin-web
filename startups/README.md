@@ -4,7 +4,7 @@ Provisional static pages for a hand-curated list of startups in Hong Kong, Stock
 
 ## Refresh
 
-Put the city CSVs in `startups/data/source/` (`hong-kong.csv`, `stockholm.csv`, `copenhagen.csv`, `oslo.csv`). From the repo root:
+Put the city CSVs and `scale-ups.csv` in `startups/data/source/`. From the repo root:
 
 ```bash
 node startups/tools/build.mjs
@@ -16,7 +16,15 @@ A valuation is shown only when `valuation`, `valuation_source` and `valuation_as
 
 Operating markets are trimmed and mapped through `MARKET_CANON` in `startups/tools/build.mjs`. `Global, including San Francisco` becomes Global and US. `global` and `Global` collapse to one Global. Regions and countries stay distinct. Filter pills list regions first, then countries A to Z. Add a new sheet spelling to `MARKET_CANON` or the build stops.
 
-`LOGO_OVERRIDE` in the same file replaces a sheet logo. A URL is the replacement. An empty string forces the initials tile. Alpha AI is empty until Signal replaces the Housing Society image. Remove the entry once the sheet URL is correct.
+Only `fact_check_status` PASS is rendered. HELD and UNVERIFIED rows are skipped with a warning. A blank logo becomes an initials tile. Names in `DARK_LOGO` use a navy tile. Logo tiles are light otherwise.
+
+The index has a Startups | Scale-ups toggle. Startups is the default. Map counts follow the toggle. City pages list that city's scale-ups in a second section.
+
+## Counts
+
+PASS rows only.
+
+Hong Kong: 16 startups, 12 scale-ups. Stockholm: 13 startups, 11 scale-ups. Copenhagen: 14 startups, 12 scale-ups. Oslo: 10 startups, 12 scale-ups.
 
 There is no contact email in the site repo yet. The logo footnote leaves the address as TODO (contact).
 

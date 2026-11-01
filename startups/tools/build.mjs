@@ -34,13 +34,10 @@ const SECTOR_ORDER = [
 ];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-// Sheet logo fixes. A URL replaces the sheet value. An empty string forces the initials tile.
-// Delete the entry once Signal corrects the sheet, and the next build uses the sheet URL.
-const LOGO_OVERRIDE = {
-  "Alpha AI": "",
-};
+// Names whose logos are light marks, so the tile is navy with a hairline border.
+const DARK_LOGO = ["Libpet", "DBinsight.ai", "Visoid", "Flocean", "Pantheon Lab", "No Isolation", "Pixotope"];
 
-const REGION_ORDER = ["Global", "Asia", "East Asia", "Southeast Asia", "Greater China", "Europe", "North America"];
+const REGION_ORDER = ["Global", "Asia", "East Asia", "Southeast Asia", "Greater China", "Europe", "Nordics", "North America"];
 
 // Trimmed sheet values map to one or more canonical names. Regions stay distinct from countries.
 const MARKET_CANON = {
@@ -52,7 +49,9 @@ const MARKET_CANON = {
   "Southeast Asia": ["Southeast Asia"],
   "Greater China": ["Greater China"],
   Europe: ["Europe"],
+  Nordics: ["Nordics"],
   "North America": ["North America"],
+  Singapore: ["Singapore"],
   Denmark: ["Denmark"],
   Germany: ["Germany"],
   "Hong Kong": ["Hong Kong"],
@@ -146,10 +145,6 @@ function sortMarkets(names) {
   return [...regions, ...countries];
 }
 
-function logoFor(name, sheetLogo) {
-  if (Object.prototype.hasOwnProperty.call(LOGO_OVERRIDE, name)) return String(LOGO_OVERRIDE[name]).trim();
-  return String(sheetLogo || "").trim();
-}
 
 function splitList(value, separator) {
   return String(value || "")
@@ -197,39 +192,50 @@ function initials(name) {
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 
+function companyFromRow(row, city, kind, fileLabel) {
+  const name = row.name.trim();
+  if (!name) throw new Error(`${fileLabel}: a row has no name`);
+  if (BANNED.some((banned) => name.toLowerCase().includes(banned))) {
+    throw new Error(`${name} must not appear on a page`);
+  }
+  const status = row.fact_check_status.trim();
+  if (status !== "PASS") {
+    console.warn(`skip ${name}: fact_check_status is ${status}`);
+    return null;
+  }
+  return {
+    name,
+    kind,
+    slug: city.slug,
+    city: city.label,
+    logo: row.logo.trim(),
+    initials: initials(name),
+    short_description: row.short_description.trim(),
+    founders: splitList(row.founders, ","),
+    hq_city: row.hq_city.trim(),
+    operating_markets: canonicalMarkets(row.operating_markets),
+    website: row.website.trim(),
+    sectors: splitList(row.sector, ";"),
+    last_verified: formatVerified(row.last_verified.trim(), name),
+    valuation: valuationOf(row),
+  };
+}
+
 function loadCity(city) {
-  const text = awaitRead(path.join(sourceDir, city.file));
-  return text.then((raw) => {
-    const records = parseCsv(raw);
-    return records.map((row) => {
-      const name = row.name.trim();
-      if (!name) throw new Error(`${city.file}: a row has no name`);
-      if (BANNED.some((banned) => name.toLowerCase().includes(banned))) {
-        throw new Error(`${name} must not appear on a city page`);
-      }
-      if (row.fact_check_status.trim() !== "PASS") {
-        throw new Error(`${name}: fact_check_status is not PASS`);
-      }
-      const founders = splitList(row.founders, ",");
-      const markets = canonicalMarkets(row.operating_markets);
-      const sectors = splitList(row.sector, ";");
-      return {
-        name,
-        slug: city.slug,
-        city: city.label,
-        logo: logoFor(name, row.logo),
-        initials: initials(name),
-        short_description: row.short_description.trim(),
-        founders,
-        hq_city: row.hq_city.trim(),
-        operating_markets: markets,
-        website: row.website.trim(),
-        sectors,
-        last_verified: formatVerified(row.last_verified.trim(), name),
-        valuation: valuationOf(row),
-      };
-    });
-  });
+  return readFile(path.join(sourceDir, city.file), "utf8").then((raw) => (
+    parseCsv(raw).map((row) => companyFromRow(row, city, "startup", city.file)).filter(Boolean)
+  ));
+}
+
+function loadScaleUps() {
+  return readFile(path.join(sourceDir, "scale-ups.csv"), "utf8").then((raw) => (
+    parseCsv(raw).map((row) => {
+      const label = (row.city || "").trim();
+      const city = CITIES.find((item) => item.label === label);
+      if (!city) throw new Error(`scale-ups.csv: unknown city "${label}" for ${row.name}`);
+      return companyFromRow(row, city, "scale-up", "scale-ups.csv");
+    }).filter(Boolean)
+  ));
 }
 
 function awaitRead(file) {
@@ -418,11 +424,15 @@ const css = `
   .filter-chip--region[aria-pressed="true"]:hover, .filter-chip--region[aria-current="page"]:hover { color: #0a1730; background: #ffffff; border-color: #ffffff; }
   .filter-chip--region:focus-visible { outline-color: #ffffff; }
   .list { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 108px; }
+  .list.is-startups [data-kind="scale-up"],
+  .list.is-scale-ups [data-kind="startup"] { display: none !important; }
   .startup-card { display: grid; grid-template-columns: 168.75px minmax(0, 1fr); column-gap: 18px; row-gap: 8px; align-items: start; padding: 16px; background: #0d2951; border: 1px solid #1c2f52; border-radius: 16px; }
   .startup-card[hidden] { display: none; }
   .startup-card__media { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
   .startup-card__media--light { background: #f7f9fb; }
-  .startup-card__media--navy { background: #0a1730; }
+  .startup-card__media--navy { background: #0a1730; border: 1px solid rgba(237,179,168,.45); }
+  .kind-toggle { display: flex; gap: 8px; }
+  .stage-title { font-size: clamp(28px, 3.4vw, 42px); color: #f7f9fb; scroll-margin-top: 108px; }
   .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
   .startup-card__media img { object-fit: contain; display: block; padding: 14px; }
   .logo-fallback { display: flex; align-items: center; justify-content: center; font-family: 'Fragment Mono', monospace; font-size: 28px; letter-spacing: .08em; }
@@ -494,11 +504,10 @@ const css = `
   }
 `;
 
-function mediaClass(logo) {
-  if (!logo || /white|_light\.|-light\.|syre_light/i.test(logo)) {
-    return "startup-card__media startup-card__media--navy";
-  }
-  return "startup-card__media startup-card__media--light";
+function mediaClass(name) {
+  return DARK_LOGO.includes(name)
+    ? "startup-card__media startup-card__media--navy"
+    : "startup-card__media startup-card__media--light";
 }
 
 const CITY_COUNTRY = {
@@ -519,6 +528,7 @@ const COUNTRY_PLACES = [
   { id: "UAE", lon: 54.3, lat: 24.2, iso: "784", markets: ["UAE"] },
   { id: "UK", lon: -2.6, lat: 54.2, iso: "826", markets: ["UK"] },
   { id: "US", lon: -98.35, lat: 39.5, iso: "840", markets: ["US"] },
+  { id: "Singapore", lon: 103.82, lat: 1.35, iso: "702", markets: ["Singapore"] },
 ];
 
 const MARKET_COUNTRY = Object.fromEntries(
@@ -601,17 +611,39 @@ function geometryPath(geometry, arcs) {
   return d;
 }
 
-function mapSection(companies, topo) {
+function countryCounts(list) {
   const counts = Object.fromEntries(COUNTRY_PLACES.map((place) => [place.id, 0]));
+  for (const company of list) {
+    for (const id of companyCountries(company)) {
+      if (Object.prototype.hasOwnProperty.call(counts, id)) counts[id] += 1;
+    }
+  }
+  return counts;
+}
+
+function countLabel(id, count, kind) {
+  const noun = kind === "scale-up"
+    ? (count === 1 ? "scale-up" : "scale-ups")
+    : (count === 1 ? "startup" : "startups");
+  return `${id}, ${count} ${noun}`;
+}
+
+function mapSection(startups, scaleUps, topo) {
+  const startupCounts = countryCounts(startups);
+  const scaleCounts = countryCounts(scaleUps);
   const hqIds = new Set();
-  for (const company of companies) {
+  for (const company of [...startups, ...scaleUps]) {
     const hq = CITY_COUNTRY[company.city];
     if (hq) hqIds.add(hq);
-    for (const id of companyCountries(company)) counts[id] += 1;
   }
   const places = COUNTRY_PLACES
-    .map((place) => ({ ...place, hq: hqIds.has(place.id), count: counts[place.id] }))
-    .filter((place) => place.count > 0)
+    .map((place) => ({
+      ...place,
+      hq: hqIds.has(place.id),
+      startupCount: startupCounts[place.id],
+      scaleCount: scaleCounts[place.id],
+    }))
+    .filter((place) => place.startupCount > 0 || place.scaleCount > 0)
     .sort((a, b) => Number(a.hq) - Number(b.hq));
   const arcs = decodeArcs(topo);
   const byIso = new Map(places.filter((place) => place.iso).map((place) => [place.iso, place]));
@@ -620,25 +652,28 @@ function mapSection(companies, topo) {
     if (!d) return "";
     const place = byIso.get(String(geometry.id));
     if (!place) return `<path class="map-country" d="${d}"></path>`;
-    const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
-    return `<path class="map-country map-country--link" data-country="${esc(place.id)}" role="button" tabindex="0" aria-pressed="false" aria-label="${esc(label)}" d="${d}"></path>`;
+    const label = countLabel(place.id, place.startupCount, "startup");
+    const hidden = place.startupCount === 0 ? " hidden" : "";
+    return `<path class="map-country map-country--link" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" role="button" tabindex="${place.startupCount === 0 ? "-1" : "0"}" aria-pressed="false" aria-label="${esc(label)}"${hidden} d="${d}"></path>`;
   }).join("");
   const markers = places.map((place) => {
     const [x, y] = project(place.lon, place.lat);
-    const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
+    const label = countLabel(place.id, place.startupCount, "startup");
     const left = ((x / WORLD_W) * 100).toFixed(2);
     const top = ((y / WORLD_H) * 100).toFixed(2);
+    const hidden = place.startupCount === 0 ? " hidden" : "";
     if (NORDICS.has(place.id)) {
-      return `<span class="map-pin" style="left:${left}%;top:${top}%" aria-hidden="true"></span>`;
+      return `<span class="map-pin" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" style="left:${left}%;top:${top}%" aria-hidden="true"${hidden}></span>`;
     }
     const kind = place.hq ? "map-marker map-marker--hq" : "map-marker";
-    return `<button class="${kind}" type="button" data-country="${esc(place.id)}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${left}%;top:${top}%"><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
+    return `<button class="${kind}" type="button" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${left}%;top:${top}%"${hidden}><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
   }).join("");
   const nordicOrder = ["Norway", "Sweden", "Denmark"];
   const nordicPlaces = nordicOrder.map((id) => places.find((place) => place.id === id)).filter(Boolean);
   const insetMarkers = nordicPlaces.map((place) => {
-    const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
-    return `<button class="nordic-hit" type="button" data-country="${esc(place.id)}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}"><span class="map-marker__dot" aria-hidden="true"></span>${esc(place.id)}</button>`;
+    const label = countLabel(place.id, place.startupCount, "startup");
+    const hidden = place.startupCount === 0 ? " hidden" : "";
+    return `<button class="nordic-hit" type="button" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}"${hidden}><span class="map-marker__dot" aria-hidden="true"></span>${esc(place.id)}</button>`;
   }).join("");
   const nordics = `<div class="nordics" role="group" aria-label="Nordics"><span class="nordics__label">Nordics</span>${insetMarkers}</div>`;
   return `<section class="map-section" id="startup-map" aria-label="Filter by country">
@@ -684,8 +719,8 @@ function cardHtml(company) {
   const website = company.website
     ? `<a class="link-under" href="${esc(company.website)}" target="_blank" rel="noopener noreferrer">Website</a>`
     : "";
-  return `<article class="startup-card" data-search="${esc(search)}" data-markets="${esc(company.operating_markets.join("|"))}" data-sectors="${esc(company.sectors.join("|"))}" data-countries="${esc(countries.join("|"))}">
-    <div class="${mediaClass(company.logo)}">${logo}</div>
+  return `<article class="startup-card" data-kind="${esc(company.kind)}" data-search="${esc(search)}" data-markets="${esc(company.operating_markets.join("|"))}" data-sectors="${esc(company.sectors.join("|"))}" data-countries="${esc(countries.join("|"))}">
+    <div class="${mediaClass(company.name)}">${logo}</div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
         <p class="startup-card__sector">${esc(company.sectors.join(" · "))}</p>
@@ -726,15 +761,36 @@ function pillBlock(kind, label, buttons) {
       </div>`;
 }
 
-function pageHtml({ title, pathName, heading, companies, activeSlug, topo }) {
-  const markets = sortMarkets(unique(companies.flatMap((company) => company.operating_markets)));
-  const sectors = SECTOR_ORDER.filter((sector) => companies.some((company) => company.sectors.includes(sector)));
+function pageHtml({ title, pathName, heading, companies, scaleUps, activeSlug, topo }) {
+  const pool = [...companies, ...scaleUps];
+  const markets = sortMarkets(unique(pool.flatMap((company) => company.operating_markets)));
+  const sectors = SECTOR_ORDER.filter((sector) => pool.some((company) => company.sectors.includes(sector)));
   const cityLinks = [
     chipLink("/startups", "All", true, activeSlug === "all"),
     ...CITIES.map((city) => chipLink(`/startups/${city.slug}`, city.label, false, activeSlug === city.slug)),
   ].join("");
   const marketButtons = [chipButton("All", "market", "", true), ...markets.map((market) => chipButton(market, "market", market, false))].join("");
   const sectorButtons = [chipButton("All", "sector", "", true), ...sectors.map((sector) => chipButton(sector, "sector", sector, false))].join("");
+  const index = activeSlug === "all";
+  const lists = index
+    ? `<div class="kind-toggle" role="group" aria-label="Company stage">
+      <button class="filter-chip" type="button" data-stage="startup" aria-pressed="true">Startups</button>
+      <button class="filter-chip" type="button" data-stage="scale-up" aria-pressed="false">Scale-ups</button>
+    </div>
+    <div class="list is-startups" id="startup-list">
+      ${[...companies, ...scaleUps].map(cardHtml).join("\n")}
+    </div>
+    <p class="empty" id="startup-empty" hidden>No matching startups.</p>`
+    : `<h2 class="stage-title">Startups</h2>
+    <div class="list" id="startup-list">
+      ${companies.map(cardHtml).join("\n")}
+    </div>
+    <p class="empty" id="startup-empty" data-empty="startup" hidden>No matching startups.</p>
+    <h2 class="stage-title" id="scale-ups">Scale-ups</h2>
+    <div class="list" id="scale-list">
+      ${scaleUps.map(cardHtml).join("\n")}
+    </div>
+    <p class="empty" id="scale-empty" data-empty="scale-up" hidden>No matching scale-ups.</p>`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -780,7 +836,7 @@ ${header}
   </div>
 </main>
 <div class="band band--to-light"></div>
-${activeSlug === "all" ? mapSection(companies, topo) : ""}
+${index ? mapSection(companies, scaleUps, topo) : ""}
 <section class="list-section" style="background:#0a1730;">
   <div class="wrap">
     <form class="search" role="search" onsubmit="return false">
@@ -794,10 +850,7 @@ ${activeSlug === "all" ? mapSection(companies, topo) : ""}
       ${pillBlock("sector", "Sector", sectorButtons)}
       ${selectFilter("sector", "Sector", sectors)}
     </div>
-    <div class="list" id="startup-list">
-      ${companies.map(cardHtml).join("\n")}
-    </div>
-    <p class="empty" id="startup-empty" hidden>No matching startups.</p>
+    ${lists}
     <p class="note">Logos belong to their owners. Listed company? Request changes: TODO (contact).</p>
   </div>
 </section>
@@ -823,8 +876,11 @@ ${footer}
     "Taiwan": "Taiwan",
     "UAE": "UAE",
     "UK": "UK",
-    "US": "US"
+    "US": "US",
+    "Singapore": "Singapore"
   };
+  var kind = "startup";
+  var stageToggle = document.querySelector(".kind-toggle");
 
   document.querySelectorAll("[data-logo], .startup-card__media img").forEach(function (img) {
     function fail() {
@@ -844,14 +900,47 @@ ${footer}
       var markets = (card.getAttribute("data-markets") || "").split("|").filter(Boolean);
       var sectors = (card.getAttribute("data-sectors") || "").split("|").filter(Boolean);
       var countries = (card.getAttribute("data-countries") || "").split("|").filter(Boolean);
+      var cardKind = card.getAttribute("data-kind") || "startup";
       var ok = (!query || (card.getAttribute("data-search") || "").indexOf(query) !== -1)
         && (!market || markets.indexOf(market) !== -1)
         && (!sector || sectors.indexOf(sector) !== -1)
-        && (!country || countries.indexOf(country) !== -1);
+        && (!country || countries.indexOf(country) !== -1)
+        && (!stageToggle || cardKind === kind);
       card.hidden = !ok;
       if (ok) shown += 1;
     });
-    empty.hidden = shown !== 0;
+    if (stageToggle) {
+      empty.hidden = shown !== 0;
+      empty.textContent = kind === "scale-up" ? "No matching scale-ups." : "No matching startups.";
+    } else {
+      ["startup", "scale-up"].forEach(function (group) {
+        var groupShown = cards.filter(function (card) {
+          return (card.getAttribute("data-kind") || "startup") === group && !card.hidden;
+        }).length;
+        var node = document.querySelector('[data-empty="' + group + '"]');
+        if (node) node.hidden = groupShown !== 0;
+      });
+    }
+  }
+
+  function mapNoun(count) {
+    if (kind === "scale-up") return count === 1 ? "scale-up" : "scale-ups";
+    return count === 1 ? "startup" : "startups";
+  }
+
+  function syncMap() {
+    document.querySelectorAll("[data-startup-count]").forEach(function (el) {
+      var count = Number(el.getAttribute(kind === "scale-up" ? "data-scale-count" : "data-startup-count") || "0");
+      var id = el.getAttribute("data-country");
+      if (!id) return;
+      var label = id + ", " + count + " " + mapNoun(count);
+      el.setAttribute("data-label", label);
+      if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", label);
+      el.hidden = count === 0;
+      if (el.classList.contains("map-country--link")) el.tabIndex = count === 0 ? -1 : 0;
+    });
+    var row = document.querySelector(".nordics");
+    if (row) row.hidden = !row.querySelector(".nordic-hit:not([hidden])");
   }
 
   function countryFromMarketPill() {
@@ -990,6 +1079,29 @@ ${footer}
   window.addEventListener("resize", layoutClamps);
   window.addEventListener("load", layoutClamps);
   layoutClamps();
+  document.querySelectorAll("[data-stage]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      kind = button.getAttribute("data-stage") || "startup";
+      document.querySelectorAll("[data-stage]").forEach(function (peer) {
+        peer.setAttribute("aria-pressed", peer === button ? "true" : "false");
+      });
+      var list = document.getElementById("startup-list");
+      if (list) {
+        list.classList.toggle("is-startups", kind === "startup");
+        list.classList.toggle("is-scale-ups", kind === "scale-up");
+      }
+      document.querySelectorAll('[aria-label="City"] a').forEach(function (link) {
+        var href = (link.getAttribute("href") || "").split("#")[0];
+        link.setAttribute("href", href === "/startups" || kind === "startup" ? href : href + "#scale-ups");
+      });
+      syncMap();
+      apply();
+      if (country) showTip(country);
+      else if (tip) tip.hidden = true;
+    });
+  });
+  syncMap();
+  apply();
 
   document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
@@ -1031,21 +1143,28 @@ async function main() {
     const companies = await loadCity(city);
     companies.sort((a, b) => a.name.localeCompare(b.name));
     byCity.push({ ...city, companies });
-    console.log(`${city.label}: ${companies.length}`);
   }
+  const scaleUps = await loadScaleUps();
+  scaleUps.sort((a, b) => a.name.localeCompare(b.name));
   const all = byCity.flatMap((city) => city.companies);
+  for (const city of CITIES) {
+    const scaleCount = scaleUps.filter((company) => company.slug === city.slug).length;
+    const startupCount = byCity.find((item) => item.slug === city.slug).companies.length;
+    console.log(`${city.label}: ${startupCount} startups, ${scaleCount} scale-ups`);
+  }
   const topo = JSON.parse(await readFile(path.join(root, "startups/data/world/countries-110m.json"), "utf8"));
   const jsonPath = path.join(root, "startups/data/startups.json");
-  await writeFile(jsonPath, `${JSON.stringify({ cities: CITIES.map(({ slug, label }) => ({ slug, label })), startups: all }, null, 2)}\n`);
+  await writeFile(jsonPath, `${JSON.stringify({ cities: CITIES.map(({ slug, label }) => ({ slug, label })), startups: all, scaleUps }, null, 2)}\n`);
 
   const pages = [
-    { dir: path.join(root, "startups"), title: "GAIIN Startup Database", pathName: "/startups", heading: "GAIIN Startup Database", companies: all, activeSlug: "all", topo },
+    { dir: path.join(root, "startups"), title: "GAIIN Startup Database", pathName: "/startups", heading: "GAIIN Startup Database", companies: all, scaleUps, activeSlug: "all", topo },
     ...byCity.map((city) => ({
       dir: path.join(root, "startups", city.slug),
       title: `${city.label} | GAIIN Startup Database`,
       pathName: `/startups/${city.slug}`,
       heading: city.label,
       companies: city.companies,
+      scaleUps: scaleUps.filter((company) => company.slug === city.slug),
       activeSlug: city.slug,
       topo,
     })),
@@ -1054,7 +1173,7 @@ async function main() {
     await mkdir(page.dir, { recursive: true });
     await writeFile(path.join(page.dir, "index.html"), pageHtml(page));
   }
-  console.log(`wrote ${all.length} startups`);
+  console.log(`wrote ${all.length} startups, ${scaleUps.length} scale-ups`);
 }
 
 main().catch((error) => {
