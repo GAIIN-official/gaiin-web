@@ -62,7 +62,7 @@
       "name": "Alpha AI",
       "slug": "hong-kong",
       "city": "Hong Kong",
-      "logo": "https://static.wixstatic.com/media/31febf_1031a5def27e487eb22ef00b2a22fefc~mv2.png/v1/fill/w_227,h_75,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1200px-Hong_Kong_Housing_Society_Logo_svg.png",
+      "logo": "",
       "initials": "AA",
       "short_description": "Uses drones, AI and 3D models to inspect buildings, slopes and confined spaces.",
       "founders": [],
@@ -157,8 +157,8 @@
       ],
       "hq_city": "Hong Kong",
       "operating_markets": [
-        "Hong Kong",
-        "global"
+        "Global",
+        "Hong Kong"
       ],
       "website": "https://www.climind.co",
       "sectors": [
@@ -181,8 +181,8 @@
       ],
       "hq_city": "Hong Kong",
       "operating_markets": [
-        "Hong Kong",
-        "Greater China"
+        "Greater China",
+        "Hong Kong"
       ],
       "website": "https://fano.ai",
       "sectors": [
@@ -201,8 +201,8 @@
       "founders": [],
       "hq_city": "Hong Kong",
       "operating_markets": [
-        "Hong Kong",
-        "Asia"
+        "Asia",
+        "Hong Kong"
       ],
       "website": "https://www.fundpark.com/en/",
       "sectors": [
@@ -290,8 +290,8 @@
       ],
       "hq_city": "Hong Kong",
       "operating_markets": [
-        "Hong Kong",
-        "Asia"
+        "Asia",
+        "Hong Kong"
       ],
       "website": "https://www.medmindtechnology.hk",
       "sectors": [
@@ -334,9 +334,9 @@
       ],
       "hq_city": "Hong Kong",
       "operating_markets": [
-        "Hong Kong",
         "East Asia",
         "Southeast Asia",
+        "Hong Kong",
         "US"
       ],
       "website": "https://www.pantheonlab.ai",
@@ -492,8 +492,8 @@
       ],
       "hq_city": "Hong Kong",
       "operating_markets": [
-        "Hong Kong",
-        "Asia"
+        "Asia",
+        "Hong Kong"
       ],
       "website": "https://www.welab.co",
       "sectors": [
@@ -532,9 +532,9 @@
       "founders": [],
       "hq_city": "Stockholm",
       "operating_markets": [
+        "Europe",
         "Sweden",
-        "UK",
-        "Europe"
+        "UK"
       ],
       "website": "https://www.airahome.com",
       "sectors": [
@@ -553,8 +553,8 @@
       "founders": [],
       "hq_city": "Stockholm",
       "operating_markets": [
-        "Sweden",
-        "Europe"
+        "Europe",
+        "Sweden"
       ],
       "website": "https://anyfin.com",
       "sectors": [
@@ -573,8 +573,8 @@
       "founders": [],
       "hq_city": "Stockholm",
       "operating_markets": [
-        "Sweden",
-        "Europe"
+        "Europe",
+        "Sweden"
       ],
       "website": "https://www.blykalla.com",
       "sectors": [
@@ -655,11 +655,11 @@
       "founders": [],
       "hq_city": "Stockholm",
       "operating_markets": [
-        "Sweden",
-        "US",
         "Germany",
         "Norway",
-        "UAE"
+        "Sweden",
+        "UAE",
+        "US"
       ],
       "website": "https://www.einride.tech",
       "sectors": [
@@ -724,9 +724,9 @@
       ],
       "hq_city": "Stockholm",
       "operating_markets": [
+        "Global",
         "Europe",
-        "US",
-        "global"
+        "US"
       ],
       "website": "https://legora.com",
       "sectors": [
@@ -871,8 +871,8 @@
       "founders": [],
       "hq_city": "Stockholm",
       "operating_markets": [
-        "Sweden",
-        "Europe"
+        "Europe",
+        "Sweden"
       ],
       "website": "https://stegra.com",
       "sectors": [
@@ -912,8 +912,8 @@
       "founders": [],
       "hq_city": "Stockholm",
       "operating_markets": [
-        "Sweden",
-        "Europe"
+        "Europe",
+        "Sweden"
       ],
       "website": "https://tandemhealth.ai",
       "sectors": [
@@ -1178,8 +1178,8 @@
       ],
       "hq_city": "Copenhagen",
       "operating_markets": [
-        "Europe",
-        "global"
+        "Global",
+        "Europe"
       ],
       "website": "https://www.lenusehealth.com",
       "sectors": [
@@ -1323,8 +1323,8 @@
       "founders": [],
       "hq_city": "Copenhagen",
       "operating_markets": [
-        "Europe",
-        "Asia"
+        "Asia",
+        "Europe"
       ],
       "website": "https://www.saltfoss.com",
       "sectors": [
@@ -1615,8 +1615,8 @@
       "hq_city": "Oslo",
       "operating_markets": [
         "Europe",
-        "US",
-        "UK"
+        "UK",
+        "US"
       ],
       "website": "https://www.sagarobotics.com",
       "sectors": [
@@ -1641,7 +1641,8 @@
       ],
       "hq_city": "Oslo",
       "operating_markets": [
-        "Global, including San Francisco"
+        "Global",
+        "US"
       ],
       "website": "https://www.sanity.io",
       "sectors": [

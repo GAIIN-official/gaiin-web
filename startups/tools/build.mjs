@@ -34,6 +34,37 @@ const SECTOR_ORDER = [
 ];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+// Sheet logo fixes. A URL replaces the sheet value. An empty string forces the initials tile.
+// Delete the entry once Signal corrects the sheet, and the next build uses the sheet URL.
+const LOGO_OVERRIDE = {
+  "Alpha AI": "",
+};
+
+const REGION_ORDER = ["Global", "Asia", "East Asia", "Southeast Asia", "Greater China", "Europe", "North America"];
+
+// Trimmed sheet values map to one or more canonical names. Regions stay distinct from countries.
+const MARKET_CANON = {
+  global: ["Global"],
+  Global: ["Global"],
+  "Global, including San Francisco": ["Global", "US"],
+  Asia: ["Asia"],
+  "East Asia": ["East Asia"],
+  "Southeast Asia": ["Southeast Asia"],
+  "Greater China": ["Greater China"],
+  Europe: ["Europe"],
+  "North America": ["North America"],
+  Denmark: ["Denmark"],
+  Germany: ["Germany"],
+  "Hong Kong": ["Hong Kong"],
+  Netherlands: ["Netherlands"],
+  Norway: ["Norway"],
+  Sweden: ["Sweden"],
+  Taiwan: ["Taiwan"],
+  UAE: ["UAE"],
+  UK: ["UK"],
+  US: ["US"],
+};
+
 function parseCsv(text) {
   const rows = [];
   let row = [];
@@ -97,6 +128,29 @@ function marketsOf(value) {
   return markets;
 }
 
+function canonicalMarkets(value) {
+  const names = [];
+  for (const part of marketsOf(value)) {
+    const mapped = MARKET_CANON[part];
+    if (!mapped) throw new Error(`No canonical operating market for "${part}". Add it to MARKET_CANON.`);
+    for (const name of mapped) {
+      if (!names.includes(name)) names.push(name);
+    }
+  }
+  return sortMarkets(names);
+}
+
+function sortMarkets(names) {
+  const regions = REGION_ORDER.filter((name) => names.includes(name));
+  const countries = names.filter((name) => !REGION_ORDER.includes(name)).sort((a, b) => a.localeCompare(b));
+  return [...regions, ...countries];
+}
+
+function logoFor(name, sheetLogo) {
+  if (Object.prototype.hasOwnProperty.call(LOGO_OVERRIDE, name)) return String(LOGO_OVERRIDE[name]).trim();
+  return String(sheetLogo || "").trim();
+}
+
 function splitList(value, separator) {
   return String(value || "")
     .split(separator)
@@ -157,13 +211,13 @@ function loadCity(city) {
         throw new Error(`${name}: fact_check_status is not PASS`);
       }
       const founders = splitList(row.founders, ",");
-      const markets = marketsOf(row.operating_markets);
+      const markets = canonicalMarkets(row.operating_markets);
       const sectors = splitList(row.sector, ";");
       return {
         name,
         slug: city.slug,
         city: city.label,
-        logo: row.logo.trim(),
+        logo: logoFor(name, row.logo),
         initials: initials(name),
         short_description: row.short_description.trim(),
         founders,
@@ -341,6 +395,18 @@ const css = `
   .search input:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
   .filters { display: flex; flex-direction: column; gap: 10px; }
   .filters__row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-block { display: flex; align-items: flex-start; gap: 8px; }
+  .filters__row--clamp { flex: 1 1 auto; min-width: 0; max-height: 34px; overflow: hidden; }
+  .filters__row--clamp.is-open { max-height: none; }
+  .filter-more[hidden] { display: none; }
+  .filter-select { display: none; flex-direction: column; gap: 6px; }
+  .filter-select__label { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #8ea5c4; }
+  .filter-select select { width: 100%; appearance: none; background: #0d2951; color: #f7f9fb; border: 1px solid #EDB3A8; border-radius: 999px; padding: 10px 16px; font-family: 'Fragment Mono', monospace; font-size: 12px; letter-spacing: .04em; }
+  .filter-select select:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
+  @media (max-width: 639px) {
+    .filter-block { display: none; }
+    .filter-select { display: flex; }
+  }
   .filter-chip { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #EDB3A8; background: transparent; border: 1px solid #EDB3A8; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
   .filter-chip:hover { border-color: #d9877c; color: #d9877c; }
   .filter-chip[aria-pressed="true"], .filter-chip[aria-current="page"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
@@ -376,20 +442,32 @@ const css = `
   .link-under { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #d9877c; border-bottom: 1px solid #d9877c; white-space: nowrap; }
   .link-under:hover { color: #EDB3A8; border-color: #EDB3A8; }
   .startup-card__verified { font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .04em; color: #8ea5c4; white-space: nowrap; }
-  .map-section { background: #0a1730; padding-top: clamp(28px, 4vw, 48px); }
+  .map-section { background: #0a1730; padding-top: clamp(20px, 3vw, 36px); padding-bottom: 0; }
+  .list-section { padding-top: clamp(12px, 2vw, 24px); }
   .map-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
   .map-legend { display: flex; flex-wrap: wrap; gap: 14px 18px; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8ea5c4; }
   .map-legend__item { display: inline-flex; align-items: center; gap: 8px; }
   .map-legend__swatch { width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .7; box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
   .map-legend__swatch--hq { width: 13px; height: 13px; opacity: 1; box-shadow: 0 0 0 5px rgba(217,135,124,.4); }
-  .map-frame { position: relative; width: 100%; margin-top: 8px; }
-  .world-map { width: 100%; height: auto; display: block; overflow: hidden; }
+  .map-frame { position: relative; width: 100%; margin-top: 4px; line-height: 0; }
+  .world-map { width: 100%; height: auto; display: block; overflow: hidden; vertical-align: top; }
   .map-country { fill: #17345c; stroke: #0a1730; stroke-width: 0.7; }
   .map-country--link { cursor: pointer; }
   .map-country--link:hover, .map-country--link:focus-visible { fill: #214872; outline: none; }
   .map-country--link[aria-pressed="true"] { fill: #2c5d8f; }
   .map-markers { position: absolute; inset: 0; }
-  .map-marker { position: absolute; width: 44px; height: 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
+  .map-marker { position: absolute; width: 36px; height: 36px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
+  .map-marker[data-country="Hong Kong"] { transform: translate(calc(-50% - 16px), calc(-50% + 6px)); z-index: 3; }
+  .map-marker[data-country="Taiwan"] { transform: translate(calc(-50% + 16px), calc(-50% - 10px)); }
+  .map-pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: #d9877c; transform: translate(-50%, -50%); pointer-events: none; box-shadow: 0 0 0 4px rgba(217,135,124,.35); }
+  .nordics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; line-height: normal; }
+  .nordics__label { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8ea5c4; }
+  .nordic-hit { position: relative; transform: none; left: auto; top: auto; width: auto; min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px 4px 8px; border-radius: 999px; border: 1px solid #d9877c; background: transparent; color: #EDB3A8; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+  .nordic-hit .map-marker__dot { position: static; transform: none; flex: 0 0 auto; }
+  .nordic-hit .map-marker__pulse { display: none; }
+  .nordic-hit[aria-pressed="true"] { color: #0a1730; background: #d9877c; border-color: #d9877c; }
+  .nordic-hit[aria-pressed="true"] .map-marker__dot { background: #0a1730; box-shadow: none; }
+  .nordic-hit:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
   .map-marker--hq { z-index: 2; }
   .map-marker:focus-visible { outline: 2px solid #EDB3A8; outline-offset: 2px; }
   .map-marker__dot { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: #d9877c; opacity: .75; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px rgba(217,135,124,.28); }
@@ -440,7 +518,7 @@ const COUNTRY_PLACES = [
   { id: "Taiwan", lon: 120.96, lat: 23.7, iso: "158", markets: ["Taiwan"] },
   { id: "UAE", lon: 54.3, lat: 24.2, iso: "784", markets: ["UAE"] },
   { id: "UK", lon: -2.6, lat: 54.2, iso: "826", markets: ["UK"] },
-  { id: "US", lon: -98.35, lat: 39.5, iso: "840", markets: ["US", "Global, including San Francisco"] },
+  { id: "US", lon: -98.35, lat: 39.5, iso: "840", markets: ["US"] },
 ];
 
 const MARKET_COUNTRY = Object.fromEntries(
@@ -448,9 +526,10 @@ const MARKET_COUNTRY = Object.fromEntries(
 );
 
 const WORLD_W = 960;
-const WORLD_H = 500;
-const LAT_MAX = 84;
+const LAT_MAX = 83;
 const LAT_MIN = -56;
+const WORLD_H = Math.round((WORLD_W * (LAT_MAX - LAT_MIN)) / 360);
+const NORDICS = new Set(["Sweden", "Denmark", "Norway"]);
 
 function companyCountries(company) {
   const found = new Set();
@@ -469,6 +548,8 @@ function project(lon, lat) {
     ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * WORLD_H,
   ];
 }
+
+let projectPoint = project;
 
 function decodeArcs(topo) {
   const { scale, translate } = topo.transform;
@@ -497,7 +578,7 @@ function ringPath(ring) {
   return parts.filter((points) => points.length > 2).map((points) => {
     let d = "";
     points.forEach(([lon, lat], index) => {
-      const [x, y] = project(lon, lat);
+      const [x, y] = projectPoint(lon, lat);
       d += `${index === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
     });
     return `${d}Z`;
@@ -545,9 +626,21 @@ function mapSection(companies, topo) {
   const markers = places.map((place) => {
     const [x, y] = project(place.lon, place.lat);
     const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
+    const left = ((x / WORLD_W) * 100).toFixed(2);
+    const top = ((y / WORLD_H) * 100).toFixed(2);
+    if (NORDICS.has(place.id)) {
+      return `<span class="map-pin" style="left:${left}%;top:${top}%" aria-hidden="true"></span>`;
+    }
     const kind = place.hq ? "map-marker map-marker--hq" : "map-marker";
-    return `<button class="${kind}" type="button" data-country="${esc(place.id)}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${((x / WORLD_W) * 100).toFixed(2)}%;top:${((y / WORLD_H) * 100).toFixed(2)}%"><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
+    return `<button class="${kind}" type="button" data-country="${esc(place.id)}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${left}%;top:${top}%"><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
   }).join("");
+  const nordicOrder = ["Norway", "Sweden", "Denmark"];
+  const nordicPlaces = nordicOrder.map((id) => places.find((place) => place.id === id)).filter(Boolean);
+  const insetMarkers = nordicPlaces.map((place) => {
+    const label = `${place.id}, ${place.count} ${place.count === 1 ? "startup" : "startups"}`;
+    return `<button class="nordic-hit" type="button" data-country="${esc(place.id)}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}"><span class="map-marker__dot" aria-hidden="true"></span>${esc(place.id)}</button>`;
+  }).join("");
+  const nordics = `<div class="nordics" role="group" aria-label="Nordics"><span class="nordics__label">Nordics</span>${insetMarkers}</div>`;
   return `<section class="map-section" id="startup-map" aria-label="Filter by country">
   <div class="wrap">
     <div class="map-bar">
@@ -562,6 +655,7 @@ function mapSection(companies, topo) {
       <div class="map-markers">${markers}</div>
       <p class="map-tip" id="map-tip" role="status" hidden></p>
     </div>
+    ${nordics}
   </div>
 </section>`;
 }
@@ -583,7 +677,7 @@ function cardHtml(company) {
   const founders = company.founders.length
     ? `<p class="startup-card__meta">Founders: ${esc(company.founders.join(", "))}</p>`
     : "";
-  const markets = company.operating_markets.map((market) => `<span class="market-chip">${esc(market)}</span>`).join("");
+  const markets = sortMarkets(company.operating_markets).map((market) => `<span class="market-chip">${esc(market)}</span>`).join("");
   const valuation = company.valuation
     ? `<p class="startup-card__value"><a href="${esc(company.valuation.source)}" target="_blank" rel="noopener noreferrer">${esc(company.valuation.text)}</a></p>`
     : "";
@@ -620,8 +714,20 @@ function chipButton(label, kind, value, pressed) {
   return `<button class="filter-chip" type="button" data-filter="${esc(kind)}" data-value="${esc(value)}" aria-pressed="${pressed ? "true" : "false"}">${esc(label)}</button>`;
 }
 
+function selectFilter(kind, label, values) {
+  const options = [`<option value="">All</option>`, ...values.map((value) => `<option value="${esc(value)}">${esc(value)}</option>`)].join("");
+  return `<label class="filter-select"><span class="filter-select__label">${esc(label)}</span><select data-filter="${esc(kind)}" aria-label="${esc(label)}">${options}</select></label>`;
+}
+
+function pillBlock(kind, label, buttons) {
+  return `<div class="filter-block">
+        <div class="filters__row filters__row--clamp" data-clamp="${esc(kind)}" role="group" aria-label="${esc(label)}">${buttons}</div>
+        <button class="filter-chip filter-more" type="button" data-expand="${esc(kind)}" hidden aria-expanded="false">More</button>
+      </div>`;
+}
+
 function pageHtml({ title, pathName, heading, companies, activeSlug, topo }) {
-  const markets = unique(companies.flatMap((company) => company.operating_markets)).sort((a, b) => a.localeCompare(b));
+  const markets = sortMarkets(unique(companies.flatMap((company) => company.operating_markets)));
   const sectors = SECTOR_ORDER.filter((sector) => companies.some((company) => company.sectors.includes(sector)));
   const cityLinks = [
     chipLink("/startups", "All", true, activeSlug === "all"),
@@ -675,7 +781,7 @@ ${header}
 </main>
 <div class="band band--to-light"></div>
 ${activeSlug === "all" ? mapSection(companies, topo) : ""}
-<section style="background:#0a1730;">
+<section class="list-section" style="background:#0a1730;">
   <div class="wrap">
     <form class="search" role="search" onsubmit="return false">
       <label class="visually-hidden" for="startup-search" style="position:absolute;width:1px;height:1px;overflow:hidden;">Search startups</label>
@@ -683,8 +789,10 @@ ${activeSlug === "all" ? mapSection(companies, topo) : ""}
     </form>
     <div class="filters">
       <div class="filters__row" role="navigation" aria-label="City">${cityLinks}</div>
-      <div class="filters__row" role="group" aria-label="Operating market">${marketButtons}</div>
-      <div class="filters__row" role="group" aria-label="Sector">${sectorButtons}</div>
+      ${pillBlock("market", "Operating market", marketButtons)}
+      ${selectFilter("market", "Operating market", markets)}
+      ${pillBlock("sector", "Sector", sectorButtons)}
+      ${selectFilter("sector", "Sector", sectors)}
     </div>
     <div class="list" id="startup-list">
       ${companies.map(cardHtml).join("\n")}
@@ -754,12 +862,26 @@ ${footer}
     return false;
   }
 
+  function optionExists(sel, value) {
+    return Array.prototype.some.call(sel.options, function (opt) { return opt.value === value; });
+  }
+
+  function syncSelects() {
+    document.querySelectorAll('select[data-filter="market"]').forEach(function (sel) {
+      var next = market || country || "";
+      sel.value = optionExists(sel, next) ? next : "";
+    });
+    document.querySelectorAll('select[data-filter="sector"]').forEach(function (sel) {
+      sel.value = optionExists(sel, sector) ? sector : "";
+    });
+  }
+
   function syncUi() {
     document.querySelectorAll("[data-country], [data-map-reset]").forEach(function (el) {
       var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-country") || "");
       el.setAttribute("aria-pressed", (country ? value === country : value === "") ? "true" : "false");
     });
-    document.querySelectorAll('[data-filter="market"]').forEach(function (peer) {
+    document.querySelectorAll('button[data-filter="market"]').forEach(function (peer) {
       var value = peer.getAttribute("data-value") || "";
       var pressed = false;
       if (!value) pressed = !market && !countryFromMarketPill();
@@ -767,22 +889,39 @@ ${footer}
       else pressed = MARKET_COUNTRY[value] === country;
       peer.setAttribute("aria-pressed", pressed ? "true" : "false");
     });
-    document.querySelectorAll('[data-filter="sector"]').forEach(function (peer) {
+    document.querySelectorAll('button[data-filter="sector"]').forEach(function (peer) {
       peer.setAttribute("aria-pressed", (peer.getAttribute("data-value") || "") === sector ? "true" : "false");
     });
+    syncSelects();
   }
 
-  function showTip(id) {
+  function showTip(id, source) {
     if (!tip) return;
-    var marker = document.querySelector('.map-marker[data-country="' + id + '"]');
-    if (!marker) {
+    var marker = source || document.querySelector('.nordic-hit[data-country="' + id + '"], .map-marker[data-country="' + id + '"]');
+    var frame = document.querySelector(".map-frame");
+    if (!marker || !frame) {
       tip.hidden = true;
       return;
     }
+    var frameBox = frame.getBoundingClientRect();
+    var box = marker.getBoundingClientRect();
     tip.hidden = false;
     tip.textContent = marker.getAttribute("data-label") || "";
-    tip.style.left = marker.style.left;
-    tip.style.top = marker.style.top;
+    tip.style.left = (box.left - frameBox.left + box.width / 2) + "px";
+    tip.style.top = (box.top - frameBox.top) + "px";
+  }
+
+  function applyMarket(value) {
+    if (!value) {
+      market = "";
+      country = "";
+    } else if (MARKET_COUNTRY[value]) {
+      country = MARKET_COUNTRY[value];
+      market = "";
+    } else {
+      market = value;
+      country = "";
+    }
   }
 
   function chooseCountry(id, scroll) {
@@ -796,21 +935,31 @@ ${footer}
     }
   }
 
+  function layoutClamps() {
+    var mobile = window.matchMedia("(max-width: 639px)").matches;
+    document.querySelectorAll("[data-clamp]").forEach(function (row) {
+      var more = document.querySelector('[data-expand="' + row.getAttribute("data-clamp") + '"]');
+      if (!more) return;
+      if (mobile) {
+        more.hidden = true;
+        return;
+      }
+      var open = row.classList.contains("is-open");
+      row.classList.remove("is-open");
+      var overflows = row.scrollHeight > row.clientHeight + 1;
+      if (open && overflows) row.classList.add("is-open");
+      more.hidden = !overflows;
+      more.textContent = row.classList.contains("is-open") ? "Less" : "More";
+      more.setAttribute("aria-expanded", row.classList.contains("is-open") ? "true" : "false");
+    });
+  }
+
   search.addEventListener("input", apply);
-  document.querySelectorAll("[data-filter]").forEach(function (button) {
+  document.querySelectorAll("button[data-filter]").forEach(function (button) {
     button.addEventListener("click", function () {
       var kind = button.getAttribute("data-filter");
       var value = button.getAttribute("data-value") || "";
-      if (kind === "market") {
-        if (!value) market = "";
-        else if (MARKET_COUNTRY[value]) {
-          country = MARKET_COUNTRY[value];
-          market = "";
-        } else {
-          market = value;
-          country = "";
-        }
-      }
+      if (kind === "market") applyMarket(value);
       if (kind === "sector") sector = value;
       syncUi();
       apply();
@@ -818,13 +967,37 @@ ${footer}
       else if (tip && !country) tip.hidden = true;
     });
   });
+  document.querySelectorAll("select[data-filter]").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      var kind = sel.getAttribute("data-filter");
+      var value = sel.value || "";
+      if (kind === "market") applyMarket(value);
+      if (kind === "sector") sector = value;
+      syncUi();
+      apply();
+      if (kind === "market" && country) showTip(country);
+      else if (tip && !country) tip.hidden = true;
+    });
+  });
+  document.querySelectorAll("[data-expand]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var row = document.querySelector('[data-clamp="' + button.getAttribute("data-expand") + '"]');
+      if (!row) return;
+      row.classList.toggle("is-open");
+      layoutClamps();
+    });
+  });
+  window.addEventListener("resize", layoutClamps);
+  window.addEventListener("load", layoutClamps);
+  layoutClamps();
 
-  document.querySelectorAll(".map-marker").forEach(function (marker) {
+  document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
       chooseCountry(marker.getAttribute("data-country"), true);
+      showTip(marker.getAttribute("data-country"), marker);
     });
-    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country")); });
-    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country")); });
+    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country"), marker); });
+    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country"), marker); });
     marker.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
     marker.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
   });
