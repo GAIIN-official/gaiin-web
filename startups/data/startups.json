@@ -1320,33 +1320,6 @@
       "valuation": null
     },
     {
-      "name": "Animoca Brands",
-      "kind": "scale-up",
-      "slug": "hong-kong",
-      "city": "Hong Kong",
-      "logo": "https://cdn.prod.website-files.com/694b47ff8f3088ab9288889c/694b47ff8f3088ab928888ff_logo.svg",
-      "initials": "AB",
-      "short_description": "Blockchain gaming and digital asset group that builds and invests in Web3 projects.",
-      "founders": [
-        "Yat Siu"
-      ],
-      "hq_city": "Hong Kong",
-      "operating_markets": [
-        "Global"
-      ],
-      "website": "https://www.animocabrands.com",
-      "sectors": [
-        "Blockchain",
-        "Fintech"
-      ],
-      "last_verified": "1 Nov 2026",
-      "valuation": {
-        "text": "US$5.5 billion (2022)",
-        "source": "https://www.reuters.com/technology/crypto-gaming-firm-animoca-brands-hits-55-bln-valuation-after-75-mln-fundraise-2022-07-12/",
-        "year": "2022"
-      }
-    },
-    {
       "name": "Anyfin",
       "kind": "scale-up",
       "slug": "stockholm",
