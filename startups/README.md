@@ -24,7 +24,9 @@ The index has a Startups | Scale-ups toggle. Startups is the default. Map counts
 
 PASS rows only.
 
-Hong Kong: 16 startups, 12 scale-ups. Stockholm: 13 startups, 11 scale-ups. Copenhagen: 14 startups, 12 scale-ups. Oslo: 10 startups, 12 scale-ups.
+Hong Kong: 16 startups, 11 scale-ups. Stockholm: 13 startups, 11 scale-ups. Copenhagen: 14 startups, 12 scale-ups. Oslo: 10 startups, 12 scale-ups.
+
+`EXCLUDE` drops names that must not render. It currently contains Animoca Brands.
 
 There is no contact email in the site repo yet. The logo footnote leaves the address as TODO (contact).
 
@@ -32,4 +34,4 @@ There is no contact email in the site repo yet. The logo footnote leaves the add
 
 `startups/data/world/countries-110m.json` is the 110m country file from [world-atlas](https://github.com/topojson/world-atlas) 2.0.2, converted from Natural Earth Admin 0 country boundaries. Natural Earth is in the public domain. The world-atlas conversion is ISC; the notice is in `startups/data/world/LICENSE`. The build draws that file inline. No map library and no API key.
 
-Headquarters markers (Hong Kong, Sweden, Denmark, Norway) are stronger than markers for countries that only show up in operating markets. Sweden, Denmark and Norway stay as small pins on the map, and the Nordics row under the map is where those three are tapped, so the pins do not cover each other. Regions such as Europe, Asia and Global are not countries, so they have no marker. Hong Kong is not a separate shape in this file, so it is a marker only.
+Markers sit on Hong Kong, Stockholm, Copenhagen, Oslo and San Francisco only. A city marker filters to companies headquartered there. San Francisco filters to companies whose operating markets include the US, and shows Coming soon when that list is empty. The Nordics row under the map selects Oslo, Stockholm and Copenhagen.

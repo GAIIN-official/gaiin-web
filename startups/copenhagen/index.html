@@ -157,9 +157,6 @@
   .map-country--link[aria-pressed="true"] { fill: #2c5d8f; }
   .map-markers { position: absolute; inset: 0; }
   .map-marker { position: absolute; width: 36px; height: 36px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
-  .map-marker[data-country="Hong Kong"] { transform: translate(calc(-50% - 16px), calc(-50% + 6px)); z-index: 3; }
-  .map-marker[data-country="Taiwan"] { transform: translate(calc(-50% + 16px), calc(-50% - 10px)); }
-  .map-pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: #d9877c; transform: translate(-50%, -50%); pointer-events: none; box-shadow: 0 0 0 4px rgba(217,135,124,.35); }
   .nordics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; line-height: normal; }
   .nordics__label { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8ea5c4; }
   .nordic-hit { position: relative; transform: none; left: auto; top: auto; width: auto; min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px 4px 8px; border-radius: 999px; border: 1px solid #d9877c; background: transparent; color: #EDB3A8; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
@@ -268,7 +265,7 @@
     </div>
     <h2 class="stage-title">Startups</h2>
     <div class="list" id="startup-list">
-      <article class="startup-card" data-kind="startup" data-search="acodyne autonomous evtol cargo aircraft for defence, offshore and remote logistics. mads schnack claes nicolaisen jasmina pless martin arndt brøndby strand (greater copenhagen) copenhagen denmark robotics / physical ai deep tech" data-markets="Denmark" data-sectors="Robotics / physical AI|Deep tech" data-countries="Denmark">
+      <article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="acodyne autonomous evtol cargo aircraft for defence, offshore and remote logistics. mads schnack claes nicolaisen jasmina pless martin arndt brøndby strand (greater copenhagen) copenhagen denmark robotics / physical ai deep tech" data-markets="Denmark" data-sectors="Robotics / physical AI|Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">AC</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -286,7 +283,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="aisel health ai operating system for psychiatric care, cutting documentation work for clinicians. augusta klingsten peytz christian houen copenhagen copenhagen denmark ai health" data-markets="Denmark" data-sectors="AI|Health" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="aisel health ai operating system for psychiatric care, cutting documentation work for clinicians. augusta klingsten peytz christian houen copenhagen copenhagen denmark ai health" data-markets="Denmark" data-sectors="AI|Health" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">AH</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -304,7 +301,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="complir ai platform that handles product compliance for retailers and brands. gustav bang tine kühnel marc kaa brejner copenhagen copenhagen denmark ai" data-markets="Denmark" data-sectors="AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="complir ai platform that handles product compliance for retailers and brands. gustav bang tine kühnel marc kaa brejner copenhagen copenhagen denmark ai" data-markets="Denmark" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://www.complir.io/images/complir-logo.png" alt="" width="400" height="400" loading="lazy" data-initials="CO"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -322,7 +319,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="deepdots ai that gathers customer feedback from many channels and turns it into insights. nima vali rajabi francisco arias copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="deepdots ai that gathers customer feedback from many channels and turns it into insights. nima vali rajabi francisco arias copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">DE</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -340,7 +337,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="fortiv ai platform for business continuity and operational resilience planning. thomas sehested emil pfeiffer copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="fortiv ai platform for business continuity and operational resilience planning. thomas sehested emil pfeiffer copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://www.fortiv.io/logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="FO"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -358,7 +355,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="franklin payment cards for online sellers, with ai that matches ad receipts to spend. nikolaj bomann mertz johan frølich peter klit copenhagen copenhagen denmark netherlands fintech ai" data-markets="Denmark|Netherlands" data-sectors="Fintech|AI" data-countries="Denmark|Netherlands">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="franklin payment cards for online sellers, with ai that matches ad receipts to spend. nikolaj bomann mertz johan frølich peter klit copenhagen copenhagen denmark netherlands fintech ai" data-markets="Denmark|Netherlands" data-sectors="Fintech|AI" data-countries="Denmark|Netherlands">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">FR</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -376,7 +373,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="kiku ai hiring agent that screens and interviews candidates for high volume frontline jobs. eric andré rasmus andersen copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="kiku ai hiring agent that screens and interviews candidates for high volume frontline jobs. eric andré rasmus andersen copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">KI</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -394,7 +391,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="kvantify quantum software aimed at drug discovery and molecular simulation.  copenhagen copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="kvantify quantum software aimed at drug discovery and molecular simulation.  copenhagen copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">KV</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -412,7 +409,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="pandektes ai legal research that helps lawyers find and check law and case sources. casper laursen søren brokær copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="pandektes ai legal research that helps lawyers find and check law and case sources. casper laursen søren brokær copenhagen copenhagen europe ai" data-markets="Europe" data-sectors="AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://framerusercontent.com/images/VcIVCyRm3SnBEBNFNnHKwTl3z4.svg?width=110&amp;height=110" alt="" width="400" height="400" loading="lazy" data-initials="PA"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -430,7 +427,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="perplant ai-powered precision agriculture for tractors, cutting chemical use in the field. rasmus emil hansen sumod nandanwar copenhagen copenhagen denmark ai climate / energy" data-markets="Denmark" data-sectors="AI|Climate / energy" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="perplant ai-powered precision agriculture for tractors, cutting chemical use in the field. rasmus emil hansen sumod nandanwar copenhagen copenhagen denmark ai climate / energy" data-markets="Denmark" data-sectors="AI|Climate / energy" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">PE</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -448,7 +445,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="plinto ai agents that check company transactions against contracts and rules and fix errors. nermina suljevic jakob nielsen sebastian rehnby copenhagen copenhagen europe fintech ai" data-markets="Europe" data-sectors="Fintech|AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="plinto ai agents that check company transactions against contracts and rules and fix errors. nermina suljevic jakob nielsen sebastian rehnby copenhagen copenhagen europe fintech ai" data-markets="Europe" data-sectors="Fintech|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://plinto.ai/_next/static/media/logo-black.3okn4znf7j3qr.svg" alt="" width="400" height="400" loading="lazy" data-initials="PL"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -466,7 +463,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="sapient perception wide-area perception sensors and edge compute for uav and field operations. anthony garetto lau nørgaard michael messerschmidt valby (greater copenhagen) copenhagen denmark robotics / physical ai deep tech" data-markets="Denmark" data-sectors="Robotics / physical AI|Deep tech" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="sapient perception wide-area perception sensors and edge compute for uav and field operations. anthony garetto lau nørgaard michael messerschmidt valby (greater copenhagen) copenhagen denmark robotics / physical ai deep tech" data-markets="Denmark" data-sectors="Robotics / physical AI|Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://sapientperception.ai/img/logo-lockup.png" alt="" width="400" height="400" loading="lazy" data-initials="SP"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -484,7 +481,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="skypuzzler digital air traffic management for drones and space, a civil airspace platform. jesper skou ronni winkler østergaard morten skov copenhagen copenhagen denmark deep tech ai" data-markets="Denmark" data-sectors="Deep tech|AI" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="skypuzzler digital air traffic management for drones and space, a civil airspace platform. jesper skou ronni winkler østergaard morten skov copenhagen copenhagen denmark deep tech ai" data-markets="Denmark" data-sectors="Deep tech|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">SK</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -502,7 +499,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="startup" data-search="spektr ai compliance agents that automate customer checks for financial firms. mikkel skarnager ciprian florescu jan-erik wagner jeremy joly copenhagen copenhagen denmark ai fintech" data-markets="Denmark" data-sectors="AI|Fintech" data-countries="Denmark">
+<article class="startup-card" data-kind="startup" data-hq="Copenhagen" data-search="spektr ai compliance agents that automate customer checks for financial firms. mikkel skarnager ciprian florescu jan-erik wagner jeremy joly copenhagen copenhagen denmark ai fintech" data-markets="Denmark" data-sectors="AI|Fintech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/687e48ff717957204d88189a/687e51fe777c57fb1cd9e242_6aa55492fd3f591daf0a7eabd32a6130_spektr_logo-black.svg" alt="" width="400" height="400" loading="lazy" data-initials="SP"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -524,7 +521,7 @@
     <p class="empty" id="startup-empty" data-empty="startup" hidden>No matching startups.</p>
     <h2 class="stage-title" id="scale-ups">Scale-ups</h2>
     <div class="list" id="scale-list">
-      <article class="startup-card" data-kind="scale-up" data-search="airtame wireless screen sharing and digital signage for offices and schools.  copenhagen copenhagen global other new business models" data-markets="Global" data-sectors="Other|New business models" data-countries="Denmark">
+      <article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="airtame wireless screen sharing and digital signage for offices and schools.  copenhagen copenhagen global other new business models" data-markets="Global" data-sectors="Other|New business models" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://airtame.com/wp-content/uploads/2023/09/airtame-logo-inline-black.svg" alt="" width="400" height="400" loading="lazy" data-initials="AI"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -542,7 +539,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="copenhagen atomics designs thorium molten salt reactors built to be mass produced.  kastrup (greater copenhagen) copenhagen europe climate / energy deep tech" data-markets="Europe" data-sectors="Climate / energy|Deep tech" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="copenhagen atomics designs thorium molten salt reactors built to be mass produced.  kastrup (greater copenhagen) copenhagen europe climate / energy deep tech" data-markets="Europe" data-sectors="Climate / energy|Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://copenhagenatomics.com/wp-content/uploads/2026/06/CA_Logo-Black_SVG.svg" alt="" width="400" height="400" loading="lazy" data-initials="CA"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -560,7 +557,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="corti ai for healthcare, from clinical notes to decision support. andreas cleve lars maaløe copenhagen copenhagen europe us health ai" data-markets="Europe|US" data-sectors="Health|AI" data-countries="Denmark|US">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="corti ai for healthcare, from clinical notes to decision support. andreas cleve lars maaløe copenhagen copenhagen europe us health ai" data-markets="Europe|US" data-sectors="Health|AI" data-countries="Denmark|US">
     <div class="startup-card__media startup-card__media--light"><img src="https://corti.ai/corti-logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="CO"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -578,7 +575,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="hybrid greentech virtual power plant that trades batteries and other flexible energy assets. rasmus rode mosbæk taastrup (greater copenhagen) copenhagen europe climate / energy ai" data-markets="Europe" data-sectors="Climate / energy|AI" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="hybrid greentech virtual power plant that trades batteries and other flexible energy assets. rasmus rode mosbæk taastrup (greater copenhagen) copenhagen europe climate / energy ai" data-markets="Europe" data-sectors="Climate / energy|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/6a4f54a76eca5f78d2d51a89/6a85de760deb1438058818c1_logo-dark-transparent.png" alt="" width="400" height="400" loading="lazy" data-initials="HG"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -596,7 +593,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="lenus ehealth software for online health and fitness coaches to run and grow their business. bertram thorslund copenhagen copenhagen global europe health new business models" data-markets="Global|Europe" data-sectors="Health|New business models" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="lenus ehealth software for online health and fitness coaches to run and grow their business. bertram thorslund copenhagen copenhagen global europe health new business models" data-markets="Global|Europe" data-sectors="Health|New business models" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/63a05a489d74db0082f34744/63a05a489d74db9590f34772_Lenus%20Logo%20-%20Black.svg" alt="" width="400" height="400" loading="lazy" data-initials="LE"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -614,7 +611,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="monta software for running ev charging networks, including pricing, payments and roaming. casper rasmussen anders pedersen copenhagen copenhagen europe us climate / energy new business models" data-markets="Europe|US" data-sectors="Climate / energy|New business models" data-countries="Denmark|US">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="monta software for running ev charging networks, including pricing, payments and roaming. casper rasmussen anders pedersen copenhagen copenhagen europe us climate / energy new business models" data-markets="Europe|US" data-sectors="Climate / energy|New business models" data-countries="Denmark|US">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">MO</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -632,7 +629,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="pleo company cards and spend management software for businesses. jeppe rindom niccolo perra copenhagen copenhagen europe fintech" data-markets="Europe" data-sectors="Fintech" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="pleo company cards and spend management software for businesses. jeppe rindom niccolo perra copenhagen copenhagen europe fintech" data-markets="Europe" data-sectors="Fintech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">PL</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -650,7 +647,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="reel sells businesses renewable power at fixed prices under long contracts. jon sigvert anders meldgaard christian schmidt copenhagen copenhagen europe climate / energy new business models" data-markets="Europe" data-sectors="Climate / energy|New business models" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="reel sells businesses renewable power at fixed prices under long contracts. jon sigvert anders meldgaard christian schmidt copenhagen copenhagen europe climate / energy new business models" data-markets="Europe" data-sectors="Climate / energy|New business models" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">RE</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -668,7 +665,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="saltfoss energy (formerly seaborg) develops a compact molten salt reactor designed for floating power barges.  copenhagen copenhagen asia europe climate / energy deep tech" data-markets="Asia|Europe" data-sectors="Climate / energy|Deep tech" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="saltfoss energy (formerly seaborg) develops a compact molten salt reactor designed for floating power barges.  copenhagen copenhagen asia europe climate / energy deep tech" data-markets="Asia|Europe" data-sectors="Climate / energy|Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">SE</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -686,7 +683,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="sparrow quantum makes photonic chips that emit single photons for quantum computing and networks.  frederiksberg (greater copenhagen) copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="sparrow quantum makes photonic chips that emit single photons for quantum computing and networks.  frederiksberg (greater copenhagen) copenhagen europe deep tech" data-markets="Europe" data-sectors="Deep tech" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">SQ</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -704,7 +701,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="too good to go app that sells surplus food from shops and restaurants at a discount.  copenhagen copenhagen europe north america new business models climate / energy" data-markets="Europe|North America" data-sectors="New business models|Climate / energy" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="too good to go app that sells surplus food from shops and restaurants at a discount.  copenhagen copenhagen europe north america new business models climate / energy" data-markets="Europe|North America" data-sectors="New business models|Climate / energy" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><span class="logo-fallback">TG</span></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -722,7 +719,7 @@
       <p class="startup-card__verified">Last verified 1 Nov 2026</p>
     </div>
   </article>
-<article class="startup-card" data-kind="scale-up" data-search="zeronorth software that helps shipping firms cut fuel use and emissions per voyage.  copenhagen copenhagen global climate / energy ai" data-markets="Global" data-sectors="Climate / energy|AI" data-countries="Denmark">
+<article class="startup-card" data-kind="scale-up" data-hq="Copenhagen" data-search="zeronorth software that helps shipping firms cut fuel use and emissions per voyage.  copenhagen copenhagen global climate / energy ai" data-markets="Global" data-sectors="Climate / energy|AI" data-countries="Denmark">
     <div class="startup-card__media startup-card__media--light"><img src="https://cdn.prod.website-files.com/69842bcf255d2a1b73233554/698b6a06c3f7eacf48483554_zn-black-logo.avif" alt="" width="400" height="400" loading="lazy" data-initials="ZE"></div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -795,7 +792,7 @@
   var empty = document.getElementById("startup-empty");
   var market = "";
   var sector = "";
-  var country = "";
+  var place = "";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var tip = document.getElementById("map-tip");
   var MARKET_COUNTRY = {
@@ -831,19 +828,25 @@
     cards.forEach(function (card) {
       var markets = (card.getAttribute("data-markets") || "").split("|").filter(Boolean);
       var sectors = (card.getAttribute("data-sectors") || "").split("|").filter(Boolean);
-      var countries = (card.getAttribute("data-countries") || "").split("|").filter(Boolean);
       var cardKind = card.getAttribute("data-kind") || "startup";
+      var hqMatch = !place || place === "San Francisco" || card.getAttribute("data-hq") === place;
+      var sfMatch = place !== "San Francisco" || markets.indexOf("US") !== -1;
       var ok = (!query || (card.getAttribute("data-search") || "").indexOf(query) !== -1)
         && (!market || markets.indexOf(market) !== -1)
         && (!sector || sectors.indexOf(sector) !== -1)
-        && (!country || countries.indexOf(country) !== -1)
+        && hqMatch
+        && sfMatch
         && (!stageToggle || cardKind === kind);
       card.hidden = !ok;
       if (ok) shown += 1;
     });
     if (stageToggle) {
+      var sfEmpty = place === "San Francisco" && !cards.some(function (card) {
+        if ((card.getAttribute("data-kind") || "startup") !== kind) return false;
+        return (card.getAttribute("data-markets") || "").split("|").indexOf("US") !== -1;
+      });
       empty.hidden = shown !== 0;
-      empty.textContent = kind === "scale-up" ? "No matching scale-ups." : "No matching startups.";
+      empty.textContent = sfEmpty ? "Coming soon" : (kind === "scale-up" ? "No matching scale-ups." : "No matching startups.");
     } else {
       ["startup", "scale-up"].forEach(function (group) {
         var groupShown = cards.filter(function (card) {
@@ -863,24 +866,12 @@
   function syncMap() {
     document.querySelectorAll("[data-startup-count]").forEach(function (el) {
       var count = Number(el.getAttribute(kind === "scale-up" ? "data-scale-count" : "data-startup-count") || "0");
-      var id = el.getAttribute("data-country");
+      var id = el.getAttribute("data-place");
       if (!id) return;
       var label = id + ", " + count + " " + mapNoun(count);
       el.setAttribute("data-label", label);
       if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", label);
-      el.hidden = count === 0;
-      if (el.classList.contains("map-country--link")) el.tabIndex = count === 0 ? -1 : 0;
     });
-    var row = document.querySelector(".nordics");
-    if (row) row.hidden = !row.querySelector(".nordic-hit:not([hidden])");
-  }
-
-  function countryFromMarketPill() {
-    var keys = Object.keys(MARKET_COUNTRY);
-    for (var i = 0; i < keys.length; i += 1) {
-      if (!market && MARKET_COUNTRY[keys[i]] === country) return true;
-    }
-    return false;
   }
 
   function optionExists(sel, value) {
@@ -889,8 +880,7 @@
 
   function syncSelects() {
     document.querySelectorAll('select[data-filter="market"]').forEach(function (sel) {
-      var next = market || country || "";
-      sel.value = optionExists(sel, next) ? next : "";
+      sel.value = optionExists(sel, market) ? market : "";
     });
     document.querySelectorAll('select[data-filter="sector"]').forEach(function (sel) {
       sel.value = optionExists(sel, sector) ? sector : "";
@@ -898,17 +888,13 @@
   }
 
   function syncUi() {
-    document.querySelectorAll("[data-country], [data-map-reset]").forEach(function (el) {
-      var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-country") || "");
-      el.setAttribute("aria-pressed", (country ? value === country : value === "") ? "true" : "false");
+    document.querySelectorAll("[data-place], [data-map-reset]").forEach(function (el) {
+      var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-place") || "");
+      el.setAttribute("aria-pressed", (place ? value === place : value === "") ? "true" : "false");
     });
     document.querySelectorAll('button[data-filter="market"]').forEach(function (peer) {
       var value = peer.getAttribute("data-value") || "";
-      var pressed = false;
-      if (!value) pressed = !market && !countryFromMarketPill();
-      else if (market) pressed = market === value;
-      else pressed = MARKET_COUNTRY[value] === country;
-      peer.setAttribute("aria-pressed", pressed ? "true" : "false");
+      peer.setAttribute("aria-pressed", (value ? market === value : !market) ? "true" : "false");
     });
     document.querySelectorAll('button[data-filter="sector"]').forEach(function (peer) {
       peer.setAttribute("aria-pressed", (peer.getAttribute("data-value") || "") === sector ? "true" : "false");
@@ -918,7 +904,7 @@
 
   function showTip(id, source) {
     if (!tip) return;
-    var marker = source || document.querySelector('.nordic-hit[data-country="' + id + '"], .map-marker[data-country="' + id + '"]');
+    var marker = source || document.querySelector('.map-marker[data-place="' + id + '"]');
     var frame = document.querySelector(".map-frame");
     if (!marker || !frame) {
       tip.hidden = true;
@@ -933,25 +919,16 @@
   }
 
   function applyMarket(value) {
-    if (!value) {
-      market = "";
-      country = "";
-    } else if (MARKET_COUNTRY[value]) {
-      country = MARKET_COUNTRY[value];
-      market = "";
-    } else {
-      market = value;
-      country = "";
-    }
+    market = value || "";
   }
 
-  function chooseCountry(id, scroll) {
-    country = id || "";
+  function choosePlace(id, scroll) {
+    place = id || "";
     syncUi();
     apply();
-    if (country) showTip(country);
+    if (place) showTip(place);
     else if (tip) tip.hidden = true;
-    if (scroll && country) {
+    if (scroll && place) {
       document.getElementById("startup-list").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
     }
   }
@@ -984,8 +961,7 @@
       if (kind === "sector") sector = value;
       syncUi();
       apply();
-      if (kind === "market" && country) showTip(country);
-      else if (tip && !country) tip.hidden = true;
+      if (tip && !place) tip.hidden = true;
     });
   });
   document.querySelectorAll("select[data-filter]").forEach(function (sel) {
@@ -996,8 +972,7 @@
       if (kind === "sector") sector = value;
       syncUi();
       apply();
-      if (kind === "market" && country) showTip(country);
-      else if (tip && !country) tip.hidden = true;
+      if (tip && !place) tip.hidden = true;
     });
   });
   document.querySelectorAll("[data-expand]").forEach(function (button) {
@@ -1028,7 +1003,7 @@
       });
       syncMap();
       apply();
-      if (country) showTip(country);
+      if (place) showTip(place);
       else if (tip) tip.hidden = true;
     });
   });
@@ -1037,31 +1012,16 @@
 
   document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
-      chooseCountry(marker.getAttribute("data-country"), true);
-      showTip(marker.getAttribute("data-country"), marker);
+      choosePlace(marker.getAttribute("data-place"), true);
+      showTip(marker.getAttribute("data-place"), marker);
     });
-    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country"), marker); });
-    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country"), marker); });
-    marker.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
-    marker.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
-  });
-  document.querySelectorAll(".map-country--link").forEach(function (shape) {
-    shape.addEventListener("click", function () {
-      chooseCountry(shape.getAttribute("data-country"), true);
-    });
-    shape.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        chooseCountry(shape.getAttribute("data-country"), true);
-      }
-    });
-    shape.addEventListener("pointerenter", function () { showTip(shape.getAttribute("data-country")); });
-    shape.addEventListener("focus", function () { showTip(shape.getAttribute("data-country")); });
-    shape.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
-    shape.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-place"), marker); });
+    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-place"), marker); });
+    marker.addEventListener("pointerleave", function () { if (place) showTip(place); else if (tip) tip.hidden = true; });
+    marker.addEventListener("blur", function () { if (place) showTip(place); else if (tip) tip.hidden = true; });
   });
   var mapReset = document.querySelector("[data-map-reset]");
-  if (mapReset) mapReset.addEventListener("click", function () { chooseCountry("", false); });
+  if (mapReset) mapReset.addEventListener("click", function () { choosePlace("", false); });
 })();
 </script>
 </body>

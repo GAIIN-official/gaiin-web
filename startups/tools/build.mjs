@@ -37,6 +37,9 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 // Names whose logos are light marks, so the tile is navy with a hairline border.
 const DARK_LOGO = ["Libpet", "DBinsight.ai", "Visoid", "Flocean", "Pantheon Lab", "No Isolation", "Pixotope"];
 
+// Never render these names, even when the sheet still includes them.
+const EXCLUDE = ["Animoca Brands"];
+
 const REGION_ORDER = ["Global", "Asia", "East Asia", "Southeast Asia", "Greater China", "Europe", "Nordics", "North America"];
 
 // Trimmed sheet values map to one or more canonical names. Regions stay distinct from countries.
@@ -197,6 +200,10 @@ function companyFromRow(row, city, kind, fileLabel) {
   if (!name) throw new Error(`${fileLabel}: a row has no name`);
   if (BANNED.some((banned) => name.toLowerCase().includes(banned))) {
     throw new Error(`${name} must not appear on a page`);
+  }
+  if (EXCLUDE.includes(name)) {
+    console.warn(`exclude ${name}`);
+    return null;
   }
   const status = row.fact_check_status.trim();
   if (status !== "PASS") {
@@ -467,9 +474,6 @@ const css = `
   .map-country--link[aria-pressed="true"] { fill: #2c5d8f; }
   .map-markers { position: absolute; inset: 0; }
   .map-marker { position: absolute; width: 36px; height: 36px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); cursor: pointer; z-index: 1; }
-  .map-marker[data-country="Hong Kong"] { transform: translate(calc(-50% - 16px), calc(-50% + 6px)); z-index: 3; }
-  .map-marker[data-country="Taiwan"] { transform: translate(calc(-50% + 16px), calc(-50% - 10px)); }
-  .map-pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: #d9877c; transform: translate(-50%, -50%); pointer-events: none; box-shadow: 0 0 0 4px rgba(217,135,124,.35); }
   .nordics { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; line-height: normal; }
   .nordics__label { font-family: 'Fragment Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8ea5c4; }
   .nordic-hit { position: relative; transform: none; left: auto; top: auto; width: auto; min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px 4px 8px; border-radius: 999px; border: 1px solid #d9877c; background: transparent; color: #EDB3A8; font-family: 'Fragment Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
@@ -517,30 +521,39 @@ const CITY_COUNTRY = {
   Oslo: "Norway",
 };
 
-const COUNTRY_PLACES = [
-  { id: "Hong Kong", lon: 114.17, lat: 22.32, iso: null, markets: ["Hong Kong"] },
-  { id: "Sweden", lon: 16.3, lat: 62.8, iso: "752", markets: ["Sweden"] },
-  { id: "Denmark", lon: 9.5, lat: 56.1, iso: "208", markets: ["Denmark"] },
-  { id: "Norway", lon: 9.5, lat: 64.5, iso: "578", markets: ["Norway"] },
-  { id: "Germany", lon: 10.4, lat: 51.2, iso: "276", markets: ["Germany"] },
-  { id: "Netherlands", lon: 5.3, lat: 52.2, iso: "528", markets: ["Netherlands"] },
-  { id: "Taiwan", lon: 120.96, lat: 23.7, iso: "158", markets: ["Taiwan"] },
-  { id: "UAE", lon: 54.3, lat: 24.2, iso: "784", markets: ["UAE"] },
-  { id: "UK", lon: -2.6, lat: 54.2, iso: "826", markets: ["UK"] },
-  { id: "US", lon: -98.35, lat: 39.5, iso: "840", markets: ["US"] },
-  { id: "Singapore", lon: 103.82, lat: 1.35, iso: "702", markets: ["Singapore"] },
+// City dots only. Longitude is east-positive. San Francisco is 122.42W.
+const MAP_CITIES = [
+  { id: "Hong Kong", lon: 114.17, lat: 22.32, hq: "Hong Kong" },
+  { id: "Stockholm", lon: 18.07, lat: 59.33, hq: "Stockholm" },
+  { id: "Copenhagen", lon: 12.57, lat: 55.68, hq: "Copenhagen" },
+  { id: "Oslo", lon: 10.75, lat: 59.91, hq: "Oslo" },
+  { id: "San Francisco", lon: -122.42, lat: 37.77, market: "US" },
 ];
 
-const MARKET_COUNTRY = Object.fromEntries(
-  COUNTRY_PLACES.flatMap((place) => place.markets.map((market) => [market, place.id])),
-);
+const NORDIC_ROW = [
+  { label: "Norway", place: "Oslo" },
+  { label: "Sweden", place: "Stockholm" },
+  { label: "Denmark", place: "Copenhagen" },
+];
+
+const MARKET_COUNTRY = {
+  "Hong Kong": "Hong Kong",
+  Sweden: "Sweden",
+  Denmark: "Denmark",
+  Norway: "Norway",
+  Germany: "Germany",
+  Netherlands: "Netherlands",
+  Taiwan: "Taiwan",
+  UAE: "UAE",
+  UK: "UK",
+  US: "US",
+  Singapore: "Singapore",
+};
 
 const WORLD_W = 960;
 const LAT_MAX = 83;
 const LAT_MIN = -56;
 const WORLD_H = Math.round((WORLD_W * (LAT_MAX - LAT_MIN)) / 360);
-const NORDICS = new Set(["Sweden", "Denmark", "Norway"]);
-
 function companyCountries(company) {
   const found = new Set();
   const hq = CITY_COUNTRY[company.city];
@@ -611,14 +624,12 @@ function geometryPath(geometry, arcs) {
   return d;
 }
 
-function countryCounts(list) {
-  const counts = Object.fromEntries(COUNTRY_PLACES.map((place) => [place.id, 0]));
-  for (const company of list) {
-    for (const id of companyCountries(company)) {
-      if (Object.prototype.hasOwnProperty.call(counts, id)) counts[id] += 1;
-    }
-  }
-  return counts;
+function cityCount(list, place) {
+  return list.filter((company) => (
+    place.market
+      ? company.operating_markets.includes(place.market)
+      : company.city === place.hq
+  )).length;
 }
 
 function countLabel(id, count, kind) {
@@ -629,68 +640,46 @@ function countLabel(id, count, kind) {
 }
 
 function mapSection(startups, scaleUps, topo) {
-  const startupCounts = countryCounts(startups);
-  const scaleCounts = countryCounts(scaleUps);
-  const hqIds = new Set();
-  for (const company of [...startups, ...scaleUps]) {
-    const hq = CITY_COUNTRY[company.city];
-    if (hq) hqIds.add(hq);
+  const places = MAP_CITIES.map((place) => ({
+    ...place,
+    startupCount: cityCount(startups, place),
+    scaleCount: cityCount(scaleUps, place),
+  }));
+  for (const place of places) {
+    const [x, y] = project(place.lon, place.lat);
+    console.log(`${place.id}: ${((x / WORLD_W) * 100).toFixed(2)}% ${((y / WORLD_H) * 100).toFixed(2)}%`);
   }
-  const places = COUNTRY_PLACES
-    .map((place) => ({
-      ...place,
-      hq: hqIds.has(place.id),
-      startupCount: startupCounts[place.id],
-      scaleCount: scaleCounts[place.id],
-    }))
-    .filter((place) => place.startupCount > 0 || place.scaleCount > 0)
-    .sort((a, b) => Number(a.hq) - Number(b.hq));
   const arcs = decodeArcs(topo);
-  const byIso = new Map(places.filter((place) => place.iso).map((place) => [place.iso, place]));
   const paths = topo.objects.countries.geometries.map((geometry) => {
     const d = geometryPath(geometry, arcs);
-    if (!d) return "";
-    const place = byIso.get(String(geometry.id));
-    if (!place) return `<path class="map-country" d="${d}"></path>`;
-    const label = countLabel(place.id, place.startupCount, "startup");
-    const hidden = place.startupCount === 0 ? " hidden" : "";
-    return `<path class="map-country map-country--link" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" role="button" tabindex="${place.startupCount === 0 ? "-1" : "0"}" aria-pressed="false" aria-label="${esc(label)}"${hidden} d="${d}"></path>`;
+    return d ? `<path class="map-country" d="${d}"></path>` : "";
   }).join("");
   const markers = places.map((place) => {
     const [x, y] = project(place.lon, place.lat);
     const label = countLabel(place.id, place.startupCount, "startup");
-    const left = ((x / WORLD_W) * 100).toFixed(2);
-    const top = ((y / WORLD_H) * 100).toFixed(2);
-    const hidden = place.startupCount === 0 ? " hidden" : "";
-    if (NORDICS.has(place.id)) {
-      return `<span class="map-pin" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" style="left:${left}%;top:${top}%" aria-hidden="true"${hidden}></span>`;
-    }
-    const kind = place.hq ? "map-marker map-marker--hq" : "map-marker";
-    return `<button class="${kind}" type="button" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${left}%;top:${top}%"${hidden}><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
+    const left = ((x / WORLD_W) * 100).toFixed(4);
+    const top = ((y / WORLD_H) * 100).toFixed(4);
+    return `<button class="map-marker map-marker--hq" type="button" data-place="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}" style="left:${left}%;top:${top}%"><span class="map-marker__pulse" aria-hidden="true"></span><span class="map-marker__dot" aria-hidden="true"></span></button>`;
   }).join("");
-  const nordicOrder = ["Norway", "Sweden", "Denmark"];
-  const nordicPlaces = nordicOrder.map((id) => places.find((place) => place.id === id)).filter(Boolean);
-  const insetMarkers = nordicPlaces.map((place) => {
-    const label = countLabel(place.id, place.startupCount, "startup");
-    const hidden = place.startupCount === 0 ? " hidden" : "";
-    return `<button class="nordic-hit" type="button" data-country="${esc(place.id)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}"${hidden}><span class="map-marker__dot" aria-hidden="true"></span>${esc(place.id)}</button>`;
+  const nordics = NORDIC_ROW.map((item) => {
+    const place = places.find((entry) => entry.id === item.place);
+    const label = countLabel(item.place, place.startupCount, "startup");
+    return `<button class="nordic-hit" type="button" data-place="${esc(item.place)}" data-startup-count="${place.startupCount}" data-scale-count="${place.scaleCount}" data-label="${esc(label)}" aria-pressed="false" aria-label="${esc(label)}"><span class="map-marker__dot" aria-hidden="true"></span>${esc(item.label)}</button>`;
   }).join("");
-  const nordics = `<div class="nordics" role="group" aria-label="Nordics"><span class="nordics__label">Nordics</span>${insetMarkers}</div>`;
-  return `<section class="map-section" id="startup-map" aria-label="Filter by country">
+  return `<section class="map-section" id="startup-map" aria-label="Filter by city">
   <div class="wrap">
     <div class="map-bar">
-      <button class="filter-chip filter-chip--region" type="button" data-map-reset aria-pressed="true" aria-label="All countries">All</button>
+      <button class="filter-chip filter-chip--region" type="button" data-map-reset aria-pressed="true" aria-label="All cities">All</button>
       <p class="map-legend">
         <span class="map-legend__item"><span class="map-legend__swatch map-legend__swatch--hq" aria-hidden="true"></span>Headquarters</span>
-        <span class="map-legend__item"><span class="map-legend__swatch" aria-hidden="true"></span>Operating market</span>
       </p>
     </div>
     <div class="map-frame">
-      <svg class="world-map" viewBox="0 0 ${WORLD_W} ${WORLD_H}" fill-rule="evenodd" role="group" aria-label="World map. Choose a country to filter the list.">${paths}</svg>
+      <svg class="world-map" viewBox="0 0 ${WORLD_W} ${WORLD_H}" fill-rule="evenodd" role="img" aria-label="World map. Choose a city to filter the list.">${paths}</svg>
       <div class="map-markers">${markers}</div>
       <p class="map-tip" id="map-tip" role="status" hidden></p>
     </div>
-    ${nordics}
+    <div class="nordics" role="group" aria-label="Nordics"><span class="nordics__label">Nordics</span>${nordics}</div>
   </div>
 </section>`;
 }
@@ -719,7 +708,7 @@ function cardHtml(company) {
   const website = company.website
     ? `<a class="link-under" href="${esc(company.website)}" target="_blank" rel="noopener noreferrer">Website</a>`
     : "";
-  return `<article class="startup-card" data-kind="${esc(company.kind)}" data-search="${esc(search)}" data-markets="${esc(company.operating_markets.join("|"))}" data-sectors="${esc(company.sectors.join("|"))}" data-countries="${esc(countries.join("|"))}">
+  return `<article class="startup-card" data-kind="${esc(company.kind)}" data-hq="${esc(company.city)}" data-search="${esc(search)}" data-markets="${esc(company.operating_markets.join("|"))}" data-sectors="${esc(company.sectors.join("|"))}" data-countries="${esc(countries.join("|"))}">
     <div class="${mediaClass(company.name)}">${logo}</div>
     <div class="startup-card__body">
       <div class="startup-card__topline">
@@ -863,7 +852,7 @@ ${footer}
   var empty = document.getElementById("startup-empty");
   var market = "";
   var sector = "";
-  var country = "";
+  var place = "";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var tip = document.getElementById("map-tip");
   var MARKET_COUNTRY = {
@@ -899,19 +888,25 @@ ${footer}
     cards.forEach(function (card) {
       var markets = (card.getAttribute("data-markets") || "").split("|").filter(Boolean);
       var sectors = (card.getAttribute("data-sectors") || "").split("|").filter(Boolean);
-      var countries = (card.getAttribute("data-countries") || "").split("|").filter(Boolean);
       var cardKind = card.getAttribute("data-kind") || "startup";
+      var hqMatch = !place || place === "San Francisco" || card.getAttribute("data-hq") === place;
+      var sfMatch = place !== "San Francisco" || markets.indexOf("US") !== -1;
       var ok = (!query || (card.getAttribute("data-search") || "").indexOf(query) !== -1)
         && (!market || markets.indexOf(market) !== -1)
         && (!sector || sectors.indexOf(sector) !== -1)
-        && (!country || countries.indexOf(country) !== -1)
+        && hqMatch
+        && sfMatch
         && (!stageToggle || cardKind === kind);
       card.hidden = !ok;
       if (ok) shown += 1;
     });
     if (stageToggle) {
+      var sfEmpty = place === "San Francisco" && !cards.some(function (card) {
+        if ((card.getAttribute("data-kind") || "startup") !== kind) return false;
+        return (card.getAttribute("data-markets") || "").split("|").indexOf("US") !== -1;
+      });
       empty.hidden = shown !== 0;
-      empty.textContent = kind === "scale-up" ? "No matching scale-ups." : "No matching startups.";
+      empty.textContent = sfEmpty ? "Coming soon" : (kind === "scale-up" ? "No matching scale-ups." : "No matching startups.");
     } else {
       ["startup", "scale-up"].forEach(function (group) {
         var groupShown = cards.filter(function (card) {
@@ -931,24 +926,12 @@ ${footer}
   function syncMap() {
     document.querySelectorAll("[data-startup-count]").forEach(function (el) {
       var count = Number(el.getAttribute(kind === "scale-up" ? "data-scale-count" : "data-startup-count") || "0");
-      var id = el.getAttribute("data-country");
+      var id = el.getAttribute("data-place");
       if (!id) return;
       var label = id + ", " + count + " " + mapNoun(count);
       el.setAttribute("data-label", label);
       if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", label);
-      el.hidden = count === 0;
-      if (el.classList.contains("map-country--link")) el.tabIndex = count === 0 ? -1 : 0;
     });
-    var row = document.querySelector(".nordics");
-    if (row) row.hidden = !row.querySelector(".nordic-hit:not([hidden])");
-  }
-
-  function countryFromMarketPill() {
-    var keys = Object.keys(MARKET_COUNTRY);
-    for (var i = 0; i < keys.length; i += 1) {
-      if (!market && MARKET_COUNTRY[keys[i]] === country) return true;
-    }
-    return false;
   }
 
   function optionExists(sel, value) {
@@ -957,8 +940,7 @@ ${footer}
 
   function syncSelects() {
     document.querySelectorAll('select[data-filter="market"]').forEach(function (sel) {
-      var next = market || country || "";
-      sel.value = optionExists(sel, next) ? next : "";
+      sel.value = optionExists(sel, market) ? market : "";
     });
     document.querySelectorAll('select[data-filter="sector"]').forEach(function (sel) {
       sel.value = optionExists(sel, sector) ? sector : "";
@@ -966,17 +948,13 @@ ${footer}
   }
 
   function syncUi() {
-    document.querySelectorAll("[data-country], [data-map-reset]").forEach(function (el) {
-      var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-country") || "");
-      el.setAttribute("aria-pressed", (country ? value === country : value === "") ? "true" : "false");
+    document.querySelectorAll("[data-place], [data-map-reset]").forEach(function (el) {
+      var value = el.hasAttribute("data-map-reset") ? "" : (el.getAttribute("data-place") || "");
+      el.setAttribute("aria-pressed", (place ? value === place : value === "") ? "true" : "false");
     });
     document.querySelectorAll('button[data-filter="market"]').forEach(function (peer) {
       var value = peer.getAttribute("data-value") || "";
-      var pressed = false;
-      if (!value) pressed = !market && !countryFromMarketPill();
-      else if (market) pressed = market === value;
-      else pressed = MARKET_COUNTRY[value] === country;
-      peer.setAttribute("aria-pressed", pressed ? "true" : "false");
+      peer.setAttribute("aria-pressed", (value ? market === value : !market) ? "true" : "false");
     });
     document.querySelectorAll('button[data-filter="sector"]').forEach(function (peer) {
       peer.setAttribute("aria-pressed", (peer.getAttribute("data-value") || "") === sector ? "true" : "false");
@@ -986,7 +964,7 @@ ${footer}
 
   function showTip(id, source) {
     if (!tip) return;
-    var marker = source || document.querySelector('.nordic-hit[data-country="' + id + '"], .map-marker[data-country="' + id + '"]');
+    var marker = source || document.querySelector('.map-marker[data-place="' + id + '"]');
     var frame = document.querySelector(".map-frame");
     if (!marker || !frame) {
       tip.hidden = true;
@@ -1001,25 +979,16 @@ ${footer}
   }
 
   function applyMarket(value) {
-    if (!value) {
-      market = "";
-      country = "";
-    } else if (MARKET_COUNTRY[value]) {
-      country = MARKET_COUNTRY[value];
-      market = "";
-    } else {
-      market = value;
-      country = "";
-    }
+    market = value || "";
   }
 
-  function chooseCountry(id, scroll) {
-    country = id || "";
+  function choosePlace(id, scroll) {
+    place = id || "";
     syncUi();
     apply();
-    if (country) showTip(country);
+    if (place) showTip(place);
     else if (tip) tip.hidden = true;
-    if (scroll && country) {
+    if (scroll && place) {
       document.getElementById("startup-list").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
     }
   }
@@ -1052,8 +1021,7 @@ ${footer}
       if (kind === "sector") sector = value;
       syncUi();
       apply();
-      if (kind === "market" && country) showTip(country);
-      else if (tip && !country) tip.hidden = true;
+      if (tip && !place) tip.hidden = true;
     });
   });
   document.querySelectorAll("select[data-filter]").forEach(function (sel) {
@@ -1064,8 +1032,7 @@ ${footer}
       if (kind === "sector") sector = value;
       syncUi();
       apply();
-      if (kind === "market" && country) showTip(country);
-      else if (tip && !country) tip.hidden = true;
+      if (tip && !place) tip.hidden = true;
     });
   });
   document.querySelectorAll("[data-expand]").forEach(function (button) {
@@ -1096,7 +1063,7 @@ ${footer}
       });
       syncMap();
       apply();
-      if (country) showTip(country);
+      if (place) showTip(place);
       else if (tip) tip.hidden = true;
     });
   });
@@ -1105,31 +1072,16 @@ ${footer}
 
   document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
-      chooseCountry(marker.getAttribute("data-country"), true);
-      showTip(marker.getAttribute("data-country"), marker);
+      choosePlace(marker.getAttribute("data-place"), true);
+      showTip(marker.getAttribute("data-place"), marker);
     });
-    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-country"), marker); });
-    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-country"), marker); });
-    marker.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
-    marker.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
-  });
-  document.querySelectorAll(".map-country--link").forEach(function (shape) {
-    shape.addEventListener("click", function () {
-      chooseCountry(shape.getAttribute("data-country"), true);
-    });
-    shape.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        chooseCountry(shape.getAttribute("data-country"), true);
-      }
-    });
-    shape.addEventListener("pointerenter", function () { showTip(shape.getAttribute("data-country")); });
-    shape.addEventListener("focus", function () { showTip(shape.getAttribute("data-country")); });
-    shape.addEventListener("pointerleave", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
-    shape.addEventListener("blur", function () { if (country) showTip(country); else if (tip) tip.hidden = true; });
+    marker.addEventListener("pointerenter", function () { showTip(marker.getAttribute("data-place"), marker); });
+    marker.addEventListener("focus", function () { showTip(marker.getAttribute("data-place"), marker); });
+    marker.addEventListener("pointerleave", function () { if (place) showTip(place); else if (tip) tip.hidden = true; });
+    marker.addEventListener("blur", function () { if (place) showTip(place); else if (tip) tip.hidden = true; });
   });
   var mapReset = document.querySelector("[data-map-reset]");
-  if (mapReset) mapReset.addEventListener("click", function () { chooseCountry("", false); });
+  if (mapReset) mapReset.addEventListener("click", function () { choosePlace("", false); });
 })();
 </script>
 </body>
