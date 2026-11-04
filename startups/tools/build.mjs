@@ -438,7 +438,11 @@ const css = `
   .startup-card__media { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
   .startup-card__media--light { background: #f7f9fb; }
   .startup-card__media--navy { background: #0a1730; border: 1px solid rgba(237,179,168,.45); }
-  .kind-toggle { display: flex; gap: 8px; }
+  .kind-toggle { display: flex; flex-wrap: nowrap; gap: 8px; }
+  .kind-toggle .filter-chip { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+  .kind-toggle__count { font-family: 'Fragment Mono', monospace; opacity: .72; }
+  .segment-note { margin: 0; max-width: 40rem; font-family: 'Libre Franklin', sans-serif; font-size: 13px; line-height: 1.5; color: #8ea5c4; }
+  .segment-note[hidden] { display: none; }
   .stage-title { font-size: clamp(28px, 3.4vw, 42px); color: #f7f9fb; scroll-margin-top: 108px; }
   .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
   .startup-card__media img { object-fit: contain; display: block; padding: 14px; }
@@ -750,7 +754,7 @@ function pillBlock(kind, label, buttons) {
       </div>`;
 }
 
-function pageHtml({ title, pathName, heading, companies, scaleUps, activeSlug, topo }) {
+function pageHtml({ title, pathName, heading, companies, scaleUps, activeSlug, topo, counts }) {
   const pool = [...companies, ...scaleUps];
   const markets = sortMarkets(unique(pool.flatMap((company) => company.operating_markets)));
   const sectors = SECTOR_ORDER.filter((sector) => pool.some((company) => company.sectors.includes(sector)));
@@ -763,9 +767,11 @@ function pageHtml({ title, pathName, heading, companies, scaleUps, activeSlug, t
   const index = activeSlug === "all";
   const lists = index
     ? `<div class="kind-toggle" role="group" aria-label="Company stage">
-      <button class="filter-chip" type="button" data-stage="startup" aria-pressed="true">Startups</button>
-      <button class="filter-chip" type="button" data-stage="scale-up" aria-pressed="false">Scale-ups</button>
+      <button class="filter-chip" type="button" data-stage="startup" aria-pressed="true">Startups <span class="kind-toggle__count">${counts.startups}</span></button>
+      <button class="filter-chip" type="button" data-stage="scale-up" aria-pressed="false">Scale-ups <span class="kind-toggle__count">${counts.scaleUps}</span></button>
     </div>
+    <!-- TODO (Comms): replace the interim segment notes. -->
+    <p id="segment-note" class="segment-note" data-startup="Founded in or after November 2021, independent and tech-led." data-scale-up="">Founded in or after November 2021, independent and tech-led.</p>
     <div class="list is-startups" id="startup-list">
       ${[...companies, ...scaleUps].map(cardHtml).join("\n")}
     </div>
@@ -1063,12 +1069,21 @@ ${footer}
       });
       syncMap();
       apply();
+      syncSegmentNote();
       if (place) showTip(place);
       else if (tip) tip.hidden = true;
     });
   });
+  function syncSegmentNote() {
+    var note = document.getElementById("segment-note");
+    if (!note) return;
+    var text = note.getAttribute(kind === "scale-up" ? "data-scale-up" : "data-startup") || "";
+    note.textContent = text;
+    note.hidden = text.trim() === "";
+  }
   syncMap();
   apply();
+  syncSegmentNote();
 
   document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
@@ -1107,9 +1122,12 @@ async function main() {
   const topo = JSON.parse(await readFile(path.join(root, "startups/data/world/countries-110m.json"), "utf8"));
   const jsonPath = path.join(root, "startups/data/startups.json");
   await writeFile(jsonPath, `${JSON.stringify({ cities: CITIES.map(({ slug, label }) => ({ slug, label })), startups: all, scaleUps }, null, 2)}\n`);
+  const snapshot = JSON.parse(await readFile(jsonPath, "utf8"));
+  const counts = { startups: snapshot.startups.length, scaleUps: snapshot.scaleUps.length };
+  console.log(`toggle: Startups ${counts.startups}, Scale-ups ${counts.scaleUps}`);
 
   const pages = [
-    { dir: path.join(root, "startups"), title: "GAIIN Startup Database", pathName: "/startups", heading: "GAIIN Startup Database", companies: all, scaleUps, activeSlug: "all", topo },
+    { dir: path.join(root, "startups"), title: "GAIIN Startup Database", pathName: "/startups", heading: "GAIIN Startup Database", companies: all, scaleUps, activeSlug: "all", topo, counts },
     ...byCity.map((city) => ({
       dir: path.join(root, "startups", city.slug),
       title: `${city.label} | GAIIN Startup Database`,

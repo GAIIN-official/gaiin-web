@@ -121,7 +121,11 @@
   .startup-card__media { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
   .startup-card__media--light { background: #f7f9fb; }
   .startup-card__media--navy { background: #0a1730; border: 1px solid rgba(237,179,168,.45); }
-  .kind-toggle { display: flex; gap: 8px; }
+  .kind-toggle { display: flex; flex-wrap: nowrap; gap: 8px; }
+  .kind-toggle .filter-chip { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+  .kind-toggle__count { font-family: 'Fragment Mono', monospace; opacity: .72; }
+  .segment-note { margin: 0; max-width: 40rem; font-family: 'Libre Franklin', sans-serif; font-size: 13px; line-height: 1.5; color: #8ea5c4; }
+  .segment-note[hidden] { display: none; }
   .stage-title { font-size: clamp(28px, 3.4vw, 42px); color: #f7f9fb; scroll-margin-top: 108px; }
   .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
   .startup-card__media img { object-fit: contain; display: block; padding: 14px; }
@@ -279,9 +283,11 @@
       <label class="filter-select"><span class="filter-select__label">Sector</span><select data-filter="sector" aria-label="Sector"><option value="">All</option><option value="AI">AI</option><option value="Deep tech">Deep tech</option><option value="Climate / energy">Climate / energy</option><option value="Fintech">Fintech</option><option value="Robotics / physical AI">Robotics / physical AI</option><option value="Blockchain">Blockchain</option><option value="Health">Health</option><option value="New business models">New business models</option><option value="Other">Other</option></select></label>
     </div>
     <div class="kind-toggle" role="group" aria-label="Company stage">
-      <button class="filter-chip" type="button" data-stage="startup" aria-pressed="true">Startups</button>
-      <button class="filter-chip" type="button" data-stage="scale-up" aria-pressed="false">Scale-ups</button>
+      <button class="filter-chip" type="button" data-stage="startup" aria-pressed="true">Startups <span class="kind-toggle__count">53</span></button>
+      <button class="filter-chip" type="button" data-stage="scale-up" aria-pressed="false">Scale-ups <span class="kind-toggle__count">46</span></button>
     </div>
+    <!-- TODO (Comms): replace the interim segment notes. -->
+    <p id="segment-note" class="segment-note" data-startup="Founded in or after November 2021, independent and tech-led." data-scale-up="">Founded in or after November 2021, independent and tech-led.</p>
     <div class="list is-startups" id="startup-list">
       <article class="startup-card" data-kind="startup" data-hq="Hong Kong" data-search="aihpc innovation governance ai for regulated buyers in hong kong and greater china; flagship orchai runs ai on the customer's own hardware. sam chu sammy l.w. tang hong kong hong kong hong kong singapore taiwan ai health" data-markets="Hong Kong|Singapore|Taiwan" data-sectors="AI|Health" data-countries="Hong Kong|Singapore|Taiwan">
     <div class="startup-card__media startup-card__media--light"><img src="https://www.aihpcinno.com/brand/aihpc/aihpc-logo.svg" alt="" width="400" height="400" loading="lazy" data-initials="AI"></div>
@@ -2331,12 +2337,21 @@
       });
       syncMap();
       apply();
+      syncSegmentNote();
       if (place) showTip(place);
       else if (tip) tip.hidden = true;
     });
   });
+  function syncSegmentNote() {
+    var note = document.getElementById("segment-note");
+    if (!note) return;
+    var text = note.getAttribute(kind === "scale-up" ? "data-scale-up" : "data-startup") || "";
+    note.textContent = text;
+    note.hidden = text.trim() === "";
+  }
   syncMap();
   apply();
+  syncSegmentNote();
 
   document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
