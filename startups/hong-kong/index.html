@@ -121,7 +121,11 @@
   .startup-card__media { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 168.75px; height: 168.75px; border-radius: 14px; overflow: hidden; flex-shrink: 0; }
   .startup-card__media--light { background: #f7f9fb; }
   .startup-card__media--navy { background: #0a1730; border: 1px solid rgba(237,179,168,.45); }
-  .kind-toggle { display: flex; gap: 8px; }
+  .kind-toggle { display: flex; flex-wrap: nowrap; gap: 8px; }
+  .kind-toggle .filter-chip { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+  .kind-toggle__count { font-family: 'Fragment Mono', monospace; opacity: .72; }
+  .segment-note { margin: 0; max-width: 40rem; font-family: 'Libre Franklin', sans-serif; font-size: 13px; line-height: 1.5; color: #8ea5c4; }
+  .segment-note[hidden] { display: none; }
   .stage-title { font-size: clamp(28px, 3.4vw, 42px); color: #f7f9fb; scroll-margin-top: 108px; }
   .startup-card__media img, .logo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
   .startup-card__media img { object-fit: contain; display: block; padding: 14px; }
@@ -1021,12 +1025,21 @@
       });
       syncMap();
       apply();
+      syncSegmentNote();
       if (place) showTip(place);
       else if (tip) tip.hidden = true;
     });
   });
+  function syncSegmentNote() {
+    var note = document.getElementById("segment-note");
+    if (!note) return;
+    var text = note.getAttribute(kind === "scale-up" ? "data-scale-up" : "data-startup") || "";
+    note.textContent = text;
+    note.hidden = text.trim() === "";
+  }
   syncMap();
   apply();
+  syncSegmentNote();
 
   document.querySelectorAll(".map-marker, .nordic-hit").forEach(function (marker) {
     marker.addEventListener("click", function () {
