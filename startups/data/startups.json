@@ -1,0 +1,2337 @@
+{
+  "cities": [
+    {
+      "slug": "hong-kong",
+      "label": "Hong Kong"
+    },
+    {
+      "slug": "stockholm",
+      "label": "Stockholm"
+    },
+    {
+      "slug": "copenhagen",
+      "label": "Copenhagen"
+    },
+    {
+      "slug": "oslo",
+      "label": "Oslo"
+    }
+  ],
+  "startups": [
+    {
+      "name": "AiHPC Innovation",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://www.aihpcinno.com/brand/aihpc/aihpc-logo.svg",
+      "initials": "AI",
+      "short_description": "Governance AI for regulated buyers in Hong Kong and Greater China; flagship OrchAI runs AI on the customer's own hardware.",
+      "founders": [
+        "Sam Chu",
+        "Sammy L.W. Tang"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong",
+        "Singapore",
+        "Taiwan"
+      ],
+      "website": "https://www.aihpcinno.com",
+      "sectors": [
+        "AI",
+        "Health"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "AIVI Technologies",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "AT",
+      "short_description": "AI insights on risk and alpha for institutional investors, normalising messy public data in emerging markets.",
+      "founders": [
+        "Dr Chao He",
+        "Jason Zhang"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.aivi.global",
+      "sectors": [
+        "AI",
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Alpha AI",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://static.wixstatic.com/media/31febf_6b2990552c324a0797f89a1cbdec7fd2~mv2.png",
+      "initials": "AA",
+      "short_description": "Uses drones, AI and 3D models to inspect buildings, slopes and confined spaces.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.alphaaiauto.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Climind",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "CL",
+      "short_description": "AI platform that turns climate and environment data into practical guidance for companies.",
+      "founders": [
+        "Karen Wang"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Global",
+        "Hong Kong"
+      ],
+      "website": "https://www.climind.co",
+      "sectors": [
+        "Climate / energy",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "DBinsight.ai",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://dbinsight.ai/assets/images/DBinishgt-logowhite.svg",
+      "initials": "DA",
+      "short_description": "AI optimisation platform that automates analytics and daily office tasks with controlled access and custom-trained AI.",
+      "founders": [
+        "Tweety Leung",
+        "Robert Wong"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://dbinsight.ai",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "GUTolution",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "GU",
+      "short_description": "Gut health testing at home, with AI analysis and tailored diet and probiotic advice.",
+      "founders": [
+        "Wayne Chan Cheuk-lap",
+        "Wilson Chang Chun-yang",
+        "James Chan Kin-wing"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://gutolution.com",
+      "sectors": [
+        "Health",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Impact AI Hong Kong",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://impactai.hk/impact_logo.jpg",
+      "initials": "IA",
+      "short_description": "Builds an AI avatar that translates text and speech into Hong Kong Sign Language.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://impactai.hk",
+      "sectors": [
+        "AI",
+        "Other"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Libpet",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://www.libpet.com/libpet/logo.png",
+      "initials": "LI",
+      "short_description": "Autonomous passenger robots and drivable healthcare chairs for airports and care settings.",
+      "founders": [
+        "Jojo Xu (Xu Huafeng)",
+        "Alex Lam (Lin Xuanyi)"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.libpet.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Petalife",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://www.petalife.tech/_next/image?url=%2Fassets%2Flogo.png&w=256&q=75",
+      "initials": "PE",
+      "short_description": "App that reads photos of a pet's stool and behaviour to flag early health concerns.",
+      "founders": [
+        "Eugene Siu Cheuk-wing",
+        "Oscar Siu Chak-lam"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.petalife.tech",
+      "sectors": [
+        "Health",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "PipeScan AI",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "PA",
+      "short_description": "Robots and AI that inspect underground pipes and confined spaces and flag defects.",
+      "founders": [
+        "Lawrence Wong",
+        "Lentz Chun"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://pipescanai.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "R2C2",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "R2",
+      "short_description": "Software that lets companies run robots from different makers for inspection and patrol work.",
+      "founders": [
+        "San Wong"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.r2c2.ai",
+      "sectors": [
+        "Robotics / physical AI",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Real Matter Technology",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "RM",
+      "short_description": "Quantum-safe blockchain infrastructure for finance, including on-chip smart contracts and asset tokenisation.",
+      "founders": [
+        "Ming-Lam Ng",
+        "Daniel Chun"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.realmatter.io",
+      "sectors": [
+        "Blockchain",
+        "Deep tech",
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Restituo",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "RE",
+      "short_description": "Uses AI to repair damaged historic film and video.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.restituo.io",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Vlight Technology",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://vlight.ai/images/logo/logo-dark.svg",
+      "initials": "VT",
+      "short_description": "AI product design platform: describe an idea, get the design, a factory-ready spec and a factory quote.",
+      "founders": [
+        "Gao Peng (Echo Gao)",
+        "Bai Bin"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://vlight.ai",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Zonic Tech",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "ZT",
+      "short_description": "Video intelligence: turns footage into searchable evidence and editable sequences for Premiere Pro, DaVinci Resolve and CapCut.",
+      "founders": [
+        "Tony Cheng Tong"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong",
+        "Taiwan"
+      ],
+      "website": "https://zonic.tech",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "ZWING Innovation",
+      "kind": "startup",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://zwing.ai/storage/media/System Setting/logo.svg",
+      "initials": "ZI",
+      "short_description": "AI software that checks building models for compliance and data quality in construction projects.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://zwing.ai",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Aira",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "AI",
+      "short_description": "Home heat pumps and energy services sold with software.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe",
+        "Sweden",
+        "UK"
+      ],
+      "website": "https://www.airahome.com",
+      "sectors": [
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Alrik",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "https://cdn.prod.website-files.com/68418e3fdb3f1dc00727b237/6a1d420e4e6f20bfb6f99bb5_logo%20dark.svg",
+      "initials": "AL",
+      "short_description": "Software for construction logistics, planning site deliveries and flows.",
+      "founders": [
+        "Nici Sundén-Cullberg",
+        "Axel Enblad"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Denmark",
+        "Germany",
+        "Sweden",
+        "UK"
+      ],
+      "website": "https://alrik.com",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Brickanta",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "BR",
+      "short_description": "AI-based construction project management that helps site teams plan and run projects.",
+      "founders": [
+        "Lucas Otterling",
+        "Linus Bein Fahlander"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Sweden"
+      ],
+      "website": "https://brickanta.com",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Cota Robotics",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "https://cotarobotics.com/brand/cota-logo.png",
+      "initials": "CR",
+      "short_description": "AI-powered robots that automate store operations for retailers.",
+      "founders": [
+        "Kildo Alias",
+        "Teo Rizvanovic"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Nordics"
+      ],
+      "website": "https://www.cotarobotics.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Hybridity",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "HY",
+      "short_description": "AI-driven software that finds and closes compliance gaps.",
+      "founders": [
+        "Magnus Sahlgren",
+        "Joakim Reimar",
+        "Robert Lyngman",
+        "Christopher von Corswant",
+        "Ariel Ekgren"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Sweden"
+      ],
+      "website": "https://www.hybridity.ai",
+      "sectors": [
+        "AI",
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Legora",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "LE",
+      "short_description": "AI workspace for lawyers covering research, review and drafting.",
+      "founders": [
+        "Max Junestrand",
+        "Sigge Labor",
+        "August Erséus"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Global",
+        "Europe",
+        "US"
+      ],
+      "website": "https://legora.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "US$8.8 billion (post-money) (2026)",
+        "source": "https://legora.com/blog/series-e",
+        "year": "2026"
+      }
+    },
+    {
+      "name": "Lovable",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "LO",
+      "short_description": "Lets people build web apps by describing them in plain language.",
+      "founders": [
+        "Anton Osika",
+        "Fabian Hedin"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://lovable.dev",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "US$13.3 billion (2026)",
+        "source": "https://lovable.dev/blog/series-c",
+        "year": "2026"
+      }
+    },
+    {
+      "name": "Pixel Systems",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "https://pixelsystems.com/brand/logo/pixel-systems-symbol-square-black.png",
+      "initials": "PS",
+      "short_description": "Detects AI-generated and manipulated images, video and documents for claims, refunds, onboarding and legal review.",
+      "founders": [
+        "Robel Efrem",
+        "Philip Skogsberg"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Sweden"
+      ],
+      "website": "https://pixelsystems.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "SolvaPay",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "SO",
+      "short_description": "Payment tools that let AI agents buy and pay for online services.",
+      "founders": [
+        "Viggo Stenseth",
+        "Ingemar Svensson",
+        "Tommy Berglind"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://solvapay.com",
+      "sectors": [
+        "Fintech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Spiich",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "SP",
+      "short_description": "AI for revenue teams: preps meetings, updates the CRM and drafts follow-ups.",
+      "founders": [
+        "Johan Torssell"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Sweden"
+      ],
+      "website": "https://spiich.ai",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Syre",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "https://cdn.prod.website-files.com/64f981e9a7f705e7f95948fa/651c5e60d983bb351a7480e2_syre_light.svg",
+      "initials": "SY",
+      "short_description": "Recycles old polyester textiles into new polyester fibre.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.syre.com",
+      "sectors": [
+        "Climate / energy",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Tandem Health",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "TH",
+      "short_description": "AI assistant that writes clinical notes from patient visits for doctors.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe",
+        "Sweden"
+      ],
+      "website": "https://tandemhealth.ai",
+      "sectors": [
+        "Health",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Tether EV",
+      "kind": "startup",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "https://tetherev.io/assets/images/color-logo-no-background-483x272.png",
+      "initials": "TE",
+      "short_description": "AI that times EV charging so parked cars can help balance the power grid.",
+      "founders": [
+        "Luis Medina Rivas",
+        "Martim Perestrelo"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://tetherev.io",
+      "sectors": [
+        "Climate / energy",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Acodyne",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "AC",
+      "short_description": "Autonomous eVTOL cargo aircraft for defence, offshore and remote logistics.",
+      "founders": [
+        "Mads Schnack",
+        "Claes Nicolaisen",
+        "Jasmina Pless",
+        "Martin Arndt"
+      ],
+      "hq_city": "Brøndby Strand (Greater Copenhagen)",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://acodyne.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Aisel Health",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "AH",
+      "short_description": "AI operating system for psychiatric care, cutting documentation work for clinicians.",
+      "founders": [
+        "Augusta Klingsten Peytz",
+        "Christian Houen"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://www.aisel.co",
+      "sectors": [
+        "AI",
+        "Health"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Complir",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://www.complir.io/images/complir-logo.png",
+      "initials": "CO",
+      "short_description": "AI platform that handles product compliance for retailers and brands.",
+      "founders": [
+        "Gustav Bang",
+        "Tine Kühnel",
+        "Marc Kaa Brejner"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://www.complir.io",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "deepdots",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "DE",
+      "short_description": "AI that gathers customer feedback from many channels and turns it into insights.",
+      "founders": [
+        "Nima Vali Rajabi",
+        "Francisco Arias"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://deepdots.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Fortiv",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://www.fortiv.io/logo.svg",
+      "initials": "FO",
+      "short_description": "AI platform for business continuity and operational resilience planning.",
+      "founders": [
+        "Thomas Sehested",
+        "Emil Pfeiffer"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.fortiv.io",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Franklin",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "FR",
+      "short_description": "Payment cards for online sellers, with AI that matches ad receipts to spend.",
+      "founders": [
+        "Nikolaj Bomann Mertz",
+        "Johan Frølich",
+        "Peter Klit"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Denmark",
+        "Netherlands"
+      ],
+      "website": "https://www.hifranklin.com",
+      "sectors": [
+        "Fintech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Kiku",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "KI",
+      "short_description": "AI hiring agent that screens and interviews candidates for high volume frontline jobs.",
+      "founders": [
+        "Eric André",
+        "Rasmus Andersen"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.getkiku.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Kvantify",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "KV",
+      "short_description": "Quantum software aimed at drug discovery and molecular simulation.",
+      "founders": [],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.kvantify.com",
+      "sectors": [
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Pandektes",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://framerusercontent.com/images/VcIVCyRm3SnBEBNFNnHKwTl3z4.svg?width=110&height=110",
+      "initials": "PA",
+      "short_description": "AI legal research that helps lawyers find and check law and case sources.",
+      "founders": [
+        "Casper Laursen",
+        "Søren Brokær"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://pandektes.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "PerPlant",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "PE",
+      "short_description": "AI-powered precision agriculture for tractors, cutting chemical use in the field.",
+      "founders": [
+        "Rasmus Emil Hansen",
+        "Sumod Nandanwar"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://perplant.com",
+      "sectors": [
+        "AI",
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Plinto",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://plinto.ai/_next/static/media/logo-black.3okn4znf7j3qr.svg",
+      "initials": "PL",
+      "short_description": "AI agents that check company transactions against contracts and rules and fix errors.",
+      "founders": [
+        "Nermina Suljevic",
+        "Jakob Nielsen",
+        "Sebastian Rehnby"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://plinto.ai",
+      "sectors": [
+        "Fintech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Sapient Perception",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://sapientperception.ai/img/logo-lockup.png",
+      "initials": "SP",
+      "short_description": "Wide-area perception sensors and edge compute for UAV and field operations.",
+      "founders": [
+        "Anthony Garetto",
+        "Lau Nørgaard",
+        "Michael Messerschmidt"
+      ],
+      "hq_city": "Valby (Greater Copenhagen)",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://sapientperception.ai",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Skypuzzler",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "SK",
+      "short_description": "Digital air traffic management for drones and space, a civil airspace platform.",
+      "founders": [
+        "Jesper Skou",
+        "Ronni Winkler Østergaard",
+        "Morten Skov"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://www.skypuzzler.com",
+      "sectors": [
+        "Deep tech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "spektr",
+      "kind": "startup",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://cdn.prod.website-files.com/687e48ff717957204d88189a/687e51fe777c57fb1cd9e242_6aa55492fd3f591daf0a7eabd32a6130_spektr_logo-black.svg",
+      "initials": "SP",
+      "short_description": "AI compliance agents that automate customer checks for financial firms.",
+      "founders": [
+        "Mikkel Skarnager",
+        "Ciprian Florescu",
+        "Jan-Erik Wagner",
+        "Jeremy Joly"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Denmark"
+      ],
+      "website": "https://spektr.com",
+      "sectors": [
+        "AI",
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Cloudgeni",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "CL",
+      "short_description": "AI agents that run cloud compliance, drift, cost and pull-request review workflows within set policy.",
+      "founders": [
+        "Davlet Dzhakishev",
+        "Iuliia Thuen"
+      ],
+      "hq_city": "Lørenskog (Greater Oslo)",
+      "operating_markets": [
+        "Norway"
+      ],
+      "website": "https://cloudgeni.ai",
+      "sectors": [
+        "AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Flocean",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "https://static.wixstatic.com/media/cc2b8c_96d04c0c60d64369884b72de4bd15c1e~mv2.png/v1/fill/w_193,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Flocean_logo_White.png",
+      "initials": "FL",
+      "short_description": "Subsea desalination plants that use sea pressure to cut energy needs.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.flocean.green",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Noteless",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "https://www.noteless.com/images/noteless-wordmark-black.svg",
+      "initials": "NO",
+      "short_description": "AI clinical scribe that cuts documentation time for doctors.",
+      "founders": [
+        "William Vossgård",
+        "Mikkel Dahl Slettebø",
+        "Dr Sarankan Sivakanesan"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Norway"
+      ],
+      "website": "https://noteless.com",
+      "sectors": [
+        "AI",
+        "Health"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "OTee",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "OT",
+      "short_description": "Software-defined control layer for industrial operations, built on virtual PLC technology.",
+      "founders": [
+        "Henrik Pedersen"
+      ],
+      "hq_city": "Bærum (Greater Oslo)",
+      "operating_markets": [
+        "Norway"
+      ],
+      "website": "https://www.otee.com",
+      "sectors": [
+        "Deep tech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Six Robotics",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "SR",
+      "short_description": "Swarm autonomy software for unmanned systems, sold to European and allied defence markets.",
+      "founders": [
+        "Christian Fredrik Eggesbø"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe",
+        "Norway"
+      ],
+      "website": "https://sixrobotics.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Sonair",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "https://cdn.prod.website-files.com/65eeb61f568fba33bac91879/681a1c57cad00f178e9cb9a7_Sonair%20Logo.svg",
+      "initials": "SO",
+      "short_description": "3D ultrasonic sensor that helps robots detect people and obstacles safely.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.sonair.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "SportAI",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "SP",
+      "short_description": "AI that gives tennis and padel players technique feedback from video.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://sportai.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Stendr",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "https://cdn.prod.website-files.com/698ecddda4fed06c3c6205e8/6abf48de2777ec6aef36e573_f429dc35f1e0e206c2a07d451240cedf_Stendr%2BSlogan.svg",
+      "initials": "ST",
+      "short_description": "AI-native platform for developing and deploying defence software and hardware, starting with drone defence.",
+      "founders": [
+        "Aleksander Leonard Larsen",
+        "Robin Pedersen",
+        "Markus Leonhard Hansen"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Norway"
+      ],
+      "website": "https://stendr.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Telescope",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "TE",
+      "short_description": "Climate and nature risk analysis for property owners, banks and insurers.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://telescope.eco",
+      "sectors": [
+        "Climate / energy",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Volve",
+      "kind": "startup",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "VO",
+      "short_description": "AI for construction tendering: contract review, quantity take-off, bid development and offer comparison.",
+      "founders": [
+        "Herman B. Smith",
+        "Abyl Ikhsanov",
+        "Alf Jørgen Dovland"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Norway"
+      ],
+      "website": "https://www.volvetech.com",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    }
+  ],
+  "scaleUps": [
+    {
+      "name": "Aiilog",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://aiilog.com/res/logo_aiilog_manager.png",
+      "initials": "AI",
+      "short_description": "Runs private, on-premise AI for organisations that cannot send data to the cloud (Tallgeese AI).",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong",
+        "Taiwan"
+      ],
+      "website": "https://aiilog.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Airtame",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://airtame.com/wp-content/uploads/2023/09/airtame-logo-inline-black.svg",
+      "initials": "AI",
+      "short_description": "Wireless screen sharing and digital signage for offices and schools.",
+      "founders": [],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://airtame.com",
+      "sectors": [
+        "Other",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Anyfin",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "AN",
+      "short_description": "App that helps people refinance loans and card debt at lower rates.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe",
+        "Sweden"
+      ],
+      "website": "https://anyfin.com",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Aurabeat Technology",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "AT",
+      "short_description": "Sound-assisted air filters that cut energy use in building ventilation systems.",
+      "founders": [
+        "Roger Sze To"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://aurabeattech.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Blykalla",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "BL",
+      "short_description": "Develops a small modular nuclear reactor cooled by liquid lead.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe",
+        "Sweden"
+      ],
+      "website": "https://www.blykalla.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Bowtie",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://assets.bowtie.com.hk/5ee7a33b5edf8fb0bcb51fdd/63b3c357d81a371dfa545b8e_logo-bowtie.webp",
+      "initials": "BO",
+      "short_description": "Hong Kong's first virtual insurer, selling life and health cover online.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.bowtie.com.hk",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Brite Payments",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "BP",
+      "short_description": "Pay by bank service that lets shoppers pay straight from their bank account.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://britepayments.com",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Copenhagen Atomics",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://copenhagenatomics.com/wp-content/uploads/2026/06/CA_Logo-Black_SVG.svg",
+      "initials": "CA",
+      "short_description": "Designs thorium molten salt reactors built to be mass produced.",
+      "founders": [],
+      "hq_city": "Kastrup (Greater Copenhagen)",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://copenhagenatomics.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Corti",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://corti.ai/corti-logo.svg",
+      "initials": "CO",
+      "short_description": "AI for healthcare, from clinical notes to decision support.",
+      "founders": [
+        "Andreas Cleve",
+        "Lars Maaløe"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe",
+        "US"
+      ],
+      "website": "https://www.corti.ai",
+      "sectors": [
+        "Health",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Depict",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "DE",
+      "short_description": "AI search and product recommendations for online fashion and retail shops.",
+      "founders": [
+        "Oliver Edholm",
+        "Anton Osika"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://depict.ai",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Doconomy",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "DO",
+      "short_description": "Tools that show the carbon footprint of what people spend, with carbon-limited cards.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.doconomy.com",
+      "sectors": [
+        "Fintech",
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Enode",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "EN",
+      "short_description": "One API for connecting EVs, chargers, solar and batteries so energy firms can manage them.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe",
+        "US"
+      ],
+      "website": "https://enode.com",
+      "sectors": [
+        "Climate / energy",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Exeger",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "EX",
+      "short_description": "Makes a flexible solar cell material that powers small devices from indoor light.",
+      "founders": [
+        "Giovanni Fili"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.exeger.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Fano Labs",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://fano.ai/wp-content/uploads/2024/08/Logo.svg",
+      "initials": "FL",
+      "short_description": "Speech and language AI for Chinese dialects, used in call centres and compliance.",
+      "founders": [
+        "Miles Wen",
+        "Victor O.K. Li"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Greater China",
+        "Hong Kong"
+      ],
+      "website": "https://fano.ai",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Findable",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "FI",
+      "short_description": "AI that sorts and searches building documents for property owners and managers.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.findable.ai",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Froda",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "FR",
+      "short_description": "Digital business loans for small firms, including embedded financing for platforms.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Sweden"
+      ],
+      "website": "https://www.froda.se",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "FundPark",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://www.fundpark.com/images/common/logo.png",
+      "initials": "FU",
+      "short_description": "Working capital financing for cross-border e-commerce sellers in Asia, using data and AI.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Asia",
+        "Hong Kong"
+      ],
+      "website": "https://www.fundpark.com/en/",
+      "sectors": [
+        "Fintech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Heimdall Power",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "HP",
+      "short_description": "Sensors on power lines and software that show how much more current a grid can carry.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe",
+        "US"
+      ],
+      "website": "https://www.heimdallpower.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Hybrid Greentech",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://cdn.prod.website-files.com/6a4f54a76eca5f78d2d51a89/6a85de760deb1438058818c1_logo-dark-transparent.png",
+      "initials": "HG",
+      "short_description": "Virtual power plant that trades batteries and other flexible energy assets.",
+      "founders": [
+        "Rasmus Rode Mosbæk"
+      ],
+      "hq_city": "Taastrup (Greater Copenhagen)",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.hybridgreentech.com",
+      "sectors": [
+        "Climate / energy",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Innocorn Technology",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "IT",
+      "short_description": "Conversational AI digital humans for customer service and kiosks.",
+      "founders": [
+        "Daniel Lee"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.innocorn.com",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Lenus eHealth",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://cdn.prod.website-files.com/63a05a489d74db0082f34744/63a05a489d74db9590f34772_Lenus%20Logo%20-%20Black.svg",
+      "initials": "LE",
+      "short_description": "Software for online health and fitness coaches to run and grow their business.",
+      "founders": [
+        "Bertram Thorslund"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Global",
+        "Europe"
+      ],
+      "website": "https://www.lenusehealth.com",
+      "sectors": [
+        "Health",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "MedMind Technology",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://static.wixstatic.com/media/9b5404_030e97d434b4429fa6401f4de6569619~mv2.png/v1/fill/w_111,h_63,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Medmind_logo_tagline.png",
+      "initials": "MT",
+      "short_description": "Gamified cognitive training for older adults and dementia care, with local themes like mahjong.",
+      "founders": [
+        "Nathan Hui",
+        "Denis Huen"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Asia",
+        "Hong Kong"
+      ],
+      "website": "https://www.medmindtechnology.hk",
+      "sectors": [
+        "Health",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Monta",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "MO",
+      "short_description": "Software for running EV charging networks, including pricing, payments and roaming.",
+      "founders": [
+        "Casper Rasmussen",
+        "Anders Pedersen"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe",
+        "US"
+      ],
+      "website": "https://monta.com",
+      "sectors": [
+        "Climate / energy",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "US$155 million (2022)",
+        "source": "https://techcrunch.com/2022/09/14/ev-charging-platform-monta-raises-at-155m-valuation-to-expand-into-the-us/",
+        "year": "2022"
+      }
+    },
+    {
+      "name": "Muybridge",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "MU",
+      "short_description": "Camera systems that use many sensors and software to create virtual camera views.",
+      "founders": [
+        "Håkon Espeland",
+        "Anders Tomren"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.muybridge.com",
+      "sectors": [
+        "Deep tech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Neko Health",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "NH",
+      "short_description": "Preventive health clinics built around a full-body scan and blood tests.",
+      "founders": [
+        "Hjalmar Nilsonne",
+        "Daniel Ek"
+      ],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Sweden",
+        "UK",
+        "US"
+      ],
+      "website": "https://www.nekohealth.com",
+      "sectors": [
+        "Health",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "reported ~US$7bn (2026)",
+        "source": "https://www.axios.com/pro/health-tech-deals/2026/07/15/neko-health-raises-700m-series-c",
+        "year": "2026"
+      }
+    },
+    {
+      "name": "No Isolation",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "https://cdn.prod.website-files.com/65326c39faa870b3c636a52a/65e8f649f21d96dfa7bb23af_NoIsolation_logo_white%20.svg",
+      "initials": "NI",
+      "short_description": "Makes AV1, a classroom robot that keeps children who cannot attend school connected.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe",
+        "UK"
+      ],
+      "website": "https://www.noisolation.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Health"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "OneDegree",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "ON",
+      "short_description": "Hong Kong digital insurer offering pet, home and health cover online.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.onedegree.hk",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Pantheon Lab",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://www.pantheonlab.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpantheon-lab-logo-white.6bfd3c4a.png&w=640&q=75",
+      "initials": "PL",
+      "short_description": "Builds lifelike AI digital humans and a video tool for marketing, customer service and training.",
+      "founders": [
+        "Ivan Lau",
+        "Mark Chan",
+        "Christina Tse"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "East Asia",
+        "Southeast Asia",
+        "Hong Kong",
+        "US"
+      ],
+      "website": "https://www.pantheonlab.ai",
+      "sectors": [
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Pixotope",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "https://www.pixotope.com/hs-fs/hubfs/pixotope-white-logo-trimmed.png?width=1004&height=234&name=pixotope-white-logo-trimmed.png",
+      "initials": "PI",
+      "short_description": "Real time graphics and virtual production software for broadcast and live events.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.pixotope.com",
+      "sectors": [
+        "Deep tech",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Pleo",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "PL",
+      "short_description": "Company cards and spend management software for businesses.",
+      "founders": [
+        "Jeppe Rindom",
+        "Niccolo Perra"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.pleo.io",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "US$1.7 billion (2021)",
+        "source": "https://www.reuters.com/business/danish-fintech-pleo-raises-150-mln-valuation-17-bln-2021-07-06/",
+        "year": "2021"
+      }
+    },
+    {
+      "name": "Quartr",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "QU",
+      "short_description": "Investor app with live earnings calls, transcripts and company documents.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://quartr.com",
+      "sectors": [
+        "Fintech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Reel",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "RE",
+      "short_description": "Sells businesses renewable power at fixed prices under long contracts.",
+      "founders": [
+        "Jon Sigvert",
+        "Anders Meldgaard",
+        "Christian Schmidt"
+      ],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://reel.energy",
+      "sectors": [
+        "Climate / energy",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "reMarkable",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "RE",
+      "short_description": "Makes paper-like digital tablets for reading, writing and note taking.",
+      "founders": [
+        "Magnus Haug Wanberg"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://remarkable.com",
+      "sectors": [
+        "Deep tech",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Saga Robotics",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "SR",
+      "short_description": "Farm robots that use UV light to control mildew on berries and grapes.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe",
+        "UK",
+        "US"
+      ],
+      "website": "https://www.sagarobotics.com",
+      "sectors": [
+        "Robotics / physical AI",
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Saltfoss Energy (formerly Seaborg)",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "SE",
+      "short_description": "Develops a compact molten salt reactor designed for floating power barges.",
+      "founders": [],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Asia",
+        "Europe"
+      ],
+      "website": "https://www.saltfoss.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Sanity",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "SA",
+      "short_description": "Content platform that treats content as structured data for web, apps and AI.",
+      "founders": [
+        "Magnus Hillestad",
+        "Even Westvang",
+        "Øyvind Rostad",
+        "Simen Svale Skogsrud"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.sanity.io",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "SOCIF",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "https://static.wixstatic.com/media/a6e9e4_3154565224d6478081a04b84e1153cb0~mv2.png/v1/fill/w_127,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Socif%20-%20logo.png",
+      "initials": "SO",
+      "short_description": "Transport data and AIoT tools for buses, taxis and fleets, such as arrival forecasts and passenger counts.",
+      "founders": [],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Hong Kong"
+      ],
+      "website": "https://www.socif.co",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Sparrow Quantum",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "SQ",
+      "short_description": "Makes photonic chips that emit single photons for quantum computing and networks.",
+      "founders": [],
+      "hq_city": "Frederiksberg (Greater Copenhagen)",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://sparrowquantum.com",
+      "sectors": [
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Spoor",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "SP",
+      "short_description": "AI that detects and tracks birds and bats around wind turbines.",
+      "founders": [
+        "Ask Helseth",
+        "Lorea Coronado-Garcia",
+        "Helge Reikerås"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.spoor.ai",
+      "sectors": [
+        "AI",
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Stegra",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "ST",
+      "short_description": "Builds a large green steel plant in northern Sweden using hydrogen and renewable power.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe",
+        "Sweden"
+      ],
+      "website": "https://stegra.com",
+      "sectors": [
+        "Climate / energy",
+        "Deep tech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Strise",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "ST",
+      "short_description": "AI platform that helps banks run anti money laundering and know your customer checks.",
+      "founders": [
+        "Marit Rødevand",
+        "Patrick Skjennum",
+        "Sigve Søråsen"
+      ],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://strise.ai",
+      "sectors": [
+        "Fintech",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Too Good To Go",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "",
+      "initials": "TG",
+      "short_description": "App that sells surplus food from shops and restaurants at a discount.",
+      "founders": [],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Europe",
+        "North America"
+      ],
+      "website": "https://www.toogoodtogo.com",
+      "sectors": [
+        "New business models",
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Voi Technology",
+      "kind": "scale-up",
+      "slug": "stockholm",
+      "city": "Stockholm",
+      "logo": "",
+      "initials": "VT",
+      "short_description": "Shared e-scooter and e-bike rental operator in European cities.",
+      "founders": [],
+      "hq_city": "Stockholm",
+      "operating_markets": [
+        "Europe"
+      ],
+      "website": "https://www.voi.com",
+      "sectors": [
+        "New business models",
+        "Climate / energy"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "US$1 billion or more (headline figure) (2021)",
+        "source": "https://www.reuters.com/markets/europe/e-scooter-sharing-firm-voi-raises-115-mln-valuation-crosses-1-bln-2021-12-20/",
+        "year": "2021"
+      }
+    },
+    {
+      "name": "WeLab",
+      "kind": "scale-up",
+      "slug": "hong-kong",
+      "city": "Hong Kong",
+      "logo": "",
+      "initials": "WE",
+      "short_description": "Hong Kong digital finance group that runs WeLab Bank, a licensed virtual bank.",
+      "founders": [
+        "Simon Loong",
+        "Kelly Wong",
+        "Frances Kang"
+      ],
+      "hq_city": "Hong Kong",
+      "operating_markets": [
+        "Asia",
+        "Hong Kong"
+      ],
+      "website": "https://www.welab.co",
+      "sectors": [
+        "Fintech"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    },
+    {
+      "name": "Xeneta",
+      "kind": "scale-up",
+      "slug": "oslo",
+      "city": "Oslo",
+      "logo": "",
+      "initials": "XE",
+      "short_description": "Ocean and air freight rate benchmarking and market data for shippers.",
+      "founders": [],
+      "hq_city": "Oslo",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.xeneta.com",
+      "sectors": [
+        "AI",
+        "New business models"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": {
+        "text": "US$265 million (2022)",
+        "source": "https://techcrunch.com/2022/09/13/xeneta-makes-a-splash-with-80m-on-a-265m-valuation-to-scale-its-crowdsourced-sea-and-air-freight-analytics/",
+        "year": "2022"
+      }
+    },
+    {
+      "name": "ZeroNorth",
+      "kind": "scale-up",
+      "slug": "copenhagen",
+      "city": "Copenhagen",
+      "logo": "https://cdn.prod.website-files.com/69842bcf255d2a1b73233554/698b6a06c3f7eacf48483554_zn-black-logo.avif",
+      "initials": "ZE",
+      "short_description": "Software that helps shipping firms cut fuel use and emissions per voyage.",
+      "founders": [],
+      "hq_city": "Copenhagen",
+      "operating_markets": [
+        "Global"
+      ],
+      "website": "https://www.zeronorth.com",
+      "sectors": [
+        "Climate / energy",
+        "AI"
+      ],
+      "last_verified": "1 Nov 2026",
+      "valuation": null
+    }
+  ]
+}
