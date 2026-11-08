@@ -274,6 +274,7 @@ const header = `<header class="header">
     <a href="/index.html#membership">Membership</a>
     <a href="/signal">Signal</a>
     <a href="/events">Events</a>
+    <a href="/startups">Startups</a>
   </nav>
   <a class="header-linkedin" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
     <svg viewBox="0 0 32 32" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -295,6 +296,7 @@ const header = `<header class="header">
     <a href="/index.html#membership">Membership</a>
     <a href="/signal">Signal</a>
     <a href="/events">Events</a>
+    <a href="/startups">Startups</a>
     <span class="mobile-menu__sep" aria-hidden="true"></span>
     <a href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </nav>
@@ -317,6 +319,7 @@ const footer = `<footer>
       <a href="/index.html#membership">Membership</a>
       <a href="/signal">Signal</a>
       <a href="/events">Events</a>
+      <a href="/startups">Startups</a>
     </nav>
     <div class="footer-col" style="gap:12px;">
       <a class="pill-cta pill-cta--primary" href="https://tally.so/r/dWoLBN" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Request consideration</a>
@@ -688,6 +691,49 @@ function mapSection(startups, scaleUps, topo) {
 </section>`;
 }
 
+function hubHref(place) {
+  if (place.market) return `/startups?city=${encodeURIComponent(place.id)}`;
+  const city = CITIES.find((item) => item.label === place.hq);
+  return `/startups/${city.slug}`;
+}
+
+function homeHubsSection(topo) {
+  const arcs = decodeArcs(topo);
+  const paths = topo.objects.countries.geometries.map((geometry) => {
+    const d = geometryPath(geometry, arcs);
+    return d ? `<path class="map-country" d="${d}"></path>` : "";
+  }).join("");
+  const markers = MAP_CITIES.map((place) => {
+    const [x, y] = project(place.lon, place.lat);
+    const left = ((x / WORLD_W) * 100).toFixed(4);
+    const top = ((y / WORLD_H) * 100).toFixed(4);
+    return `<a class="hub-marker" href="${hubHref(place)}" aria-label="${esc(place.id)}" style="left:${left}%;top:${top}%"><span class="hub-marker__pulse" aria-hidden="true"></span><span class="hub-marker__dot" aria-hidden="true"></span></a>`;
+  }).join("");
+  return `<section id="hubs" class="hubs">
+  <div class="stack" style="gap:12px;max-width:720px;">
+    <h2 class="h2 h2--light" style="font-size:clamp(32px,4.6vw,64px);">GAIIN Startup Database</h2>
+    <p class="lede lede--dim">Hong Kong, Stockholm, Copenhagen, Oslo and San Francisco.</p>
+    <a class="link-under" href="/startups" style="color:#d9877c;border-color:#d9877c;align-self:flex-start;">Open the database</a>
+  </div>
+  <div class="hub-map">
+    <a class="hub-map__canvas" href="/startups" aria-label="Open the GAIIN Startup Database"><svg viewBox="0 0 ${WORLD_W} ${WORLD_H}" fill-rule="evenodd" role="img" aria-label="World map of GAIIN hubs">${paths}</svg></a>
+    <div class="hub-map__markers">${markers}</div>
+  </div>
+  <div class="hub-links">${MAP_CITIES.map((place) => `<a class="hub-link" href="${hubHref(place)}">${esc(place.id)}</a>`).join("")}</div>
+</section>`;
+}
+
+async function injectHomeHubs(topo) {
+  const indexPath = path.join(root, "index.html");
+  const html = await readFile(indexPath, "utf8");
+  const block = `<!-- HUBS_MAP_START -->\n${homeHubsSection(topo)}\n<!-- HUBS_MAP_END -->`;
+  if (!html.includes("<!-- HUBS_MAP_START -->") || !html.includes("<!-- HUBS_MAP_END -->")) {
+    throw new Error("index.html is missing the hubs map markers");
+  }
+  const next = html.replace(/<!-- HUBS_MAP_START -->[\s\S]*?<!-- HUBS_MAP_END -->/, block);
+  await writeFile(indexPath, next);
+}
+
 function cardHtml(company) {
   const search = [
     company.name,
@@ -791,7 +837,6 @@ function pageHtml({ title, pathName, heading, companies, scaleUps, activeSlug, t
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
 <title>${esc(title)}</title>
 <meta name="description" content="GAIIN Startup Database. Provisional.">
 <meta property="og:site_name" content="GAIIN">
@@ -1097,6 +1142,9 @@ ${footer}
   });
   var mapReset = document.querySelector("[data-map-reset]");
   if (mapReset) mapReset.addEventListener("click", function () { choosePlace("", false); });
+  var cityQuery = "";
+  try { cityQuery = new URLSearchParams(window.location.search).get("city") || ""; } catch (err) {}
+  if (cityQuery && document.querySelector('.map-marker[data-place="' + cityQuery + '"]')) choosePlace(cityQuery, true);
 })();
 </script>
 </body>
@@ -1120,6 +1168,7 @@ async function main() {
     console.log(`${city.label}: ${startupCount} startups, ${scaleCount} scale-ups`);
   }
   const topo = JSON.parse(await readFile(path.join(root, "startups/data/world/countries-110m.json"), "utf8"));
+  await injectHomeHubs(topo);
   const jsonPath = path.join(root, "startups/data/startups.json");
   await writeFile(jsonPath, `${JSON.stringify({ cities: CITIES.map(({ slug, label }) => ({ slug, label })), startups: all, scaleUps }, null, 2)}\n`);
   const snapshot = JSON.parse(await readFile(jsonPath, "utf8"));
@@ -1143,6 +1192,22 @@ async function main() {
     await mkdir(page.dir, { recursive: true });
     await writeFile(path.join(page.dir, "index.html"), pageHtml(page));
   }
+  const urls = [
+    "https://www.gaiin.xyz/",
+    "https://www.gaiin.xyz/hongkong.html",
+    "https://www.gaiin.xyz/signal",
+    "https://www.gaiin.xyz/signal/2026-11-02.html",
+    "https://www.gaiin.xyz/signal/2026-10-26.html",
+    "https://www.gaiin.xyz/signal/2026-10-19.html",
+    "https://www.gaiin.xyz/signal/2026-10-12.html",
+    "https://www.gaiin.xyz/events",
+    "https://www.gaiin.xyz/founders/highlight",
+    "https://www.gaiin.xyz/founders/fredrik-andersson-grunden-ai",
+    "https://www.gaiin.xyz/startups",
+    ...CITIES.map((city) => `https://www.gaiin.xyz/startups/${city.slug}`),
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((loc) => `  <url><loc>${loc}</loc></url>`).join("\n")}\n</urlset>\n`;
+  await writeFile(path.join(root, "sitemap.xml"), sitemap);
   console.log(`wrote ${all.length} startups, ${scaleUps.length} scale-ups`);
 }
 

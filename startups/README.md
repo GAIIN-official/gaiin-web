@@ -1,6 +1,6 @@
 # Startup database
 
-Provisional static pages for a hand-curated list of startups in Hong Kong, Stockholm, Copenhagen and Oslo. The index page opens with a world map that filters the list. The list itself is the database. Comms owns the intro line. The pages send `noindex` and are not linked from the site nav.
+Static pages for a hand-curated list of startups in Hong Kong, Stockholm, Copenhagen and Oslo, plus San Francisco on the map. The index page opens with a world map that filters the list. The list itself is the database. Comms owns the intro line. The homepage links to /startups. Its map uses the same five city coordinates. Stockholm, Copenhagen and Oslo also have named links under the map, because those dots sit on top of each other. The pages are in the sitemap and can be indexed.
 
 ## Refresh
 

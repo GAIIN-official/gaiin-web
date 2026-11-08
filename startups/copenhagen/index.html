@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
 <title>Copenhagen | GAIIN Startup Database</title>
 <meta name="description" content="GAIIN Startup Database. Provisional.">
 <meta property="og:site_name" content="GAIIN">
@@ -209,6 +208,7 @@
     <a href="/index.html#membership">Membership</a>
     <a href="/signal">Signal</a>
     <a href="/events">Events</a>
+    <a href="/startups">Startups</a>
   </nav>
   <a class="header-linkedin" href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer" aria-label="GAIIN on LinkedIn">
     <svg viewBox="0 0 32 32" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -230,6 +230,7 @@
     <a href="/index.html#membership">Membership</a>
     <a href="/signal">Signal</a>
     <a href="/events">Events</a>
+    <a href="/startups">Startups</a>
     <span class="mobile-menu__sep" aria-hidden="true"></span>
     <a href="https://www.linkedin.com/company/gaiin-business-network/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </nav>
@@ -764,6 +765,7 @@
       <a href="/index.html#membership">Membership</a>
       <a href="/signal">Signal</a>
       <a href="/events">Events</a>
+      <a href="/startups">Startups</a>
     </nav>
     <div class="footer-col" style="gap:12px;">
       <a class="pill-cta pill-cta--primary" href="https://tally.so/r/dWoLBN" target="_blank" rel="noopener noreferrer" style="align-self:flex-start;">Request consideration</a>
@@ -1035,6 +1037,9 @@
   });
   var mapReset = document.querySelector("[data-map-reset]");
   if (mapReset) mapReset.addEventListener("click", function () { choosePlace("", false); });
+  var cityQuery = "";
+  try { cityQuery = new URLSearchParams(window.location.search).get("city") || ""; } catch (err) {}
+  if (cityQuery && document.querySelector('.map-marker[data-place="' + cityQuery + '"]')) choosePlace(cityQuery, true);
 })();
 </script>
 </body>
