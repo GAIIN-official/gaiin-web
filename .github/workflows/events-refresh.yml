@@ -2,9 +2,9 @@ name: Refresh events
 
 on:
   schedule:
-    # 06:00 HKT is 22:00 UTC the previous evening. Hong Kong does not use daylight saving.
-    # Monday, Wednesday, and Friday 06:00 HKT = Sunday, Tuesday, and Thursday 22:00 UTC.
-    - cron: "0 22 * * 0,2,4"
+    # 05:37 HKT is 21:37 UTC the previous evening. Hong Kong does not use daylight saving.
+    # Monday, Wednesday, and Friday 05:37 HKT = Sunday, Tuesday, and Thursday 21:37 UTC.
+    - cron: "37 21 * * 0,2,4"
   workflow_dispatch:
 
 permissions:
