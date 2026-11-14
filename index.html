@@ -227,6 +227,7 @@
     .upcoming-media { width: 260px; }
     .upcoming-body { align-items: flex-start; }
   }
+  #upcoming[hidden] { display: none !important; }
 
   .tier-grid-fixed { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(20px,2.6vw,32px); align-items: stretch; }
   .tier-plain-fixed { padding: clamp(22px,2.6vw,32px); border-radius: 20px; display: flex; flex-direction: column; gap: 14px; cursor: pointer; transition: background-color .25s, transform .25s; min-width: 0; }
@@ -325,7 +326,7 @@
           <span>Request consideration</span>
           <span class="btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#dce7f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M5 19L19 5M9 5h10v10"/></svg></span>
         </a>
-        <span style="font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7d9ac4;">Membership by invitation, recommendation or fit.</span>
+        <span style="font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7d9ac4;">Open community, plus the GAIIN Circle by invitation, recommendation or fit.</span>
       </div>
     </div>
   </div>
@@ -473,10 +474,8 @@
   </div>
 </section>
 
-<!-- ============================================ -->
-<!-- NEXT IN THE NETWORK: GAIIN Community Mixer, Hong Kong, Fri 23 Oct 2026 -->
-<!-- ============================================ -->
-<section id="upcoming" style="background:#f7f9fb;padding-top:clamp(56px,8vw,120px);display:flex;flex-direction:column;gap:clamp(24px,3vw,36px);">
+<!-- Next in the network is hidden. events/data/events.json (fetched 2026-11-11) has no future event whose calendar or hosts name GAIIN. Remove hidden only when that snapshot has one. The card below is the past 23 Oct 2026 mixer, kept so the markup can be recovered. -->
+<section id="upcoming" hidden style="background:#f7f9fb;padding-top:clamp(56px,8vw,120px);display:flex;flex-direction:column;gap:clamp(24px,3vw,36px);">
   <div class="eyebrow"><span class="cube"></span><span>Next in the network</span></div>
   <h2 class="h2" style="font-size:clamp(24px,3vw,42px);max-width:20ch;">Where we're showing up next.</h2>
   <div class="placeholder-card upcoming-card" style="max-width:760px;">
