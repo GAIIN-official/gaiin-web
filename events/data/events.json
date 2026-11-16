@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13T02:12:24.144Z",
+  "fetched_at": "2026-11-16T01:20:03.697Z",
   "events": [
     {
       "city": "Hong Kong",
@@ -49,61 +49,84 @@
     {
       "city": "Hong Kong",
       "hub": "APAC",
-      "name": "HASH AI Safety Evening: Talk by Dr Yi Jingwei (BAAI) + Lightning Talks + Networking",
-      "url": "https://luma.com/faizevb9",
-      "start": "2026-11-27T11:00:00.000Z",
-      "end": "2026-11-27T13:00:00.000Z",
+      "name": "2027 重新開局｜AI 降低入場門檻，生意如何建立新優勢？",
+      "url": "https://luma.com/ft7v3kpy",
+      "start": "2026-11-23T11:00:00.000Z",
+      "end": "2026-11-23T13:00:00.000Z",
       "timezone": "Asia/Hong_Kong",
-      "venue": "Hong Kong Island, Hong Kong",
+      "venue": "Kowloon, Hong Kong",
+      "place": "Tsim Sha Tsui",
+      "cover_url": "https://images.lumacdn.com/uploads/eo/72330584-1a1f-4868-b2dc-bda4721596a3.png",
+      "calendar": "Personal",
+      "hosts": [
+        "SuperBash_",
+        "ekcheungAI",
+        "Ronald",
+        "Tai Lun Jimmy Lau"
+      ],
+      "is_free": false,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "Hong Kong",
+      "hub": "APAC",
+      "name": "Build an AI Agent That Works While You Don't · Mimosa Workshop",
+      "url": "https://luma.com/g5ptul3q",
+      "start": "2026-12-05T05:30:00.000Z",
+      "end": "2026-12-05T08:30:00.000Z",
+      "timezone": "Asia/Hong_Kong",
+      "venue": "Hong Kong Island",
       "place": "Central",
-      "cover_url": "https://images.lumacdn.com/uploads/hd/1e4de0b1-14c1-4b08-8f26-b099a67e1de4.jpg",
-      "calendar": "HK AI Safety Socials",
+      "cover_url": "https://images.lumacdn.com/uploads/7u/fce8ba83-5fb1-4455-b66c-c6bfc4ed4604.png",
+      "calendar": "Mimosa AI",
       "hosts": [
-        "HK AI Safety Hub"
+        "Kevin Leung",
+        "Mimosa AI"
       ],
-      "is_free": true,
+      "is_free": false,
       "is_sold_out": false,
-      "require_approval": true
+      "require_approval": false
     },
     {
       "city": "Singapore",
       "hub": "APAC",
-      "name": "Convergence Summit | Singapore Fintech Festival 2026 Edition",
-      "url": "https://luma.com/7b2k08lz",
-      "start": "2026-11-13T04:00:00.000Z",
-      "end": "2026-11-13T12:00:00.000Z",
-      "timezone": "Asia/Singapore",
-      "venue": "Singapore",
-      "place": "Downtown Core",
-      "cover_url": "https://images.lumacdn.com/uploads/ti/2e6ea37f-9356-4ddc-b1cf-9a037c865eef.jpg",
-      "calendar": "Convergence Event Calendar",
-      "hosts": [
-        "Ben Wee",
-        "Natalie Ng",
-        "Vanessa Chin"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "Singapore",
-      "hub": "APAC",
-      "name": "What Makes an AI Micro-Drama Go Global?",
-      "url": "https://luma.com/a3ukahj8",
-      "start": "2026-11-13T07:00:00.000Z",
-      "end": "2026-11-13T10:00:00.000Z",
+      "name": "Moomoo x Qoder AI Trading Agent Challenge",
+      "url": "https://luma.com/oezyv35j",
+      "start": "2026-11-16T10:00:00.000Z",
+      "end": "2026-11-16T13:00:00.000Z",
       "timezone": "Asia/Singapore",
       "venue": "Singapore",
       "place": "Queenstown",
-      "cover_url": "https://images.lumacdn.com/uploads/oz/aba53932-120e-47e5-bf06-0a653aab4864.jpg",
-      "calendar": "Lorong AI",
+      "cover_url": "https://images.lumacdn.com/uploads/i8/ff875a03-2cc7-4bb9-a46a-c6cd61a462f0.png",
+      "calendar": "Alibaba Cloud SG events",
       "hosts": [
-        "Lorong AI",
-        "AI Film Lab"
+        "Hannah Wu",
+        "Adeline Toh",
+        "James LIU@Alibaba Group",
+        "Qoder"
       ],
       "is_free": true,
-      "is_sold_out": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Singapore",
+      "hub": "APAC",
+      "name": "My Agent Will Take It From Here | Clink x Visa Agentic Commerce Roundtable",
+      "url": "https://luma.com/iu5mun8u",
+      "start": "2026-11-17T07:00:00.000Z",
+      "end": "2026-11-17T09:30:00.000Z",
+      "timezone": "Asia/Singapore",
+      "venue": "Singapore",
+      "place": "Downtown Core",
+      "cover_url": "https://images.lumacdn.com/uploads/32/ac97b6a3-e3a6-4df3-99a9-65d81f628895.png",
+      "calendar": "Clink Agentic Commerce Club",
+      "hosts": [
+        "Julie Wang"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
       "require_approval": true
     },
     {
@@ -116,7 +139,7 @@
       "timezone": "Asia/Singapore",
       "venue": "Singapore",
       "place": "Chinatown",
-      "cover_url": "https://images.lumacdn.com/uploads/u3/058c95b2-c766-4876-86cd-b10c4fbd8749.png",
+      "cover_url": "https://images.lumacdn.com/uploads/r9/2d25919e-07aa-4a98-85cc-b08916b204f0.png",
       "calendar": "The Agentic AI Club",
       "hosts": [
         "The Agentic AI Club"
@@ -128,26 +151,18 @@
     {
       "city": "Singapore",
       "hub": "APAC",
-      "name": "a tester's guide to llms, tools and agents",
-      "url": "https://luma.com/nfvtfn98",
-      "start": "2026-11-20T10:00:00.000Z",
-      "end": "2026-11-20T12:30:00.000Z",
+      "name": "Fintech Padel + Connect",
+      "url": "https://luma.com/b5uqyndf",
+      "start": "2026-11-21T09:00:00.000Z",
+      "end": "2026-11-21T11:00:00.000Z",
       "timezone": "Asia/Singapore",
       "venue": "Singapore",
-      "place": "Outram",
-      "cover_url": "https://images.lumacdn.com/uploads/5x/836dab37-0f7f-4e49-acdc-8c59c86e3057.jpg",
-      "calendar": "lythelabs",
-      "hosts": [
-        "taqelah! SG",
-        "lythelabs",
-        "Superteam SG",
-        "Rajvee Saraf",
-        "Canaan Poh (lythe)",
-        "Jensen Huang",
-        "Justin Seow"
-      ],
+      "place": "Southern Islands",
+      "cover_url": "https://images.lumacdn.com/uploads/3q/0ac01426-c5ea-48ed-9922-6ac084377a6e.jpg",
+      "calendar": "Island Fintech",
+      "hosts": [],
       "is_free": true,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "require_approval": true
     },
     {
@@ -209,7 +224,7 @@
         "Mohamed Aslam Abdul Gafoor"
       ],
       "is_free": true,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "require_approval": true
     },
     {
@@ -237,24 +252,25 @@
       "require_approval": true
     },
     {
-      "city": "Tokyo",
+      "city": "Singapore",
       "hub": "APAC",
-      "name": "Vibe Coders Jam Session: feat. Base44 バイブコーディング",
-      "url": "https://luma.com/Base44nov13",
-      "start": "2026-11-13T09:00:00.000Z",
-      "end": "2026-11-13T12:00:00.000Z",
-      "timezone": "Asia/Tokyo",
-      "venue": "Shibuya, Japan",
-      "place": "29",
-      "cover_url": "https://images.lumacdn.com/uploads/0m/863fe183-e545-405c-a9b9-f708908454f7.png",
-      "calendar": "AI Builders",
+      "name": "Hermes AI Agent Night - OpenBuilder & Amazon Web Services",
+      "url": "https://luma.com/3ytnlt4r",
+      "start": "2026-12-16T10:00:00.000Z",
+      "end": "2026-12-16T13:00:00.000Z",
+      "timezone": "Asia/Singapore",
+      "venue": "Singapore",
+      "place": "Downtown Core",
+      "cover_url": "https://images.lumacdn.com/uploads/ai/41579743-d3a2-49a7-8f32-570e9ad790e2.jpg",
+      "calendar": "Personal",
       "hosts": [
-        "AI Builders",
-        "三ツ谷寛羽",
-        "Base44"
+        "Lionel Sim",
+        "An Dongmei",
+        "Alessio Basso",
+        "witcheer x"
       ],
       "is_free": true,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "require_approval": true
     },
     {
@@ -441,69 +457,6 @@
     {
       "city": "Stockholm",
       "hub": "Europe",
-      "name": "Music Tech Sessions",
-      "url": "https://luma.com/mko73isr",
-      "start": "2026-11-13T13:30:00.000Z",
-      "end": "2026-11-13T16:30:00.000Z",
-      "timezone": "Europe/Stockholm",
-      "venue": "Stockholm, Sweden",
-      "place": "Stockholm",
-      "cover_url": "https://images.lumacdn.com/uploads/gp/5de93e87-ed9d-493a-bfa7-c3a546922dbf.png",
-      "calendar": "Personal",
-      "hosts": [
-        "Jenny Björk",
-        "Miri Sperling"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": true
-    },
-    {
-      "city": "Stockholm",
-      "hub": "Europe",
-      "name": "Leyr x Lovable Buildathon: Build Your EHR",
-      "url": "https://luma.com/dm1pljah",
-      "start": "2026-11-15T11:00:00.000Z",
-      "end": "2026-11-15T15:00:00.000Z",
-      "timezone": "Europe/Stockholm",
-      "venue": "Stockholm, Sweden",
-      "place": "Hägersten-Liljeholmen",
-      "cover_url": "https://images.lumacdn.com/uploads/w7/49110b41-c54b-4faf-8503-4d7adcaff9a8.png",
-      "calendar": "Personal",
-      "hosts": [
-        "Leyr Health"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": true
-    },
-    {
-      "city": "Stockholm",
-      "hub": "Europe",
-      "name": "kanketsu x OpenAI x Kilometer Studios",
-      "url": "https://luma.com/d29u1k79",
-      "start": "2026-11-18T06:30:00.000Z",
-      "end": "2026-11-18T08:30:00.000Z",
-      "timezone": "Europe/Stockholm",
-      "venue": "Stockholm, Sweden",
-      "place": "Stockholm",
-      "cover_url": "https://images.lumacdn.com/uploads/5t/492b0847-6770-4024-b1b9-72a029555337.png",
-      "calendar": "kanketsu カンケツ",
-      "hosts": [
-        "Evgenii Kondratev",
-        "Emil Härdling",
-        "Hugo Norberg",
-        "Philip Andersson",
-        "Diana Nadyrova",
-        "Quentin"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "Stockholm",
-      "hub": "Europe",
       "name": "AI Safety Day Sweden 2026",
       "url": "https://luma.com/6oz9b743",
       "start": "2026-11-21T11:00:00.000Z",
@@ -563,7 +516,46 @@
         "Arta Kjato"
       ],
       "is_free": true,
-      "is_sold_out": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "Techarena Founders AW",
+      "url": "https://luma.com/ubsq00ih",
+      "start": "2026-11-25T17:00:00.000Z",
+      "end": "2026-11-25T19:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Stockholm, Sweden",
+      "place": "Stockholm",
+      "cover_url": "https://images.lumacdn.com/uploads/ve/3fcd0ac0-81b5-4133-8717-6d0e2ea14508.png",
+      "calendar": "Techarena",
+      "hosts": [
+        "Johannes Lundberg",
+        "Igor Chapot"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Stockholm",
+      "hub": "Europe",
+      "name": "AI in Hardware: Real or Hype?",
+      "url": "https://luma.com/f1fzktv0",
+      "start": "2026-12-02T11:00:00.000Z",
+      "end": "2026-12-02T14:00:00.000Z",
+      "timezone": "Europe/Stockholm",
+      "venue": "Nacka, Sweden",
+      "place": "Nacka",
+      "cover_url": "https://images.lumacdn.com/uploads/fy/f2c4906d-77e7-48dd-b284-6779d666546a.png",
+      "calendar": "THE FORGE",
+      "hosts": [
+        "Seyed Mosayeb Alam"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
       "require_approval": true
     },
     {
@@ -671,6 +663,25 @@
     {
       "city": "Copenhagen",
       "hub": "Europe",
+      "name": "Founders Session: Lessons from Raising VC Funding",
+      "url": "https://luma.com/026arf31",
+      "start": "2026-11-25T18:00:00.000Z",
+      "end": "2026-11-25T20:00:00.000Z",
+      "timezone": "Europe/Copenhagen",
+      "venue": "København, Denmark",
+      "place": "Fælled",
+      "cover_url": "https://images.lumacdn.com/uploads/0v/1a042db2-6c64-4684-889e-19f432590a63.jpg",
+      "calendar": "baby vc - European Events Calendar",
+      "hosts": [
+        "baby vc"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Copenhagen",
+      "hub": "Europe",
       "name": "Inside the World of Microchips - TechTalk with Jørgen Kragh Jakobsen",
       "url": "https://luma.com/4lzlc9ej",
       "start": "2026-11-26T14:45:00.000Z",
@@ -685,7 +696,7 @@
         "TechStation"
       ],
       "is_free": true,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "require_approval": false
     },
     {
@@ -729,7 +740,7 @@
         "Even Founders"
       ],
       "is_free": true,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "require_approval": true
     },
     {
@@ -872,47 +883,6 @@
       "is_free": true,
       "is_sold_out": false,
       "require_approval": true
-    },
-    {
-      "city": "London",
-      "hub": "Europe",
-      "name": "Solana Intelligence Summit",
-      "url": "https://luma.com/intelligence-summit",
-      "start": "2026-11-13T10:00:00.000Z",
-      "end": "2026-11-13T18:00:00.000Z",
-      "timezone": "Europe/London",
-      "venue": "London, United Kingdom",
-      "place": "London",
-      "cover_url": "https://images.lumacdn.com/uploads/eo/c3df31b2-c96d-4223-aff3-e7983c012476.jpg",
-      "calendar": "Solana Foundation",
-      "hosts": [
-        "Solana Foundation"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": true
-    },
-    {
-      "city": "London",
-      "hub": "Europe",
-      "name": "The Startup Stroll",
-      "url": "https://luma.com/gc4d127x",
-      "start": "2026-11-14T10:00:00.000Z",
-      "end": "2026-11-14T11:00:00.000Z",
-      "timezone": "Europe/London",
-      "venue": "London, United Kingdom",
-      "place": "London",
-      "cover_url": "https://images.lumacdn.com/uploads/ba/a8222804-c197-465b-aa0c-5a0f539c58c9.png",
-      "calendar": "The Startup Stroll",
-      "hosts": [
-        "Marion Boimond",
-        "Stefanie Mulder",
-        "Eric Shen",
-        "Olivia"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": false
     },
     {
       "city": "London",
@@ -1128,103 +1098,43 @@
       "require_approval": true
     },
     {
-      "city": "Berlin",
+      "city": "London",
       "hub": "Europe",
-      "name": "Freelance Barcamp Berlin - Unconference for Self-Employed & Freelance Folks",
-      "url": "https://luma.com/5t5zrf4b",
-      "start": "2026-11-14T08:00:00.000Z",
-      "end": "2026-11-14T18:00:00.000Z",
-      "timezone": "Europe/Berlin",
-      "venue": "Berlin, Berlin",
-      "place": "Friedrichshain",
-      "cover_url": "https://images.lumacdn.com/uploads/8u/2ad7864d-ccde-4219-a510-10cfed9fe8d2.png",
-      "calendar": "Selbst & Ständig",
+      "name": "FirstYearHack 2026",
+      "url": "https://luma.com/firstyearhack",
+      "start": "2026-11-21T10:00:00.000Z",
+      "end": "2026-11-21T19:45:00.000Z",
+      "timezone": "Europe/London",
+      "venue": "London, United Kingdom",
+      "place": "London",
+      "cover_url": "https://images.lumacdn.com/uploads/bc/b7d9a514-0974-4c03-ba30-fe86ba9452ce.jpg",
+      "calendar": "KCL Tech",
       "hosts": [
-        "Michael Martens",
-        "Judith Böhlert",
-        "Techtelmechtel"
+        "KCL Tech Events",
+        "Haleema Mohammed",
+        "Waseef Khan"
       ],
-      "is_free": false,
-      "is_sold_out": false,
+      "is_free": true,
+      "is_sold_out": true,
       "require_approval": false
     },
     {
-      "city": "Berlin",
+      "city": "London",
       "hub": "Europe",
-      "name": "AI Agents for Founders Workshop: Claude Community x Taxfix",
-      "url": "https://luma.com/claude-uzq6",
-      "start": "2026-11-14T09:00:00.000Z",
-      "end": "2026-11-14T17:00:00.000Z",
-      "timezone": "Europe/Berlin",
-      "venue": "Berlin, Germany",
-      "place": "Berliner Innenstadt",
-      "cover_url": "https://images.lumacdn.com/api-uploads/xj/b16b68d2-26ac-44f3-9237-3eb25527b7e8.png",
-      "calendar": "Claude Community Events",
+      "name": "Agentic Banking: when your next customer is an AI agent",
+      "url": "https://luma.com/alpic-mj7m",
+      "start": "2026-11-24T17:30:00.000Z",
+      "end": "2026-11-24T21:30:00.000Z",
+      "timezone": "Europe/London",
+      "venue": "London, United Kingdom",
+      "place": "London",
+      "cover_url": "https://images.lumacdn.com/uploads/8t/3a2fad92-b1f2-442c-bc9b-59f011ffd2d4.png",
+      "calendar": "Alpic",
       "hosts": [
-        "Goda Go",
-        "Navid Ghayazi",
-        "Claude Community"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "Berlin",
-      "hub": "Europe",
-      "name": "Entropy Alignment Security Hackathon",
-      "url": "https://luma.com/or3d9qtg",
-      "start": "2026-11-14T09:00:00.000Z",
-      "end": "2026-11-14T21:00:00.000Z",
-      "timezone": "Europe/Berlin",
-      "venue": "Berlin, Germany",
-      "place": "Bezirk Friedrichshain-Kreuzberg",
-      "cover_url": "https://images.lumacdn.com/uploads/en/5d29aac5-4994-4893-a300-f3600d5a2fcd.png",
-      "calendar": "Personal",
-      "hosts": [
-        "Natalie Ma",
-        "Oscar Grillborzer",
-        "Ivan Klisanin",
-        "Nebius Developer Community"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "Berlin",
-      "hub": "Europe",
-      "name": "Berlin | Game Jam Workshop with Claude",
-      "url": "https://luma.com/claude-eqmm",
-      "start": "2026-11-14T13:00:00.000Z",
-      "end": "2026-11-14T17:00:00.000Z",
-      "timezone": "Europe/Berlin",
-      "venue": "Berlin, Germany",
-      "place": "Berliner Innenstadt",
-      "cover_url": "https://images.lumacdn.com/api-uploads/xj/b16b68d2-26ac-44f3-9237-3eb25527b7e8.png",
-      "calendar": "Claude Community Events",
-      "hosts": [
-        "Hakkei Sekine"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "Berlin",
-      "hub": "Europe",
-      "name": "ROBOT FIGHT NIGHT",
-      "url": "https://luma.com/vie3jxi4",
-      "start": "2026-11-14T21:00:00.000Z",
-      "end": "2026-11-14T22:00:00.000Z",
-      "timezone": "Europe/Berlin",
-      "venue": "Berlin, Germany",
-      "place": "Bezirk Friedrichshain-Kreuzberg",
-      "cover_url": "https://images.lumacdn.com/uploads/ty/b7ab1f61-a922-461e-a709-0889477fc53c.png",
-      "calendar": "Personal",
-      "hosts": [
-        "Jannik Fuchs",
-        "CODE Events"
+        "Alpic",
+        "Ghali Bennani Laafiret",
+        "Anastasia",
+        "Maulik Sailor"
       ],
       "is_free": true,
       "is_sold_out": false,
@@ -1253,6 +1163,26 @@
     {
       "city": "Berlin",
       "hub": "Europe",
+      "name": "BRISA Reading Group 06 - Long-WAM: Scaling the Context of World-Action Models",
+      "url": "https://luma.com/cjgopolx",
+      "start": "2026-11-16T17:30:00.000Z",
+      "end": "2026-11-16T19:00:00.000Z",
+      "timezone": "Europe/Berlin",
+      "venue": "Berlin, Germany",
+      "place": "Mitte",
+      "cover_url": "https://images.lumacdn.com/uploads/l6/bb05b608-06a8-4ec9-beca-d5f0369489dc.png",
+      "calendar": "BRISA",
+      "hosts": [
+        "BRISA Events",
+        "Merantix AI Campus"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Berlin",
+      "hub": "Europe",
       "name": "Berlin: AI Workshop for Sales & Marketing with OpenAI",
       "url": "https://luma.com/gtm-fem1",
       "start": "2026-11-17T09:00:00.000Z",
@@ -1261,6 +1191,27 @@
       "venue": "Berlin, Germany",
       "place": "Berlin",
       "cover_url": "https://images.lumacdn.com/uploads/na/c163e488-5eb7-4306-b615-028be4ff4509.jpg",
+      "calendar": "Codex Community Events",
+      "hosts": [
+        "Artur Wala",
+        "Max Jendrall",
+        "Pauline P. Narvas"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "Berlin",
+      "hub": "Europe",
+      "name": "Berlin: AI Build Session for GTM with OpenAI",
+      "url": "https://luma.com/gtm-px2w",
+      "start": "2026-11-17T13:00:00.000Z",
+      "end": "2026-11-17T17:00:00.000Z",
+      "timezone": "Europe/Berlin",
+      "venue": "Berlin, Germany",
+      "place": "Berlin",
+      "cover_url": "https://images.lumacdn.com/uploads/g5/9fd4d40e-be5e-4b00-8470-3eb81652cd6a.jpg",
       "calendar": "Codex Community Events",
       "hosts": [
         "Artur Wala",
@@ -1297,6 +1248,25 @@
       ],
       "is_free": true,
       "is_sold_out": true,
+      "require_approval": true
+    },
+    {
+      "city": "Berlin",
+      "hub": "Europe",
+      "name": "GTM Engineering Meetup: Agents in Production",
+      "url": "https://luma.com/gtm-43ka",
+      "start": "2026-11-17T17:00:00.000Z",
+      "end": "2026-11-17T21:00:00.000Z",
+      "timezone": "Europe/Berlin",
+      "venue": "Berlin, Germany",
+      "place": "Berlin",
+      "cover_url": "https://images.lumacdn.com/uploads/0k/3fd05541-3498-4eaf-b5d4-8aa69c593db4.png",
+      "calendar": "GTM Tech Week",
+      "hosts": [
+        "Krzysztof Pawlak"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
       "require_approval": true
     },
     {
@@ -1372,6 +1342,7 @@
       "calendar": "GTM Tech Week",
       "hosts": [
         "Krzysztof Pawlak",
+        "The Delta",
         "Olimpia Hordynski"
       ],
       "is_free": true,
@@ -1379,188 +1350,44 @@
       "require_approval": true
     },
     {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "Humanmade Hardware Accelerator Demo Day",
-      "url": "https://luma.com/yoytbej3",
-      "start": "2026-11-13T01:00:00.000Z",
-      "end": "2026-11-13T04:30:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "SoMa",
-      "cover_url": "https://images.lumacdn.com/uploads/7l/bc90a421-9f53-4df5-a9d4-36d7960f0d64.jpg",
-      "calendar": "Personal",
+      "city": "Berlin",
+      "hub": "Europe",
+      "name": "Hire or automate? GTM in 2027",
+      "url": "https://luma.com/co-4i4z",
+      "start": "2026-11-20T17:30:00.000Z",
+      "end": "2026-11-20T20:30:00.000Z",
+      "timezone": "Europe/Berlin",
+      "venue": "Berlin, Germany",
+      "place": "Mitte",
+      "cover_url": "https://images.lumacdn.com/uploads/ib/1b3817c7-6c94-440f-8bf0-29a831a0b52a.png",
+      "calendar": "Co-Learning Club",
       "hosts": [
-        "Humanmade Information"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": false
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "Robotics Founders Evening: Founders on Scale, Hardware and Shenzhen",
-      "url": "https://luma.com/gwyi2jrq",
-      "start": "2026-11-13T01:00:00.000Z",
-      "end": "2026-11-13T04:00:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "Mission District",
-      "cover_url": "https://images.lumacdn.com/api-uploads/lk/3c8ab646-501d-4cdb-b11f-ce7ecb9a21b7.png",
-      "calendar": "Personal",
-      "hosts": [
-        "Joel Jussila",
-        "Henri Mäkivirta",
-        "Shawn Shen",
-        "Mattie Fairchild"
+        "Ridvan Sibic",
+        "Bogdan Liutic",
+        "Krzysztof Pawlak",
+        "DATA SPACE"
       ],
       "is_free": true,
       "is_sold_out": false,
       "require_approval": true
     },
     {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "Creatives in Control: Leading with AI",
-      "url": "https://luma.com/magnific-5t14",
-      "start": "2026-11-13T01:30:00.000Z",
-      "end": "2026-11-13T04:30:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "SoMa",
-      "cover_url": "https://images.lumacdn.com/uploads/vd/f990322b-fe3a-47f0-afe9-593b74680ebd.png",
-      "calendar": "Magnific",
+      "city": "Berlin",
+      "hub": "Europe",
+      "name": "The Unscripted Career: How Women are Rewriting the Path to Leadership in Tech",
+      "url": "https://luma.com/0vpxzr3u",
+      "start": "2026-11-24T17:00:00.000Z",
+      "end": "2026-11-24T20:00:00.000Z",
+      "timezone": "Europe/Berlin",
+      "venue": "Berlin, Germany",
+      "place": "Mitte",
+      "cover_url": "https://images.lumacdn.com/uploads/z1/1969a972-bdc5-4548-b3bd-1f8332073b30.jpg",
+      "calendar": "Women in Tech Berlin",
       "hosts": [
-        "Enrique Lopez"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": false
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "RL & data meetup: SkyRL x Mercor x Harbor",
-      "url": "https://luma.com/rl-data",
-      "start": "2026-11-13T01:30:00.000Z",
-      "end": "2026-11-13T03:00:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "SoMa",
-      "cover_url": "https://images.lumacdn.com/uploads/oa/c671fda2-c78e-4de3-bf1f-6ab0f5545854.png",
-      "calendar": "Anyscale",
-      "hosts": [
-        "Julian Forero",
-        "Colette Tay",
-        "Harbor Framework",
-        "Charlie Ruan",
-        "Richard Liaw"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": false
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "Agent evals night",
-      "url": "https://luma.com/apify-agent-evals",
-      "start": "2026-11-13T02:30:00.000Z",
-      "end": "2026-11-13T05:00:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "China Basin",
-      "cover_url": "https://images.lumacdn.com/api-uploads/6r/39724910-2a4f-47f1-83ee-3092a9d76163.png",
-      "calendar": "Apify Events",
-      "hosts": [
-        "Apify",
-        "European Startup Embassy"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "Build with Flux: Design Electronics and Enclosures with AI",
-      "url": "https://luma.com/l3m8ld7a",
-      "start": "2026-11-13T02:30:00.000Z",
-      "end": "2026-11-13T05:30:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "Rincon Hill",
-      "cover_url": "https://images.lumacdn.com/uploads/on/4809fd94-97c2-40b4-9dac-0b47749779c7.png",
-      "calendar": "SF Hardware Meetup",
-      "hosts": [
-        "Michael Raspuzzi",
-        "Nate Padgett",
-        "Dean Iwaoka"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": false
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "Not so European Fridays at European Startup Embassy",
-      "url": "https://luma.com/w4klnd7l",
-      "start": "2026-11-13T18:00:00.000Z",
-      "end": "2026-11-14T02:00:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Francisco, CA",
-      "place": "China Basin",
-      "cover_url": "https://images.lumacdn.com/uploads/j4/56efb675-6ede-4874-ae94-df9c76b4c867.png",
-      "calendar": "European Startup Embassy",
-      "hosts": [
-        "European Startup Embassy"
-      ],
-      "is_free": true,
-      "is_sold_out": false,
-      "require_approval": true
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "DNAForge & MTC Berkeley: AI × Biology Hackathon",
-      "url": "https://luma.com/xdzhu4tn",
-      "start": "2026-11-14T17:00:00.000Z",
-      "end": "2026-11-15T05:00:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "Berkeley, CA",
-      "place": "Downtown Berkeley",
-      "cover_url": "https://images.lumacdn.com/uploads/m5/12767790-4db6-46dc-a7c6-757f8b311ed6.png",
-      "calendar": "MTC Berkeley",
-      "hosts": [
-        "Heba Alazzeh",
-        "Hassaan Qadir",
-        "Monishee at Modal",
-        "Modal Events",
-        "Vanessa Esquivel",
-        "Deniz Kavi",
-        "Sahar Mor (Bond AI)",
-        "Nebius Developer Community"
-      ],
-      "is_free": true,
-      "is_sold_out": true,
-      "require_approval": true
-    },
-    {
-      "city": "San Francisco",
-      "hub": "Global",
-      "name": "🔥 Hard Tech Bonfire Night @ OG Tesla HQ",
-      "url": "https://luma.com/ak5cch9g",
-      "start": "2026-11-15T02:00:00.000Z",
-      "end": "2026-11-15T06:00:00.000Z",
-      "timezone": "America/Los_Angeles",
-      "venue": "San Carlos, CA",
-      "place": "San Carlos",
-      "cover_url": "https://images.lumacdn.com/uploads/fo/c6ec86e3-0512-44bf-ac43-c249966e3e89.png",
-      "calendar": "Personal",
-      "hosts": [
-        "Joshua Kaplowitz"
+        "Jocelyne @ Women In Tech",
+        "Women in Tech®Germany",
+        "Cynthia Dalmady",
+        "Ting Han"
       ],
       "is_free": true,
       "is_sold_out": false,
@@ -1581,6 +1408,27 @@
       "hosts": [
         "Datadog",
         "INFER/CON 2026"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Agentic Web #02 — The Browser as an Agent Runtime",
+      "url": "https://luma.com/agentic-web-browser-runtime-nov16-2026",
+      "start": "2026-11-17T01:30:00.000Z",
+      "end": "2026-11-17T04:30:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "South Beach",
+      "cover_url": "https://images.lumacdn.com/uploads/0a/62a9da5d-9ffb-45fc-9281-e37838e2bed6.png",
+      "calendar": "[SF] HackerSquad",
+      "hosts": [
+        "Adam Chan",
+        "Bright Data",
+        "HackerSquad"
       ],
       "is_free": true,
       "is_sold_out": false,
@@ -1625,6 +1473,177 @@
         "Ben Hylak",
         "Karina Ruiz Garcia",
         "Emily Vince"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Builder Night San Francisco | n8n x Vercel x Arize AI",
+      "url": "https://luma.com/0qn71c42",
+      "start": "2026-11-18T01:00:00.000Z",
+      "end": "2026-11-18T04:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "Financial District",
+      "cover_url": "https://images.lumacdn.com/uploads/19/2b366f8d-f743-4dd8-83eb-39363509262d.png",
+      "calendar": "n8n Community Events",
+      "hosts": [
+        "n8n",
+        "Liam Hampton",
+        "Marc Baiza",
+        "Ana Cidre",
+        "Arize AI"
+      ],
+      "is_free": true,
+      "is_sold_out": true,
+      "require_approval": false
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Fireside with Thariq Shihipar",
+      "url": "https://luma.com/fdotinc-njo4",
+      "start": "2026-11-18T01:00:00.000Z",
+      "end": "2026-11-18T03:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "Fort Mason",
+      "cover_url": "https://images.lumacdn.com/uploads/pu/1d294498-82cb-418d-8180-9c2c2bc6b2da.png",
+      "calendar": "Founders, Inc. Events",
+      "hosts": [
+        "Stavan Patel",
+        "Furqan Rydhan",
+        "Dante"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Dawn Danby & David McConville // Planetary Repair, Shared Futures",
+      "url": "https://luma.com/7swc5ktq",
+      "start": "2026-11-18T01:30:00.000Z",
+      "end": "2026-11-18T02:30:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "Berkeley, California",
+      "place": "Berkeley",
+      "cover_url": "https://images.lumacdn.com/uploads/01/ccacd092-7f9b-4b8c-857e-ccdef96b3f45.jpg",
+      "calendar": "Design Field Notes",
+      "hosts": [
+        "Jacobs Institute for Design Innovation",
+        "Berkeley MDes"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": false
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Physical AI Industry Night: San Francisco",
+      "url": "https://luma.com/foxglove-mxml",
+      "start": "2026-11-18T01:30:00.000Z",
+      "end": "2026-11-18T04:30:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "SoMa",
+      "cover_url": "https://images.lumacdn.com/uploads/jv/65887b3d-8578-4096-9949-f29e912bd1f9.png",
+      "calendar": "Foxglove",
+      "hosts": [
+        "Lauren Brown",
+        "Sunny Sahota",
+        "Colette Tay",
+        "Farihah Sattar",
+        "Akshai Parthasarathy"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Line of Contact: A Defense Tech Event",
+      "url": "https://luma.com/qfalt62d",
+      "start": "2026-11-18T02:00:00.000Z",
+      "end": "2026-11-18T05:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "Mission District",
+      "cover_url": "https://images.lumacdn.com/uploads/4n/bcf0f848-287c-4b79-970c-c812bb063251.png",
+      "calendar": "Hexa House",
+      "hosts": [
+        "Emile Geeraert",
+        "Hexa",
+        "Guillaume Lerouge"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Scaling Marin's Open LLM Pretraining",
+      "url": "https://luma.com/8rz1myft",
+      "start": "2026-11-18T02:00:00.000Z",
+      "end": "2026-11-18T04:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "South Beach",
+      "cover_url": "https://images.lumacdn.com/uploads/iq/7fd9cd9a-dee9-467b-be94-d8e8d2aad0d8.png",
+      "calendar": "Personal",
+      "hosts": [
+        "Open Athena",
+        "Andy Konwinski",
+        "David Hall",
+        "Joy Jing",
+        "Percy Liang",
+        "Will Held"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "SPC Energy Forum: Fireside with Garth Sheldon-Coulson, Co-Founder and CEO of Panthalassa",
+      "url": "https://luma.com/spc-garth",
+      "start": "2026-11-18T18:30:00.000Z",
+      "end": "2026-11-18T20:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, CA",
+      "place": "South Beach",
+      "cover_url": "https://images.lumacdn.com/uploads/ny/18b7e122-8cf4-4ed2-b5a7-06bae34545a7.png",
+      "calendar": "South Park Commons",
+      "hosts": [
+        "South Park Commons",
+        "Nikita Kopotun"
+      ],
+      "is_free": true,
+      "is_sold_out": false,
+      "require_approval": true
+    },
+    {
+      "city": "San Francisco",
+      "hub": "Global",
+      "name": "Fireside Chat with Abhinav Gupta, Skild.ai",
+      "url": "https://luma.com/skild-spc",
+      "start": "2026-11-19T00:30:00.000Z",
+      "end": "2026-11-19T02:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "venue": "San Francisco, California",
+      "place": "South Beach",
+      "cover_url": "https://images.lumacdn.com/uploads/bh/5e38247a-56e3-4332-8b40-523e10cc3c7e.png",
+      "calendar": "South Park Commons",
+      "hosts": [
+        "South Park Commons"
       ],
       "is_free": true,
       "is_sold_out": false,
