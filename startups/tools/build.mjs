@@ -257,6 +257,12 @@ function esc(value) {
     .replace(/"/g, "&quot;");
 }
 
+function introMarkup(intro) {
+  const text = String(intro ?? "").trim();
+  if (!text) return "";
+  return `\n    <p class="lede">${esc(text)}</p>`;
+}
+
 function unique(values) {
   return [...new Set(values)];
 }
@@ -811,6 +817,8 @@ function pageHtml({ title, pathName, heading, companies, scaleUps, activeSlug, t
   const marketButtons = [chipButton("All", "market", "", true), ...markets.map((market) => chipButton(market, "market", market, false))].join("");
   const sectorButtons = [chipButton("All", "sector", "", true), ...sectors.map((sector) => chipButton(sector, "sector", sector, false))].join("");
   const index = activeSlug === "all";
+  // Comms owns this sentence. Empty renders nothing.
+  const intro = "";
   const lists = index
     ? `<div class="kind-toggle" role="group" aria-label="Company stage">
       <button class="filter-chip" type="button" data-stage="startup" aria-pressed="true">Startups <span class="kind-toggle__count">${counts.startups}</span></button>
@@ -871,8 +879,7 @@ ${header}
   </svg>
   <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,40px);">
     <div class="eyebrow"><span class="cube"></span><span>Startup database</span></div>
-    <h1 class="h1">${esc(heading)}</h1>
-    <p class="lede">TODO (Comms): one sentence introducing this database.</p>
+    <h1 class="h1">${esc(heading)}</h1>${introMarkup(intro)}
   </div>
 </main>
 <div class="band band--to-light"></div>
